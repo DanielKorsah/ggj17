@@ -19,16 +19,21 @@ public class Transmitter : MonoBehaviour {
     void Update() {
     }
 
+    //on mouse click
     private void OnMouseDown()
     {
+        StateCycle();
         wavelength = state[i];
-        i++;
         Debug.Log("Wavelength is " + wavelength);
+    }
 
+    //increases the index of state to be applied and loops at the max
+    private void StateCycle()
+    {
+        ++i;
         if (i == state.Count)
         {
             i = 0;
         }
-
     }
 }
