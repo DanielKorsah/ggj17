@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour {
     }
 
 
-    public void AddFucusPickup()
+    public void AddFocusPickup()
     {
         focusPickup++;
     }
