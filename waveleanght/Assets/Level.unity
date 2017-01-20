@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5786859}
   - component: {fileID: 5786858}
+  - component: {fileID: 5786860}
   m_Layer: 0
   m_Name: tmpwall (5)
   m_TagString: Untagged
@@ -155,6 +156,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &5786860
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 5786857}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1 &91672178
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469814235}
   - component: {fileID: 469814234}
+  - component: {fileID: 469814236}
   m_Layer: 0
   m_Name: tmpwall (2)
   m_TagString: Untagged
@@ -777,6 +793,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &469814236
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 469814233}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1 &487871639
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,6 +880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 504293169}
   - component: {fileID: 504293168}
+  - component: {fileID: 504293170}
   m_Layer: 0
   m_Name: tmpwall (3)
   m_TagString: Untagged
@@ -905,6 +936,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &504293170
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 504293167}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1 &591296257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,6 +1389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 777397239}
   - component: {fileID: 777397238}
+  - component: {fileID: 777397240}
   m_Layer: 0
   m_Name: tmpwall (4)
   m_TagString: Untagged
@@ -1399,6 +1445,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &777397240
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 777397237}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1 &816054483
 GameObject:
   m_ObjectHideFlags: 0
