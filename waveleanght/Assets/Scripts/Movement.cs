@@ -11,6 +11,11 @@ public class Movement : MonoBehaviour {
     private float speed = 5.0f;
     //time to get to full speed in seconds
     private float acceleration = 0.2f;
+    //transform vector
+    Vector3 trans;
+
+    private float maxMag;
+
     // Use this for initialization
     void Start () {
 		
@@ -18,6 +23,8 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        maxMag = speed * Time.deltaTime;
+        trans = new Vector3(0.0f,0.0f,0.0f);
         //move up
 		if (Input.GetKey("w"))
         {
@@ -26,7 +33,7 @@ public class Movement : MonoBehaviour {
                 Vertical = 0;
             }
             Vertical += Time.deltaTime / acceleration;
-            transform.position += new Vector3(0.0f, speed * Vertical, 0.0f) * Time.deltaTime;
+            trans += new Vector3(0.0f, speed * Vertical, 0.0f) * Time.deltaTime;
         }
         //move down
         if (Input.GetKey("s"))
@@ -36,7 +43,7 @@ public class Movement : MonoBehaviour {
                 Vertical = 0;
             }
             Vertical -= Time.deltaTime / acceleration;
-            transform.position += new Vector3(0.0f, speed * Vertical, 0.0f) * Time.deltaTime;
+            trans += new Vector3(0.0f, speed * Vertical, 0.0f) * Time.deltaTime;
         }
         //move left
         if (Input.GetKey("a"))
@@ -46,7 +53,7 @@ public class Movement : MonoBehaviour {
                 Horizontal = 0;
             }
             Horizontal -= Time.deltaTime/acceleration;
-            transform.position += new Vector3(speed * horizontal, 0.0f, 0.0f) * Time.deltaTime;
+            trans += new Vector3(speed * horizontal, 0.0f, 0.0f) * Time.deltaTime;
         }
         //move right
         if (Input.GetKey("d"))
@@ -56,8 +63,16 @@ public class Movement : MonoBehaviour {
                 Horizontal = 0;
             }
             Horizontal += Time.deltaTime/acceleration;
-            transform.position += new Vector3(speed * horizontal, 0.0f, 0.0f) * Time.deltaTime;
+            trans += new Vector3(speed * horizontal, 0.0f, 0.0f) * Time.deltaTime;
         }
+
+        //normalise?
+        if (trans.sqrMagnitude > maxMag*maxMag)
+        {
+            trans = trans.normalized * maxMag;
+        }
+
+        transform.position += trans;
     }
 
     private float Horizontal

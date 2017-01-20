@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50671966492728262}
   - component: {fileID: 61885606782038654}
   - component: {fileID: 114882962835140148}
+  - component: {fileID: 114718934215284656}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265766827574088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.51, y: 0, z: 0}
+  m_LocalPosition: {x: 2.9859178, y: 0.26160604, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61885606782038654
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -76,7 +77,18 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.056, y: 1.042}
+  m_Size: {x: 0.528, y: 0.521}
+--- !u!114 &114718934215284656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265766827574088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5985730d46daa4b4d9d9ecc83918e77e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114882962835140148
 MonoBehaviour:
   m_ObjectHideFlags: 1
