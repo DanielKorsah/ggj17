@@ -14,16 +14,21 @@ public class Transmitter : MonoBehaviour {
     void Start () {
         wavelength = state[i];
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-	}
+    // Update is called once per frame
+    void Update() {
+    }
 
     private void OnMouseDown()
     {
-        int i = 0;
-        wavelength = state[i + 1];
+        wavelength = state[i];
+        i++;
         Debug.Log("Wavelength is " + wavelength);
+
+        if (i == state.Count)
+        {
+            i = 0;
+        }
+
     }
 }
