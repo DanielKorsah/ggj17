@@ -53,7 +53,8 @@ public class Transmitter : MonoBehaviour {
     {
         foreach(GameObject wall in Walls)
         {
-            wall.GetComponent<WallState>().StateUpdate(state[i], activeLocation);
+            if (wall.GetComponent<WallState>().gridLocation == activeLocation)
+                wall.GetComponent<WallState>().StateUpdate(state[i]);
         }
     }
 
