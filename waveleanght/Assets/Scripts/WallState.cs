@@ -19,19 +19,19 @@ public class WallState : MonoBehaviour {
     
 	
 	// Update is called once per frame
-	public void StateUpdate(string transmitterState)
+	public void StateUpdate(string transmitterState, Vector2 transmitterLocation)
     {
-        if(transmitterState == wallType)
+        if(transmitterState == wallType && transmitterLocation == gridLocation)
         {
-            visible = !true;
-            GetComponent<SpriteRenderer>().enabled = true;
-            GetComponent<BoxCollider2D>().enabled = true;
+            visible = true;
+            GetComponent<SpriteRenderer>().enabled = !true;
+            GetComponent<BoxCollider2D>().enabled = !true;
         }
         else
         {
-            visible = !false;
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = false;
+            visible = false;
+            GetComponent<SpriteRenderer>().enabled = !false;
+            GetComponent<BoxCollider2D>().enabled = !false;
         }
     }
     
