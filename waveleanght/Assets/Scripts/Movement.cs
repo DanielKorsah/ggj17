@@ -14,15 +14,31 @@ public class Movement : MonoBehaviour {
     //transform vector
     Vector3 trans;
 
+    private List<Component> tranmitters = new List<Component> ();
+    float minDist = 999999999.0f;
+
     private float maxMag;
 
     // Use this for initialization
-    void Start () {
-		
+    void Start ()
+    {
+        foreach (GameObject t in GameObject.FindGameObjectsWithTag("Transmitter"))
+        {
+            tranmitters.Add(t.GetComponent<Transform>());
+        }
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        int frq;
+
+        frq = closest().GetComponent<Transmitter>().i;
+        GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frequency = 1.0f + frq * 1.25f;
+
+
+
+
         maxMag = speed * Time.deltaTime;
         trans = new Vector3(0.0f,0.0f,0.0f);
         //move up
@@ -97,4 +113,25 @@ public class Movement : MonoBehaviour {
             vertical = Mathf.Clamp(value, -1, 1);
         }
     }
+
+
+
+
+    private GameObject closest ()
+    {
+        //GameObject tmp = tranmitters[0].GetComponentInParent<Transform>().parent.gameObject;
+        GameObject tmp = tranmitters[0].gameObject;
+        minDist = 9999999.0f;
+        foreach (Component t in tranmitters)
+            if (Vector3.Distance(gameObject.transform.position, t.gameObject.transform.position) < minDist)
+            {
+                Debug.Log(minDist);
+                minDist = Vector3.Distance(gameObject.transform.position, t.gameObject.transform.position);
+                tmp = t.gameObject;
+            }
+        return tmp;
+    }
+
+
+
 }

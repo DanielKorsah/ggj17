@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58571855467453968}
   m_Layer: 0
   m_Name: Transmitter
-  m_TagString: Untagged
+  m_TagString: Transmitter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e33a0dddcef7864c9be333cb1bb7276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bonusType: 0
   activeLocation: {x: 3, y: 2}
   i: 0
   sprites:
