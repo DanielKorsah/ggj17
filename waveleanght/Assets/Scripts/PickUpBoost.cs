@@ -33,8 +33,6 @@ public class PickUpBoost : MonoBehaviour {
         onit = true;
     }
 
-
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         onit = false;
