@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-
+    [SerializeField]
+    private Image glowUni;
+    [SerializeField]
+    private Image glowOmni;
+    [SerializeField]
+    private Image glowJump;
 
     private int focusPickup;
     private int boostPickup;
@@ -35,12 +41,14 @@ public class Inventory : MonoBehaviour {
     {
         focusPickup++;
         Debug.Log(focusPickup + "add");
+        displayFocus();
     }
 
     public void SubFocusPickup()
     {
         focusPickup--;
         Debug.Log(focusPickup + "sub");
+        displayFocus();
     }
 
 
@@ -56,11 +64,36 @@ public class Inventory : MonoBehaviour {
     public void AddBoostPickup()
     {
         boostPickup++;
+        displayBoost();
     }
 
     public void SubBoostPickup()
     {
         boostPickup--;
+        displayBoost();
     }
     
+    private void displayBoost()
+    {
+        if (boostPickup > 0)
+        {
+            glowOmni.enabled = true;
+        }
+        else
+        {
+            glowOmni.enabled = false;
+        }
+    }
+
+    private void displayFocus()
+    {
+        if (focusPickup > 0)
+        {
+            glowUni.enabled = true;
+        }
+        else
+        {
+            glowUni.enabled = false;
+        }
+    }
 }
