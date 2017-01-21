@@ -37,7 +37,7 @@ public class EndPortal : MonoBehaviour {
         {
             SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
             Debug.Log("Time Up");
-            timer = 5;
+            timer = 1.5f;
         }
     }
 
