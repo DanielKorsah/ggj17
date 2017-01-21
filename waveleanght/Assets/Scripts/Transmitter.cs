@@ -55,27 +55,50 @@ public class Transmitter : MonoBehaviour
 
 
         // Focus mod
-        if (contact == true && Input.GetKeyDown(KeyCode.Alpha1) && inv.FocusPickup > 0)
+        if (contact == true && Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (bonusType == 1)
             {
-                inv.AddFocusPickup();
+                //inv.AddFocusPickup();
+                if (fd == focusDirection.down)
+                {
+                    fd = focusDirection.left;
+                    spriterenderer.sprite = sprites[2];
+                }
+                else if (fd == focusDirection.left)
+                {
+                    fd = focusDirection.up;
+                    spriterenderer.sprite = sprites[4];
+                }
+                else if (fd == focusDirection.up)
+                {
+                    fd = focusDirection.right;
+                    spriterenderer.sprite = sprites[3];
+                }
+                else if (fd == focusDirection.right)
+                {
+                    fd = focusDirection.down;
+                    spriterenderer.sprite = sprites[1];
+                }
             }
             else if (bonusType == 2)
             {
                 inv.AddBoostPickup();
             }
+            else
+            {
 
-            inv.SubFocusPickup();
+                inv.SubFocusPickup();
 
 
-            cullState();
-            bonusType = 1;
-            
-            spriterenderer.sprite = sprites[4];
-            fd = focusDirection.up;
+                cullState();
+                bonusType = 1;
 
-            SendState();
+                spriterenderer.sprite = sprites[4];
+                fd = focusDirection.up;
+
+                SendState();
+            }
 
         }
 
