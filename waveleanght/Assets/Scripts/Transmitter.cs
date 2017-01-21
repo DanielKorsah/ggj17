@@ -15,6 +15,7 @@ public class Transmitter : MonoBehaviour {
 
     List<string> state = new List<string>(new string[] { "visible", "infrared", "ultraviolet" });
     string wavelength;
+    [SerializeField]
     int i = 0;
 
     // Use this for initialization
