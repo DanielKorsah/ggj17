@@ -118,7 +118,8 @@ public class Transmitter : MonoBehaviour
             inv.SubBoostPickup();
 
 
-            cullState();
+            //cullState();
+            SendNothing();
             bonusType = 2;
 
             spriterenderer.sprite = sprites[5];
@@ -135,6 +136,7 @@ public class Transmitter : MonoBehaviour
             {
                 SendNothing();
                 bonusType = 0;
+                SendState();
                 inv.AddFocusPickup();
                 spriterenderer.sprite = sprites[0];
             }
@@ -142,6 +144,7 @@ public class Transmitter : MonoBehaviour
             {
                 SendNothing();
                 bonusType = 0;
+                SendState();
                 inv.AddBoostPickup();
                 spriterenderer.sprite = sprites[0];
             }
