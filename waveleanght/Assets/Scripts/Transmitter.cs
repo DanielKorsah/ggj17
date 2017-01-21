@@ -55,27 +55,59 @@ public class Transmitter : MonoBehaviour
 
 
         // Focus mod
-        if (contact == true && Input.GetKeyDown(KeyCode.Alpha1) && inv.FocusPickup > 0)
+        if (contact == true && Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (bonusType == 1)
             {
-                inv.AddFocusPickup();
+                //inv.AddFocusPickup();
+                if (fd == focusDirection.down)
+                {
+                    SendNothing();
+                    fd = focusDirection.left;
+                    spriterenderer.sprite = sprites[2];
+                    SendState();
+                }
+                else if (fd == focusDirection.left)
+                {
+                    SendNothing();
+                    fd = focusDirection.up;
+                    spriterenderer.sprite = sprites[4];
+                    SendState();
+                }
+                else if (fd == focusDirection.up)
+                {
+                    SendNothing();
+                    fd = focusDirection.right;
+                    spriterenderer.sprite = sprites[3];
+                    SendState();
+                }
+                else if (fd == focusDirection.right)
+                {
+                    SendNothing();
+                    fd = focusDirection.down;
+                    spriterenderer.sprite = sprites[1];
+                    SendState();
+                }
             }
             else if (bonusType == 2)
             {
-                inv.AddBoostPickup();
+                //inv.AddBoostPickup();
             }
+            else
+            {
 
-            inv.SubFocusPickup();
+                inv.SubFocusPickup();
 
 
-            cullState();
-            bonusType = 1;
-            
-            spriterenderer.sprite = sprites[4];
-            fd = focusDirection.up;
+                //cullState();
+                SendNothing();
+                bonusType = 1;
 
-            SendState();
+                spriterenderer.sprite = sprites[4];
+                fd = focusDirection.up;
+
+                SendState();
+            }
 
         }
 
