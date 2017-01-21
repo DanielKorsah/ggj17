@@ -18,6 +18,8 @@ public class Transmitter : MonoBehaviour
     [SerializeField]
     int i = 0;
 
+    SpriteRenderer spriterenderer;
+
     // Use this for initialization
     void Awake()
     {
@@ -28,6 +30,8 @@ public class Transmitter : MonoBehaviour
         }
         SendState();
         inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        spriterenderer = GetComponent<SpriteRenderer>();
+        changeColour();
     }
 
 
@@ -83,6 +87,7 @@ public class Transmitter : MonoBehaviour
         {
             i = 0;
         }
+        changeColour();
     }
 
     void SendState()
@@ -107,4 +112,23 @@ public class Transmitter : MonoBehaviour
         contact = false;
     }
 
+    //changes the appearence of the sprite based on state
+    private void changeColour()
+    {
+        Color colour;
+        if (state[i] == "visible")
+        {
+            colour = Color.yellow;
+        }
+        else if (state[i] == "infrared")
+        {
+            colour = Color.red;
+        }
+        else
+        {
+            colour = Color.magenta;
+        }
+
+        spriterenderer.color = colour;
+    }
 }
