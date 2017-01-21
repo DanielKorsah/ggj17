@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4987324238858576}
   - component: {fileID: 212767881855653328}
   - component: {fileID: 114216539769863974}
-  - component: {fileID: 61716718656555908}
+  - component: {fileID: 61447967623035714}
   m_Layer: 0
   m_Name: Visible tmpwall
   m_TagString: Wall
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!61 &61716718656555908
+--- !u!61 &61447967623035714
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
