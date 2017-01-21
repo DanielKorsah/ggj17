@@ -26,7 +26,7 @@ public class PickUpFocus : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E))
         {
             inv.AddFocusPickup();
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }
