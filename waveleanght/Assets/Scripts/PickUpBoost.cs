@@ -11,7 +11,7 @@ public class PickUpBoost : MonoBehaviour {
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(player);
+        Debug.Log("Player: " + player);
         inv = player.GetComponent<Inventory>();
         onit = false;
 
@@ -24,6 +24,7 @@ public class PickUpBoost : MonoBehaviour {
         {
             inv.AddBoostPickup();
             Destroy(gameObject);
+            Debug.Log("Pickup: " + gameObject);
         }
     }
 
