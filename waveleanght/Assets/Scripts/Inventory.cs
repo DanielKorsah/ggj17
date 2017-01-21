@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour {
     {
         get
         {
-            return focusPickup;
+            return boostPickup;
         }
     }
 
