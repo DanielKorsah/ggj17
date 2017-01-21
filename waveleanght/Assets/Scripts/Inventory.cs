@@ -36,6 +36,12 @@ public class Inventory : MonoBehaviour {
         focusPickup++;
     }
 
+    public void SubFocusPickup()
+    {
+        focusPickup--;
+    }
+
+
     public int BoostPickup
     {
         get
@@ -49,4 +55,10 @@ public class Inventory : MonoBehaviour {
     {
         boostPickup++;
     }
+
+    public void SubBoostPickup()
+    {
+        boostPickup--;
+    }
+    
 }
