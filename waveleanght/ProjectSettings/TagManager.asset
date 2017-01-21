@@ -14,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Timer
   - 
   - 
   - 
@@ -53,4 +53,7 @@ TagManager:
     locked: 0
   - name: Border
     uniqueID: 886253853
+    locked: 0
+  - name: New Layer
+    uniqueID: 1459407229
     locked: 0

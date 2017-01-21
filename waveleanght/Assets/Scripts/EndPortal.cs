@@ -30,7 +30,7 @@ public class EndPortal : MonoBehaviour {
         if(timer > 0 && decrement == true)
         {
             timer -= Time.deltaTime;
-            Debug.Log(Time.deltaTime);
+            AnimateStatic();
         }
 
         if(timer <= 0)
@@ -41,7 +41,10 @@ public class EndPortal : MonoBehaviour {
         }
     }
 
-    
+    private void AnimateStatic()
+    {
+
+    }
 
     
 
