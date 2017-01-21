@@ -73,6 +73,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\EndPortal.cs" />
@@ -81,6 +87,7 @@
     <Compile Include="Assets\Scripts\PickUpBoost.cs" />
     <Compile Include="Assets\Scripts\PickUpFocus.cs" />
     <Compile Include="Assets\Scripts\Sectors.cs" />
+    <Compile Include="Assets\Scripts\TimeLimit.cs" />
     <Compile Include="Assets\Scripts\Transmitter.cs" />
     <Compile Include="Assets\Scripts\WallState.cs" />
     <Compile Include="Assets\Scripts\Wave.cs" />
