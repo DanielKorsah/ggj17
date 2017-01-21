@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4650320110652522}
   - component: {fileID: 212149134151875096}
-  - component: {fileID: 61210718110004944}
   - component: {fileID: 114887262156090892}
+  - component: {fileID: 61177965138832504}
   m_Layer: 0
   m_Name: IR tmpwall
   m_TagString: Wall
@@ -35,14 +35,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1918687508788400}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.61, y: -6.04, z: 0}
-  m_LocalScale: {x: 0.2, y: 3.9820223, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 4.22, y: 2.088, z: 0}
+  m_LocalScale: {x: 0.05022576, y: 5.0788584, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61210718110004944
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!61 &61177965138832504
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.3700001, y: 1.3700001}
 --- !u!114 &114887262156090892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallType: infrared
-  gridLocation: {x: 0, y: 0}
+  gridLocation: {x: 4, y: 4}
 --- !u!212 &212149134151875096
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,7 +100,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c23992cddd25d9e43a646e9e11681fb0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff065acee9055b342b5e14a5ff3185d2, type: 3}
   m_Color: {r: 0.88235295, g: 0.0064878957, b: 0.0064878957, a: 1}
   m_FlipX: 0
   m_FlipY: 0

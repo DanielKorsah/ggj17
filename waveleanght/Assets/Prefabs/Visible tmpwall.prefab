@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4987324238858576}
   - component: {fileID: 212767881855653328}
-  - component: {fileID: 61124599151592240}
   - component: {fileID: 114216539769863974}
+  - component: {fileID: 61716718656555908}
   m_Layer: 0
   m_Name: Visible tmpwall
   m_TagString: Wall
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!61 &61124599151592240
+--- !u!61 &61716718656555908
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.0000002}
+  m_Size: {x: 1.3700004, y: 1.3700004}
 --- !u!114 &114216539769863974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,7 +100,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c23992cddd25d9e43a646e9e11681fb0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff065acee9055b342b5e14a5ff3185d2, type: 3}
   m_Color: {r: 1, g: 0.93103445, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
