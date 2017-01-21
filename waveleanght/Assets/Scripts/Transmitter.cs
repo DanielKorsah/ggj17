@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Transmitter : MonoBehaviour {
+public class Transmitter : MonoBehaviour
+{
 
     Inventory inv;
     List<GameObject> Walls = new List<GameObject>();
@@ -14,14 +15,13 @@ public class Transmitter : MonoBehaviour {
     public Vector2 activeLocation;
 
     List<string> state = new List<string>(new string[] { "visible", "infrared", "ultraviolet" });
-    string wavelength;
     [SerializeField]
     int i = 0;
 
     // Use this for initialization
-    void Awake() {
-        wavelength = state[i];
-        foreach(GameObject wall in GameObject.FindGameObjectsWithTag("Wall"))
+    void Awake()
+    {
+        foreach (GameObject wall in GameObject.FindGameObjectsWithTag("Wall"))
         {
             Walls.Add(wall);
             Debug.Log("Wall Added: " + wall);
@@ -29,27 +29,26 @@ public class Transmitter : MonoBehaviour {
         SendState();
         inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
-    
+
 
     //on mouse click
     private void Update()
     {
         if (contact == true && Input.GetKeyDown(KeyCode.Space))
         {
-            StateCycle();
-            wavelength = state[i];
-            Debug.Log("Wavelength is " + wavelength);
-            
+            Debug.Log("Wavelength was " + state[i]);
 
-            int prev = i - 1;                                                                   //HACKY BULLSHIT BEWARE WHEN ADDING MRE STATES
-            if (prev < 0)
-                prev = 2;
 
             foreach (GameObject wall in Walls)
             {
                 if (wall.GetComponent<WallState>().gridLocation == activeLocation)
-                    wall.GetComponent<WallState>().StateCull(state[prev]);
+                {
+                    wall.GetComponent<WallState>().StateCull(state[i]);
+                }
             }
+
+            StateCycle();
+            Debug.Log("Wavelength is " + state[i]);
 
             SendState();
         }
@@ -60,7 +59,7 @@ public class Transmitter : MonoBehaviour {
         {
             //inv.SubFocusPickup();
             //bonusType = 1;
-            
+
             //int prev = i - 1;                                                                   //HACKY BULLSHIT BEWARE WHEN ADDING MRE STATES
             //if (prev < 0)
             //    prev = 2;
@@ -88,10 +87,12 @@ public class Transmitter : MonoBehaviour {
 
     void SendState()
     {
-        foreach(GameObject wall in Walls)
+        foreach (GameObject wall in Walls)
         {
             if (wall.GetComponent<WallState>().gridLocation == activeLocation)
+            {
                 wall.GetComponent<WallState>().StateUpdate(state[i]);
+            }
             Debug.Log(state[i]);
         }
     }
