@@ -14,12 +14,14 @@ public class Inventory : MonoBehaviour {
 
     private int focusPickup;
     private int boostPickup;
+    private int projectPickup;
 
 	// Use this for initialization
 	void Start ()
     {
         focusPickup = 0;
         boostPickup = 0;
+        projectPickup = 0;
 	}
 	
 	// Update is called once per frame
@@ -40,14 +42,12 @@ public class Inventory : MonoBehaviour {
     public void AddFocusPickup()
     {
         focusPickup++;
-        Debug.Log(focusPickup + "add");
         displayFocus();
     }
 
     public void SubFocusPickup()
     {
         focusPickup--;
-        Debug.Log(focusPickup + "sub");
         displayFocus();
     }
 
@@ -72,7 +72,29 @@ public class Inventory : MonoBehaviour {
         boostPickup--;
         displayBoost();
     }
-    
+
+
+    public int ProjectPickup
+    {
+        get
+        {
+            return projectPickup;
+        }
+    }
+
+
+    public void AddProjectPickup()
+    {
+        projectPickup++;
+        displayProject();
+    }
+
+    public void SubProjectPickup()
+    {
+        projectPickup--;
+        displayProject();
+    }
+
     private void displayBoost()
     {
         if (boostPickup > 0)
@@ -94,6 +116,18 @@ public class Inventory : MonoBehaviour {
         else
         {
             glowUni.enabled = false;
+        }
+    }
+
+    private void displayProject()
+    {
+        if (projectPickup > 0)
+        {
+          //  glowJump.enabled = true;
+        }
+        else
+        {
+          //  glowJump.enabled = false;
         }
     }
 }

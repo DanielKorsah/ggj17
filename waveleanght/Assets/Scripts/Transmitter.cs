@@ -12,8 +12,11 @@ public class Transmitter : MonoBehaviour
     [SerializeField]
     int bonusType = 0; //0 - none, 1 - focus, 2 - boost
     [SerializeField]
-    enum focusDirection {up, down, left, right};
+    enum focusDirection { up, down, left, right };
     focusDirection fd = focusDirection.left;
+    [SerializeField]
+    enum projectDirection { up, down, left, right };
+    projectDirection pd = projectDirection.left;
 
     [SerializeField]
     public Vector2 activeLocation;
@@ -57,7 +60,6 @@ public class Transmitter : MonoBehaviour
         }
         
         // Focus mod
-
         if (contact == true && Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (bonusType == 1)
@@ -117,6 +119,7 @@ public class Transmitter : MonoBehaviour
         // Boost mod
         if (contact == true && Input.GetKeyDown(KeyCode.Alpha2) && inv.BoostPickup > 0)
         {
+            /*
             if (bonusType == 1)
             {
                 inv.AddFocusPickup();
@@ -127,7 +130,7 @@ public class Transmitter : MonoBehaviour
             }
 
             inv.SubBoostPickup();
-
+            */
 
             //cullState();
             SendNothing();
@@ -138,6 +141,63 @@ public class Transmitter : MonoBehaviour
             SendState();
 
         }
+
+
+
+        // Project mod
+        if (contact == true && Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (bonusType == 3)
+            {
+                //inv.AddFocusPickup();
+                if (pd == projectDirection.down)
+                {
+                    SendNothing();
+                    pd = projectDirection.left;
+                    spriterenderer.sprite = sprites[2];
+                    SendState();
+                }
+                else if (pd == projectDirection.left)
+                {
+                    SendNothing();
+                    pd = projectDirection.up;
+                    spriterenderer.sprite = sprites[4];
+                    SendState();
+                }
+                else if (pd == projectDirection.up)
+                {
+                    SendNothing();
+                    pd = projectDirection.right;
+                    spriterenderer.sprite = sprites[3];
+                    SendState();
+                }
+                else if (pd == projectDirection.right)
+                {
+                    SendNothing();
+                    pd = projectDirection.down;
+                    spriterenderer.sprite = sprites[1];
+                    SendState();
+                }
+            }
+            else if (inv.ProjectPickup > 0)
+            {
+                inv.SubProjectPickup();
+                
+                //cullState();
+                SendNothing();
+                bonusType = 3;
+
+                spriterenderer.sprite = sprites[4];
+                pd = projectDirection.up;
+
+                SendState();
+            }
+
+        }
+
+
+
+
 
 
         // E for pickup
@@ -151,12 +211,20 @@ public class Transmitter : MonoBehaviour
                 inv.AddFocusPickup();
                 spriterenderer.sprite = sprites[0];
             }
-            if (bonusType == 2)
+            else if (bonusType == 2)
             {
                 SendNothing();
                 bonusType = 0;
                 SendState();
                 inv.AddBoostPickup();
+                spriterenderer.sprite = sprites[0];
+            }
+            else if (bonusType == 3)
+            {
+                SendNothing();
+                bonusType = 0;
+                SendState();
+                inv.AddProjectPickup();
                 spriterenderer.sprite = sprites[0];
             }
         }
@@ -173,6 +241,7 @@ public class Transmitter : MonoBehaviour
         }
         changeColour();
     }
+
 
     void SendState()
     {
@@ -208,8 +277,25 @@ public class Transmitter : MonoBehaviour
                     script.StateUpdate(state[i]);
                 }
             }
+            else if (bonusType == 3)
+            {
+                if (pd == projectDirection.down)
+                    if (script.gridLocation.x == activeLocation.x || script.gridLocation.y == activeLocation.y - 1)
+                        script.StateUpdate(state[i]);
+                if (pd == projectDirection.left)
+                    if (script.gridLocation.x == activeLocation.x - 1 || script.gridLocation.y == activeLocation.y)
+                        script.StateUpdate(state[i]);
+                if (pd == projectDirection.right)
+                    if (script.gridLocation.x == activeLocation.x + 1 && script.gridLocation.y == activeLocation.y)
+                        script.StateUpdate(state[i]);
+                if (pd == projectDirection.up)
+                    if (script.gridLocation.x == activeLocation.x && script.gridLocation.y == activeLocation.y + 1)
+                        script.StateUpdate(state[i]);
+            }
         }
     }
+
+
 
     void cullState()
     {
@@ -244,6 +330,21 @@ public class Transmitter : MonoBehaviour
                 {
                     script.StateCull(state[prev]);
                 }
+            }
+            else if (bonusType == 3)
+            {
+                if (pd == projectDirection.down)
+                    if (script.gridLocation.x == activeLocation.x && script.gridLocation.y == activeLocation.y - 1)
+                        script.StateCull(state[prev]);
+                if (pd == projectDirection.left)
+                    if (script.gridLocation.x == activeLocation.x - 1 && script.gridLocation.y == activeLocation.y)
+                        script.StateCull(state[prev]);
+                if (pd == projectDirection.right)
+                    if (script.gridLocation.x == activeLocation.x + 1 && script.gridLocation.y == activeLocation.y)
+                        script.StateCull(state[prev]);
+                if (pd == projectDirection.up)
+                    if (script.gridLocation.x == activeLocation.x && script.gridLocation.y == activeLocation.y + 1)
+                        script.StateCull(state[prev]);
             }
         }
     }
@@ -335,6 +436,35 @@ public class Transmitter : MonoBehaviour
                     script.StateCull(state[i]);
                     script.StateUpdate("");
                 }
+            }
+            else if (bonusType == 3)
+            {
+
+                if (pd == projectDirection.down)
+                    if (script.gridLocation.x == activeLocation.x && script.gridLocation.y == activeLocation.y - 1)
+                    {
+                        script.StateCull(state[i]);
+                        script.StateUpdate("");
+                    }
+                if (pd == projectDirection.left)
+                    if (script.gridLocation.x == activeLocation.x - 1 && script.gridLocation.y == activeLocation.y)
+                    {
+                        script.StateCull(state[i]);
+                        script.StateUpdate("");
+                    }
+                if (pd == projectDirection.right)
+                    if (script.gridLocation.x == activeLocation.x + 1 && script.gridLocation.y == activeLocation.y)
+
+                    {
+                        script.StateCull(state[i]);
+                        script.StateUpdate("");
+                    }
+                if (pd == projectDirection.up)
+                    if (script.gridLocation.x == activeLocation.x && script.gridLocation.y == activeLocation.y + 1)
+                    {
+                        script.StateCull(state[i]);
+                        script.StateUpdate("");
+                    }
             }
         }
     }
