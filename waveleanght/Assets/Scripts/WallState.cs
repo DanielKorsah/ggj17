@@ -19,9 +19,9 @@ public class WallState : MonoBehaviour {
     
 	
 	// Update is called once per frame
-	public void StateUpdate(string transmitterState)
+	public void StateUpdate(string transmitterState, Vector2 transmitterLocation)
     {
-        if(transmitterState == wallType)
+        if(transmitterState == wallType && transmitterLocation == gridLocation)
         {
             visible = true;
             GetComponent<SpriteRenderer>().enabled = !true;
