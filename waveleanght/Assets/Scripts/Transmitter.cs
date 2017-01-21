@@ -20,7 +20,7 @@ public class Transmitter : MonoBehaviour
 
     List<string> state = new List<string>(new string[] { "visible", "infrared", "ultraviolet" });
     [SerializeField]
-    int i = 0;
+    public int i = 0;
     int prev;
 
     [SerializeField]
