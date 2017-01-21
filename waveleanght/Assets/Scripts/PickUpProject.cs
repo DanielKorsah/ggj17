@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpFocus : MonoBehaviour {
+public class PickUpProject : MonoBehaviour {
+
+
 
     Inventory inv;
     private GameObject player;
     private bool onit;
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         inv = player.GetComponent<Inventory>();
         onit = false;
-        
+
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class PickUpFocus : MonoBehaviour {
     {
         if (onit && Input.GetKeyDown(KeyCode.E))
         {
-            inv.AddFocusPickup();
+            inv.AddProjectPickup();
             Destroy(gameObject);
         }
     }
