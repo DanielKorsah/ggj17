@@ -19,7 +19,10 @@ public class Transmitter : MonoBehaviour
     List<string> state = new List<string>(new string[] { "visible", "infrared", "ultraviolet" });
     [SerializeField]
     int i = 0;
-    int prev;                                        // change if more frequencies
+    int prev;
+
+    [SerializeField]
+    List<Sprite> sprites = new List<Sprite>();
 
     SpriteRenderer spriterenderer;
 
@@ -34,19 +37,13 @@ public class Transmitter : MonoBehaviour
         inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         spriterenderer = GetComponent<SpriteRenderer>();
         changeColour();
-        /*
-        prev = i - 1;
-        if (prev < 0)
-        {
-            prev = 2;               /// turbo jank
-        }
-        */
     }
 
 
     //on mouse click
     private void Update()
     {
+        // Space for change frequency
         if (contact == true && Input.GetKeyDown(KeyCode.Space))
         {
 
@@ -57,10 +54,10 @@ public class Transmitter : MonoBehaviour
         }
 
 
-        //its fucked and we're too tired to debug it
+        // Focus mod
         if (contact == true && Input.GetKeyDown(KeyCode.Alpha1) && inv.FocusPickup > 0)
         {
-            if (bonusType==1)
+            if (bonusType == 1)
             {
                 inv.AddFocusPickup();
             }
@@ -74,24 +71,56 @@ public class Transmitter : MonoBehaviour
 
             cullState();
             bonusType = 1;
+            
+            spriterenderer.sprite = sprites[4];
+            fd = focusDirection.up;
 
             SendState();
 
         }
 
 
+        // Boost mod
+        if (contact == true && Input.GetKeyDown(KeyCode.Alpha2) && inv.BoostPickup > 0)
+        {
+            if (bonusType == 1)
+            {
+                inv.AddFocusPickup();
+            }
+            else if (bonusType == 2)
+            {
+                inv.AddBoostPickup();
+            }
 
+            inv.SubBoostPickup();
+
+
+            cullState();
+            bonusType = 2;
+
+            spriterenderer.sprite = sprites[5];
+
+            SendState();
+
+        }
+
+
+        // E for pickup
         if (contact && Input.GetKeyDown(KeyCode.E) && bonusType > 0)
         {
             if (bonusType == 1)
             {
+                SendNothing();
                 bonusType = 0;
                 inv.AddFocusPickup();
+                spriterenderer.sprite = sprites[0];
             }
             if (bonusType == 2)
             {
+                SendNothing();
                 bonusType = 0;
                 inv.AddBoostPickup();
+                spriterenderer.sprite = sprites[0];
             }
         }
     }
@@ -106,7 +135,6 @@ public class Transmitter : MonoBehaviour
             i = 0;
         }
         changeColour();
-        Debug.Log(i + " " + state[i]);
     }
 
     void SendState()
@@ -211,5 +239,66 @@ public class Transmitter : MonoBehaviour
         }
 
         spriterenderer.color = colour;
+    }
+
+
+
+
+
+
+
+
+
+    // So dirty
+    void SendNothing()
+    {
+        foreach (WallState script in scripts)
+        {
+            if (bonusType == 0)
+            {
+                if (script.gridLocation == activeLocation)
+                {
+                    script.StateCull(state[i]);
+                    script.StateUpdate("");
+                }
+            }
+            else if (bonusType == 1)
+            {
+                if (fd == focusDirection.down)
+                    if (script.gridLocation.x == activeLocation.x && script.gridLocation.y <= activeLocation.y)
+                    {
+                        script.StateCull(state[i]);
+                        script.StateUpdate("");
+                    }
+                if (fd == focusDirection.left)
+                    if (script.gridLocation.x <= activeLocation.x && script.gridLocation.y == activeLocation.y)
+                    {
+                        script.StateCull(state[i]);
+                        script.StateUpdate("");
+                    }
+                if (fd == focusDirection.right)
+                    if (script.gridLocation.x >= activeLocation.x && script.gridLocation.y == activeLocation.y)
+
+                    {
+                        script.StateCull(state[i]);
+                        script.StateUpdate("");
+                    }
+                if (fd == focusDirection.up)
+                    if (script.gridLocation.x == activeLocation.x && script.gridLocation.y >= activeLocation.y)
+                    {
+                        script.StateCull(state[i]);
+                        script.StateUpdate("");
+                    }
+            }
+            else if (bonusType == 2)
+            {
+                if (script.gridLocation.x >= activeLocation.x - 1 && script.gridLocation.x <= activeLocation.x + 1
+                        && script.gridLocation.y >= activeLocation.y - 1 && script.gridLocation.y <= activeLocation.y + 1)
+                {
+                    script.StateCull(state[i]);
+                    script.StateUpdate("");
+                }
+            }
+        }
     }
 }
