@@ -3057,6 +3057,10 @@ Prefab:
       propertyPath: m_Name
       value: UV tmpwall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1887209972475782, guid: 56bc1ac97b94f7d41a4a522c0ceaf045, type: 2}
+      propertyPath: m_TagString
+      value: WaveSpawn
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81bb091d87b960a4fb714bfc45340dfc, type: 2}
   m_IsPrefabParent: 0

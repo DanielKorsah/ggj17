@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Transmitter
+  - WaveSpawn
   layers:
   - Default
   - TransparentFX
