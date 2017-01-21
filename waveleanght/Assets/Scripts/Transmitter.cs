@@ -9,7 +9,9 @@ public class Transmitter : MonoBehaviour
     private List<WallState> scripts = new List<WallState>();
     bool contact;
 
-    int bonusType = 0; //0 - none, 1, - focus, 2 - boost
+    [SerializeField]
+    int bonusType = 0; //0 - none, 1 - focus, 2 - boost
+    [SerializeField]
     enum focusDirection {up, down, left, right};
     focusDirection fd = focusDirection.left;
 
