@@ -93,7 +93,7 @@ public class Transmitter : MonoBehaviour
             {
                 //inv.AddBoostPickup();
             }
-            else
+            else if (inv.FocusPickup > 0)
             {
 
                 inv.SubFocusPickup();
