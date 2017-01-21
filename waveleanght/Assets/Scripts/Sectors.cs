@@ -17,4 +17,9 @@ public class Sectors : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+    }
 }
