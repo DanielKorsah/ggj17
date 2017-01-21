@@ -119,13 +119,11 @@ public class Movement : MonoBehaviour {
 
     private GameObject closest ()
     {
-        //GameObject tmp = tranmitters[0].GetComponentInParent<Transform>().parent.gameObject;
         GameObject tmp = tranmitters[0].gameObject;
         minDist = 9999999.0f;
         foreach (Component t in tranmitters)
             if (Vector3.Distance(gameObject.transform.position, t.gameObject.transform.position) < minDist)
             {
-                Debug.Log(minDist);
                 minDist = Vector3.Distance(gameObject.transform.position, t.gameObject.transform.position);
                 tmp = t.gameObject;
             }
