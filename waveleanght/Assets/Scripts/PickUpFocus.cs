@@ -24,6 +24,7 @@ public class PickUpFocus : MonoBehaviour {
         {
             inv.AddFocusPickup();
             Destroy(gameObject);
+            Debug.Log("Pickup: " + gameObject);
         }
     }
 
