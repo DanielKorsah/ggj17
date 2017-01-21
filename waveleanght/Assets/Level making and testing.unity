@@ -310,24 +310,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1214302802024376, guid: 56bc1ac97b94f7d41a4a522c0ceaf045, type: 2}
-      propertyPath: m_TagString
-      value: GlowingButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1657087445250028, guid: 56bc1ac97b94f7d41a4a522c0ceaf045, type: 2}
-      propertyPath: m_TagString
-      value: GlowingButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 114902128197947074, guid: 56bc1ac97b94f7d41a4a522c0ceaf045,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114399496435391116, guid: 56bc1ac97b94f7d41a4a522c0ceaf045,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56bc1ac97b94f7d41a4a522c0ceaf045, type: 2}
   m_IsPrefabParent: 0
@@ -372,14 +354,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114718934215284656, guid: ff1d325ca391d8c42b6f0d5691eb959b,
         type: 2}
-      propertyPath: glowOmni
-      value: 
-      objectReference: {fileID: 1489579376}
-    - target: {fileID: 114718934215284656, guid: ff1d325ca391d8c42b6f0d5691eb959b,
-        type: 2}
       propertyPath: glowUni
       value: 
       objectReference: {fileID: 1396033789}
+    - target: {fileID: 114718934215284656, guid: ff1d325ca391d8c42b6f0d5691eb959b,
+        type: 2}
+      propertyPath: glowOmni
+      value: 
+      objectReference: {fileID: 1489579376}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff1d325ca391d8c42b6f0d5691eb959b, type: 2}
   m_IsPrefabParent: 0
