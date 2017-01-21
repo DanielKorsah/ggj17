@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Transmitter : MonoBehaviour {
 
+    Inventory inv;
     List<GameObject> Walls = new List<GameObject>();
     bool contact;
+
+    int bonusType = 0; //0 - none, 1, - focus, 2 - boost
 
     [SerializeField]
     public Vector2 activeLocation;
@@ -22,20 +25,53 @@ public class Transmitter : MonoBehaviour {
             Walls.Add(wall);
             Debug.Log("Wall Added: " + wall);
         }
-
         SendState();
+        inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
     
 
     //on mouse click
     private void Update()
     {
-        if(contact == true && Input.GetMouseButtonDown(0))
+        if (contact == true && Input.GetKeyDown(KeyCode.Space))
         {
             StateCycle();
             wavelength = state[i];
             Debug.Log("Wavelength is " + wavelength);
+            
+
+            int prev = i - 1;                                                                   //HACKY BULLSHIT BEWARE WHEN ADDING MRE STATES
+            if (prev < 0)
+                prev = 2;
+
+            foreach (GameObject wall in Walls)
+            {
+                if (wall.GetComponent<WallState>().gridLocation == activeLocation)
+                    wall.GetComponent<WallState>().StateCull(state[prev]);
+            }
+
             SendState();
+        }
+
+
+        //its fucked and we're too tired to debug it
+        if (contact == true && Input.GetKeyDown(KeyCode.Alpha1) && inv.FocusPickup > 0)
+        {
+            //inv.SubFocusPickup();
+            //bonusType = 1;
+            
+            //int prev = i - 1;                                                                   //HACKY BULLSHIT BEWARE WHEN ADDING MRE STATES
+            //if (prev < 0)
+            //    prev = 2;
+
+            //foreach (GameObject wall in Walls)
+            //{
+            //    if (wall.GetComponent<WallState>().gridLocation == activeLocation)
+            //        wall.GetComponent<WallState>().StateCull(state[prev]);
+            //}
+
+            //SendState();
+
         }
     }
 
@@ -55,6 +91,7 @@ public class Transmitter : MonoBehaviour {
         {
             if (wall.GetComponent<WallState>().gridLocation == activeLocation)
                 wall.GetComponent<WallState>().StateUpdate(state[i]);
+            Debug.Log(state[i]);
         }
     }
 

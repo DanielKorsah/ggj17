@@ -14,10 +14,11 @@ public class PickUpFocus : MonoBehaviour {
         Debug.Log(player);
         inv = player.GetComponent<Inventory>();
         onit = false;
+        
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (onit && Input.GetKeyDown(KeyCode.E))
         {
@@ -25,8 +26,6 @@ public class PickUpFocus : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
