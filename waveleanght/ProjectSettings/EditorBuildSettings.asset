@@ -8,8 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level making and testing.unity
   - enabled: 1
-    path: Assets/Level Proper.unity
-  - enabled: 1
     path: Assets/TestLevel2.unity
   - enabled: 1
+    path: Assets/Level Proper.unity
+  - enabled: 1
     path: Assets/Level2 proper.unity
+  - enabled: 1
+    path: Assets/Level3 Proper.unity
