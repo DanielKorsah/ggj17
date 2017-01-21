@@ -1647,6 +1647,16 @@ Prefab:
       propertyPath: m_Name
       value: Visible tmpwall (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 114216539769863974, guid: d0cb7f84f67b8a7408a8b00cfba6261d,
+        type: 2}
+      propertyPath: gridLocation.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114216539769863974, guid: d0cb7f84f67b8a7408a8b00cfba6261d,
+        type: 2}
+      propertyPath: gridLocation.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0cb7f84f67b8a7408a8b00cfba6261d, type: 2}
   m_IsPrefabParent: 0
