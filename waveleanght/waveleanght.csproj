@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\PickUpFocus.cs" />
+    <Compile Include="Assets\Scripts\Sectors.cs" />
     <Compile Include="Assets\Scripts\Transmitter.cs" />
     <Compile Include="Assets\Scripts\WallState.cs" />
   </ItemGroup>
