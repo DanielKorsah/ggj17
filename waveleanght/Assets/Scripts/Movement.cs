@@ -119,7 +119,6 @@ public class Movement : MonoBehaviour {
 
     private GameObject closest ()
     {
-        //GameObject tmp = tranmitters[0].GetComponentInParent<Transform>().parent.gameObject;
         GameObject tmp = tranmitters[0].gameObject;
         minDist = 9999999.0f;
         foreach (Component t in tranmitters)
