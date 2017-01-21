@@ -117,7 +117,7 @@ public class Transmitter : MonoBehaviour
 
 
         // Boost mod
-        if (contact == true && Input.GetKeyDown(KeyCode.Alpha2) && inv.BoostPickup > 0)
+        if (contact == true && Input.GetKeyDown(KeyCode.Alpha2) && inv.BoostPickup > 0 && bonusType == 0)
         {
             /*
             if (bonusType == 1)
