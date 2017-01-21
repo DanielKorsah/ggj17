@@ -29,7 +29,7 @@ public class Wave : MonoBehaviour
 
     float old;
 
-    private float amplitude = 1.0f;
+    private float amplitude = 0.5f;
     public float frequency = 2.0f;
 
     // Use this for initialization
@@ -37,20 +37,20 @@ public class Wave : MonoBehaviour
     {
         height = (up.transform.position.y - down.transform.position.y) / 2;
         yzero = up.transform.position.y - height;
-        old = Time.time;
-        screenSpeed = (right.transform.position.x - left.transform.position.x) / 70.0f;
+        old = Time.fixedTime;
+        screenSpeed = (right.transform.position.x - left.transform.position.x) / 80.0f;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
-        if (Time.time - old > 0.03f)
+        if (Time.time - old > 0.01f)
         {
-            dots.Add(Instantiate(dot, new Vector3(right.transform.position.x, yzero + Mathf.Sin(Mathf.PI * Time.time * frequency) * height * amplitude, 0.0f), new Quaternion()));
+            dots.Add(Instantiate(dot, new Vector3(right.transform.position.x, yzero + Mathf.Sin(Mathf.PI * Time.fixedTime * frequency) * height * amplitude, 0.0f), new Quaternion()));
             dots[dots.Count - 1].transform.SetParent(parent.transform);
             moveDots();
-            old = Time.time;
+            old = Time.fixedTime;
         }
     }
     
