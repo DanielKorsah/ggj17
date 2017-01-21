@@ -48,7 +48,7 @@ public class Wave : MonoBehaviour
         if (Time.time - old > 0.03f)
         {
             dots.Add(Instantiate(dot, new Vector3(right.transform.position.x, yzero + Mathf.Sin(Mathf.PI * Time.time * frequency) * height * amplitude, 0.0f), new Quaternion()));
-            dots[dots.Count - 1].transform.parent = parent.transform;
+            dots[dots.Count - 1].transform.SetParent(parent.transform);
             moveDots();
             old = Time.time;
         }
