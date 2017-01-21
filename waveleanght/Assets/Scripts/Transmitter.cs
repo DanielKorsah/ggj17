@@ -55,15 +55,13 @@ public class Transmitter : MonoBehaviour
             cullState();
             SendState();
         }
-
-       // Debug.Log("new frame");
+        
         // Focus mod
 
         if (contact == true && Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (bonusType == 1)
             {
-                Debug.Log(bonusType + " bonustype " + ff + " " + +gameObject.GetInstanceID());
                 //inv.AddFocusPickup();
                 if (fd == focusDirection.down)
                 {
@@ -100,7 +98,6 @@ public class Transmitter : MonoBehaviour
             }
             else if (inv.FocusPickup > 0)
             {
-                Debug.Log("there " + ff + " " + gameObject.GetInstanceID());
                 inv.SubFocusPickup();
 
 
