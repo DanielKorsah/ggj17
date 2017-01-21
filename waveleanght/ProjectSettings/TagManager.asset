@@ -45,9 +45,9 @@ TagManager:
   - name: infront
     uniqueID: 2108328405
     locked: 0
-  - name: borders
-    uniqueID: 3149857403
-    locked: 0
   - name: Player
     uniqueID: 3756146419
+    locked: 0
+  - name: Border
+    uniqueID: 886253853
     locked: 0
