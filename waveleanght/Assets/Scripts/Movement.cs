@@ -125,7 +125,6 @@ public class Movement : MonoBehaviour {
         foreach (Component t in tranmitters)
             if (Vector3.Distance(gameObject.transform.position, t.gameObject.transform.position) < minDist)
             {
-                Debug.Log(minDist);
                 minDist = Vector3.Distance(gameObject.transform.position, t.gameObject.transform.position);
                 tmp = t.gameObject;
             }
