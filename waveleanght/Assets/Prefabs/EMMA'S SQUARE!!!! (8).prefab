@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4283783814082296}
   - component: {fileID: 212972553639771696}
+  - component: {fileID: 61627738836102310}
+  - component: {fileID: 114920255338361310}
   m_Layer: 0
   m_Name: EMMA'S SQUARE!!!! (8)
   m_TagString: Untagged
@@ -34,12 +36,38 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1837785767314996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.58226, y: -44.50292, z: 0}
-  m_LocalScale: {x: 0.44493064, y: 0.44493064, z: 0.44493064}
+  m_LocalPosition: {x: 9.361005, y: 7.463637, z: 0}
+  m_LocalScale: {x: 0.35593778, y: 0.35593778, z: 0.35593778}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61627738836102310
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1837785767314996}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.17786723}
+  serializedVersion: 2
+  m_Size: {x: 16.468494, y: 16.516129}
+--- !u!114 &114920255338361310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1837785767314996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31e6bff34e601246b299b561591f1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  v: {x: 0, y: 0}
 --- !u!212 &212972553639771696
 SpriteRenderer:
   m_ObjectHideFlags: 1
