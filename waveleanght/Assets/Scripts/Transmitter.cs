@@ -128,9 +128,9 @@ public class Transmitter : MonoBehaviour
             {
                 inv.AddBoostPickup();
             }
-
-            inv.SubBoostPickup();
+            
             */
+            inv.SubBoostPickup();
 
             //cullState();
             SendNothing();
@@ -280,10 +280,10 @@ public class Transmitter : MonoBehaviour
             else if (bonusType == 3)
             {
                 if (pd == projectDirection.down)
-                    if (script.gridLocation.x == activeLocation.x || script.gridLocation.y == activeLocation.y - 1)
+                    if (script.gridLocation.x == activeLocation.x && script.gridLocation.y == activeLocation.y - 1)
                         script.StateUpdate(state[i]);
                 if (pd == projectDirection.left)
-                    if (script.gridLocation.x == activeLocation.x - 1 || script.gridLocation.y == activeLocation.y)
+                    if (script.gridLocation.x == activeLocation.x - 1 && script.gridLocation.y == activeLocation.y)
                         script.StateUpdate(state[i]);
                 if (pd == projectDirection.right)
                     if (script.gridLocation.x == activeLocation.x + 1 && script.gridLocation.y == activeLocation.y)

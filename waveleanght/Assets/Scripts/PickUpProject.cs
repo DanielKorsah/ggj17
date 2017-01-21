@@ -31,6 +31,7 @@ public class PickUpProject : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         onit = true;
+        Debug.Log("sdfsddg");
     }
 
 
