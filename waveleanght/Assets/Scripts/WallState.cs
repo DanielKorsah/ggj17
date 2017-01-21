@@ -9,8 +9,7 @@ public class WallState : MonoBehaviour {
 
     [SerializeField]
     public Vector2 gridLocation;
-
-    private bool visible;
+    
 
     private List<string> freqs = new List<string>();
 
@@ -23,18 +22,29 @@ public class WallState : MonoBehaviour {
 	// Update is called once per frame
 	public void StateUpdate(string transmitterState)
     {
-        if(transmitterState == wallType)
+        freqs.Add(transmitterState);
+        if (freqs.Contains(wallType))
         {
-            visible = true;
-            GetComponent<SpriteRenderer>().enabled = !true;
-            GetComponent<BoxCollider2D>().enabled = !true;
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
         else
         {
-            visible = false;
-            GetComponent<SpriteRenderer>().enabled = !false;
-            GetComponent<BoxCollider2D>().enabled = !false;
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true;
         }
+    }
+
+
+
+    public void StateCull(string transmitterNotState)
+    {
+        foreach (string t in freqs)
+            if (t.Equals(transmitterNotState))
+            {
+                freqs.Remove(t);
+                break;
+            }
     }
     
 }
