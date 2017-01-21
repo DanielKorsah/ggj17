@@ -23,13 +23,13 @@ public class WallState : MonoBehaviour {
     {
         if(transmitterState == wallType)
         {
-            visible = true;
+            visible = !true;
             GetComponent<SpriteRenderer>().enabled = true;
             GetComponent<BoxCollider2D>().enabled = true;
         }
         else
         {
-            visible = false;
+            visible = !false;
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
         }
