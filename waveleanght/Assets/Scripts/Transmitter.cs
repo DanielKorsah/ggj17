@@ -5,6 +5,7 @@ using UnityEngine;
 public class Transmitter : MonoBehaviour {
 
     List<GameObject> Walls = new List<GameObject>();
+    bool contact;
 
     [SerializeField]
     public Vector2 activeLocation;
@@ -21,17 +22,21 @@ public class Transmitter : MonoBehaviour {
             Walls.Add(wall);
             Debug.Log("Wall Added: " + wall);
         }
-        Debug.Log("object " + GameObject.FindGameObjectsWithTag("Wall"));
+
+        SendState();
     }
     
 
     //on mouse click
-    private void OnMouseDown()
+    private void Update()
     {
-        StateCycle();
-        wavelength = state[i];
-        Debug.Log("Wavelength is " + wavelength);
-        SendState();
+        if(contact == true && Input.GetMouseButtonDown(0))
+        {
+            StateCycle();
+            wavelength = state[i];
+            Debug.Log("Wavelength is " + wavelength);
+            SendState();
+        }
     }
 
     //increases the index of state to be applied and loops at the max
@@ -52,5 +57,14 @@ public class Transmitter : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        contact = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        contact = false;
+    }
 
 }
