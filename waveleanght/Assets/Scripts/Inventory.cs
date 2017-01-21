@@ -34,11 +34,13 @@ public class Inventory : MonoBehaviour {
     public void AddFocusPickup()
     {
         focusPickup++;
+        Debug.Log(focusPickup + "add");
     }
 
     public void SubFocusPickup()
     {
         focusPickup--;
+        Debug.Log(focusPickup + "sub");
     }
 
 
