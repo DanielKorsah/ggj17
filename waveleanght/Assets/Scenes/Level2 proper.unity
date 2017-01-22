@@ -2584,7 +2584,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
       propertyPath: m_LocalScale.x
@@ -3100,11 +3100,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1488035209572200, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
       propertyPath: m_Name
       value: FocusPickup (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 4.0737233
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 4.0737233
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 4.0737233
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
@@ -4989,8 +5001,8 @@ Transform:
   m_LocalPosition: {x: 18.98, y: -12.35, z: 0}
   m_LocalScale: {x: 0.24547568, y: 0.24547568, z: 0.24547568}
   m_Children:
-  - {fileID: 1641318902}
   - {fileID: 1873197545}
+  - {fileID: 1641318902}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
