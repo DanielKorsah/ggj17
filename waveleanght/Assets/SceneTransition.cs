@@ -11,7 +11,6 @@ public class SceneTransition : MonoBehaviour {
     {
         portal = GameObject.Find("EndPortal");
         //trigger = portal.GetComponent<EndPortal>().Contact;
-        Debug.Log(trigger);
 	}
 	
 	// Update is called once per frame

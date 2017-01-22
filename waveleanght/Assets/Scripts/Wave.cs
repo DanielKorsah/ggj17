@@ -32,6 +32,10 @@ public class Wave : MonoBehaviour
     private float amplitude = 0.5f;
     public float frequency = 2.0f;
 
+    private float offset = 0.0f;
+    private float lastPies;
+    private float lastFrq;
+
     // Use this for initialization
     void Start()
     {
@@ -39,6 +43,8 @@ public class Wave : MonoBehaviour
         yzero = up.transform.position.y - height;
         old = Time.fixedTime;
         screenSpeed = (right.transform.position.x - left.transform.position.x) / 80.0f;
+
+        lastFrq = frequency;
     }
 
     // Update is called once per frame
@@ -47,10 +53,20 @@ public class Wave : MonoBehaviour
 
         if (Time.time - old > 0.01f)
         {
-            dots.Add(Instantiate(dot, new Vector3(right.transform.position.x, yzero + Mathf.Sin(Mathf.PI * Time.fixedTime * frequency) * height * amplitude, 0.0f), new Quaternion()));
+            if (lastFrq != frequency)
+            {
+                offset = lastPies - Mathf.PI * Time.fixedTime * frequency;
+            }
+
+            dots.Add(Instantiate(dot, new Vector3(right.transform.position.x, yzero + Mathf.Sin(Mathf.PI * Time.fixedTime * frequency + offset) * height * amplitude, 0.0f), new Quaternion()));
             dots[dots.Count - 1].transform.SetParent(parent.transform);
             moveDots();
             old = Time.fixedTime;
+
+            lastFrq = frequency;
+            lastPies = Mathf.PI * Time.fixedTime * frequency + offset;
+            while (lastPies > Mathf.PI * 2)
+                lastPies -= Mathf.PI * 2;
         }
     }
     
