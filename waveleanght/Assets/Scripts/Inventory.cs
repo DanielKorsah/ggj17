@@ -13,6 +13,11 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Image glowJump;
 
+    [SerializeField]
+    AudioSource source;
+    [SerializeField]
+    AudioClip powerupSound;
+
     private int focusPickup;
     private int boostPickup;
     private int projectPickup;
@@ -23,6 +28,9 @@ public class Inventory : MonoBehaviour
         focusPickup = 0;
         boostPickup = 0;
         projectPickup = 0;
+
+        source = GetComponent<AudioSource>();
+        source.clip = powerupSound;
     }
 
     // Update is called once per frame
@@ -46,6 +54,7 @@ public class Inventory : MonoBehaviour
     {
         focusPickup++;
         displayFocus();
+        source.Play();
     }
     // --
     public void SubFocusPickup()
@@ -82,6 +91,7 @@ public class Inventory : MonoBehaviour
     {
         boostPickup++;
         displayBoost();
+        source.Play();
     }
     // --
     public void SubBoostPickup()
@@ -118,6 +128,7 @@ public class Inventory : MonoBehaviour
     {
         projectPickup++;
         displayProject();
+        source.Play();
     }
     // --
     public void SubProjectPickup()

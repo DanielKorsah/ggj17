@@ -19,7 +19,9 @@ public class SceneTransition : MonoBehaviour {
         if (portal.GetComponent<EndPortal>().Contact )//trigger == true)                                For some reason trigger doesn't update whe I try to avoid GetComponent
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<AudioSource>().enabled = true;
             Debug.Log("Triggered");
+
         }
 		
 	}
