@@ -31,6 +31,8 @@ public class Inventory : MonoBehaviour
 
     }
 
+    //Focus-/---------------/
+    //get
     public int FocusPickup
     {
         get
@@ -39,75 +41,20 @@ public class Inventory : MonoBehaviour
         }
     }
 
-
+    // ++
     public void AddFocusPickup()
     {
         focusPickup++;
         displayFocus();
     }
-
+    // --
     public void SubFocusPickup()
     {
         focusPickup--;
         displayFocus();
     }
 
-
-    public int BoostPickup
-    {
-        get
-        {
-            return boostPickup;
-        }
-    }
-
-
-    public void AddBoostPickup()
-    {
-        boostPickup++;
-        displayBoost();
-    }
-
-    public void SubBoostPickup()
-    {
-        boostPickup--;
-        displayBoost();
-    }
-
-
-    public int ProjectPickup
-    {
-        get
-        {
-            return projectPickup;
-        }
-    }
-
-
-    public void AddProjectPickup()
-    {
-        projectPickup++;
-        displayProject();
-    }
-
-    public void SubProjectPickup()
-    {
-        projectPickup--;
-        displayProject();
-    }
-
-    private void displayBoost()
-    {
-        if (boostPickup > 0)
-        {
-            glowOmni.enabled = true;
-        }
-        else
-        {
-            glowOmni.enabled = false;
-        }
-    }
-
+    // display
     private void displayFocus()
     {
         if (focusPickup > 0)
@@ -120,6 +67,66 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //Boost-/---------------/
+    //get
+    public int BoostPickup
+    {
+        get
+        {
+            return boostPickup;
+        }
+    }
+
+    // ++
+    public void AddBoostPickup()
+    {
+        boostPickup++;
+        displayBoost();
+    }
+    // --
+    public void SubBoostPickup()
+    {
+        boostPickup--;
+        displayBoost();
+    }
+
+    // display
+    private void displayBoost()
+    {
+        if (boostPickup > 0)
+        {
+            glowOmni.enabled = true;
+        }
+        else
+        {
+            glowOmni.enabled = false;
+        }
+    }
+
+    //Project-/------------------/
+    //get
+    public int ProjectPickup
+    {
+        get
+        {
+            return projectPickup;
+        }
+    }
+
+    // ++
+    public void AddProjectPickup()
+    {
+        projectPickup++;
+        displayProject();
+    }
+    // --
+    public void SubProjectPickup()
+    {
+        projectPickup--;
+        displayProject();
+    }
+
+    // display
     private void displayProject()
     {
         if (projectPickup > 0)
