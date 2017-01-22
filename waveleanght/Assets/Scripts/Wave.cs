@@ -69,29 +69,38 @@ public class Wave : MonoBehaviour
             {
                 case 0:
                     sinPos = 0;
+                    frequency = 0;
                     break;
                 case 1:
                     sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * ir + offset);
+                    frequency = ir;
                     break;
                 case 2:
                     sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * v + offset);
+                    frequency = v;
                     break;
                 case 3:
                     sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * uv + offset);
+                    frequency = uv;
                     break;
                 case 4:
                     sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * ir + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * v + offset);
+                    frequency = ir + v;
                     break;
                 case 5:
                     sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * ir + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * uv + offset);
+                    frequency = ir + uv;
                     break;
                 case 6:
                     sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * v + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * uv + offset);
+                    frequency = v + uv;
                     break;
                 case 7:
                     sinPos = (Mathf.Sin(Mathf.PI * Time.fixedTime * ir + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * v + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * uv + offset)) * 0.6f;
+                    frequency = ir + v +uv;
                     break;
             }
+            Debug.Log(frequency);
 
             dots.Add(Instantiate(dot, new Vector3(right.transform.position.x, yzero + sinPos * height * amplitude, 0.0f), new Quaternion()));
             dots[dots.Count - 1].transform.SetParent(parent.transform);

@@ -120,7 +120,6 @@ public class Movement : MonoBehaviour {
             frqc = collision.gameObject.GetComponent<Sectors>().getFrqCodes();
 
             GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frqc = frqc;
-            Debug.Log(frqc);
         }
     }
 
