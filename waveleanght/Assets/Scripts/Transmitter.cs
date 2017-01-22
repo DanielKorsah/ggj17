@@ -60,7 +60,7 @@ public class Transmitter : MonoBehaviour
         }
         
         // Focus mod
-        if (contact == true && Input.GetKeyDown(KeyCode.Alpha1))
+        if (contact == true && (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)))
         {
             if (bonusType == 1)
             {
@@ -117,7 +117,7 @@ public class Transmitter : MonoBehaviour
 
 
         // Boost mod
-        if (contact == true && Input.GetKeyDown(KeyCode.Alpha2) && inv.BoostPickup > 0 && bonusType == 0)
+        if (contact == true && (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && inv.BoostPickup > 0 && bonusType == 0)
         {
             /*
             if (bonusType == 1)
@@ -145,7 +145,7 @@ public class Transmitter : MonoBehaviour
 
 
         // Project mod
-        if (contact == true && Input.GetKeyDown(KeyCode.Alpha3))
+        if (contact == true && (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3)))
         {
             if (bonusType == 3)
             {

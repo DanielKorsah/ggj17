@@ -23,6 +23,7 @@ sysinfo.txt
 /*.booproj
 /.idea*/
 
+/**/*.exe
 /**/*Advertisements.xml
 /**/*Purchasing.xml
 /*/Library/
