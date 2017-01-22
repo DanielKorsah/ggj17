@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\SceneTransition.cs" />
+    <Compile Include="Assets\Scripts\DialTurn.cs" />
     <Compile Include="Assets\Scripts\EndPortal.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
