@@ -31,10 +31,15 @@ public class Wave : MonoBehaviour
 
     private float amplitude = 0.5f;
     public float frequency = 2.0f;
+    public int frqc = 0;
 
     private float offset = 0.0f;
     private float lastPies;
     private float lastFrq;
+
+    private float ir = 2f;
+    private float v = 3.5f;
+    private float uv = 5.2f;
 
     // Use this for initialization
     void Start()
@@ -58,7 +63,37 @@ public class Wave : MonoBehaviour
                 offset = lastPies - Mathf.PI * Time.fixedTime * frequency;
             }
 
-            dots.Add(Instantiate(dot, new Vector3(right.transform.position.x, yzero + Mathf.Sin(Mathf.PI * Time.fixedTime * frequency + offset) * height * amplitude, 0.0f), new Quaternion()));
+            float sinPos = 0;
+
+            switch (frqc)
+            {
+                case 0:
+                    sinPos = 0;
+                    break;
+                case 1:
+                    sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * ir + offset);
+                    break;
+                case 2:
+                    sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * v + offset);
+                    break;
+                case 3:
+                    sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * uv + offset);
+                    break;
+                case 4:
+                    sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * ir + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * v + offset);
+                    break;
+                case 5:
+                    sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * ir + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * uv + offset);
+                    break;
+                case 6:
+                    sinPos = Mathf.Sin(Mathf.PI * Time.fixedTime * v + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * uv + offset);
+                    break;
+                case 7:
+                    sinPos = (Mathf.Sin(Mathf.PI * Time.fixedTime * ir + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * v + offset) + Mathf.Sin(Mathf.PI * Time.fixedTime * uv + offset)) * 0.6f;
+                    break;
+            }
+
+            dots.Add(Instantiate(dot, new Vector3(right.transform.position.x, yzero + sinPos * height * amplitude, 0.0f), new Quaternion()));
             dots[dots.Count - 1].transform.SetParent(parent.transform);
             moveDots();
             old = Time.fixedTime;

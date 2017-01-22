@@ -31,13 +31,13 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        int frq;
+      //  int frq;
 
 
         // adjust waveform
-        frq = closest().GetComponent<Transmitter>().i;
-        GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frequency = 1.0f + frq * 1.25f;
-
+   //     frq = closest().GetComponent<Transmitter>().i;
+      //  GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frequency = 1.0f + frq * 1.25f;
+/*
 
         switch (frq)
         {
@@ -52,7 +52,7 @@ public class Movement : MonoBehaviour {
                 break;
         }
 
-
+*/
 
 
         maxMag = speed * Time.deltaTime;
@@ -106,6 +106,29 @@ public class Movement : MonoBehaviour {
 
         transform.position += trans;
     }
+
+
+
+
+
+    // On entering next grid send waveform seed
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Grid"))
+        {
+            int frqc;
+            frqc = collision.gameObject.GetComponent<Sectors>().getFrqCodes();
+
+            GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frqc = frqc;
+            Debug.Log(frqc);
+        }
+    }
+
+
+
+
+
+
 
     private float Horizontal
     {
