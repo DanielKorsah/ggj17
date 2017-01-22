@@ -100,7 +100,6 @@ public class Wave : MonoBehaviour
                     frequency = ir + v +uv;
                     break;
             }
-            Debug.Log(frequency);
 
             dots.Add(Instantiate(dot, new Vector3(right.transform.position.x, yzero + sinPos * height * amplitude, 0.0f), new Quaternion()));
             dots[dots.Count - 1].transform.SetParent(parent.transform);

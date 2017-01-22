@@ -54,6 +54,7 @@ public class Movement : MonoBehaviour {
 
 */
 
+        
 
         maxMag = speed * Time.deltaTime;
         trans = new Vector3(0.0f,0.0f,0.0f);
