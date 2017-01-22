@@ -4707,6 +4707,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4987324238858576, guid: d0cb7f84f67b8a7408a8b00cfba6261d,
     type: 2}
   m_PrefabInternal: {fileID: 1089947859}
+--- !u!114 &1093062899 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114349131659587076, guid: 56bc1ac97b94f7d41a4a522c0ceaf045,
+    type: 2}
+  m_PrefabInternal: {fileID: 1731699429}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1101315232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5787,6 +5793,11 @@ Prefab:
       propertyPath: glowUni
       value: 
       objectReference: {fileID: 1496894016}
+    - target: {fileID: 114718934215284656, guid: ff1d325ca391d8c42b6f0d5691eb959b,
+        type: 2}
+      propertyPath: glowJump
+      value: 
+      objectReference: {fileID: 1093062899}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff1d325ca391d8c42b6f0d5691eb959b, type: 2}
   m_IsPrefabParent: 0
