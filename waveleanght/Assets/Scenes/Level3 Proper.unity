@@ -4676,12 +4676,12 @@ Prefab:
     - target: {fileID: 114216539769863974, guid: d0cb7f84f67b8a7408a8b00cfba6261d,
         type: 2}
       propertyPath: gridLocation.x
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114216539769863974, guid: d0cb7f84f67b8a7408a8b00cfba6261d,
         type: 2}
       propertyPath: gridLocation.y
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4987324238858576, guid: d0cb7f84f67b8a7408a8b00cfba6261d, type: 2}
       propertyPath: m_LocalScale.z
