@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour {
+public class Inventory : MonoBehaviour
+{
 
     [SerializeField]
     private Image glowUni;
@@ -16,16 +17,16 @@ public class Inventory : MonoBehaviour {
     private int boostPickup;
     private int projectPickup;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         focusPickup = 0;
         boostPickup = 0;
         projectPickup = 0;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
 
     }
@@ -123,11 +124,11 @@ public class Inventory : MonoBehaviour {
     {
         if (projectPickup > 0)
         {
-          //  glowJump.enabled = true;
+            glowJump.enabled = true;
         }
         else
         {
-          //  glowJump.enabled = false;
+            glowJump.enabled = false;
         }
     }
 }
