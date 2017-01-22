@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wave : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Wave : MonoBehaviour
     GameObject left;
     [SerializeField]
     GameObject right;
+
+    DialTurn dial;
 
     [SerializeField]
     GameObject parent;
@@ -41,6 +44,8 @@ public class Wave : MonoBehaviour
     private float v = 3.5f;
     private float uv = 5.2f;
 
+
+
     // Use this for initialization
     void Start()
     {
@@ -50,6 +55,9 @@ public class Wave : MonoBehaviour
         screenSpeed = (right.transform.position.x - left.transform.position.x) / 80.0f;
 
         lastFrq = frequency;
+
+
+        dial = GameObject.Find("Dial left").GetComponent<DialTurn>();
     }
 
     // Update is called once per frame
@@ -64,6 +72,8 @@ public class Wave : MonoBehaviour
             }
 
             float sinPos = 0;
+
+            dial.GoalIndex = frqc;
 
             switch (frqc)
             {

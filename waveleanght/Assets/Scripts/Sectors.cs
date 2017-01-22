@@ -12,6 +12,9 @@ public class Sectors : MonoBehaviour {
     [SerializeField]
     Sprite EmmasSquare;
 
+
+    float t = 0;
+
     SpriteRenderer sr;
 
     public List<string> freqs = new List<string>();
@@ -37,8 +40,13 @@ public class Sectors : MonoBehaviour {
 	void Update ()
     {
         freqs = wall.freqs;
-        if (Random.Range(1f, 100f) > 95f)
+        if (t <= 0)
+        {
             SelectTile();
+            t = 0.25f;
+        }
+        else
+            t -= Time.deltaTime;
 	}
 
     public void SelectTile()

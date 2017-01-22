@@ -22,26 +22,27 @@ public class DialTurn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.rotation.eulerAngles.z != goal)
+       /* if (transform.rotation.eulerAngles.z != goal)
         {
+            Debug.Log(goal); 
             changeRotation(transform.rotation.eulerAngles.z);
-        }
+        }*/
     }
 
     private void changeRotation(float current)
     {
-        turnAmount = goal - transform.rotation.eulerAngles.z * speed * Time.deltaTime;
+        turnAmount = (goal - transform.rotation.eulerAngles.z) * speed * Time.deltaTime;
         if (current < goal && current + turnAmount > goal)
         {
-            current = goal;
+            transform.Rotate(0.0f, 0.0f, goal);
         }
         else if (current > goal && current + turnAmount < goal)
         {
-            current = goal;
+            transform.Rotate(0.0f, 0.0f, goal);
         }
         else
         {
-            current += turnAmount;
+            transform.Rotate(0.0f, 0.0f, transform.rotation.eulerAngles.z + turnAmount);
         }
     }
 
