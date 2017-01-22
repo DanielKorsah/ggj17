@@ -789,6 +789,16 @@ Prefab:
       propertyPath: m_Name
       value: EMMA'S SQUARE!!!! (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 114920255338361310, guid: 017804446c2503c4785ffdb8b97fec03,
+        type: 2}
+      propertyPath: v.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114920255338361310, guid: 017804446c2503c4785ffdb8b97fec03,
+        type: 2}
+      propertyPath: v.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 017804446c2503c4785ffdb8b97fec03, type: 2}
   m_IsPrefabParent: 0
@@ -1129,6 +1139,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.16580583
       objectReference: {fileID: 0}
+    - target: {fileID: 114920255338361310, guid: 017804446c2503c4785ffdb8b97fec03,
+        type: 2}
+      propertyPath: v.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114920255338361310, guid: 017804446c2503c4785ffdb8b97fec03,
+        type: 2}
+      propertyPath: v.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 017804446c2503c4785ffdb8b97fec03, type: 2}
   m_IsPrefabParent: 0
@@ -1191,6 +1211,16 @@ Prefab:
     - target: {fileID: 1837785767314996, guid: 017804446c2503c4785ffdb8b97fec03, type: 2}
       propertyPath: m_Name
       value: EMMA'S SQUARE!!!! (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114920255338361310, guid: 017804446c2503c4785ffdb8b97fec03,
+        type: 2}
+      propertyPath: v.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114920255338361310, guid: 017804446c2503c4785ffdb8b97fec03,
+        type: 2}
+      propertyPath: v.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 017804446c2503c4785ffdb8b97fec03, type: 2}
