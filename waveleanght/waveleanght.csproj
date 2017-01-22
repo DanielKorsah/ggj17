@@ -75,19 +75,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\DialTurn.cs" />
     <Compile Include="Assets\Scripts\EndPortal.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\ModAudio.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\PickUpBoost.cs" />
     <Compile Include="Assets\Scripts\PickUpFocus.cs" />
     <Compile Include="Assets\Scripts\PickUpProject.cs" />
     <Compile Include="Assets\Scripts\PlayScript.cs" />
     <Compile Include="Assets\Scripts\ResetLevel.cs" />
+    <Compile Include="Assets\Scripts\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\Sectors.cs" />
     <Compile Include="Assets\Scripts\TimeLimit.cs" />
     <Compile Include="Assets\Scripts\Transmitter.cs" />
+    <Compile Include="Assets\Scripts\TransmitterAudio.cs" />
     <Compile Include="Assets\Scripts\WallState.cs" />
     <Compile Include="Assets\Scripts\Wave.cs" />
     <Compile Include="Assets\ToMenu.cs" />
