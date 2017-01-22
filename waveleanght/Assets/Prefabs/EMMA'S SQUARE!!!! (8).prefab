@@ -68,6 +68,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 0, y: 0}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
+  freqs: []
 --- !u!212 &212972553639771696
 SpriteRenderer:
   m_ObjectHideFlags: 1

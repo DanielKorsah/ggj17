@@ -137,6 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 5}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &26775857
 BoxCollider2D:
@@ -594,6 +596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 3}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &212279138
 BoxCollider2D:
@@ -899,6 +903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 5, y: 6}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &253774608
 BoxCollider2D:
@@ -997,6 +1003,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 4, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &262549037
 BoxCollider2D:
@@ -2018,6 +2026,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 4, y: 3}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &468319618
 BoxCollider2D:
@@ -3153,6 +3163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 2, y: 6}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &685700103
 BoxCollider2D:
@@ -3251,6 +3263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &710453660
 BoxCollider2D:
@@ -3636,6 +3650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 3, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &901781126
 BoxCollider2D:
@@ -4017,6 +4033,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 2, y: 3}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &973742056
 BoxCollider2D:
@@ -4115,6 +4133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 4, y: 6}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &975592505
 BoxCollider2D:
@@ -4942,6 +4962,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 2, y: 2}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1156416351
 BoxCollider2D:
@@ -5389,6 +5411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 6, y: 6}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1342300220
 BoxCollider2D:
@@ -6042,6 +6066,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 5, y: 5}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1451663715
 BoxCollider2D:
@@ -6201,6 +6227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 2}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1492195764
 BoxCollider2D:
@@ -6385,6 +6413,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 6}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1529729999
 BoxCollider2D:
@@ -6483,6 +6513,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 4, y: 5}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1543556607
 BoxCollider2D:
@@ -6743,6 +6775,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 6, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1571709956
 BoxCollider2D:
@@ -6921,6 +6955,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 5, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1625119273
 BoxCollider2D:
@@ -7019,6 +7055,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 2, y: 5}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1651945892
 BoxCollider2D:
@@ -7117,6 +7155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 3, y: 3}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1687093733
 BoxCollider2D:
@@ -7215,6 +7255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 1}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1703668454
 BoxCollider2D:
@@ -7468,6 +7510,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 6, y: 5}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1752106300
 BoxCollider2D:
@@ -8059,6 +8103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 3, y: 5}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &1914713108
 BoxCollider2D:
@@ -8707,6 +8753,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 2, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &2049506499
 BoxCollider2D:
@@ -8923,6 +8971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 3, y: 6}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!61 &2146607882
 BoxCollider2D:

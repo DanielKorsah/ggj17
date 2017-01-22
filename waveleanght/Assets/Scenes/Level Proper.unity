@@ -183,6 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 4, y: 3}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1 &14781561
 GameObject:
@@ -623,6 +625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 4, y: 1}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1 &226719592
 GameObject:
@@ -1153,6 +1157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 3, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &527022065
 Prefab:
@@ -1438,6 +1444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 3, y: 1}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1 &588012208
 GameObject:
@@ -1906,6 +1914,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 2}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &677783470
 Prefab:
@@ -2485,6 +2495,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 3, y: 2}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &817519675
 Prefab:
@@ -2745,6 +2757,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 2, y: 3}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &904260240
 Prefab:
@@ -3114,6 +3128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 2, y: 1}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!4 &972620739 stripped
 Transform:
@@ -3259,6 +3275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 3}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &997725123
 Prefab:
@@ -3609,6 +3627,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &1191958582
 Prefab:
@@ -3836,6 +3856,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 4, y: 2}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &1321860045
 Prefab:
@@ -4311,6 +4333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 3, y: 3}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &1573155226
 Prefab:
@@ -4742,6 +4766,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 1, y: 1}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1 &1735293851
 GameObject:
@@ -4835,6 +4861,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 2, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &1779822814
 Prefab:
@@ -5374,6 +5402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 2, y: 2}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &1860991622
 Prefab:
@@ -6116,6 +6146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 4, y: 4}
+  Square: {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  EmmasSquare: {fileID: 21300000, guid: 0100fc9272ec41840b1752f40a8952c6, type: 3}
   freqs: []
 --- !u!1001 &2051954310
 Prefab:
@@ -6155,6 +6187,18 @@ Prefab:
     - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833418844438212, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f0a30b12a6bdcf47bbc5fb3e1682785, type: 2}
