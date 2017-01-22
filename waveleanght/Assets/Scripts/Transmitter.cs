@@ -21,7 +21,7 @@ public class Transmitter : MonoBehaviour
     [SerializeField]
     public Vector2 activeLocation;
 
-    List<string> state = new List<string>(new string[] { "infrared", "visible", "ultraviolet" });
+    public List<string> state = new List<string>(new string[] { "infrared", "visible", "ultraviolet" });
     [SerializeField]
     public int i = 0;
     int prev;
