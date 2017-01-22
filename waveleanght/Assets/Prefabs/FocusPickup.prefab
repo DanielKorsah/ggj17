@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4833418844438212}
   - component: {fileID: 212067418687109622}
   - component: {fileID: 114929028136253152}
-  - component: {fileID: 58695442835849526}
+  - component: {fileID: 58855276247742892}
   m_Layer: 0
   m_Name: FocusPickup
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58695442835849526
+--- !u!58 &58855276247742892
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -51,7 +51,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
