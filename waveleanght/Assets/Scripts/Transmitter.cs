@@ -154,28 +154,28 @@ public class Transmitter : MonoBehaviour
                 {
                     SendNothing();
                     pd = projectDirection.left;
-                    spriterenderer.sprite = sprites[2];
+                    spriterenderer.sprite = sprites[6];
                     SendState();
                 }
                 else if (pd == projectDirection.left)
                 {
                     SendNothing();
                     pd = projectDirection.up;
-                    spriterenderer.sprite = sprites[4];
+                    spriterenderer.sprite = sprites[7];
                     SendState();
                 }
                 else if (pd == projectDirection.up)
                 {
                     SendNothing();
                     pd = projectDirection.right;
-                    spriterenderer.sprite = sprites[3];
+                    spriterenderer.sprite = sprites[8];
                     SendState();
                 }
                 else if (pd == projectDirection.right)
                 {
                     SendNothing();
                     pd = projectDirection.down;
-                    spriterenderer.sprite = sprites[1];
+                    spriterenderer.sprite = sprites[9];
                     SendState();
                 }
             }
@@ -187,7 +187,7 @@ public class Transmitter : MonoBehaviour
                 SendNothing();
                 bonusType = 3;
 
-                spriterenderer.sprite = sprites[4];
+                spriterenderer.sprite = sprites[6];
                 pd = projectDirection.up;
 
                 SendState();
