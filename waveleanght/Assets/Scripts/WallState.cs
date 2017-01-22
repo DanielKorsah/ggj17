@@ -11,7 +11,7 @@ public class WallState : MonoBehaviour {
     public Vector2 gridLocation;
     
 
-    private List<string> freqs = new List<string>();
+    public List<string> freqs = new List<string>();
 
     private void Start()
     {
