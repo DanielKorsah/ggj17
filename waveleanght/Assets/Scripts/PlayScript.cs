@@ -37,7 +37,7 @@ public class PlayScript : MonoBehaviour
                 }
                 else if (gameObject.name.Equals("instruct"))
                 {
-                    SceneManager.LoadScene("tut1.2", LoadSceneMode.Single);
+                    SceneManager.LoadScene("Instruct", LoadSceneMode.Single);
                 } 
                 else if (gameObject.name.Equals("quit"))
                 {
