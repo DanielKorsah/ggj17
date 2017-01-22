@@ -130,6 +130,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 82831684917773926, guid: 64c6e6e133e27224b95e3a54d8858886,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64c6e6e133e27224b95e3a54d8858886, type: 2}
   m_IsPrefabParent: 0
@@ -306,6 +311,21 @@ Prefab:
     - target: {fileID: 1228850424467198, guid: 64c6e6e133e27224b95e3a54d8858886, type: 2}
       propertyPath: m_Name
       value: Transmitter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82831684917773926, guid: 64c6e6e133e27224b95e3a54d8858886,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82831684917773926, guid: 64c6e6e133e27224b95e3a54d8858886,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82831684917773926, guid: 64c6e6e133e27224b95e3a54d8858886,
+        type: 2}
+      propertyPath: Loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64c6e6e133e27224b95e3a54d8858886, type: 2}
