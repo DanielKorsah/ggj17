@@ -27,3 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/tut3.1.unity
   - enabled: 1
     path: Assets/Scenes/tut3.unity
+  - enabled: 1
+    path: Assets/Scenes/tut4.unity
+  - enabled: 1
+    path: Assets/Scenes/tut4.1.unity
