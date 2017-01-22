@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour {
 
@@ -14,6 +15,10 @@ public class Movement : MonoBehaviour {
     //transform vector
     Vector3 trans;
 
+    private Image irImage;
+    private Image vImage;
+    private Image uvImage;
+
     private List<Component> tranmitters = new List<Component> ();
     float minDist = 999999999.0f;
 
@@ -26,7 +31,10 @@ public class Movement : MonoBehaviour {
         {
             tranmitters.Add(t.GetComponent<Transform>());
         }
-	}
+        irImage = GameObject.Find("IR light").GetComponent<Image>();
+        uvImage = GameObject.Find("UV light").GetComponent<Image>();
+        vImage = GameObject.Find("V light").GetComponent<Image>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -119,6 +127,50 @@ public class Movement : MonoBehaviour {
         {
             int frqc;
             frqc = collision.gameObject.GetComponent<Sectors>().getFrqCodes();
+
+            switch (frqc)
+            {
+                case 0:
+                    irImage.enabled = false;
+                    vImage.enabled = false;
+                    uvImage.enabled = false;
+                    break;
+                case 1:
+                    irImage.enabled = true;
+                    vImage.enabled = false;
+                    uvImage.enabled = false;
+                    break;
+                case 2:
+                    irImage.enabled = false;
+                    vImage.enabled = true;
+                    uvImage.enabled = false;
+                    break;
+                case 3:
+                    irImage.enabled = false;
+                    vImage.enabled = false;
+                    uvImage.enabled = true;
+                    break;
+                case 4:
+                    irImage.enabled = true;
+                    vImage.enabled = true;
+                    uvImage.enabled = false;
+                    break;
+                case 5:
+                    irImage.enabled = true;
+                    vImage.enabled = false;
+                    uvImage.enabled = true;
+                    break;
+                case 6:
+                    irImage.enabled = false;
+                    vImage.enabled = true;
+                    uvImage.enabled = true;
+                    break;
+                case 7:
+                    irImage.enabled = true;
+                    vImage.enabled = true;
+                    uvImage.enabled = true;
+                    break;
+            }
 
             GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frqc = frqc;
         }

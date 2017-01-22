@@ -22,7 +22,6 @@ public class DialTurn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.rotation.eulerAngles.z);
         if (transform.rotation.eulerAngles.z != goal)
         {
             changeRotation(transform.rotation.eulerAngles.z);
