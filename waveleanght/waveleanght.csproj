@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\PickUpBoost.cs" />
     <Compile Include="Assets\Scripts\PickUpFocus.cs" />
     <Compile Include="Assets\Scripts\PickUpProject.cs" />
+    <Compile Include="Assets\Scripts\PlayScript.cs" />
     <Compile Include="Assets\Scripts\ResetLevel.cs" />
     <Compile Include="Assets\Scripts\Sectors.cs" />
     <Compile Include="Assets\Scripts\TimeLimit.cs" />
