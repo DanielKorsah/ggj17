@@ -15,3 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2 proper.unity
   - enabled: 1
     path: Assets/Scenes/Level3 Proper.unity
+  - enabled: 1
+    path: Assets/Scenes/tut1.unity
+  - enabled: 1
+    path: Assets/Scenes/tut1.2.unity
+  - enabled: 1
+    path: Assets/Scenes/tut2.1.unity
+  - enabled: 1
+    path: Assets/Scenes/tut2.unity
+  - enabled: 1
+    path: Assets/Scenes/tut3.1.unity
+  - enabled: 1
+    path: Assets/Scenes/tut3.unity
