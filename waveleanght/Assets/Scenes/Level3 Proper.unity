@@ -7417,7 +7417,7 @@ Prefab:
     - target: {fileID: 114247937803535982, guid: e09619f1c664e5847a10c5e95eca5e37,
         type: 2}
       propertyPath: SceneName
-      value: Main Menu
+      value: theEnd
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e09619f1c664e5847a10c5e95eca5e37, type: 2}
