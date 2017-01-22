@@ -22,9 +22,9 @@ public class TimeLimit : MonoBehaviour {
     Image secT;
     Image minU;
     Image minT;
-    
 
-
+    GameObject portal;
+    bool stopTrigger;
 
     [SerializeField]
     List<int> digits = new List<int>();
@@ -43,6 +43,12 @@ public class TimeLimit : MonoBehaviour {
         secT = places[1].GetComponent<Image>();
         minU = places[2].GetComponent<Image>();
         minT = places[3].GetComponent<Image>();
+
+        portal = GameObject.Find("EndPortal");
+        stopTrigger = portal.GetComponent<EndPortal>().Contact;
+
+
+
     }
 	
 	// Update is called once per frame
@@ -53,6 +59,14 @@ public class TimeLimit : MonoBehaviour {
         secT.sprite = sprites[secsTens];
         minU.sprite = sprites[minsUnits];
         minT.sprite = sprites[minsTens];
+
+        if(stopTrigger == true)
+        {
+            //***********************************************
+            //INSERT GLENNSCRIPT SAVE SYSTEM HERE
+            //***********************************************
+            return;
+        }
     }
 
     void addSec()
