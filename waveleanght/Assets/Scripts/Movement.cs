@@ -33,8 +33,24 @@ public class Movement : MonoBehaviour {
     {
         int frq;
 
+
+        // adjust waveform
         frq = closest().GetComponent<Transmitter>().i;
         GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frequency = 1.0f + frq * 1.25f;
+
+
+        switch (frq)
+        {
+            case 0:
+                // IR
+                break;
+            case 1:
+                // V
+                break;
+            default:
+                //UV
+                break;
+        }
 
 
 
