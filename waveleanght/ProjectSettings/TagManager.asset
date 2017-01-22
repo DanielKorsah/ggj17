@@ -8,6 +8,7 @@ TagManager:
   - Transmitter
   - WaveSpawn
   - GlowingButton
+  - Grid
   layers:
   - Default
   - TransparentFX
