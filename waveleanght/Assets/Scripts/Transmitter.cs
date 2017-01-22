@@ -52,7 +52,8 @@ public class Transmitter : MonoBehaviour
         // Space for change frequency
         if (contact == true && Input.GetKeyDown(KeyCode.Space))
         {
-
+            GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(0.01f, 0f, 0f);
+            GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(-0.01f, 0f, 0f);
             StateCycle();
 
             cullState();
