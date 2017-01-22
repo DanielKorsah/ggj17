@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\EndPortal.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\ModAudio.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\PickUpBoost.cs" />
     <Compile Include="Assets\Scripts\PickUpFocus.cs" />
