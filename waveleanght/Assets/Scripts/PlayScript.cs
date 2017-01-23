@@ -22,7 +22,7 @@ public class PlayScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player && Input.GetKeyDown("e") || Input.GetKeyDown("return") || Input.GetKeyDown("space"))
+        if (player && (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
         {
             press = true;
         }
@@ -47,9 +47,9 @@ public class PlayScript : MonoBehaviour
             else
             {
                 timer -= Time.deltaTime;
-                Debug.Log("timer");
+                //Debug.Log("timer");
             }
-            Debug.Log("work!");
+            //Debug.Log("work!");
         }
     }
 
