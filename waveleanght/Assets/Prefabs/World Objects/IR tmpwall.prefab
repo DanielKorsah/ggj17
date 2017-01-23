@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallType: infrared
   gridLocation: {x: 4, y: 4}
+  freqs: []
 --- !u!212 &212149134151875096
 SpriteRenderer:
   m_ObjectHideFlags: 1

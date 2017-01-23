@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -70,9 +67,6 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
     </Reference>
@@ -81,23 +75,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\DialTurn.cs" />
     <Compile Include="Assets\Scripts\EndPortal.cs" />
-    <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\ModAudio.cs" />
-    <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\PickUpBoost.cs" />
-    <Compile Include="Assets\Scripts\PickUpFocus.cs" />
-    <Compile Include="Assets\Scripts\PickUpProject.cs" />
     <Compile Include="Assets\Scripts\PlayScript.cs" />
+    <Compile Include="Assets\Scripts\Player\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Player\Movement.cs" />
+    <Compile Include="Assets\Scripts\Player\PickUpBoost.cs" />
+    <Compile Include="Assets\Scripts\Player\PickUpFocus.cs" />
+    <Compile Include="Assets\Scripts\Player\PickUpProject.cs" />
     <Compile Include="Assets\Scripts\ResetLevel.cs" />
     <Compile Include="Assets\Scripts\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\Sectors.cs" />
-    <Compile Include="Assets\Scripts\TimeLimit.cs" />
-    <Compile Include="Assets\Scripts\Transmitter.cs" />
-    <Compile Include="Assets\Scripts\TransmitterAudio.cs" />
-    <Compile Include="Assets\Scripts\WallState.cs" />
-    <Compile Include="Assets\Scripts\Wave.cs" />
+    <Compile Include="Assets\Scripts\UI\DialTurn.cs" />
+    <Compile Include="Assets\Scripts\UI\TimeLimit.cs" />
+    <Compile Include="Assets\Scripts\UI\Wave.cs" />
+    <Compile Include="Assets\Scripts\Walls%26Transmitters\Transmitter.cs" />
+    <Compile Include="Assets\Scripts\Walls%26Transmitters\TransmitterAudio.cs" />
+    <Compile Include="Assets\Scripts\Walls%26Transmitters\WallState.cs" />
     <Compile Include="Assets\ToMenu.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
