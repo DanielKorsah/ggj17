@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DisappearingWalls : MonoBehaviour
 {
-
+    //the field for the type of wall this will be. 
+    //Options include: IR, V, UV
     [SerializeField]
     private string wallType;
 
@@ -37,8 +38,8 @@ public class DisappearingWalls : MonoBehaviour
     //for setting the x and y of this wall
     public void SetCoords(int x, int y)
     {
-        x = this.x;
-        y = this.y;
+        this.x = x;
+        this.y = y;
     }
 
     //to read the wall type of this wall

@@ -8,6 +8,7 @@ public class grid : MonoBehaviour
     private int x;
     private int y;
 
+    List<Beacon> beacons = new List<Beacon>();
     List<DisappearingWalls> walls = new List<DisappearingWalls>();
     List<string> affectedBy = new List<string>();
 
@@ -18,7 +19,12 @@ public class grid : MonoBehaviour
         string[] coords = name.Split(',');
         int.TryParse(coords[0], out x);
         int.TryParse(coords[1], out y);
-        
+
+        Debug.Log("grid x = " + x + ". grid y = " + y);
+
+        //store all child beacons of this tile in a list and give them x and y coords
+        beacons.AddRange(GetComponentsInChildren<Beacon>());
+
         //store all child walls of this tile in a list and give them x and y coords
         walls.AddRange(GetComponentsInChildren<DisappearingWalls>());
         foreach (DisappearingWalls wall in walls)
@@ -26,16 +32,21 @@ public class grid : MonoBehaviour
             wall.SetCoords(x, y);
         }
 
-        affectedBy.Add("V");
-        affectedBy.Add("IR");
-        affectedBy.Add("UV");
-        //display walls appropriately on level start up
-        ChangeWalls();
+        //add some dummy values to the list ----for testing purposes----
+        //affectedBy.Add("UV");
+        //affectedBy.Add("IR");
     }
-
     // Update is called once per frame
     void Update()
     {
+        if (Time.time == Time.deltaTime)
+        {
+            //display walls appropriately on level start 
+            foreach (Beacon beacon in beacons)
+            {
+                beacon.FirstTimeSetUp(x, y);
+            }
+        }
     }
 
     //remove a wave type that no longer affects the tile
@@ -53,17 +64,29 @@ public class grid : MonoBehaviour
     //change the walls shown on this tile
     public void ChangeWalls()
     {
-        foreach(DisappearingWalls wall in walls)
+        foreach (DisappearingWalls wall in walls)
         {
-            if (affectedBy.Contains(wall.WallType))
-            {
-                wall.ShowWall(false);
-            }
-            else
-            {
-                wall.ShowWall(true);
-            }
+            //this sends the show wall function true if its type is not found in the list, and false if it is found
+            wall.ShowWall(!affectedBy.Contains(wall.WallType));
         }
 
+    }
+
+
+    //gets for x and y so that walls and beacons can set their coords
+    public int XCoord
+    {
+        get
+        {
+            return x;
+        }
+    }
+
+    public int YCoord
+    {
+        get
+        {
+            return y;
+        }
     }
 }
