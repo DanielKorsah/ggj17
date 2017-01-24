@@ -734,6 +734,21 @@ Prefab:
       propertyPath: i
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114417514004518524, guid: 64c6e6e133e27224b95e3a54d8858886,
+        type: 2}
+      propertyPath: tones.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8afd108d6dd09af4684911c29a05e022, type: 3}
+    - target: {fileID: 114417514004518524, guid: 64c6e6e133e27224b95e3a54d8858886,
+        type: 2}
+      propertyPath: tones.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 75b0b812f2238164d8585145635064b8, type: 3}
+    - target: {fileID: 114417514004518524, guid: 64c6e6e133e27224b95e3a54d8858886,
+        type: 2}
+      propertyPath: tones.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 75b0b812f2238164d8585145635064b8, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64c6e6e133e27224b95e3a54d8858886, type: 2}
   m_IsPrefabParent: 0
