@@ -423,6 +423,11 @@ Prefab:
       propertyPath: glowJump
       value: 
       objectReference: {fileID: 182028154}
+    - target: {fileID: 82578028180925034, guid: ff1d325ca391d8c42b6f0d5691eb959b,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e7a5fe19889f21498c2d371cfa0f7ff, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff1d325ca391d8c42b6f0d5691eb959b, type: 2}
   m_IsPrefabParent: 0
