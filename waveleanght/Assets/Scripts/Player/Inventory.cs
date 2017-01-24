@@ -5,12 +5,9 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-
-    [SerializeField]
+    
     private Image glowUni;
-    [SerializeField]
     private Image glowOmni;
-    [SerializeField]
     private Image glowJump;
 
     [SerializeField]
@@ -31,6 +28,10 @@ public class Inventory : MonoBehaviour
 
         source = GetComponent<AudioSource>();
         source.clip = powerupSound;
+
+        glowUni = GameObject.Find("GlowingUni").GetComponent<Image>();
+        glowOmni = GameObject.Find("GlowingOmni").GetComponent<Image>();
+        glowJump = GameObject.Find("GlowingJump").GetComponent<Image>();
     }
 
     // Update is called once per frame

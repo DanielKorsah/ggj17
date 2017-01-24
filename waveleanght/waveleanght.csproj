@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DisappearingWalls.cs" />
     <Compile Include="Assets\Scripts\EndPortal.cs" />
     <Compile Include="Assets\Scripts\ModAudio.cs" />
     <Compile Include="Assets\Scripts\PlayScript.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\Walls%26Transmitters\TransmitterAudio.cs" />
     <Compile Include="Assets\Scripts\Walls%26Transmitters\WallState.cs" />
     <Compile Include="Assets\ToMenu.cs" />
+    <Compile Include="Assets\grid.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
