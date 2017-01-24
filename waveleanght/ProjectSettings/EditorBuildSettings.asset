@@ -6,34 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-  - enabled: 0
-    path: Assets/Scenes/test1.unity
-  - enabled: 0
-    path: Assets/Scenes/test2.unity
+    path: Assets/Scenes/Not Levels/Main Menu.unity
   - enabled: 1
-    path: Assets/Scenes/tut1.unity
+    path: Assets/Scenes/Not Levels/Instruct.unity
   - enabled: 1
-    path: Assets/Scenes/Instruct.unity
+    path: Assets/Scenes/Tutorial1(Simple)/tut1.2.unity
   - enabled: 1
-    path: Assets/Scenes/tut1.2.unity
+    path: Assets/Scenes/Tutorial1(Simple)/tut1.unity
   - enabled: 1
-    path: Assets/Scenes/tut2.1.unity
+    path: Assets/Scenes/Tutorial2(Focus)/tut2.1.unity
   - enabled: 1
-    path: Assets/Scenes/tut2.unity
+    path: Assets/Scenes/Tutorial2(Focus)/tut2.unity
   - enabled: 1
-    path: Assets/Scenes/tut3.1.unity
+    path: Assets/Scenes/Tutorial3(Boost)/tut3.1.unity
   - enabled: 1
-    path: Assets/Scenes/tut3.unity
+    path: Assets/Scenes/Tutorial3(Boost)/tut3.unity
   - enabled: 1
-    path: Assets/Scenes/tut4.unity
+    path: Assets/Scenes/Tutorial4(Jump)/tut4.1.unity
   - enabled: 1
-    path: Assets/Scenes/tut4.1.unity
+    path: Assets/Scenes/Tutorial4(Jump)/tut4.unity
   - enabled: 1
-    path: Assets/Scenes/Level Proper.unity
+    path: Assets/Scenes/Full Levels/Level Proper.unity
   - enabled: 1
-    path: Assets/Scenes/Level2 proper.unity
+    path: Assets/Scenes/Full Levels/Level2 proper.unity
   - enabled: 1
-    path: Assets/Scenes/Level3 Proper.unity
+    path: Assets/Scenes/Full Levels/Level3 Proper.unity
   - enabled: 1
-    path: Assets/Scenes/theEnd.unity
+    path: Assets/Scenes/Not Levels/theEnd.unity
