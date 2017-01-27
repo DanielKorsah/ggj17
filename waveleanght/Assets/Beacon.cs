@@ -41,51 +41,54 @@ public class Beacon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1"))
+        if (!playerOn)
         {
-            upgrade = 1;
-            beaconChange();
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            upgrade = 2;
-            beaconChange();
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            upgrade = 3;
-            beaconChange();
-        }
-        if (Input.GetKeyDown("0"))
-        {
-            upgrade = 0;
-            beaconChange();
-        }
+            if (Input.GetKeyDown("1"))
+            {
+                upgrade = 1;
+                beaconChange();
+            }
+            if (Input.GetKeyDown("2"))
+            {
+                upgrade = 2;
+                beaconChange();
+            }
+            if (Input.GetKeyDown("3"))
+            {
+                upgrade = 3;
+                beaconChange();
+            }
+            if (Input.GetKeyDown("0"))
+            {
+                upgrade = 0;
+                beaconChange();
+            }
 
-        if (Input.GetKeyDown("i"))
-        {
-            rot = 0;
-            beaconChange();
-        }
-        if (Input.GetKeyDown("l"))
-        {
-            rot = 1;
-            beaconChange();
-        }
-        if (Input.GetKeyDown("k"))
-        {
-            rot = 2;
-            beaconChange();
-        }
-        if (Input.GetKeyDown("j"))
-        {
-            rot = 3;
-            beaconChange();
-        }
+            if (Input.GetKeyDown("i"))
+            {
+                rot = 0;
+                beaconChange();
+            }
+            if (Input.GetKeyDown("l"))
+            {
+                rot = 1;
+                beaconChange();
+            }
+            if (Input.GetKeyDown("k"))
+            {
+                rot = 2;
+                beaconChange();
+            }
+            if (Input.GetKeyDown("j"))
+            {
+                rot = 3;
+                beaconChange();
+            }
 
-        if (Input.GetKeyDown("e"))
-        {
-            emissionChange();
+            if (Input.GetKeyDown("e"))
+            {
+                emissionChange();
+            }
         }
     }
 
@@ -98,6 +101,8 @@ public class Beacon : MonoBehaviour
         getAffectedGrids();
 
         emitting();
+
+        changeSpriteColour();
     }
 
     //set the beacons coordinates
@@ -115,14 +120,13 @@ public class Beacon : MonoBehaviour
         emitting();
     }
 
-
-
     //methods required to just change the emission type
     private void emissionChange()
     {
         emitted();
         rotateEmission();
         emitting();
+        changeSpriteColour();
     }
 
     //set the emission type to be next in the cycle
@@ -323,7 +327,6 @@ public class Beacon : MonoBehaviour
         }
     }
 
-
     //tell the grids about what to not block anymore
     private void emitted()
     {
@@ -345,4 +348,45 @@ public class Beacon : MonoBehaviour
             grid.ChangeWalls();
         }
     }
+
+    //change the beacon's colour
+    private void changeSpriteColour()
+    {
+        switch (emissionType)
+        {
+            case ("IR"):
+                sprite.color = Color.red;
+                break;
+
+            case ("V"):
+                sprite.color = Color.yellow;
+                break;
+
+            case ("UV"):
+                sprite.color = Color.magenta;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    //when the player walks on to the collider, set playerOn to true
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            playerOn = true;
+        }
+    }
+
+    //when the player walks on to the collider, set playerOn to false
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            playerOn = false;
+        }
+    }
+
 }

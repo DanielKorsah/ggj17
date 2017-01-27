@@ -77,6 +77,7 @@
   <ItemGroup>
     <Compile Include="Assets\Beacon.cs" />
     <Compile Include="Assets\DisappearingWalls.cs" />
+    <Compile Include="Assets\FloorColour.cs" />
     <Compile Include="Assets\Scripts\EndPortal.cs" />
     <Compile Include="Assets\Scripts\ModAudio.cs" />
     <Compile Include="Assets\Scripts\PlayScript.cs" />

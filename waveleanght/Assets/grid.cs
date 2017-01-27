@@ -11,6 +11,7 @@ public class grid : MonoBehaviour
     List<Beacon> beacons = new List<Beacon>();
     List<DisappearingWalls> walls = new List<DisappearingWalls>();
     List<string> affectedBy = new List<string>();
+    FloorColour floor;
 
     // Use this for initialization
     void Start()
@@ -19,8 +20,6 @@ public class grid : MonoBehaviour
         string[] coords = name.Split(',');
         int.TryParse(coords[0], out x);
         int.TryParse(coords[1], out y);
-
-        Debug.Log("grid x = " + x + ". grid y = " + y);
 
         //store all child beacons of this tile in a list and give them x and y coords
         beacons.AddRange(GetComponentsInChildren<Beacon>());
@@ -31,10 +30,7 @@ public class grid : MonoBehaviour
         {
             wall.SetCoords(x, y);
         }
-
-        //add some dummy values to the list ----for testing purposes----
-        //affectedBy.Add("UV");
-        //affectedBy.Add("IR");
+        floor = GetComponentInChildren<FloorColour>();
     }
     // Update is called once per frame
     void Update()
@@ -69,10 +65,9 @@ public class grid : MonoBehaviour
             //this sends the show wall function true if its type is not found in the list, and false if it is found
             wall.ShowWall(!affectedBy.Contains(wall.WallType));
         }
-
+        floor.ChangeFloorColour(affectedBy);
     }
-
-
+    
     //gets for x and y so that walls and beacons can set their coords
     public int XCoord
     {
