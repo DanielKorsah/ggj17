@@ -29,6 +29,15 @@ public class Beacon : MonoBehaviour
     //this beacons sprite renderer
     SpriteRenderer sprite;
 
+    [SerializeField]
+    private Sprite spriteNormal;
+    [SerializeField]
+    private Sprite spriteLine;
+    [SerializeField]
+    private Sprite spriteArea;
+    [SerializeField]
+    private Sprite spriteOffset;
+
     private bool playerOn = false;
 
     // Use this for initialization
@@ -112,11 +121,12 @@ public class Beacon : MonoBehaviour
         this.y = y;
     }
 
-    //methods required to change the power up/rotation and the emission type
+    //methods required to change the power up/rotation
     private void beaconChange()
     {
         emitted();
         getAffectedGrids();
+        changeSpriteAppearance();
         emitting();
     }
 
@@ -364,6 +374,52 @@ public class Beacon : MonoBehaviour
                 sprite.color = Color.magenta;
                 break;
 
+            default:
+                break;
+        }
+    }
+
+    private void changeSpriteAppearance()
+    {
+        switch (upgrade)
+        {
+            case (0):
+                sprite.sprite = spriteNormal;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                break;
+            case (1):
+                sprite.sprite = spriteLine;
+                changeSpriteRotation();
+                break;
+            case (2):
+                sprite.sprite = spriteArea;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                break;
+            case (3):
+                sprite.sprite = spriteOffset;
+                changeSpriteRotation();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void changeSpriteRotation()
+    {
+        switch (rot)
+        {
+            case (0):
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                break;
+            case (1):
+                transform.rotation = Quaternion.Euler(0, 0, -90);
+                break;
+            case (2):
+                transform.rotation = Quaternion.Euler(0, 0, -180);
+                break;
+            case (3):
+                transform.rotation = Quaternion.Euler(0, 0, -270);
+                break;
             default:
                 break;
         }
