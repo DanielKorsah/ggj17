@@ -41,7 +41,7 @@ public class Beacon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerOn)
+        if (playerOn)
         {
             if (Input.GetKeyDown("1"))
             {
@@ -125,8 +125,8 @@ public class Beacon : MonoBehaviour
     {
         emitted();
         rotateEmission();
-        emitting();
         changeSpriteColour();
+        emitting();
     }
 
     //set the emission type to be next in the cycle
@@ -332,7 +332,6 @@ public class Beacon : MonoBehaviour
     {
         foreach (grid grid in affecting)
         {
-            Debug.Log("emitted: " + emissionType);
             grid.OldAffector(emissionType);
             grid.ChangeWalls();
         }
@@ -343,7 +342,6 @@ public class Beacon : MonoBehaviour
     {
         foreach (grid grid in affecting)
         {
-            Debug.Log("emitting: " + emissionType);
             grid.NewAffector(emissionType);
             grid.ChangeWalls();
         }
