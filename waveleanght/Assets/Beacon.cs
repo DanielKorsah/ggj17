@@ -39,7 +39,6 @@ public class Beacon : MonoBehaviour
     private Sprite spriteOffset;
 
     private bool playerOn = false;
-    Inventory playerInventory;
 
     // Use this for initialization
     void Start()
@@ -53,48 +52,27 @@ public class Beacon : MonoBehaviour
     {
         if (playerOn)
         {
-            // Logic for adding or removing upgrades
             if (Input.GetKeyDown("1"))
             {
-                if (upgrade != 1 && playerInventory.FocusPickup > 0)
-                {
-                    returnUpgrade();
-                    upgrade = 1;
-                    playerInventory.SubFocusPickup();
-                    beaconChange();
-                }
+                upgrade = 1;
+                beaconChange();
             }
-            if (Input.GetKeyDown("2") && playerInventory.BoostPickup > 0)
+            if (Input.GetKeyDown("2"))
             {
-                if (upgrade != 2)
-                {
-                    returnUpgrade();
-                    upgrade = 2;
-                    playerInventory.SubBoostPickup();
-                    beaconChange();
-                }
+                upgrade = 2;
+                beaconChange();
             }
-            if (Input.GetKeyDown("3") && playerInventory.ProjectPickup > 0)
+            if (Input.GetKeyDown("3"))
             {
-                if (upgrade != 3)
-                {
-                    returnUpgrade();
-                    upgrade = 3;
-                    playerInventory.SubProjectPickup();
-                    beaconChange();
-                }
+                upgrade = 3;
+                beaconChange();
             }
             if (Input.GetKeyDown("0"))
             {
-                if (upgrade != 0)
-                {
-                    returnUpgrade();
-                    upgrade = 0;
-                    beaconChange();
-                }
+                upgrade = 0;
+                beaconChange();
             }
 
-            // Logic for changing the rotation of a beacon
             if (Input.GetKeyDown("i"))
             {
                 rot = 0;
@@ -116,7 +94,6 @@ public class Beacon : MonoBehaviour
                 beaconChange();
             }
 
-            // Change the beacon's output colour
             if (Input.GetKeyDown("e"))
             {
                 emissionChange();
@@ -135,7 +112,6 @@ public class Beacon : MonoBehaviour
         emitting();
 
         changeSpriteColour();
-        changeSpriteAppearance();
     }
 
     //set the beacons coordinates
@@ -403,7 +379,6 @@ public class Beacon : MonoBehaviour
         }
     }
 
-    //change the sprite of a beacon
     private void changeSpriteAppearance()
     {
         switch (upgrade)
@@ -429,7 +404,6 @@ public class Beacon : MonoBehaviour
         }
     }
 
-    //change the rotation of a beacon
     private void changeSpriteRotation()
     {
         switch (rot)
@@ -451,32 +425,12 @@ public class Beacon : MonoBehaviour
         }
     }
 
-    //return an upgrade to the player
-    private void returnUpgrade()
-    {
-        switch (upgrade)
-        {
-            case (1):
-                playerInventory.AddFocusPickup();
-                break;
-            case (2):
-                playerInventory.AddBoostPickup();
-                break;
-            case (3):
-                playerInventory.AddProjectPickup();
-                break;
-            default:
-                break;
-        }
-    }
-
     //when the player walks on to the collider, set playerOn to true
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             playerOn = true;
-            playerInventory = other.GetComponent<Inventory>();
         }
     }
 
