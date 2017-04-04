@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{22051CF3-DF8A-B0DE-B7A9-6C69570F910D}</ProjectGuid>
+    <ProjectGuid>{38AC339E-7F9B-FC03-B47F-ECE1B32BB10D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -75,7 +75,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Beacon.cs" />
     <Compile Include="Assets\DisappearingWalls.cs" />
+    <Compile Include="Assets\FloorColour.cs" />
     <Compile Include="Assets\Scripts\EndPortal.cs" />
     <Compile Include="Assets\Scripts\ModAudio.cs" />
     <Compile Include="Assets\Scripts\PlayScript.cs" />
@@ -90,12 +92,11 @@
     <Compile Include="Assets\Scripts\UI\DialTurn.cs" />
     <Compile Include="Assets\Scripts\UI\TimeLimit.cs" />
     <Compile Include="Assets\Scripts\UI\Wave.cs" />
-    <Compile Include="Assets\Scripts\Walls%26Transmitters\Transmitter.cs" />
-    <Compile Include="Assets\Scripts\Walls%26Transmitters\TransmitterAudio.cs" />
-    <Compile Include="Assets\Scripts\Walls%26Transmitters\WallState.cs" />
+    <Compile Include="Assets\Scripts\Walls&amp;Transmitters\Transmitter.cs" />
+    <Compile Include="Assets\Scripts\Walls&amp;Transmitters\TransmitterAudio.cs" />
+    <Compile Include="Assets\Scripts\Walls&amp;Transmitters\WallState.cs" />
     <Compile Include="Assets\ToMenu.cs" />
     <Compile Include="Assets\grid.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

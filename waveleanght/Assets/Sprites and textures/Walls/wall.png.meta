@@ -1,10 +1,10 @@
 fileFormatVersion: 2
 guid: ff065acee9055b342b5e14a5ff3185d2
-timeCreated: 1484998024
+timeCreated: 1485255836
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wALL Middle (1)_0
+    21300000: wall
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -71,7 +71,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wALL Middle (1)_0
+      name: wall
       rect:
         serializedVersion: 2
         x: 13
