@@ -42,6 +42,9 @@ public class PlayScript : MonoBehaviour
                 else if (gameObject.name.Equals("quit"))
                 {
                     Application.Quit();
+#if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+#endif
                 }
             }
             else

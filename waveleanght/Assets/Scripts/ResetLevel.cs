@@ -24,7 +24,7 @@ public class ResetLevel : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.R))
         {
-            if ((Time.time - downTime) >=2)
+            if ((Time.time - downTime) >=1)
             {
                 string levelName = SceneManager.GetActiveScene().name;
                 SceneManager.LoadScene(levelName, LoadSceneMode.Single);
@@ -44,6 +44,9 @@ public class ResetLevel : MonoBehaviour {
             {
                 statik.enabled = true;
                 Application.Quit();
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#endif
             }
         }
 
