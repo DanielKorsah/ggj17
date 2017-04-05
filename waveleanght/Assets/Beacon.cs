@@ -6,6 +6,7 @@ public class Beacon : MonoBehaviour
 {
 
     [SerializeField]
+    private string startEmissionType;
     private string emissionType;
 
     //the status of the beacon's upgrades
@@ -46,6 +47,7 @@ public class Beacon : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         parentG = GetComponentInParent<grid>();
+        emissionType = startEmissionType;
     }
 
     // Update is called once per frame
