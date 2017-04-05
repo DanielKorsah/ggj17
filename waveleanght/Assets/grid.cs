@@ -35,7 +35,7 @@ public class grid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time == Time.deltaTime)
+        if (Time.deltaTime == Time.timeSinceLevelLoad)
         {
             //display walls appropriately on level start 
             foreach (Beacon beacon in beacons)
@@ -67,7 +67,7 @@ public class grid : MonoBehaviour
         }
         floor.ChangeFloorColour(affectedBy);
     }
-    
+
     //gets for x and y so that walls and beacons can set their coords
     public int XCoord
     {
