@@ -574,6 +574,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 4.8435855
       objectReference: {fileID: 0}
+    - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
+        type: 2}
+      propertyPath: startEmissionType
+      value: IR
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
   m_IsPrefabParent: 0
@@ -715,6 +720,11 @@ Prefab:
     - target: {fileID: 4528877512284436, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
       propertyPath: m_LocalScale.z
       value: 4.843584
+      objectReference: {fileID: 0}
+    - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
+        type: 2}
+      propertyPath: startEmissionType
+      value: UV
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
@@ -2448,6 +2458,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 4.843585
       objectReference: {fileID: 0}
+    - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
+        type: 2}
+      propertyPath: startEmissionType
+      value: IR
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
   m_IsPrefabParent: 0
@@ -2979,6 +2994,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 4.8435855
       objectReference: {fileID: 0}
+    - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
+        type: 2}
+      propertyPath: startEmissionType
+      value: UV
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
   m_IsPrefabParent: 0
@@ -3158,6 +3178,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114247937803535982, guid: e09619f1c664e5847a10c5e95eca5e37,
+        type: 2}
+      propertyPath: SceneName
+      value: theEnd
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e09619f1c664e5847a10c5e95eca5e37, type: 2}
   m_IsPrefabParent: 0
@@ -3280,6 +3305,11 @@ Prefab:
     - target: {fileID: 4528877512284436, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
       propertyPath: m_LocalScale.z
       value: 4.8435855
+      objectReference: {fileID: 0}
+    - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
+        type: 2}
+      propertyPath: startEmissionType
+      value: V
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
@@ -3859,6 +3889,11 @@ Prefab:
     - target: {fileID: 4528877512284436, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
       propertyPath: m_LocalScale.z
       value: 4.8435855
+      objectReference: {fileID: 0}
+    - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
+        type: 2}
+      propertyPath: startEmissionType
+      value: UV
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
@@ -4608,6 +4643,11 @@ Prefab:
     - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
         type: 2}
       propertyPath: emissionType
+      value: V
+      objectReference: {fileID: 0}
+    - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
+        type: 2}
+      propertyPath: startEmissionType
       value: V
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7248,6 +7288,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 4.8435855
       objectReference: {fileID: 0}
+    - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
+        type: 2}
+      propertyPath: startEmissionType
+      value: UV
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
   m_IsPrefabParent: 0
@@ -8842,6 +8887,11 @@ Prefab:
     - target: {fileID: 4528877512284436, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
       propertyPath: m_LocalScale.z
       value: 4.8435855
+      objectReference: {fileID: 0}
+    - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
+        type: 2}
+      propertyPath: startEmissionType
+      value: UV
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
