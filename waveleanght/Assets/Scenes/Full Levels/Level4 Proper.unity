@@ -577,7 +577,7 @@ Prefab:
     - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
         type: 2}
       propertyPath: startEmissionType
-      value: IR
+      value: UV
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
@@ -724,7 +724,7 @@ Prefab:
     - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
         type: 2}
       propertyPath: startEmissionType
-      value: UV
+      value: IR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
