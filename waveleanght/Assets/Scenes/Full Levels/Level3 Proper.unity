@@ -9444,7 +9444,7 @@ Prefab:
     - target: {fileID: 114009115094944592, guid: da46e6d442f97b34bb085eed7c1cf5c6,
         type: 2}
       propertyPath: startEmissionType
-      value: V
+      value: IR
       objectReference: {fileID: 0}
     - target: {fileID: 4528877512284436, guid: da46e6d442f97b34bb085eed7c1cf5c6, type: 2}
       propertyPath: m_LocalScale.x
