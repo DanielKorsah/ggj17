@@ -20,7 +20,6 @@ public class SceneTransition : MonoBehaviour {
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<AudioSource>().enabled = true;
-            Debug.Log("Triggered");
 
         }
 		

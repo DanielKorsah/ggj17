@@ -7,7 +7,6 @@ public class EndPortal : MonoBehaviour
 {
 
     private bool contact = false;
-    bool decrement = false;
     float timer = 1f;
 
     [SerializeField]
