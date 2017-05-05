@@ -24,7 +24,7 @@ public class PersistenceLogger : MonoBehaviour
         }
     }
 
-    void HighScore()
+    public void HighScore()
     {
         float timer = GameObject.Find("Timer").GetComponent<TimeLimit>().time;
 

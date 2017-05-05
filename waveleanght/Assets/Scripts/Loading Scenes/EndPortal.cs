@@ -7,7 +7,9 @@ public class EndPortal : MonoBehaviour
 {
 
     private bool contact = false;
+    bool logged = false;
     float timer = 1f;
+    
 
     [SerializeField]
     public string SceneName;
@@ -23,6 +25,14 @@ public class EndPortal : MonoBehaviour
     {
         if(contact == true)
         {
+
+            //run the HighScore method on the persistence manager
+            if (!logged)
+            {
+                gameObject.GetComponent<PersistenceLogger>().HighScore();
+                logged = true;
+            }
+
             timer -= Time.deltaTime;
             if(timer <= 0)
             {
