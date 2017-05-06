@@ -18,10 +18,10 @@ public class PersistenceLogger : MonoBehaviour
 
     void OnDestroy()
     {
-        if (gameObject.name == "EndPortal")
-        {
-            HighScore();
-        }
+        //if (gameObject.name == "EndPortal")
+        //{
+        //    HighScore();
+        //}
     }
 
     public void HighScore()
@@ -58,12 +58,12 @@ public class PersistenceLogger : MonoBehaviour
             if (ct.t < ct_read.t)
             {
                 File.WriteAllText(hs_path, ct_write);
-                Debug.Log("New Highscore: " + ct.t + " seconds");
+                Debug.Log("New Highscore: " + scene + " in "+ ct.t + " seconds");
             }
             else
             {
 
-                Debug.Log("Too slow: " + ct.t + " seconds");
+                Debug.Log("Too slow: " + scene + " in "+ ct.t + " seconds");
             }
         }
     }

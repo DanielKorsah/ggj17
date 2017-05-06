@@ -25,14 +25,7 @@ public class EndPortal : MonoBehaviour
     {
         if(contact == true)
         {
-
-            //run the HighScore method on the persistence manager
-            if (!logged)
-            {
-                gameObject.GetComponent<PersistenceLogger>().HighScore();
-                logged = true;
-            }
-
+            
             timer -= Time.deltaTime;
             if(timer <= 0)
             {
@@ -44,5 +37,12 @@ public class EndPortal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         contact = true;
+
+        //run the HighScore method on the persistence manager
+        if (!logged)
+        {
+            gameObject.GetComponent<PersistenceLogger>().HighScore();
+            logged = true;
+        }
     }
 }
