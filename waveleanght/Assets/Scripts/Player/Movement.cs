@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Movement : MonoBehaviour {
+public class Movement : MonoBehaviour
+{
 
     //vertical and horizontal acceleration numbers
     private float horizontal = 0;
@@ -18,16 +19,17 @@ public class Movement : MonoBehaviour {
     private Image irImage;
     private Image vImage;
     private Image uvImage;
+    private Wave waveSpawner;
 
     private List<string> affectedBy = new List<string>();
 
-    private List<Component> tranmitters = new List<Component> ();
+    private List<Component> tranmitters = new List<Component>();
     float minDist = 999999999.0f;
 
     private float maxMag;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         foreach (GameObject t in GameObject.FindGameObjectsWithTag("Transmitter"))
         {
@@ -37,38 +39,39 @@ public class Movement : MonoBehaviour {
         irImage = GameObject.Find("IR light").GetComponent<Image>();
         uvImage = GameObject.Find("UV light").GetComponent<Image>();
         vImage = GameObject.Find("V light").GetComponent<Image>();
+        waveSpawner = GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-      //  int frq;
+        //  int frq;
 
 
         // adjust waveform
-   //     frq = closest().GetComponent<Transmitter>().i;
-      //  GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frequency = 1.0f + frq * 1.25f;
-/*
+        //     frq = closest().GetComponent<Transmitter>().i;
+        //  GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frequency = 1.0f + frq * 1.25f;
+        /*
 
-        switch (frq)
-        {
-            case 0:
-                // IR
-                break;
-            case 1:
-                // V
-                break;
-            default:
-                //UV
-                break;
-        }
+                switch (frq)
+                {
+                    case 0:
+                        // IR
+                        break;
+                    case 1:
+                        // V
+                        break;
+                    default:
+                        //UV
+                        break;
+                }
 
-*/
+        */
 
         maxMag = speed * Time.deltaTime;
-        trans = new Vector3(0.0f,0.0f,0.0f);
+        trans = new Vector3(0.0f, 0.0f, 0.0f);
         //move up
-		if (Input.GetKey("w"))
+        if (Input.GetKey("w"))
         {
             if (Vertical < 0)
             {
@@ -94,7 +97,7 @@ public class Movement : MonoBehaviour {
             {
                 Horizontal = 0;
             }
-            Horizontal -= Time.deltaTime/acceleration;
+            Horizontal -= Time.deltaTime / acceleration;
             trans += new Vector3(speed * horizontal, 0.0f, 0.0f) * Time.deltaTime;
         }
         //move right
@@ -104,12 +107,12 @@ public class Movement : MonoBehaviour {
             {
                 Horizontal = 0;
             }
-            Horizontal += Time.deltaTime/acceleration;
+            Horizontal += Time.deltaTime / acceleration;
             trans += new Vector3(speed * horizontal, 0.0f, 0.0f) * Time.deltaTime;
         }
 
         //normalise?
-        if (trans.sqrMagnitude > maxMag*maxMag)
+        if (trans.sqrMagnitude > maxMag * maxMag)
         {
             trans = trans.normalized * maxMag;
         }
@@ -172,7 +175,7 @@ public class Movement : MonoBehaviour {
             GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frqc = frqc;
         }*/
     }
-    
+
     public void AddAffectors(List<string> newAffectors)
     {
         foreach (string wave in newAffectors)
@@ -184,7 +187,7 @@ public class Movement : MonoBehaviour {
 
     public void RemoveAffectors(List<string> oldAffectors)
     {
-        foreach(string wave in oldAffectors)
+        foreach (string wave in oldAffectors)
         {
             affectedBy.Remove(wave);
         }
@@ -220,7 +223,45 @@ public class Movement : MonoBehaviour {
         {
             uvImage.enabled = false;
         }
+        TalkToWave();
     }
+
+    private void TalkToWave()
+    {
+        if (affectedBy.Contains("IR") && affectedBy.Contains("V") && affectedBy.Contains("UV"))
+        {
+            waveSpawner.frqc = 7;
+        }
+        else if (affectedBy.Contains("V") && affectedBy.Contains("UV"))
+        {
+            waveSpawner.frqc = 6;
+        }
+        else if (affectedBy.Contains("IR") && affectedBy.Contains("UV"))
+        {
+            waveSpawner.frqc = 5;
+        }
+        else if (affectedBy.Contains("IR") && affectedBy.Contains("V"))
+        {
+            waveSpawner.frqc = 4;
+        }
+        else if (affectedBy.Contains("UV"))
+        {
+            waveSpawner.frqc = 3;
+        }
+        else if (affectedBy.Contains("V"))
+        {
+            waveSpawner.frqc = 2;
+        }
+        else if (affectedBy.Contains("IR"))
+        {
+            waveSpawner.frqc = 1;
+        }
+        else
+        {
+            waveSpawner.frqc = 0;
+        }
+    }
+
 
     private float Horizontal
     {
@@ -245,7 +286,7 @@ public class Movement : MonoBehaviour {
         }
     }
 
-    private GameObject Closest ()
+    private GameObject Closest()
     {
         GameObject closestTrans = tranmitters[0].gameObject;
         minDist = 9999999.0f;
