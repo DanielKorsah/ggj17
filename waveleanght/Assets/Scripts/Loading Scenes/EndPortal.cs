@@ -12,7 +12,10 @@ public class EndPortal : MonoBehaviour
     
 
     [SerializeField]
-    public string SceneName;
+    public string NextScene;
+    string thisScene; 
+
+
 
     public bool Contact
     {
@@ -20,6 +23,11 @@ public class EndPortal : MonoBehaviour
         set { contact = value; }
     }
 
+    public void Start()
+    {
+        thisScene = SceneManager.GetActiveScene().name;
+        Debug.Log("this scene = " + thisScene);
+    }
 
     private void Update()
     {
@@ -29,20 +37,26 @@ public class EndPortal : MonoBehaviour
             timer -= Time.deltaTime;
             if(timer <= 0)
             {
-                SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
+                SceneManager.LoadScene(NextScene, LoadSceneMode.Single);
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        contact = true;
+        
 
-        //run the HighScore method on the persistence manager
-        if (!logged)
+        //check we're in an actual level
+        if (!logged && thisScene != "Main Menu" && thisScene != "Hub Scene" 
+            && thisScene != "Instruct" && thisScene != "theEnd")
         {
+
+            //run the HighScore method on the persistence manager
             gameObject.GetComponent<PersistenceLogger>().HighScore();
             logged = true;
         }
+
+        contact = true;
+
     }
 }

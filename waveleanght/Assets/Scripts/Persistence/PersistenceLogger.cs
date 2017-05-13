@@ -7,28 +7,25 @@ using System.IO;
 
 public class PersistenceLogger : MonoBehaviour
 {
-
+    public string scene;
 
     void Start()
     {
-        Debug.Log("It triggered");
-        Progress();
-        Debug.Log("It ran");
+        scene = SceneManager.GetActiveScene().name;
+        if (scene != "Main Menu" && scene != "Hub Scene"
+            && scene != "Instruct" && scene != "theEnd")
+        {
+            Progress();
+        }
+        
     }
 
-    void OnDestroy()
-    {
-        //if (gameObject.name == "EndPortal")
-        //{
-        //    HighScore();
-        //}
-    }
 
     public void HighScore()
     {
         float timer = GameObject.Find("Timer").GetComponent<TimeLimit>().time;
 
-        string scene = SceneManager.GetActiveScene().name;
+        
         string ct_write;
         string hs_file = scene + "_HighScore.Json";
         string hs_path = Path.Combine(Application.streamingAssetsPath, hs_file);
@@ -71,7 +68,7 @@ public class PersistenceLogger : MonoBehaviour
 
     void Progress()
     {
-        CurrentLevel level = new CurrentLevel();
+        Level level = new Level();
 
         level.name = SceneManager.GetActiveScene().name;
 
@@ -104,7 +101,7 @@ public class CompletionTime
 }
 
 [Serializable]
-public class CurrentLevel
+public class Level
 {
     public string name;
 }

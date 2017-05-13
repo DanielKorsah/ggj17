@@ -33,7 +33,7 @@ public class PlayScript : MonoBehaviour
             {
                 if (gameObject.name.Equals("play"))
                 {
-                    SceneManager.LoadScene("Level Proper", LoadSceneMode.Single);
+                    SceneManager.LoadScene("Hub Scene", LoadSceneMode.Single);
                 }
                 else if (gameObject.name.Equals("instruct"))
                 {
