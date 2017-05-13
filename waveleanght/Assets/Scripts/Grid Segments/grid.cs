@@ -68,6 +68,12 @@ public class grid : MonoBehaviour
         floor.ChangeFloorColour(affectedBy);
     }
 
+    //return list of wavelengths on tile
+    public List<string> AffectedBy
+    {
+        get { return affectedBy; }
+    }
+
     //gets for x and y so that walls and beacons can set their coords
     public int XCoord
     {

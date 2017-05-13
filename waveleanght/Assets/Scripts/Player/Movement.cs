@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour {
     private Image vImage;
     private Image uvImage;
 
+    private List<string> affectedBy = new List<string>();
+
     private List<Component> tranmitters = new List<Component> ();
     float minDist = 999999999.0f;
 
@@ -61,8 +63,6 @@ public class Movement : MonoBehaviour {
         }
 
 */
-
-        
 
         maxMag = speed * Time.deltaTime;
         trans = new Vector3(0.0f,0.0f,0.0f);
@@ -116,9 +116,18 @@ public class Movement : MonoBehaviour {
         transform.position += trans;
     }
 
-
-
-
+    // On entering square update ui
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Grid"))
+        {
+            foreach (string wave in collision.GetComponent<grid>().AffectedBy)
+            {
+                affectedBy.Add(wave);
+            }
+            ChangeUILights();
+        }
+    }
 
     // On entering next grid send waveform seed
     private void OnTriggerStay2D(Collider2D collision)
@@ -127,7 +136,6 @@ public class Movement : MonoBehaviour {
         {
             int frqc;
             frqc = collision.gameObject.GetComponent<Sectors>().getFrqCodes();
-
             switch (frqc)
             {
                 case 0:
@@ -176,11 +184,49 @@ public class Movement : MonoBehaviour {
         }
     }
 
+    // On exiting square update ui
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Grid"))
+        {
+            foreach (string wave in collision.GetComponent<grid>().AffectedBy)
+            {
+                affectedBy.Remove(wave);
+            }
+            ChangeUILights();
+        }
+    }
 
+    // Change which lights are lit up on UI
+    public void ChangeUILights ()
+    {
+        if (affectedBy.Contains("IR"))
+        {
+            irImage.enabled = true;
+        }
+        else
+        {
+            irImage.enabled = false;
+        }
 
+        if (affectedBy.Contains("V"))
+        {
+            vImage.enabled = true;
+        }
+        else
+        {
+            vImage.enabled = false;
+        }
 
-
-
+        if (affectedBy.Contains("UV"))
+        {
+            uvImage.enabled = true;
+        }
+        else
+        {
+            uvImage.enabled = false;
+        }
+    }
 
     private float Horizontal
     {
@@ -205,22 +251,16 @@ public class Movement : MonoBehaviour {
         }
     }
 
-
-
-
-    private GameObject closest ()
+    private GameObject Closest ()
     {
-        GameObject tmp = tranmitters[0].gameObject;
+        GameObject closestTrans = tranmitters[0].gameObject;
         minDist = 9999999.0f;
         foreach (Component t in tranmitters)
             if (Vector3.Distance(gameObject.transform.position, t.gameObject.transform.position) < minDist)
             {
                 minDist = Vector3.Distance(gameObject.transform.position, t.gameObject.transform.position);
-                tmp = t.gameObject;
+                closestTrans = t.gameObject;
             }
-        return tmp;
+        return closestTrans;
     }
-
-
-
 }
