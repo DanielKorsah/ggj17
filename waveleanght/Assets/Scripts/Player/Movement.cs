@@ -33,6 +33,7 @@ public class Movement : MonoBehaviour {
         {
             tranmitters.Add(t.GetComponent<Transform>());
         }
+
         irImage = GameObject.Find("IR light").GetComponent<Image>();
         uvImage = GameObject.Find("UV light").GetComponent<Image>();
         vImage = GameObject.Find("V light").GetComponent<Image>();
@@ -116,19 +117,6 @@ public class Movement : MonoBehaviour {
         transform.position += trans;
     }
 
-    // On entering square update ui
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag.Equals("Grid"))
-        {
-            foreach (string wave in collision.GetComponent<grid>().AffectedBy)
-            {
-                affectedBy.Add(wave);
-            }
-            ChangeUILights();
-        }
-    }
-
     // On entering next grid send waveform seed
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -184,22 +172,27 @@ public class Movement : MonoBehaviour {
             GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frqc = frqc;
         }*/
     }
-
-    // On exiting square update ui
-    private void OnTriggerExit2D(Collider2D collision)
+    
+    public void AddAffectors(List<string> newAffectors)
     {
-        if (collision.gameObject.tag.Equals("Grid"))
+        foreach (string wave in newAffectors)
         {
-            foreach (string wave in collision.GetComponent<grid>().AffectedBy)
-            {
-                affectedBy.Remove(wave);
-            }
-            ChangeUILights();
+            affectedBy.Add(wave);
         }
+        ChangeUILights();
+    }
+
+    public void RemoveAffectors(List<string> oldAffectors)
+    {
+        foreach(string wave in oldAffectors)
+        {
+            affectedBy.Remove(wave);
+        }
+        ChangeUILights();
     }
 
     // Change which lights are lit up on UI
-    public void ChangeUILights ()
+    public void ChangeUILights()
     {
         if (affectedBy.Contains("IR"))
         {
@@ -227,17 +220,6 @@ public class Movement : MonoBehaviour {
         {
             uvImage.enabled = false;
         }
-    }
-
-    public void AddAffectedBy(string wave)
-    {
-        affectedBy.Add(wave);
-        ChangeUILights();
-    }
-
-    public void SubAffectedBy(string wave)
-    {
-        affectedBy.Remove(wave);
     }
 
     private float Horizontal
