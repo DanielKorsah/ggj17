@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Loading Scenes\ResetLevel.cs" />
     <Compile Include="Assets\Scripts\Loading Scenes\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\Loading Scenes\ToMenu.cs" />
+    <Compile Include="Assets\Scripts\Persistence\LoadFromSave.cs" />
     <Compile Include="Assets\Scripts\Persistence\PersistenceLogger.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />
