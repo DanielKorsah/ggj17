@@ -133,9 +133,8 @@ public class Beacon : MonoBehaviour
         this.y = y;
 
         getAffectedGrids();
-
+        
         emitting();
-
         changeSpriteColour();
         changeSpriteAppearance();
     }

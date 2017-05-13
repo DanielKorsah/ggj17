@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class grid : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class grid : MonoBehaviour
     List<DisappearingWalls> walls = new List<DisappearingWalls>();
     List<string> affectedBy = new List<string>();
     FloorColour floor;
+
+    Movement playerMovement = null;
 
     // Use this for initialization
     void Start()
@@ -49,12 +52,20 @@ public class grid : MonoBehaviour
     public void OldAffector(string waveType)
     {
         affectedBy.Remove(waveType);
+        if (playerMovement)
+        {
+            playerMovement.RemoveAffectors(new List<string>() { waveType });
+        }
     }
 
     //add a wave type that affects the tile
     public void NewAffector(string waveType)
     {
         affectedBy.Add(waveType);
+        if (playerMovement)
+        {
+            playerMovement.AddAffectors(new List<string>() { waveType });
+        }
     }
 
     //change the walls shown on this tile
@@ -66,6 +77,12 @@ public class grid : MonoBehaviour
             wall.ShowWall(!affectedBy.Contains(wall.WallType));
         }
         floor.ChangeFloorColour(affectedBy);
+    }
+
+    //return list of wavelengths on tile
+    public List<string> AffectedBy
+    {
+        get { return affectedBy; }
     }
 
     //gets for x and y so that walls and beacons can set their coords
@@ -82,6 +99,27 @@ public class grid : MonoBehaviour
         get
         {
             return y;
+        }
+    }
+
+
+    // On entering square update ui
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            playerMovement = collision.GetComponent<Movement>();
+            playerMovement.AddAffectors(affectedBy);
+        }
+    }
+
+    // On exiting square update ui
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            playerMovement.RemoveAffectors(affectedBy);
+            playerMovement = null;
         }
     }
 }
