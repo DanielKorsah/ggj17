@@ -228,6 +228,17 @@ public class Movement : MonoBehaviour {
         }
     }
 
+    public void AddAffectedBy(string wave)
+    {
+        affectedBy.Add(wave);
+        ChangeUILights();
+    }
+
+    public void SubAffectedBy(string wave)
+    {
+        affectedBy.Remove(wave);
+    }
+
     private float Horizontal
     {
         get

@@ -41,6 +41,7 @@ public class Beacon : MonoBehaviour
 
     private bool playerOn = false;
     Inventory playerInventory;
+    Movement playerMovement;
 
     // Use this for initialization
     void Start()
@@ -371,6 +372,10 @@ public class Beacon : MonoBehaviour
             grid.OldAffector(emissionType);
             grid.ChangeWalls();
         }
+        if (upgrade != 3)
+        {
+            playerMovement.SubAffectedBy(emissionType);
+        }
     }
 
     //tell the grids what to block instead
@@ -380,6 +385,10 @@ public class Beacon : MonoBehaviour
         {
             grid.NewAffector(emissionType);
             grid.ChangeWalls();
+        }
+        if (upgrade != 3)
+        {
+            playerMovement.AddAffectedBy(emissionType);
         }
     }
 
@@ -479,6 +488,7 @@ public class Beacon : MonoBehaviour
         {
             playerOn = true;
             playerInventory = other.GetComponent<Inventory>();
+            playerMovement = other.GetComponent<Movement>();
         }
     }
 
