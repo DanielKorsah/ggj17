@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.IO;
 
-public class EndPortal : MonoBehaviour
+public class LoadFromSave : MonoBehaviour
 {
 
     private bool contact = false;
     bool logged = false;
     float timer = 1f;
+    string save_path;
 
-
-    [SerializeField]
-    public string NextScene;
-    string thisScene = SceneManager.GetActiveScene().name;
-
+    
+    public string nextScene;
 
     public bool Contact
     {
@@ -23,6 +23,10 @@ public class EndPortal : MonoBehaviour
     }
 
 
+    void Start()
+    {
+        save_path = Application.streamingAssetsPath + "/SaveFile.Json";
+    }
     private void Update()
     {
         if (contact == true)
@@ -31,21 +35,38 @@ public class EndPortal : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                SceneManager.LoadScene(NextScene, LoadSceneMode.Single);
+                SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        contact = true;
+        
 
-        //check we're in an actual level
-        if (!logged && thisScene != "Main Menu" && thisScene != "Hub Scene"
-            && thisScene != "Instruct" && thisScene != "theEnd")
+        if(File.Exists(save_path))
         {
-
-            //run the HighScore method on the persistence manager
-            gameObject.GetComponent<PersistenceLogger>().HighScore();
-            logged = true;
+            ReadSave();
         }
+        else
+        {
+            nextScene = "tut2";
+            Debug.Log(save_path);
+        }
+
+
+        contact = true;
+    }
+
+
+    string ReadSave()
+    {
+        Level level = new Level();
+        string lvl_as_text = File.ReadAllText(save_path);
+        level = JsonUtility.FromJson<Level>(lvl_as_text);
+
+        nextScene = level.name;
+        return nextScene;
+    }
+
+}

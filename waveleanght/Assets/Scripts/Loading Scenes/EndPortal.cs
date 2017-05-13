@@ -13,7 +13,8 @@ public class EndPortal : MonoBehaviour
 
     [SerializeField]
     public string NextScene;
-    string thisScene = SceneManager.GetActiveScene().name;
+    string thisScene; 
+
 
 
     public bool Contact
@@ -22,6 +23,11 @@ public class EndPortal : MonoBehaviour
         set { contact = value; }
     }
 
+    public void Start()
+    {
+        thisScene = SceneManager.GetActiveScene().name;
+        Debug.Log("this scene = " + thisScene);
+    }
 
     private void Update()
     {
@@ -38,7 +44,7 @@ public class EndPortal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        contact = true;
+        
 
         //check we're in an actual level
         if (!logged && thisScene != "Main Menu" && thisScene != "Hub Scene" 
@@ -49,5 +55,8 @@ public class EndPortal : MonoBehaviour
             gameObject.GetComponent<PersistenceLogger>().HighScore();
             logged = true;
         }
+
+        contact = true;
+
     }
 }
