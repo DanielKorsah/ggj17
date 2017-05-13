@@ -132,6 +132,7 @@ public class Movement : MonoBehaviour {
     // On entering next grid send waveform seed
     private void OnTriggerStay2D(Collider2D collision)
     {
+        /*
         if (collision.gameObject.tag.Equals("Grid"))
         {
             int frqc;
@@ -181,7 +182,7 @@ public class Movement : MonoBehaviour {
             }
 
             GameObject.FindGameObjectWithTag("WaveSpawn").GetComponent<Wave>().frqc = frqc;
-        }
+        }*/
     }
 
     // On exiting square update ui

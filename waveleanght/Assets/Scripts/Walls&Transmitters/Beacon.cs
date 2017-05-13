@@ -134,9 +134,8 @@ public class Beacon : MonoBehaviour
         this.y = y;
 
         getAffectedGrids();
-
+        
         emitting();
-
         changeSpriteColour();
         changeSpriteAppearance();
     }
@@ -372,7 +371,7 @@ public class Beacon : MonoBehaviour
             grid.OldAffector(emissionType);
             grid.ChangeWalls();
         }
-        if (upgrade != 3)
+        if (playerOn && upgrade != 3)
         {
             playerMovement.SubAffectedBy(emissionType);
         }
@@ -386,7 +385,7 @@ public class Beacon : MonoBehaviour
             grid.NewAffector(emissionType);
             grid.ChangeWalls();
         }
-        if (upgrade != 3)
+        if (playerOn && upgrade != 3)
         {
             playerMovement.AddAffectedBy(emissionType);
         }
