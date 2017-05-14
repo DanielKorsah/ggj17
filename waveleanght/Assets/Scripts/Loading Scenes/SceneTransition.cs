@@ -8,6 +8,7 @@ public class SceneTransition : MonoBehaviour {
     GameObject portal;
     GameObject portal2;
     GameObject portal3;
+    GameObject portal4;
     bool trigger;
 	// Use this for initialization
 	void Start ()
@@ -19,6 +20,7 @@ public class SceneTransition : MonoBehaviour {
         {
             portal2 = GameObject.Find("EndPortal (1)");
             portal3 = GameObject.Find("EndPortal (2)");
+            portal4 = GameObject.Find("EndPortal (3)");
         }
         //trigger = portal.GetComponent<EndPortal>().Contact;
     }
@@ -31,7 +33,8 @@ public class SceneTransition : MonoBehaviour {
 
         if (SceneManager.GetActiveScene().name == "Hub Scene")
         {
-            if (portal.GetComponent<EndPortal>().Contact || portal2.GetComponent<EndPortal>().Contact || portal3.GetComponent<LoadFromSave>().Contact) //For some reason trigger doesn't update whe I try to avoid GetComponent
+            if (portal.GetComponent<EndPortal>().Contact || portal2.GetComponent<EndPortal>().Contact 
+                || portal3.GetComponent<LoadFromSave>().Contact || portal4.GetComponent<EndPortal>().Contact) //For some reason trigger doesn't update whe I try to avoid GetComponent
             {
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 gameObject.GetComponent<AudioSource>().enabled = true;
