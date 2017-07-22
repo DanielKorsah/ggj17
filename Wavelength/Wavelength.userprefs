@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="Wavelength.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Walls&amp;Transmitters\Beacon.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Walls&amp;Transmitters\Beacon.cs" Line="263" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
