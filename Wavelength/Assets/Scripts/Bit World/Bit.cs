@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bit : MonoBehaviour {
 
-    
+    bool[] shortList = new bool[3];
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +18,6 @@ public class Bit : MonoBehaviour {
 
     public void ReceiveShortList(bool[] shortList)
     {
-
+        this.shortList = shortList;
     }
 }
