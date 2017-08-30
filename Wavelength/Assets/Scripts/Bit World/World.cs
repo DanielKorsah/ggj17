@@ -50,4 +50,20 @@ public class World : MonoBehaviour
 
         return adjacents;
     }
+
+    // Adds a grid to grids
+    public void AddGrid(Grid grid, int x, int y)
+    {
+        if (x >= 0 && x < 10 && y >= 0 && y < 10)
+        {
+            if (grids[x, y] == null)
+            {
+                grids[x, y] = grid;
+            }
+            else
+            {
+                throw new System.Exception("Grid already exists.");
+            }
+        }
+    }
 }
