@@ -65,5 +65,9 @@ public class World : MonoBehaviour
                 throw new System.Exception("Grid already exists.");
             }
         }
+        else
+        {
+            throw new System.Exception("Grid out of world bounds.");
+        }
     }
 }
