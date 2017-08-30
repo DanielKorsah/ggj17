@@ -4,29 +4,36 @@ using UnityEngine;
 
 public class Bit : MonoBehaviour
 {
-    World world;
+    protected World world;
+    protected BitWorldSprites spriteSheet;
 
-    BitType bitType;
-    
-    bool[] shortList = new bool[3];
+    protected BitType bitType;
+    protected BitType displayType;
 
-    Vector2 gridPos = new Vector2();
-    Vector2 worldPos = new Vector2();
+    protected bool[] shortList = new bool[3];
 
-    Bit[] neighbours = new Bit[4];
-    WallShape wallShape;
+    protected Vector2 gridPos = new Vector2();
+    protected Vector2 worldPos = new Vector2();
 
-    bool showColour;
+    protected Bit[] neighbours = new Bit[4];
+    protected WallShape wallShape;
+
+    protected bool showColour;
+
+    private void Awake()
+    {
+        displayType = bitType;
+    }
 
     private void Start()
     {
-
         world = FindObjectOfType<World>();
+        spriteSheet = FindObjectOfType<BitWorldSprites>();
         GetNeighbours();
         GetWallType();
     }
 
-    private void GetNeighbours()
+    protected void GetNeighbours()
     {
         // Find adjacent up in adjacent grid
         if (gridPos.y == 9)
@@ -101,7 +108,7 @@ public class Bit : MonoBehaviour
         }
     }
 
-    private void GetWallType()
+    protected void GetWallType()
     {
         bool[] directions = new bool[4];
 
@@ -227,7 +234,7 @@ public class Bit : MonoBehaviour
         }
     }
 
-    private void GetWallTypeString()
+    protected void GetWallTypeString()
     {
         string code = "x";
         // Work out which neighbours are the same type as this bit
@@ -245,5 +252,10 @@ public class Bit : MonoBehaviour
     public void ReceiveShortList(bool[] shortList)
     {
         this.shortList = shortList;
+    }
+
+    protected void UpdateSprite()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetBitSprite(displayType);
     }
 }
