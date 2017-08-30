@@ -5,7 +5,7 @@ using UnityEngine;
 public class World : MonoBehaviour
 {
 
-    public Grid[,] world = new Grid[10, 10];
+    public Grid[,] grids = new Grid[10, 10];
     
     // Get grids adjacent to a given grid
     public Grid[] GetAdjacent(int x, int y)
@@ -14,7 +14,7 @@ public class World : MonoBehaviour
 
         if (y < 9)
         {
-            adjacents[0] = world[x, y + 1];
+            adjacents[0] = grids[x, y + 1];
         }
         else
         {
@@ -23,7 +23,7 @@ public class World : MonoBehaviour
 
         if (x < 9)
         {
-            adjacents[1] = world[x + 1, y];
+            adjacents[1] = grids[x + 1, y];
         }
         else
         {
@@ -32,7 +32,7 @@ public class World : MonoBehaviour
 
         if (y > 0)
         {
-            adjacents[2] = world[x, y - 1];
+            adjacents[2] = grids[x, y - 1];
         }
         else
         {
@@ -41,7 +41,7 @@ public class World : MonoBehaviour
 
         if (x > 0)
         {
-            adjacents[3] = world[x - 1, y];
+            adjacents[3] = grids[x - 1, y];
         }
         else
         {
