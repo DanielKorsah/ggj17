@@ -7,8 +7,10 @@ public class Bit : MonoBehaviour
     protected World world;
     protected BitWorldSprites spriteSheet;
 
-    protected BitType bitType;
-    protected BitType displayType;
+    protected BitType bitType = BitType.Air;
+    public BitType displayType = BitType.Air;
+    protected bool neighbourDependant = false;
+    protected bool showColour = true;
 
     protected bool[] shortList = new bool[3];
 
@@ -18,11 +20,10 @@ public class Bit : MonoBehaviour
     protected Bit[] neighbours = new Bit[4];
     protected WallShape wallShape;
 
-    protected bool showColour;
+    protected Time lastUpdate = null;
 
     private void Awake()
     {
-        displayType = bitType;
     }
 
     private void Start()
@@ -30,7 +31,7 @@ public class Bit : MonoBehaviour
         world = FindObjectOfType<World>();
         spriteSheet = FindObjectOfType<BitWorldSprites>();
         GetNeighbours();
-        GetWallType();
+        GetWallTypeString();
     }
 
     protected void GetNeighbours()
@@ -115,7 +116,7 @@ public class Bit : MonoBehaviour
         // Work out which neighbours are the same type as this bit
         for (int i = 0; i < 4; ++i)
         {
-            if (neighbours[i].bitType == bitType)
+            if (neighbours[i].displayType == displayType)
             {
                 directions[i] = true;
             }
@@ -236,26 +237,56 @@ public class Bit : MonoBehaviour
 
     protected void GetWallTypeString()
     {
-        string code = "x";
-        // Work out which neighbours are the same type as this bit
-        for (int i = 0; i < 4; ++i)
+        if (neighbourDependant)
         {
-            if (neighbours[i].bitType == bitType)
+            string code = "x";
+            // Work out which neighbours are the same type as this bit
+            for (int i = 0; i < 4; ++i)
             {
-                code += (i + 1).ToString();
+                if (neighbours[i].displayType == displayType)
+                {
+                    code += (i + 1).ToString();
+                }
             }
-        }
 
-        wallShape = (WallShape)System.Enum.Parse(typeof(WallShape), code);
+            wallShape = (WallShape)System.Enum.Parse(typeof(WallShape), code);
+        }
     }
 
-    public void ReceiveShortList(bool[] shortList)
+    public void UpdatedByGrid(bool[] shortList)
     {
         this.shortList = shortList;
+
+    }
+
+    protected void UpdateNeighbours()
+    {
+        if (neighbourDependant)
+        {
+            foreach (Bit neighbour in neighbours)
+            {
+                neighbour.UpdatedByNeighbour();
+            }
+        }
+    }
+
+    public void UpdatedByNeighbour()
+    {
+        UpdateWallShape();
+    }
+
+    protected void UpdateWallShape()
+    {
+        GetWallTypeString();
     }
 
     protected void UpdateSprite()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetBitSprite(displayType);
+    }
+
+    protected void DetermineWaveColour()
+    {
+
     }
 }
