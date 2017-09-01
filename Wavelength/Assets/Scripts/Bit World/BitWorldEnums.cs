@@ -1,8 +1,8 @@
 ﻿public enum Wavelength
 {
-    Infrared = 0,
-    Visible = 1,
-    Ultraviolet = 2,
+    I = 0,
+    V = 1,
+    U = 2,
     IV = 3,
     IU = 4,
     VU = 5,
@@ -49,7 +49,7 @@ public enum WaveColour
     IVU = 0xFFFFFF
 };
 
-public enum WallShape
+public enum BitShape
 {
     x0,
     x1,

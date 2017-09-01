@@ -9,6 +9,7 @@ public class Grid : MonoBehaviour
 
     List<Wavelength> affectors = new List<Wavelength>();
     bool[] shortList = new bool[3];
+    Wavelength shortListEnum;
 
     [SerializeField]
     int[] worldPos = new int[2];
@@ -29,38 +30,44 @@ public class Grid : MonoBehaviour
 
     private void MakeShortList()
     {
-        if (affectors.Contains(Wavelength.Infrared)){
-            shortList[(int)Wavelength.Infrared] = true;
+        string sLE = "";
+        if (affectors.Contains(Wavelength.I))
+        {
+            shortList[(int)Wavelength.I] = true;
+            sLE += "I";
         }
         else
         {
-            shortList[(int)Wavelength.Infrared] = false;
+            shortList[(int)Wavelength.I] = false;
         }
 
-        if (affectors.Contains(Wavelength.Visible))
+        if (affectors.Contains(Wavelength.V))
         {
-            shortList[(int)Wavelength.Visible] = true;
+            shortList[(int)Wavelength.V] = true;
+            sLE += "V";
         }
         else
         {
-            shortList[(int)Wavelength.Visible] = false;
+            shortList[(int)Wavelength.V] = false;
         }
 
-        if (affectors.Contains(Wavelength.Ultraviolet))
+        if (affectors.Contains(Wavelength.U))
         {
-            shortList[(int)Wavelength.Ultraviolet] = true;
+            shortList[(int)Wavelength.U] = true;
+            sLE += "U";
         }
         else
         {
-            shortList[(int)Wavelength.Ultraviolet] = false;
+            shortList[(int)Wavelength.U] = false;
         }
+        shortListEnum = (Wavelength)System.Enum.Parse(typeof(Wavelength), sLE);
     }
 
     private void UpdateBits()
     {
         foreach (Bit bit in contents)
         {
-            bit.ReceiveShortList(shortList);
+            bit.UpdatedByGrid(shortList, shortListEnum);
         }
     }
 }

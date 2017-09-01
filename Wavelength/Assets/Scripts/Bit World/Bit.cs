@@ -13,27 +13,24 @@ public class Bit : MonoBehaviour
     protected bool showColour = true;
 
     protected bool[] shortList = new bool[3];
+    protected Wavelength shortListEnum;
 
     protected Vector2 gridPos = new Vector2();
     protected Vector2 worldPos = new Vector2();
 
     protected Bit[] neighbours = new Bit[4];
-    protected WallShape wallShape;
+    protected BitShape wallShape;
 
     protected Time lastUpdate = null;
-
-    private void Awake()
-    {
-    }
 
     private void Start()
     {
         world = FindObjectOfType<World>();
-        spriteSheet = FindObjectOfType<BitWorldSprites>();
+        spriteSheet = BitWorldSprites.Instantiate;
         GetNeighbours();
-        GetWallTypeString();
+        GetBitShapeString();
     }
-
+    // Finds the four orthoganal neighbours to this bit
     protected void GetNeighbours()
     {
         // Find adjacent up in adjacent grid
@@ -108,7 +105,7 @@ public class Bit : MonoBehaviour
             neighbours[(int)Direction.left] = world.grids[(int)worldPos.x, (int)worldPos.y].contents[(int)gridPos.x - 1, (int)gridPos.y];
         }
     }
-
+    // Gets the shape of the bit (badly)
     protected void GetWallType()
     {
         bool[] directions = new bool[4];
@@ -135,22 +132,22 @@ public class Bit : MonoBehaviour
                 {
                     if (directions[(int)Direction.left])
                     {
-                        wallShape = WallShape.x1234;
+                        wallShape = BitShape.x1234;
                     }
                     else
                     {
-                        wallShape = WallShape.x123;
+                        wallShape = BitShape.x123;
                     }
                 }
                 else
                 {
                     if (directions[(int)Direction.left])
                     {
-                        wallShape = WallShape.x124;
+                        wallShape = BitShape.x124;
                     }
                     else
                     {
-                        wallShape = WallShape.x12;
+                        wallShape = BitShape.x12;
                     }
                 }
             }
@@ -160,22 +157,22 @@ public class Bit : MonoBehaviour
                 {
                     if (directions[(int)Direction.left])
                     {
-                        wallShape = WallShape.x134;
+                        wallShape = BitShape.x134;
                     }
                     else
                     {
-                        wallShape = WallShape.x13;
+                        wallShape = BitShape.x13;
                     }
                 }
                 else
                 {
                     if (directions[(int)Direction.left])
                     {
-                        wallShape = WallShape.x14;
+                        wallShape = BitShape.x14;
                     }
                     else
                     {
-                        wallShape = WallShape.x1;
+                        wallShape = BitShape.x1;
                     }
                 }
             }
@@ -188,22 +185,22 @@ public class Bit : MonoBehaviour
                 {
                     if (directions[(int)Direction.left])
                     {
-                        wallShape = WallShape.x234;
+                        wallShape = BitShape.x234;
                     }
                     else
                     {
-                        wallShape = WallShape.x23;
+                        wallShape = BitShape.x23;
                     }
                 }
                 else
                 {
                     if (directions[(int)Direction.left])
                     {
-                        wallShape = WallShape.x24;
+                        wallShape = BitShape.x24;
                     }
                     else
                     {
-                        wallShape = WallShape.x2;
+                        wallShape = BitShape.x2;
                     }
                 }
             }
@@ -213,29 +210,29 @@ public class Bit : MonoBehaviour
                 {
                     if (directions[(int)Direction.left])
                     {
-                        wallShape = WallShape.x34;
+                        wallShape = BitShape.x34;
                     }
                     else
                     {
-                        wallShape = WallShape.x3;
+                        wallShape = BitShape.x3;
                     }
                 }
                 else
                 {
                     if (directions[(int)Direction.left])
                     {
-                        wallShape = WallShape.x4;
+                        wallShape = BitShape.x4;
                     }
                     else
                     {
-                        wallShape = WallShape.x0;
+                        wallShape = BitShape.x0;
                     }
                 }
             }
         }
     }
-
-    protected void GetWallTypeString()
+    // Gets the shape of the bit
+    protected void GetBitShapeString()
     {
         if (neighbourDependant)
         {
@@ -249,16 +246,19 @@ public class Bit : MonoBehaviour
                 }
             }
 
-            wallShape = (WallShape)System.Enum.Parse(typeof(WallShape), code);
+            wallShape = (BitShape)System.Enum.Parse(typeof(BitShape), code);
         }
     }
-
-    public void UpdatedByGrid(bool[] shortList)
+    // For recieving an update from the grid this bit is in
+    public void UpdatedByGrid(bool[] shortList, Wavelength shortListEnum)
     {
         this.shortList = shortList;
-
+        this.shortListEnum = shortListEnum;
+        UpdateSprite();
+        UpdateNeighbours();
+        UpdateBitShape();
     }
-
+    // Prompt for updating neighbours that may need to change their sprite
     protected void UpdateNeighbours()
     {
         if (neighbourDependant)
@@ -269,24 +269,19 @@ public class Bit : MonoBehaviour
             }
         }
     }
-
+    // For recieving an update from a neighbouring bit
     public void UpdatedByNeighbour()
     {
-        UpdateWallShape();
+        UpdateBitShape();
     }
-
-    protected void UpdateWallShape()
+    // Updates the shape of the bit based on surrounding bits
+    protected void UpdateBitShape()
     {
-        GetWallTypeString();
+        GetBitShapeString();
     }
-
+    // Update the sprite colour to match the wavelengths affecting the tile
     protected void UpdateSprite()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetBitSprite(displayType);
-    }
-
-    protected void DetermineWaveColour()
-    {
-
+        gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetAirColourSprites(shortListEnum);
     }
 }
