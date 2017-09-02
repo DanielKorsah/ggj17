@@ -91,4 +91,13 @@ public class World : MonoBehaviour
             throw new System.Exception("Grid out of world bounds. (GameObject)");
         }
     }
+
+    public Grid GetGrid(int x, int y)
+    {
+        if (x >= 0 && x < 10 && y >= 0 && y < 10)
+        {
+            return grids[x, y];
+        }
+        return null;
+    }
 }

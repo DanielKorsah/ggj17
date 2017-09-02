@@ -38,7 +38,7 @@ public class Bit : MonoBehaviour
         {
             try
             {
-                neighbours[(int)Direction.up] = world.grids[(int)worldPos.x, (int)worldPos.y + 1].contents[(int)gridPos.x, 0];
+                neighbours[(int)Direction.up] = world.GetGrid((int)worldPos.x, (int)worldPos.y + 1).GetBit((int)gridPos.x, 0);
             }
             catch
             {
@@ -48,7 +48,7 @@ public class Bit : MonoBehaviour
         // Find adjacent up in same grid
         else
         {
-            neighbours[(int)Direction.up] = world.grids[(int)worldPos.x, (int)worldPos.y].contents[(int)gridPos.x, (int)gridPos.y + 1];
+            neighbours[(int)Direction.up] = world.GetGrid((int)worldPos.x, (int)worldPos.y).GetBit((int)gridPos.x, (int)gridPos.y + 1);
         }
 
         // Find adjacent right in adjacent grid
@@ -56,7 +56,7 @@ public class Bit : MonoBehaviour
         {
             try
             {
-                neighbours[(int)Direction.right] = world.grids[(int)worldPos.x + 1, (int)worldPos.y].contents[0, (int)gridPos.y];
+                neighbours[(int)Direction.right] = world.GetGrid((int)worldPos.x + 1, (int)worldPos.y).GetBit(0, (int)gridPos.y);
             }
             catch
             {
@@ -66,7 +66,7 @@ public class Bit : MonoBehaviour
         // Find adjacent right in same grid
         else
         {
-            neighbours[(int)Direction.right] = world.grids[(int)worldPos.x, (int)worldPos.y].contents[(int)gridPos.x + 1, (int)gridPos.y];
+            neighbours[(int)Direction.right] = world.GetGrid((int)worldPos.x, (int)worldPos.y).GetBit((int)gridPos.x + 1, (int)gridPos.y);
         }
 
         // Find adjacent down in adjacent grid
@@ -74,7 +74,7 @@ public class Bit : MonoBehaviour
         {
             try
             {
-                neighbours[(int)Direction.down] = world.grids[(int)worldPos.x, (int)worldPos.y - 1].contents[(int)gridPos.x, 0];
+                neighbours[(int)Direction.down] = world.GetGrid((int)worldPos.x, (int)worldPos.y - 1).GetBit((int)gridPos.x, 0);
             }
             catch
             {
@@ -84,7 +84,7 @@ public class Bit : MonoBehaviour
         // Find adjacent down in same grid
         else
         {
-            neighbours[(int)Direction.down] = world.grids[(int)worldPos.x, (int)worldPos.y].contents[(int)gridPos.x, (int)gridPos.y - 1];
+            neighbours[(int)Direction.down] = world.GetGrid((int)worldPos.x, (int)worldPos.y).GetBit((int)gridPos.x, (int)gridPos.y - 1);
         }
 
         // Find adjacent left in adjacent grid
@@ -92,7 +92,7 @@ public class Bit : MonoBehaviour
         {
             try
             {
-                neighbours[(int)Direction.left] = world.grids[(int)worldPos.x - 1, (int)worldPos.y].contents[0, (int)gridPos.y];
+                neighbours[(int)Direction.left] = world.GetGrid((int)worldPos.x - 1, (int)worldPos.y).GetBit(0, (int)gridPos.y);
             }
             catch
             {
@@ -102,7 +102,7 @@ public class Bit : MonoBehaviour
         // Find adjacent left in same grid
         else
         {
-            neighbours[(int)Direction.left] = world.grids[(int)worldPos.x, (int)worldPos.y].contents[(int)gridPos.x - 1, (int)gridPos.y];
+            neighbours[(int)Direction.left] = world.GetGrid((int)worldPos.x, (int)worldPos.y).GetBit((int)gridPos.x - 1, (int)gridPos.y);
         }
     }
     // Gets the shape of the bit (badly)

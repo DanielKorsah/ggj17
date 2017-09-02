@@ -34,6 +34,15 @@ public class Grid : MonoBehaviour
         }
     }
 
+    public Bit GetBit(int x, int y)
+    {
+        if (x >= 0 && x < 10 && y >= 0 && y < 10)
+        {
+            return contents[x, y];
+        }
+        return null;
+    }
+
     public void AddAffector(Wavelength newAffector)
     {
         affectors.Add(newAffector);
