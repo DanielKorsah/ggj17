@@ -242,11 +242,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4640819832561258, guid: d20dd91129b31544da980fcc01769d9b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4640819832561258, guid: d20dd91129b31544da980fcc01769d9b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4640819832561258, guid: d20dd91129b31544da980fcc01769d9b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -271,6 +271,16 @@ Prefab:
     - target: {fileID: 4640819832561258, guid: d20dd91129b31544da980fcc01769d9b, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114426215191346514, guid: d20dd91129b31544da980fcc01769d9b,
+        type: 2}
+      propertyPath: gridPos.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114426215191346514, guid: d20dd91129b31544da980fcc01769d9b,
+        type: 2}
+      propertyPath: gridPos.y
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d20dd91129b31544da980fcc01769d9b, type: 2}
@@ -335,7 +345,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -358,9 +368,53 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 672602278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 3.73, y: 2.18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &894787819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 894787821}
+  - component: {fileID: 894787820}
+  m_Layer: 0
+  m_Name: BitWorldMaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &894787820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 894787819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9df5376efdaa8c46a1e6d791fa19594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  world: {fileID: 2800000, guid: 679185f990a1279418d15bd646267883, type: 3}
+  bit: {fileID: 4640819832561258, guid: d20dd91129b31544da980fcc01769d9b, type: 2}
+  grid: {fileID: 4073659767533634, guid: 10e32f43358b187478138cb6a1df0ec9, type: 2}
+  gridWorld: {fileID: 4743579933673626, guid: c04f1333e1b614540bb2acd5bd0c48b8, type: 2}
+--- !u!4 &894787821
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 894787819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7922242, y: 0.56078106, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -15,10 +15,10 @@ public class Bit : MonoBehaviour
     protected bool[] shortList = new bool[3];
     protected Wavelength shortListEnum;
 
-    protected Vector2 gridPos = new Vector2();
-    protected Vector2 worldPos = new Vector2();
+    public Vector2 gridPos = new Vector2();
+    public Vector2 worldPos = new Vector2();
 
-    protected Bit[] neighbours = new Bit[4];
+    public Bit[] neighbours = new Bit[4];
     protected BitShape wallShape;
 
     protected Time lastUpdate = null;
@@ -74,7 +74,7 @@ public class Bit : MonoBehaviour
         {
             try
             {
-                neighbours[(int)Direction.down] = world.GetGrid((int)worldPos.x, (int)worldPos.y - 1).GetBit((int)gridPos.x, 0);
+                neighbours[(int)Direction.down] = world.GetGrid((int)worldPos.x, (int)worldPos.y - 1).GetBit((int)gridPos.x, 9);
             }
             catch
             {
@@ -88,11 +88,11 @@ public class Bit : MonoBehaviour
         }
 
         // Find adjacent left in adjacent grid
-        if (gridPos.x == 9)
+        if (gridPos.x == 0)
         {
             try
             {
-                neighbours[(int)Direction.left] = world.GetGrid((int)worldPos.x - 1, (int)worldPos.y).GetBit(0, (int)gridPos.y);
+                neighbours[(int)Direction.left] = world.GetGrid((int)worldPos.x - 1, (int)worldPos.y).GetBit(9, (int)gridPos.y);
             }
             catch
             {
@@ -283,5 +283,13 @@ public class Bit : MonoBehaviour
     protected void UpdateSprite()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetAirColourSprites(shortListEnum);
+    }
+    // Get information about bit location
+    public void SetLocationData(int worldX, int worldY, int gridX, int gridY)
+    {
+        worldPos.x = worldX;
+        worldPos.y = worldY;
+        gridPos.x = gridX;
+        gridPos.y = gridY;
     }
 }
