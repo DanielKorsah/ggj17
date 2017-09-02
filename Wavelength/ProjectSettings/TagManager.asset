@@ -10,6 +10,9 @@ TagManager:
   - GlowingButton
   - Grid
   - Static
+  - Bit
+  - BitGrid
+  - BitWorld
   layers:
   - Default
   - TransparentFX

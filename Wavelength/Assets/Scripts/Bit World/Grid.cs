@@ -12,7 +12,7 @@ public class Grid : MonoBehaviour
     Wavelength shortListEnum;
 
     [SerializeField]
-    int[] worldPos = new int[2];
+    Vector2 worldPos = new Vector2();
 
 
 
@@ -20,12 +20,14 @@ public class Grid : MonoBehaviour
     {
         affectors.Add(newAffector);
         MakeShortList();
+        UpdateBits();
     }
 
     public void RemoveAffector(Wavelength oldAffector)
     {
         affectors.Remove(oldAffector);
         MakeShortList();
+        UpdateBits();
     }
 
     private void MakeShortList()
