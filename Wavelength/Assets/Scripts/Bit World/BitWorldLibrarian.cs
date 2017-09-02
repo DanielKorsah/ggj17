@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BitWorldLibrarian : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    public BitWorldKnowledge knowledge = BitWorldKnowledge.Instance;
+    public BitTypetoBool[] neighbourDependant;
+
+    // Use this for initialization
+    void Start () {
+        knowledge = BitWorldKnowledge.Instance;
 	}
 	
 	// Update is called once per frame

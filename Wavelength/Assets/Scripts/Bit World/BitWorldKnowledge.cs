@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BitWorldKnowledge
 {
+    public BitTypetoBool[] neighbourDependantA;
+
     // Private instance of class (singleton)
     private static BitWorldKnowledge instance;
     // Constructor (private for singleton)
