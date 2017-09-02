@@ -6,7 +6,8 @@ public class World : MonoBehaviour
 {
 
     public Grid[,] grids = new Grid[10, 10];
-    
+    public Transform[,] gridsObjs = new Transform[10, 10];
+
     // Get grids adjacent to a given grid
     public Grid[] GetAdjacent(int x, int y)
     {
@@ -68,6 +69,26 @@ public class World : MonoBehaviour
         else
         {
             throw new System.Exception("Grid out of world bounds.");
+        }
+    }
+    // Adds a grid to grids
+    public void AddGridObj(Transform gridObj, int x, int y)
+    {
+        if (x >= 0 && x < 10 && y >= 0 && y < 10)
+        {
+            if (gridsObjs[x, y] == null)
+            {
+                gridsObjs[x, y] = gridObj;
+                grids[x, y] = gridsObjs[x, y].GetComponent<Grid>();
+            }
+            else
+            {
+                throw new System.Exception("Grid already exists. (GameObject)");
+            }
+        }
+        else
+        {
+            throw new System.Exception("Grid out of world bounds. (GameObject)");
         }
     }
 }

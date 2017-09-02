@@ -81,6 +81,8 @@
     <Compile Include="Assets\Scripts\Bit World\Bit.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitWorldEnums.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitWorldKnowledge.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitWorldLibrarian.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitWorldMaker.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitWorldSprites.cs" />
     <Compile Include="Assets\Scripts\Bit World\Grid.cs" />
     <Compile Include="Assets\Scripts\Bit World\World.cs" />

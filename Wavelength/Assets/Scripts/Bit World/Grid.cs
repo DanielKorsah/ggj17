@@ -14,7 +14,25 @@ public class Grid : MonoBehaviour
     [SerializeField]
     Vector2 worldPos = new Vector2();
 
-
+    // Adds a bit to contents
+    public void AddBit(Bit bit, int x, int y)
+    {
+        if (x >= 0 && x < 10 && y >= 0 && y < 10)
+        {
+            if (true/*contents[x, y] == null*/)
+            {
+                contents[x, y] = bit;
+            }
+            else
+            {
+                throw new System.Exception("Bit already exists.");
+            }
+        }
+        else
+        {
+            throw new System.Exception("Bit out of grid bounds.");
+        }
+    }
 
     public void AddAffector(Wavelength newAffector)
     {
