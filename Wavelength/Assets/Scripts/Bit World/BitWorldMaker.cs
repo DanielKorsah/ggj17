@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BitWorldMaker : MonoBehaviour
 {
+    public List<ColourtoPrefab> relations = new List<ColourtoPrefab>();
     public Texture2D world;
     public Transform bit;
     public Transform grid;
@@ -34,10 +35,11 @@ public class BitWorldMaker : MonoBehaviour
                 // Get a pixel from the world map to be tested
                 mapPixel = world.GetPixel(x, y);
                 // If the pixel is black: instantiate a bit
-                if (mapPixel == new Color(0, 0, 0))
-                {
-                    MakeBit(x, y);
-                }
+                //if (mapPixel == new Color(0, 0, 0))
+                //{
+                //    MakeBit(x, y);
+                //}
+                FindColour(x, y, mapPixel);
             }
         }
     }
@@ -57,7 +59,7 @@ public class BitWorldMaker : MonoBehaviour
         }
     }
     // Function for instantiating a bit
-    private void MakeBit(int x, int y)
+    private void MakeBit(int x, int y, Transform prefab)
     {
         // Get grid coordinates within the world by dividing pixel x & y by width of grids (10)
         int worldX = x / 10;
@@ -69,8 +71,20 @@ public class BitWorldMaker : MonoBehaviour
         float coordX = x * 0.2f;
         float coordY = y * 0.2f;
         // Instantiate the bit in the appropriate grid, with that grid as its parent
-        instantiatedWorldScript.GetGrid(worldX, worldY).AddBit(Instantiate(bit, new Vector3(coordX, coordY, 0), Quaternion.identity, instantiatedWorldScript.gridsObjs[worldX, worldY]).GetComponent<Bit>(), gridX, gridY);
+        instantiatedWorldScript.GetGrid(worldX, worldY).AddBit(Instantiate(prefab, new Vector3(coordX, coordY, 0), Quaternion.identity, instantiatedWorldScript.gridsObjs[worldX, worldY]).GetComponent<Bit>(), gridX, gridY);
         // Tell the bit where it is in the grid and the world
         instantiatedWorldScript.GetGrid(worldX, worldY).GetBit(gridX, gridY).SetLocationData(worldX, worldY, gridX, gridY);
+    }
+    // Function to choose the prefab type to make
+    private void FindColour(int x, int y, Color pixel)
+    {
+        foreach (ColourtoPrefab pair in relations)
+        {
+            if (pixel == pair.colour)
+            {
+                MakeBit(x, y, pair.prefab);
+                break;
+            }
+        }
     }
 }
