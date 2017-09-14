@@ -68,3 +68,11 @@ public enum BitShape
     x234,
     x1234
 };
+
+public enum Pickup
+{
+    none,
+    line,
+    area,
+    displace
+};

@@ -19,7 +19,7 @@ public class Bit : MonoBehaviour
     public Vector2 worldPos = new Vector2();
 
     public Bit[] neighbours = new Bit[4];
-    protected BitShape wallShape;
+    public BitShape wallShape;
 
     protected Time lastUpdate = null;
 
@@ -242,7 +242,12 @@ public class Bit : MonoBehaviour
             {
                 if (neighbours[i].displayType == displayType)
                 {
+                    Debug.Log("true");
                     code += (i + 1).ToString();
+                }
+                else
+                {
+                    Debug.Log("false");
                 }
             }
 
@@ -291,5 +296,21 @@ public class Bit : MonoBehaviour
         worldPos.y = worldY;
         gridPos.x = gridX;
         gridPos.y = gridY;
+    }
+
+    // Methods for use by beacon bits
+    public Wavelength BeaconGetWaveLength()
+    {
+        return Wavelength.V;
+    }
+
+    public Direction BeaconGetFacing()
+    {
+        return Direction.up;
+    }
+
+    public Pickup BeaconGetPickup()
+    {
+        return Pickup.none;
     }
 }

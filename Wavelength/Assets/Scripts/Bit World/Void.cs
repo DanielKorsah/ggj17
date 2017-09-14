@@ -2,29 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolidWall : Bit
+public class Void : Bit
 {
 
 
-    private void Awake()
+    void Awake()
     {
-        bitType = BitType.Wall;
-        displayType = BitType.Wall;
-        neighbourDependant = true;
+        bitType = BitType.Void;
+        displayType = BitType.Void;
+        neighbourDependant = false;
         showColour = false;
     }
-    // Use this for initialization
-    void Start()
+
+    private void Start()
     {
         world = FindObjectOfType<World>();
         spriteSheet = BitWorldSprites.Instantiate;
         GetNeighbours();
         GetBitShapeString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

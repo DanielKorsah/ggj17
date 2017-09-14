@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Bit World\ColourtoPrefab.cs" />
     <Compile Include="Assets\Scripts\Bit World\Grid.cs" />
     <Compile Include="Assets\Scripts\Bit World\SolidWall.cs" />
+    <Compile Include="Assets\Scripts\Bit World\Void.cs" />
     <Compile Include="Assets\Scripts\Bit World\WavelengthtoBitType.cs" />
     <Compile Include="Assets\Scripts\Bit World\WavelengthtoSprite.cs" />
     <Compile Include="Assets\Scripts\Bit World\World.cs" />

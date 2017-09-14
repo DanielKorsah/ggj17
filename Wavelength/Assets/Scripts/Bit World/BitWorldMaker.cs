@@ -9,6 +9,7 @@ public class BitWorldMaker : MonoBehaviour
     public Transform bit;
     public Transform grid;
     public Transform gridWorld;
+    public Transform voidPrefab;
     private Transform instantiatedWorld;
     private World instantiatedWorldScript;
 
@@ -78,13 +79,22 @@ public class BitWorldMaker : MonoBehaviour
     // Function to choose the prefab type to make
     private void FindColour(int x, int y, Color pixel)
     {
+        bool found = false;
         foreach (ColourtoPrefab pair in relations)
         {
             if (pixel == pair.colour)
             {
                 MakeBit(x, y, pair.prefab);
+                found = true;
+            }
+            if (found)
+            {
                 break;
             }
+        }
+        if (!found)
+        {
+            MakeBit(x, y, voidPrefab);
         }
     }
 }
