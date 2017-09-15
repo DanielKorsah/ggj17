@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wavelength", "Wavelength.csproj", "{315E2ECB-A190-88D9-B9E8-D336D84A1646}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestWavelength", "..\UnitTestWavelength\UnitTestWavelength.csproj", "{54116EC4-3144-4BC6-8C9E-2CB45C9ED0F6}"
