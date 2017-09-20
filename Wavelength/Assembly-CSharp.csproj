@@ -51,6 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AudioControls.cs" />
+     <Compile Include="Assets\DontDestroy.cs" />
+     <Compile Include="Assets\PopDown.cs" />
      <Compile Include="Assets\Scripts\Bit World\Bit.cs" />
      <Compile Include="Assets\Scripts\Bit World\BitTypetoBool.cs" />
      <Compile Include="Assets\Scripts\Bit World\BitTypetoSprite.cs" />
@@ -82,6 +85,7 @@
      <Compile Include="Assets\Scripts\Player\PickUpBoost.cs" />
      <Compile Include="Assets\Scripts\Player\PickUpFocus.cs" />
      <Compile Include="Assets\Scripts\Player\PickUpProject.cs" />
+     <Compile Include="Assets\Scripts\UI\Audiopassthrough.cs" />
      <Compile Include="Assets\Scripts\UI\DialTurn.cs" />
      <Compile Include="Assets\Scripts\UI\TimeLimit.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Controls.cs" />
