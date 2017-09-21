@@ -8,10 +8,10 @@ public class UI_Controls : MonoBehaviour
 {
     Image i;
     GameObject confirm;
-    void awake()
+    void Awake()
     {
         //confirm = gameObject.transform.GetChild(0).gameObject;
-        //confirm = GameObject.Find("ConfirmDialogue");
+        confirm = GameObject.Find("ConfirmDialogue");
         //confirm = GameObject.FindGameObjectWithTag("Dialogue");
         //MenuDeny();
     }

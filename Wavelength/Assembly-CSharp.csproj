@@ -51,9 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AudioControls.cs" />
      <Compile Include="Assets\DontDestroy.cs" />
-     <Compile Include="Assets\PopDown.cs" />
      <Compile Include="Assets\Scripts\Bit World\Bit.cs" />
      <Compile Include="Assets\Scripts\Bit World\BitTypetoBool.cs" />
      <Compile Include="Assets\Scripts\Bit World\BitTypetoSprite.cs" />
@@ -85,8 +83,10 @@
      <Compile Include="Assets\Scripts\Player\PickUpBoost.cs" />
      <Compile Include="Assets\Scripts\Player\PickUpFocus.cs" />
      <Compile Include="Assets\Scripts\Player\PickUpProject.cs" />
+     <Compile Include="Assets\Scripts\UI\AudioControls.cs" />
      <Compile Include="Assets\Scripts\UI\Audiopassthrough.cs" />
      <Compile Include="Assets\Scripts\UI\DialTurn.cs" />
+     <Compile Include="Assets\Scripts\UI\PopDown.cs" />
      <Compile Include="Assets\Scripts\UI\TimeLimit.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Controls.cs" />
      <Compile Include="Assets\Scripts\UI\Wave.cs" />
@@ -146,6 +146,9 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Fonts\Bangers - OFL.txt" />
+ <Reference Include="Facebook.Unity.Settings">
+ <HintPath>F:/Wavelength Source [Github]/Wavelength/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -168,7 +171,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
- <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
+ <HintPath>F:/Wavelength Source [Github]/Wavelength/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
