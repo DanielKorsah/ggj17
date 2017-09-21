@@ -10,8 +10,9 @@ public class ColouredWall : Bit {
         neighbourDependant = true;
         showColour = false;
     }
+
     // Use this for initialization
-    void Start()
+    new void Start()
     {
         world = FindObjectOfType<World>();
         spriteSheet = BitWorldSprites.Instantiate;

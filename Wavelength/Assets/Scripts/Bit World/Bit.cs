@@ -8,7 +8,7 @@ public class Bit : MonoBehaviour
     protected BitWorldSprites spriteSheet;
 
     protected BitType bitType = BitType.Air;
-    public BitType displayType = BitType.Air;
+    protected BitType displayType = BitType.Air;
     protected bool neighbourDependant = false;
     protected bool showColour = true;
 
@@ -23,7 +23,7 @@ public class Bit : MonoBehaviour
 
     protected Time lastUpdate = null;
 
-    private void Start()
+    protected void Start()
     {
         world = FindObjectOfType<World>();
         spriteSheet = BitWorldSprites.Instantiate;
@@ -296,6 +296,21 @@ public class Bit : MonoBehaviour
         worldPos.y = worldY;
         gridPos.x = gridX;
         gridPos.y = gridY;
+    }
+
+    public BitType BitTypeSet
+    {
+        set
+        {
+            if (displayType == BitType.Void && bitType == BitType.Wall)
+            {
+                bitType = value;
+            }
+        }
+    }
+    public BitType DisplayTypeGet
+    {
+        get { return displayType; }
     }
 
     // Methods for use by beacon bits

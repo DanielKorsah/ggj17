@@ -25,4 +25,10 @@ public class BitWorldKnowledge
 
     private Dictionary<BitType, bool> neighbourDependant = new Dictionary<BitType, bool>();
     private Dictionary<Wavelength, BitType> wallColour = new Dictionary<Wavelength, BitType>();
+    private Dictionary<Color, BitType> bitTypeByColour = new Dictionary<Color, BitType>();
+
+    private void BitTypeByColourKnowledge()
+    {
+        
+    }
 }
