@@ -15,7 +15,7 @@ public class PopDown : MonoBehaviour
     }
     void Update()
     {
-        Vector3 upPos = new Vector3(0, Screen.height, 0);
+        Vector3 upPos = new Vector3(0, 1080, 0);
 
         //toggle panel up or down with Esc key
         if (Input.GetKeyDown(KeyCode.Escape))
