@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    
+
     private Image glowUni;
     private Image glowOmni;
     private Image glowJump;
@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     AudioSource source;
     [SerializeField]
     AudioClip powerupSound;
+    GameObject manager;
 
     private int focusPickup;
     private int boostPickup;
@@ -26,7 +27,8 @@ public class Inventory : MonoBehaviour
         boostPickup = 0;
         projectPickup = 0;
 
-        source = GetComponent<AudioSource>();
+        manager = GameObject.Find("Audio Manager");
+        //        source = manager.GetComponents<AudioSource>()[1];
         source.clip = powerupSound;
 
         glowUni = GameObject.Find("GlowingUni").GetComponent<Image>();
@@ -55,7 +57,7 @@ public class Inventory : MonoBehaviour
     {
         focusPickup++;
         displayFocus();
-        source.Play();
+        //source.Play();
     }
     // --
     public void SubFocusPickup()
@@ -92,7 +94,7 @@ public class Inventory : MonoBehaviour
     {
         boostPickup++;
         displayBoost();
-        source.Play();
+        //source.Play();
     }
     // --
     public void SubBoostPickup()
@@ -129,7 +131,7 @@ public class Inventory : MonoBehaviour
     {
         projectPickup++;
         displayProject();
-        source.Play();
+        //source.Play();
     }
     // --
     public void SubProjectPickup()
