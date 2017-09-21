@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
 
         manager = GameObject.Find("Audio Manager");
         //        source = manager.GetComponents<AudioSource>()[1];
-        source.clip = powerupSound;
+        //        source.clip = powerupSound;
 
         glowUni = GameObject.Find("GlowingUni").GetComponent<Image>();
         glowOmni = GameObject.Find("GlowingOmni").GetComponent<Image>();
