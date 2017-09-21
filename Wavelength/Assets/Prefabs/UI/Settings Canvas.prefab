@@ -72,7 +72,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224486498575806702}
   - component: {fileID: 223125020981230908}
-  - component: {fileID: 114554742374531196}
   - component: {fileID: 114924770827894524}
   - component: {fileID: 114365504955439976}
   m_Layer: 5
@@ -722,27 +721,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114554742374531196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1124199078936320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
 --- !u!114 &114556894871723552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1623,7 +1601,7 @@ RectTransform:
   m_GameObject: {fileID: 1634764545734290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2034397, y: 2.2034395, z: 2.2034395}
+  m_LocalScale: {x: 2.5038812, y: 2.5038803, z: 2.5038803}
   m_Children:
   - {fileID: 224552141250183342}
   m_Father: {fileID: 224194448097550518}
@@ -1631,7 +1609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14103346, y: 0.8486993}
   m_AnchorMax: {x: 0.20431471, y: 0.8935141}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2, y: 5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224818562956355444
