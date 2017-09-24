@@ -27,7 +27,7 @@ public class BitWorldMaker : MonoBehaviour
         instantiatedWorldScript = instantiatedWorld.GetComponent<World>();
         // Spawn in the neccessary grids before moving on to bits
         MakeGrids();
-        Color mapPixel;
+        Color32 mapPixel;
         // Go through pixel by pixel and use their colours to populate the world
         for (int x = 0; x < world.width; ++x)
         {
@@ -77,7 +77,7 @@ public class BitWorldMaker : MonoBehaviour
         instantiatedWorldScript.GetGrid(worldX, worldY).GetBit(gridX, gridY).SetLocationData(worldX, worldY, gridX, gridY);
     }
     // Function to choose the prefab type to make
-    private void FindColour(int x, int y, Color pixel)
+    private void FindColour(int x, int y, Color32 pixel)
     {
         bool found = false;
         foreach (ColourtoPrefab pair in relations)
