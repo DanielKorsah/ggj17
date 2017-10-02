@@ -6,6 +6,7 @@ public class PopDown : MonoBehaviour
 {
     RectTransform rt;
     Vector3 downPos = new Vector3(0, 0, 0);
+    Vector3 upPos = new Vector3(0, 1080, 0);
     bool isDown;
 
     void Start()
@@ -15,7 +16,7 @@ public class PopDown : MonoBehaviour
     }
     void Update()
     {
-        Vector3 upPos = new Vector3(0, 1080, 0);
+
 
         //toggle panel up or down with Esc key
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -147,9 +147,6 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Fonts\Bangers - OFL.txt" />
- <Reference Include="Facebook.Unity.Settings">
- <HintPath>F:/Wavelength Source [Github]/Wavelength/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -172,7 +169,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
- <HintPath>F:/Wavelength Source [Github]/Wavelength/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
+ <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
