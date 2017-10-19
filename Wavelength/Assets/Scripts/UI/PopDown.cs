@@ -9,11 +9,15 @@ public class PopDown : MonoBehaviour
     Vector3 upPos = new Vector3(0, 1080, 0);
     bool isDown;
 
+
+
     void Start()
     {
         //get the recttransform of the sliding panel 
         rt = GetComponent<RectTransform>();
+        SetUp();
     }
+
     void Update()
     {
 
@@ -23,24 +27,32 @@ public class PopDown : MonoBehaviour
         {
             if (!isDown)
             {
-                rt.localPosition = downPos;
-                isDown = true;
-                Debug.Log("Down");
+                SetDown();
             }
             else
             {
-                rt.localPosition = upPos;
-                Debug.Log(rt.localPosition = upPos);
-                isDown = false;
-                Debug.Log("Up");
+                SetUp();
             }
 
         }
     }
 
-    void aMethod()
+    public void SetDown()
     {
-
+        rt.localPosition = downPos;
+        isDown = true;
+        Debug.Log("Down");
+        Cursor.visible = true;
+        Time.timeScale = 0;
     }
 
+    public void SetUp()
+    {
+        rt.localPosition = upPos;
+        Debug.Log(rt.localPosition = upPos);
+        isDown = false;
+        Debug.Log("Up");
+        //Cursor.visible = false;
+        Time.timeScale = 1;
+    }
 }
