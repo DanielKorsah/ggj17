@@ -52,7 +52,7 @@ public class PopDown : MonoBehaviour
         Debug.Log(rt.localPosition = upPos);
         isDown = false;
         Debug.Log("Up");
-        //Cursor.visible = false;
+        Cursor.visible = false;
         Time.timeScale = 1;
     }
 }
