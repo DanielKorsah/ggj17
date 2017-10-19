@@ -81,6 +81,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Bit World\Bit.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitTypetoBool.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitTypetoSprite.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitWorldEnums.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitWorldKnowledge.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitWorldLibrarian.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitWorldMaker.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitWorldSprites.cs" />
+    <Compile Include="Assets\Scripts\Bit World\ColourtoPrefab.cs" />
+    <Compile Include="Assets\Scripts\Bit World\Grid.cs" />
+    <Compile Include="Assets\Scripts\Bit World\SolidWall.cs" />
+    <Compile Include="Assets\Scripts\Bit World\Void.cs" />
+    <Compile Include="Assets\Scripts\Bit World\WavelengthtoBitType.cs" />
+    <Compile Include="Assets\Scripts\Bit World\WavelengthtoSprite.cs" />
+    <Compile Include="Assets\Scripts\Bit World\World.cs" />
     <Compile Include="Assets\Scripts\Grid Segments\FloorColour.cs" />
     <Compile Include="Assets\Scripts\Grid Segments\Sectors.cs" />
     <Compile Include="Assets\Scripts\Grid Segments\grid.cs" />
