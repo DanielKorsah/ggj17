@@ -11,19 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: -667331979, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: Computerfont SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1662064389
   material: {fileID: 21231653264447520}
-  materialHashCode: 0
+  materialHashCode: -1802120338
   fontAssetType: 1
   m_fontInfo:
     Name: Computerfont
     PointSize: 81
-    Scale: 0
+    Scale: 1
     CharacterCount: 97
     LineHeight: 81
     Baseline: 0
     Ascender: 60.75
-    CapHeight: 0
+    CapHeight: 44.5625
     Descender: -20.25
     CenterLine: 0
     SuperscriptOffset: 60.75
@@ -33,7 +33,7 @@ MonoBehaviour:
     UnderlineThickness: 1.6200001
     strikethrough: 14.727273
     strikethroughThickness: 1.6200001
-    TabWidth: 0
+    TabWidth: 324.0625
     Padding: 5
     AtlasWidth: 512
     AtlasHeight: 512
@@ -42,10 +42,10 @@ MonoBehaviour:
   - id: 32
     x: 6
     y: 517
-    width: 0
-    height: 0
+    width: 32.40625
+    height: 81
     xOffset: 0
-    yOffset: 0
+    yOffset: 60.75
     xAdvance: 32.40625
     scale: 1
   - id: 33
@@ -967,7 +967,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Computerfont SDF Material
   m_Shader: {fileID: 4800000, guid: dca26082f9cb439469295791d9f76fe5, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: BEVEL_ON GLOW_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -999,22 +999,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Ambient: 0.5
-    - _Bevel: 0.5
-    - _BevelClamp: 0
-    - _BevelOffset: 0
-    - _BevelRoundness: 0
-    - _BevelWidth: 0
+    - _Bevel: 0.338
+    - _BevelClamp: 0.425
+    - _BevelOffset: -0.5
+    - _BevelRoundness: 1
+    - _BevelWidth: -0.123
     - _BumpFace: 0
     - _BumpOutline: 0
     - _ColorMask: 15
     - _Diffuse: 0.5
-    - _FaceDilate: 0
+    - _FaceDilate: 0.482
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0.05
+    - _GlowInner: 0
     - _GlowOffset: 0
-    - _GlowOuter: 0.05
-    - _GlowPower: 0.75
+    - _GlowOuter: 1
+    - _GlowPower: 1
     - _GradientScale: 6
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
@@ -1022,12 +1022,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.917
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.5252653
+    - _ScaleRatioB: 0.2754167
+    - _ScaleRatioC: 0.2754167
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -1050,8 +1050,8 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
+    - _FaceColor: {r: 0.8620689, g: 1, b: 0, a: 1}
+    - _GlowColor: {r: 1, g: 0.022058845, b: 0.022058845, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
