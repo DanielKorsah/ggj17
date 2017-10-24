@@ -172,6 +172,9 @@
  <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
  <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
  </Reference>
+ <Reference Include="ZiosThemes">
+ <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/@Themes/ZiosThemes.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
