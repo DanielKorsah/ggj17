@@ -51,9 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DontDestroy.cs" />
-     <Compile Include="Assets\MouseUnlock.cs" />
-     <Compile Include="Assets\PauseMenuController.cs" />
+     <Compile Include="Assets\RaycastChecker.cs" />
      <Compile Include="Assets\Scripts\Bit World\Bit.cs" />
      <Compile Include="Assets\Scripts\Bit World\BitTypetoBool.cs" />
      <Compile Include="Assets\Scripts\Bit World\BitTypetoSprite.cs" />
@@ -77,6 +75,7 @@
      <Compile Include="Assets\Scripts\Loading Scenes\ResetLevel.cs" />
      <Compile Include="Assets\Scripts\Loading Scenes\SceneTransition.cs" />
      <Compile Include="Assets\Scripts\Loading Scenes\ToMenu.cs" />
+     <Compile Include="Assets\Scripts\Misc\DontDestroy.cs" />
      <Compile Include="Assets\Scripts\Persistence\LoadFromSave.cs" />
      <Compile Include="Assets\Scripts\Persistence\PersistenceLogger.cs" />
      <Compile Include="Assets\Scripts\Player\CameraZoom.cs" />
@@ -88,6 +87,7 @@
      <Compile Include="Assets\Scripts\UI\AudioControls.cs" />
      <Compile Include="Assets\Scripts\UI\Audiopassthrough.cs" />
      <Compile Include="Assets\Scripts\UI\DialTurn.cs" />
+     <Compile Include="Assets\Scripts\UI\PauseMenuController.cs" />
      <Compile Include="Assets\Scripts\UI\PopDown.cs" />
      <Compile Include="Assets\Scripts\UI\TimeLimit.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Controls.cs" />
@@ -148,9 +148,6 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Fonts\Bangers - OFL.txt" />
- <Reference Include="Facebook.Unity.Settings">
- <HintPath>F:/Wavelength Source [Github]/Wavelength/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -173,7 +170,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
- <HintPath>F:/Wavelength Source [Github]/Wavelength/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
+ <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
+ </Reference>
+ <Reference Include="ZiosThemes">
+ <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/@Themes/ZiosThemes.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

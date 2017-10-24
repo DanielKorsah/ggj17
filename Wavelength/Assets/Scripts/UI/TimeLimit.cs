@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimeLimit : MonoBehaviour {
+public class TimeLimit : MonoBehaviour
+{
 
 
     [SerializeField]
@@ -23,15 +24,14 @@ public class TimeLimit : MonoBehaviour {
     Image minU;
     Image minT;
 
-    GameObject portal;
-    bool stopTrigger;
 
     [SerializeField]
     List<int> digits = new List<int>();
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         digits.Add(secsUnits);
         digits.Add(secsTens);
         digits.Add(minsUnits);
@@ -44,29 +44,20 @@ public class TimeLimit : MonoBehaviour {
         minU = places[2].GetComponent<Image>();
         minT = places[3].GetComponent<Image>();
 
-        portal = GameObject.Find("EndPortal");
-        stopTrigger = portal.GetComponent<EndPortal>().Contact;
 
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         addSec();
         //Debug.Log(minsTens + minsUnits + ":" + secsTens + secsUnits);
         secU.sprite = sprites[secsUnits];
         secT.sprite = sprites[secsTens];
         minU.sprite = sprites[minsUnits];
         minT.sprite = sprites[minsTens];
-
-        if(stopTrigger == true)
-        {
-            //***********************************************
-            //INSERT GLENNSCRIPT SAVE SYSTEM HERE
-            //***********************************************
-            return;
-        }
     }
 
     void addSec()
@@ -75,13 +66,13 @@ public class TimeLimit : MonoBehaviour {
         if (Time.time - time >= 1)
         {
             secsUnits++;
-            
-            if(secsUnits == 10)
+
+            if (secsUnits == 10)
             {
                 secsTens++;
                 //Debug.Log("secsTens: " + secsTens);
                 secsUnits = 0;
-                if(secsTens == 6)
+                if (secsTens == 6)
                 {
                     addMin();
                     secsUnits = 0;
@@ -101,7 +92,7 @@ public class TimeLimit : MonoBehaviour {
             minsTens++;
             //Debug.Log("minsTens: " + minsTens);
             minsUnits = 0;
-            if(minsTens >= 6)
+            if (minsTens >= 6)
             {
                 for (int i = 0; i < digits.Count; i++)
                 {
