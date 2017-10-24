@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -667331979, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
-  m_Name: Computerfont SDF
+  m_Name: Computerfont SDF Title
   m_EditorClassIdentifier: 
-  hashCode: 1662064389
+  hashCode: 1662677765
   material: {fileID: 21231653264447520}
   materialHashCode: -1802120338
   fontAssetType: 1
