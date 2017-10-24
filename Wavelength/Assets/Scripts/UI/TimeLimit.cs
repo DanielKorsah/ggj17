@@ -24,6 +24,8 @@ public class TimeLimit : MonoBehaviour
     Image minU;
     Image minT;
 
+    GameObject portal;
+    bool stopTrigger;
 
     [SerializeField]
     List<int> digits = new List<int>();
@@ -44,9 +46,6 @@ public class TimeLimit : MonoBehaviour
         minU = places[2].GetComponent<Image>();
         minT = places[3].GetComponent<Image>();
 
-
-
-
     }
 
     // Update is called once per frame
@@ -63,7 +62,7 @@ public class TimeLimit : MonoBehaviour
     void addSec()
     {
         //if time is a whole number
-        if (Time.time - time >= 1)
+        if (Time.time - time >= 1.0f)
         {
             secsUnits++;
 
@@ -75,11 +74,10 @@ public class TimeLimit : MonoBehaviour
                 if (secsTens == 6)
                 {
                     addMin();
-                    secsUnits = 0;
                     secsTens = 0;
                 }
             }
-            time = Time.time;
+            time += 1.0f;
         }
     }
 
@@ -94,13 +92,7 @@ public class TimeLimit : MonoBehaviour
             minsUnits = 0;
             if (minsTens >= 6)
             {
-                for (int i = 0; i < digits.Count; i++)
-                {
-                    secsUnits = 0;
-                    secsTens = 0;
-                    minsUnits = 0;
-                    minsTens = 0;
-                }
+                minsTens = 0;
             }
         }
     }
