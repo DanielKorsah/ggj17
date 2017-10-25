@@ -3,51 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransition : MonoBehaviour {
+public class SceneTransition : MonoBehaviour
+{
 
     GameObject portal;
-    GameObject portal2;
-    GameObject portal3;
-    GameObject portal4;
+    bool contact;
     bool trigger;
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
 
         portal = GameObject.Find("EndPortal");
-
-        if (SceneManager.GetActiveScene().name == "Hub Scene")
+        if (portal != null)
         {
-            portal2 = GameObject.Find("EndPortal (1)");
-            portal3 = GameObject.Find("EndPortal (2)");
-            portal4 = GameObject.Find("EndPortal (3)");
+            contact = portal.GetComponent<EndPortal>().Contact;
         }
         //trigger = portal.GetComponent<EndPortal>().Contact;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        
-
-
-        if (SceneManager.GetActiveScene().name == "Hub Scene")
+        if (contact) //For some reason trigger doesn't update whe I try to avoid GetComponent
         {
-            if (portal.GetComponent<EndPortal>().Contact || portal2.GetComponent<EndPortal>().Contact 
-                || portal3.GetComponent<LoadFromSave>().Contact || portal4.GetComponent<EndPortal>().Contact) //For some reason trigger doesn't update whe I try to avoid GetComponent
-            {
-                gameObject.GetComponent<SpriteRenderer>().enabled = true;
-                gameObject.GetComponent<AudioSource>().enabled = true;
-            }
-        }
-        else
-        {
-            if (portal.GetComponent<EndPortal>().Contact) //For some reason trigger doesn't update whe I try to avoid GetComponent
-            {
-                gameObject.GetComponent<SpriteRenderer>().enabled = true;
-                gameObject.GetComponent<AudioSource>().enabled = true;
-            }
+            StaticRender();
         }
 
+    }
+
+    public void StaticRender()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.GetComponent<AudioSource>().enabled = true;
     }
 }
