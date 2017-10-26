@@ -51,11 +51,11 @@ public class LoadFromSave
         string nextScene;
         if (File.Exists(save_path))
         {
-            Level level = new Level();
+            SaveData data = new SaveData();
             string lvl_as_text = File.ReadAllText(save_path);
-            level = JsonUtility.FromJson<Level>(lvl_as_text);
+            data = JsonUtility.FromJson<SaveData>(lvl_as_text);
 
-            nextScene = level.name;
+            nextScene = data.name[data.name.Count - 1];
         }
         else
         {

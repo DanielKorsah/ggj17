@@ -8,16 +8,27 @@ using System.IO;
 public class PersistenceLogger : MonoBehaviour
 {
     public string scene;
+    LoadFromSave currentData;
+    SaveData saveData;
+    string saveFile;
+    string savePath;
+
 
     void Start()
     {
+        currentData = LoadFromSave.Instance;
+        saveData = SaveData.Instance;
+
+        saveFile = "SaveFile.Json";
+        savePath = Path.Combine(Application.streamingAssetsPath, saveFile);
+
         scene = SceneManager.GetActiveScene().name;
         if (scene != "Main Menu" && scene != "Hub Scene"
             && scene != "Instruct" && scene != "theEnd")
         {
             Progress();
         }
-        
+
     }
 
 
@@ -25,42 +36,34 @@ public class PersistenceLogger : MonoBehaviour
     {
         float timer = GameObject.Find("Timer").GetComponent<TimeLimit>().time;
 
-        
-        string ct_write;
-        string hs_file = scene + "_HighScore.Json";
-        string hs_path = Path.Combine(Application.streamingAssetsPath, hs_file);
-
-        //get the time from this run
-        CompletionTime ct = new CompletionTime();
-        ct.t = Math.Round(timer, 3);
+        saveData.t = Math.Round(timer, 3);
 
         //serialise to Json
-        ct_write = JsonUtility.ToJson(ct);
+        string saveWrite = JsonUtility.ToJson(saveData);
 
         //if no data exists post time
-        if (!File.Exists(hs_path))
+        if (!File.Exists(savePath))
         {
-            File.WriteAllText(hs_path, ct_write);
+            File.WriteAllText(savePath, saveWrite);
 
-            Debug.Log("First time logged: " + ct.t + " seconds");
+            Debug.Log("First time logged: " + saveData.t + " seconds");
         }
         else
         {
             //read current best time data
-            CompletionTime ct_read = new CompletionTime();
-            string ct_as_text = File.ReadAllText(hs_path);
-            ct_read = JsonUtility.FromJson<CompletionTime>(ct_as_text);
+            SaveData saveRead = new SaveData();
+            string dataText = File.ReadAllText(savePath);
+            saveRead = JsonUtility.FromJson<SaveData>(dataText);
 
             //if time is faster overwrite with new time
-            if (ct.t < ct_read.t)
+            if (saveData.t < saveRead.t)
             {
-                File.WriteAllText(hs_path, ct_write);
-                Debug.Log("New Highscore: " + scene + " in "+ ct.t + " seconds");
+                File.WriteAllText(savePath, saveWrite);
+                Debug.Log("New Highscore: " + scene + " in " + saveData.t + " seconds");
             }
             else
             {
-
-                Debug.Log("Too slow: " + scene + " in "+ ct.t + " seconds");
+                Debug.Log("Too slow: " + scene + " in " + saveData.t + " seconds");
             }
         }
     }
@@ -68,40 +71,53 @@ public class PersistenceLogger : MonoBehaviour
 
     void Progress()
     {
-        Level level = new Level();
-
-        level.name = SceneManager.GetActiveScene().name;
+        saveData.name.Add(SceneManager.GetActiveScene().name);
 
         //level name as Json
-        string lvl_write = JsonUtility.ToJson(level);
+        string lvl_write = JsonUtility.ToJson(saveData);
 
-        //Create file path
-        string lvl_file = "SaveFile.Json";
-        string lvl_path = Path.Combine(Application.streamingAssetsPath, lvl_file);
+
 
         //if no data exists post time
-        if (!File.Exists(lvl_path))
+        if (!File.Exists(savePath))
         {
-            File.WriteAllText(lvl_path, lvl_write);
-            Debug.Log("Fresh save file: " + level.name);
+            File.WriteAllText(savePath, lvl_write);
+            Debug.Log("Fresh save file: " + saveData.name);
         }
         else
         {
 
-            File.WriteAllText(lvl_path, lvl_write);
-            Debug.Log("Save file updated: " + level.name);
+            File.WriteAllText(savePath, lvl_write);
+            Debug.Log("Save file updated: " + saveData.name);
         }
+    }
+
+
+    private void CheckFile()
+    {
+
     }
 }
 
-[Serializable]
-public class CompletionTime
-{
-    public double t;
-}
 
 [Serializable]
-public class Level
+public class SaveData
 {
-    public string name;
+    //singlton
+    private static SaveData instance;
+    public static SaveData Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new SaveData();
+            }
+            return instance;
+        }
+    }
+
+    public List<string> name;
+    public double t;
+
 }
