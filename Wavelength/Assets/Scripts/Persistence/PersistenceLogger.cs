@@ -8,21 +8,25 @@ using System.IO;
 public class PersistenceLogger : MonoBehaviour
 {
     public string scene;
-    LoadFromSave currentData;
+    LoadFromSave loader;
     SaveData saveData;
     string saveFile;
     string savePath;
+    int keyIndex;
 
-
-    void Start()
+    void Awake()
     {
-        currentData = LoadFromSave.Instance;
-        saveData = SaveData.Instance;
+
+        loader = LoadFromSave.Instance;
+
+        //use data loader script to acess the current data file
+        saveData = loader.ReadAllData(savePath);
 
         saveFile = "SaveFile.Json";
         savePath = Path.Combine(Application.streamingAssetsPath, saveFile);
 
         scene = SceneManager.GetActiveScene().name;
+        //if not a special scene check if this level has been unlocked already
         if (scene != "Main Menu" && scene != "Hub Scene"
             && scene != "Instruct" && scene != "theEnd")
         {
@@ -34,9 +38,13 @@ public class PersistenceLogger : MonoBehaviour
 
     public void HighScore()
     {
+        Debug.Log("hs start");
         float timer = GameObject.Find("Timer").GetComponent<TimeLimit>().time;
+        Debug.Log("hs gotTimer");
+        keyIndex = saveData.Names.IndexOf(scene);
+        Debug.Log("hs gotIndex");
 
-        saveData.t = Math.Round(timer, 3);
+        saveData.Times[keyIndex] = Math.Round(timer, 3);
 
         //serialise to Json
         string saveWrite = JsonUtility.ToJson(saveData);
@@ -46,7 +54,7 @@ public class PersistenceLogger : MonoBehaviour
         {
             File.WriteAllText(savePath, saveWrite);
 
-            Debug.Log("First time logged: " + saveData.t + " seconds");
+            Debug.Log("First time logged: " + saveData.Times[keyIndex] + " seconds");
         }
         else
         {
@@ -56,14 +64,14 @@ public class PersistenceLogger : MonoBehaviour
             saveRead = JsonUtility.FromJson<SaveData>(dataText);
 
             //if time is faster overwrite with new time
-            if (saveData.t < saveRead.t)
+            if (saveData.Times[keyIndex] < saveRead.Times[keyIndex])
             {
                 File.WriteAllText(savePath, saveWrite);
-                Debug.Log("New Highscore: " + scene + " in " + saveData.t + " seconds");
+                Debug.Log("New Highscore: " + scene + " in " + saveData.Times + " seconds");
             }
             else
             {
-                Debug.Log("Too slow: " + scene + " in " + saveData.t + " seconds");
+                Debug.Log("Too slow: " + scene + " in " + saveData.Times + " seconds");
             }
         }
     }
@@ -71,32 +79,27 @@ public class PersistenceLogger : MonoBehaviour
 
     void Progress()
     {
-        saveData.name.Add(SceneManager.GetActiveScene().name);
 
-        //level name as Json
+
+        keyIndex = saveData.Names.IndexOf(scene);
+        saveData.Names.Add(scene);
+
+        //level Names as Json
         string lvl_write = JsonUtility.ToJson(saveData);
-
-
-
         //if no data exists post time
-        if (!File.Exists(savePath))
+        if (!File.Exists(savePath) && !saveData.Names.Contains(scene))
         {
             File.WriteAllText(savePath, lvl_write);
-            Debug.Log("Fresh save file: " + saveData.name);
+            Debug.Log("Fresh save file: " + saveData.Names[keyIndex]);
         }
-        else
+        else if (!saveData.Names.Contains(scene))
         {
-
             File.WriteAllText(savePath, lvl_write);
-            Debug.Log("Save file updated: " + saveData.name);
+            Debug.Log("Save file updated: " + saveData.Names[keyIndex]);
         }
     }
 
 
-    private void CheckFile()
-    {
-
-    }
 }
 
 
@@ -117,7 +120,7 @@ public class SaveData
         }
     }
 
-    public List<string> name;
-    public double t;
+    public List<string> Names;
+    public List<double> Times;
 
 }

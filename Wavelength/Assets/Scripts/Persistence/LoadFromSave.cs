@@ -11,7 +11,7 @@ public class LoadFromSave
     private bool contact = false;
     bool logged = false;
     float timer = 1f;
-    string save_path;
+    string savePath;
 
 
     public bool Contact
@@ -37,31 +37,36 @@ public class LoadFromSave
 
     LoadFromSave()
     {
-        save_path = Application.streamingAssetsPath + "/SaveFile.Json";
+        savePath = Application.streamingAssetsPath + "/SaveFile.Json";
     }
 
     public void LoadLastSave()
     {
-        SceneManager.LoadScene(ReadSave());
+        SceneManager.LoadScene(ReadLastSave());
     }
 
 
-    public string ReadSave()
+    public string ReadLastSave()
     {
         string nextScene;
-        if (File.Exists(save_path))
+        if (File.Exists(savePath))
         {
-            SaveData data = new SaveData();
-            string lvl_as_text = File.ReadAllText(save_path);
-            data = JsonUtility.FromJson<SaveData>(lvl_as_text);
-
-            nextScene = data.name[data.name.Count - 1];
+            SaveData data = ReadAllData(savePath);
+            nextScene = data.Names[data.Names.Count - 1];
         }
         else
         {
             nextScene = "tut1";
         }
         return nextScene;
+    }
+
+    public SaveData ReadAllData(string dataPath)
+    {
+        SaveData data = SaveData.Instance;
+        string lvl_as_text = File.ReadAllText(dataPath);
+        data = JsonUtility.FromJson<SaveData>(lvl_as_text);
+        return data;
     }
 
 }

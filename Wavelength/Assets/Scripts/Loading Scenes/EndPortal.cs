@@ -9,11 +9,11 @@ public class EndPortal : MonoBehaviour
     private bool contact = false;
     bool logged = false;
     float timer = 1f;
-    
+
 
     [SerializeField]
     public string NextScene;
-    string thisScene; 
+    string thisScene;
 
 
 
@@ -31,11 +31,11 @@ public class EndPortal : MonoBehaviour
 
     private void Update()
     {
-        if(contact == true)
+        if (contact == true)
         {
-            
+
             timer -= Time.deltaTime;
-            if(timer <= 0)
+            if (timer <= 0)
             {
                 SceneManager.LoadScene(NextScene, LoadSceneMode.Single);
             }
@@ -44,10 +44,10 @@ public class EndPortal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
 
         //check we're in an actual level
-        if (!logged && thisScene != "Main Menu" && thisScene != "Hub Scene" 
+        if (!logged && thisScene != "Main Menu" && thisScene != "Hub Scene"
             && thisScene != "Instruct" && thisScene != "theEnd")
         {
 

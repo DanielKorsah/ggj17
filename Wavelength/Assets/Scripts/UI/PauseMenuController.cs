@@ -29,7 +29,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void Continue()
     {
-        Debug.Log("Loading: " + loader.ReadSave());
+        Debug.Log("Loading: " + loader.ReadLastSave());
         loader.LoadLastSave();
     }
 }
