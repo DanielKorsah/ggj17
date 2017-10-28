@@ -19,11 +19,13 @@ public class PersistenceLogger : MonoBehaviour
 
         loader = LoadFromSave.Instance;
 
-        //use data loader script to acess the current data file
-        saveData = loader.ReadAllData(savePath);
+
 
         saveFile = "SaveFile.Json";
         savePath = Path.Combine(Application.streamingAssetsPath, saveFile);
+
+        //use data loader script to acess the current data file
+        saveData = loader.ReadAllData(savePath);
 
         scene = SceneManager.GetActiveScene().name;
         //if not a special scene check if this level has been unlocked already
@@ -38,19 +40,33 @@ public class PersistenceLogger : MonoBehaviour
 
     public void HighScore()
     {
-        Debug.Log("hs start");
         float timer = GameObject.Find("Timer").GetComponent<TimeLimit>().time;
-        Debug.Log("hs gotTimer");
-        keyIndex = saveData.Names.IndexOf(scene);
-        Debug.Log("hs gotIndex");
+        if (saveData.Names.Contains(scene))
+        {
+            keyIndex = saveData.Names.IndexOf(scene);
+        }
+        else
+        {
+            saveData.Names.Add(scene);
+            keyIndex = saveData.Names.IndexOf(scene);
+        }
 
-        saveData.Times[keyIndex] = Math.Round(timer, 3);
+        Debug.Log("index of " + scene + " is " + keyIndex);
+
+        if (saveData.Times.Count < keyIndex + 1)
+        {
+            saveData.Times.Add(Math.Round(timer, 3));
+        }
+        else
+        {
+            saveData.Times[keyIndex] = Math.Round(timer, 3);
+        }
 
         //serialise to Json
         string saveWrite = JsonUtility.ToJson(saveData);
 
         //if no data exists post time
-        if (!File.Exists(savePath))
+        if (File.Exists(savePath))
         {
             File.WriteAllText(savePath, saveWrite);
 
@@ -120,7 +136,7 @@ public class SaveData
         }
     }
 
-    public List<string> Names;
-    public List<double> Times;
+    public List<string> Names = new List<string>();
+    public List<double> Times = new List<double>();
 
 }

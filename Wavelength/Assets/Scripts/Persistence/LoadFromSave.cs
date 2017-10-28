@@ -63,10 +63,20 @@ public class LoadFromSave
 
     public SaveData ReadAllData(string dataPath)
     {
-        SaveData data = SaveData.Instance;
-        string lvl_as_text = File.ReadAllText(dataPath);
-        data = JsonUtility.FromJson<SaveData>(lvl_as_text);
-        return data;
+        if (File.Exists(dataPath))
+        {
+            SaveData data = SaveData.Instance;
+            string lvl_as_text = File.ReadAllText(dataPath);
+            data = JsonUtility.FromJson<SaveData>(lvl_as_text);
+            return data;
+        }
+        else
+        {
+            SaveData defaultData = SaveData.Instance;
+            //defaultData.Names = new List<string>()
+            //default
+            return defaultData;
+        }
     }
 
 }
