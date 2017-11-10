@@ -66,8 +66,10 @@ public class PersistenceLogger : MonoBehaviour
         string saveWrite = JsonUtility.ToJson(saveData);
 
         //if no data exists post time
-        if (File.Exists(savePath))
+        if (!File.Exists(savePath))
         {
+            Debug.Log("Dosen't exist");
+            File.Create(savePath);
             File.WriteAllText(savePath, saveWrite);
 
             Debug.Log("First time logged: " + saveData.Times[keyIndex] + " seconds");
@@ -136,7 +138,12 @@ public class SaveData
         }
     }
 
-    public List<string> Names = new List<string>();
-    public List<double> Times = new List<double>();
+    SaveData()
+    {
+        Names = new List<string>();
+        Times = new List<double>();
+    }
+    public List<string> Names;
+    public List<double> Times;
 
 }
