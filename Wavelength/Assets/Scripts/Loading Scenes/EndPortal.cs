@@ -52,7 +52,7 @@ public class EndPortal : MonoBehaviour
         {
 
             //run the HighScore method on the persistence manager
-            gameObject.GetComponent<PersistenceLogger>().HighScore();
+
             logged = true;
         }
 

@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
-    LoadFromSave loader;
 
     void Start()
     {
-        loader = LoadFromSave.Instance;
     }
 
     public void Quit()
@@ -29,7 +27,6 @@ public class PauseMenuController : MonoBehaviour
 
     public void Continue()
     {
-        Debug.Log("Loading: " + loader.ReadLastSave());
-        loader.LoadLastSave();
+
     }
 }
