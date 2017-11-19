@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SaveInterface : MonoBehaviour
 {
-    bool defaultMode;
 
     SaveSystem accessor;
 
@@ -15,9 +14,9 @@ public class SaveInterface : MonoBehaviour
     }
 
     //load most progressed level
-    void loadMostProgressed()
+    public void LoadMostProgressed()
     {
-        if (defaultMode)
+        if (accessor.Data.Mode)
         {
             accessor.BRead();
             Data d = accessor.Data;
@@ -31,4 +30,9 @@ public class SaveInterface : MonoBehaviour
     //load a specific level
 
     //save current level
+    public void SaveCurrentLevel()
+    {
+        accessor.JWrite();
+        accessor.BWrite();
+    }
 }

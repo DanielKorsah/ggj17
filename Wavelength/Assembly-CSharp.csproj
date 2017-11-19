@@ -174,11 +174,11 @@
  <Reference Include="ZiosThemes">
  <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/@Themes/ZiosThemes.dll</HintPath>
  </Reference>
- <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
- <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
- </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
+ <HintPath>C:/Users/user/Documents/ggj17/Wavelength/Assets/TextMesh Pro/Plugins/TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

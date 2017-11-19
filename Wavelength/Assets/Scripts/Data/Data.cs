@@ -5,16 +5,16 @@ using UnityEngine;
 public class Data
 {
     public List<string> UnlockedLevels { get; set; }
-    List<float> BestTimes { get; set; }
-    string LastPlayed { get; set; }
-    bool Mode { get; set; }
+    public List<float> BestTimes { get; set; }
+    public string LastPlayed { get; set; }
+    public bool Mode { get; set; }
 
     //default data constructor
     public Data()
     {
         Mode = true;
-        UnlockedLevels = new List<string> { };
+        UnlockedLevels = new List<string> { "tut1" };
         BestTimes = new List<float> { };
-        LastPlayed = null;
+        LastPlayed = UnlockedLevels[UnlockedLevels.Count - 1];
     }
 }

@@ -11,8 +11,10 @@ public class SaveSystem
     private static SaveSystem instance = null;
     Data data;
     JsonSerializer serializer = new JsonSerializer();
-    string jFilePath = Path.Combine(Application.persistentDataPath, "PlayerInfo.Json");
-    string bFilePath = Path.Combine(Application.persistentDataPath, "PlayerInfo.dat");
+    //string jFilePath = Path.Combine(Application.streamingAssetsPath, "PersistentData.Json");
+    //string bFilePath = Path.Combine(Application.streamingAssetsPath, "PersistentData.dat");
+    string jFilePath = Path.Combine(Application.streamingAssetsPath, "PersistentData.Json");
+    string bFilePath = Path.Combine(Application.streamingAssetsPath, "PersistentData.dat");
 
     private SaveSystem()
     {
@@ -39,30 +41,52 @@ public class SaveSystem
 
     public void JWrite()
     {
-        string jOut = JsonConvert.SerializeObject(data);
-        File.WriteAllText(jFilePath, jOut);
+        if (!File.Exists(jFilePath))
+        {
+            Debug.Log("json created");
+            File.Create(jFilePath);
+        }
+        string jsonOut = JsonConvert.SerializeObject(data);
+        File.WriteAllText(jFilePath, jsonOut);
+        Debug.Log(jFilePath);
+        Debug.Log("Change filepath to Application.persistentDataPath before release!");
     }
 
     public void BWrite()
     {
+        if (!File.Exists(bFilePath))
+        {
+            Debug.Log("bson created");
+            File.Create(bFilePath);
+        }
         FileStream fs = File.Open(bFilePath, FileMode.Create);
         BsonWriter bWriter = new BsonWriter(fs);
         serializer.Serialize(bWriter, data);
+        Debug.Log(bFilePath);
+        Debug.Log("Change filepath to Application.persistentDataPath before release!");
     }
 
     public Data JRead()
     {
-        string jIn = File.ReadAllText(jFilePath);
-        return data = JsonConvert.DeserializeObject<Data>(jIn);
+        string jsonIn = File.ReadAllText(jFilePath);
+
+        Debug.Log(jFilePath);
+        Debug.Log("Change filepath to Application.persistentDataPath before release!");
+
+        return data = JsonConvert.DeserializeObject<Data>(jsonIn);
     }
 
     public Data BRead()
     {
-        byte[] bIn = Convert.FromBase64String("MQAAAAJOYW1lAA8AAABNb3ZpZSBQcmVtaWVyZQAJU3RhcnREYXRlAMDgKWE8AQAAAA==");
+        byte[] binaryIn = File.ReadAllBytes(bFilePath);
 
-        MemoryStream stream = new MemoryStream(bIn);
-        BsonReader bReader = new BsonReader(stream);
+        MemoryStream binaryStream = new MemoryStream(binaryIn);
+        BsonReader bReader = new BsonReader(binaryStream);
         JsonSerializer serializer = new JsonSerializer();
+
+        Debug.Log(bFilePath);
+        Debug.Log("Change filepath to Application.persistentDataPath before release!");
+
         return data = serializer.Deserialize<Data>(bReader);
     }
 
