@@ -31,33 +31,39 @@ public class SaveSystem
         }
     }
 
-    void JWrite()
+    public Data Data
+    {
+        get { return data; }
+        set { value = data; }
+    }
+
+    public void JWrite()
     {
         string jOut = JsonConvert.SerializeObject(data);
         File.WriteAllText(jFilePath, jOut);
     }
 
-    void BWrite()
+    public void BWrite()
     {
         FileStream fs = File.Open(bFilePath, FileMode.Create);
         BsonWriter bWriter = new BsonWriter(fs);
         serializer.Serialize(bWriter, data);
     }
 
-    void JRead()
+    public Data JRead()
     {
         string jIn = File.ReadAllText(jFilePath);
-        data = JsonConvert.DeserializeObject<Data>(jIn);
+        return data = JsonConvert.DeserializeObject<Data>(jIn);
     }
 
-    void BRead()
+    public Data BRead()
     {
         byte[] bIn = Convert.FromBase64String("MQAAAAJOYW1lAA8AAABNb3ZpZSBQcmVtaWVyZQAJU3RhcnREYXRlAMDgKWE8AQAAAA==");
 
         MemoryStream stream = new MemoryStream(bIn);
         BsonReader bReader = new BsonReader(stream);
         JsonSerializer serializer = new JsonSerializer();
-        data = serializer.Deserialize<Data>(bReader);
+        return data = serializer.Deserialize<Data>(bReader);
     }
 
 }

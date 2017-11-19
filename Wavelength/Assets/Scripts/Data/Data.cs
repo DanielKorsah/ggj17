@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Data
 {
-	List<string> unlockedLevels;
-	List<float> bestTimes;
-	string lastPlayed;
+    public List<string> UnlockedLevels { get; set; }
+    List<float> BestTimes { get; set; }
+    string LastPlayed { get; set; }
+    bool Mode { get; set; }
 
-	//default data constructor
-	public Data ()
-	{
-		unlockedLevels = new List<string> { };
-		bestTimes = new List<float> { };
-		lastPlayed = null;
-	}
+    //default data constructor
+    public Data()
+    {
+        Mode = true;
+        UnlockedLevels = new List<string> { };
+        BestTimes = new List<float> { };
+        LastPlayed = null;
+    }
 }
