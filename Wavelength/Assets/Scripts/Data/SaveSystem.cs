@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 using UnityEngine;
-using System.IO;
-using System;
 
 public class SaveSystem
 {
@@ -44,9 +44,9 @@ public class SaveSystem
         if (!File.Exists(jFilePath))
         {
             Debug.Log("json created");
-            File.Create(jFilePath);
+            File.Create(jFilePath).Dispose();
         }
-        string jsonOut = JsonConvert.SerializeObject(data);
+        string jsonOut = JsonConvert.SerializeObject(data, Formatting.Indented);
         File.WriteAllText(jFilePath, jsonOut);
         Debug.Log(jFilePath);
         Debug.Log("Change filepath to Application.persistentDataPath before release!");
@@ -57,13 +57,14 @@ public class SaveSystem
         if (!File.Exists(bFilePath))
         {
             Debug.Log("bson created");
-            File.Create(bFilePath);
+            File.Create(bFilePath).Dispose();
         }
         FileStream fs = File.Open(bFilePath, FileMode.Create);
         BsonWriter bWriter = new BsonWriter(fs);
         serializer.Serialize(bWriter, data);
         Debug.Log(bFilePath);
         Debug.Log("Change filepath to Application.persistentDataPath before release!");
+        fs.Close();
     }
 
     public Data JRead()

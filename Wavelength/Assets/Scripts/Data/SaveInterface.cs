@@ -29,10 +29,20 @@ public class SaveInterface : MonoBehaviour
 
     //load a specific level
 
-    //save current level
+    //save current level - Just testing file writes for now
     public void SaveCurrentLevel()
     {
         accessor.JWrite();
+        accessor.BWrite();
+    }
+
+    public void JTest()
+    {
+        accessor.JWrite();
+    }
+
+    public void BTest()
+    {
         accessor.BWrite();
     }
 }
