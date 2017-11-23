@@ -72,7 +72,7 @@ public class SaveSystem
         string jsonIn = File.ReadAllText(jFilePath);
 
         Debug.Log(jFilePath);
-        Debug.Log("Change filepath to Application.persistentDataPath before release!");
+        Debug.LogWarning("Change filepath to Application.persistentDataPath before release!");
 
         return data = JsonConvert.DeserializeObject<Data>(jsonIn);
     }
@@ -86,7 +86,7 @@ public class SaveSystem
         JsonSerializer serializer = new JsonSerializer();
 
         Debug.Log(bFilePath);
-        Debug.Log("Change filepath to Application.persistentDataPath before release!");
+        Debug.LogWarning("Change filepath to Application.persistentDataPath before release!");
 
         return data = serializer.Deserialize<Data>(bReader);
     }
