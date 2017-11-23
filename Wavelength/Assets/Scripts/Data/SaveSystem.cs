@@ -10,6 +10,7 @@ public class SaveSystem
 {
     private static SaveSystem instance = null;
     public Data Data { get; set; }
+    //public Data Data = Data.Instance;
     JsonSerializer serializer = new JsonSerializer();
     //string jFilePath = Path.Combine(Application.streamingAssetsPath, "PersistentData.Json");
     //string bFilePath = Path.Combine(Application.streamingAssetsPath, "PersistentData.dat");
@@ -18,7 +19,10 @@ public class SaveSystem
 
     private SaveSystem()
     {
-        Data = new Data();
+        if (Data == null)
+            Data = new Data("tut1");
+        else
+            Data = new Data();
     }
 
     public static SaveSystem Instance
@@ -71,7 +75,8 @@ public class SaveSystem
         Debug.Log(jFilePath);
         Debug.LogWarning("Change filepath to Application.persistentDataPath before release!");
 
-        return Data = JsonConvert.DeserializeObject<Data>(jsonIn);
+        Data = JsonConvert.DeserializeObject<Data>(jsonIn);
+        return Data;
     }
 
     public Data BRead()
@@ -88,7 +93,8 @@ public class SaveSystem
         Debug.Log(bFilePath);
         Debug.LogWarning("Change filepath to Application.persistentDataPath before release!");
 
-        return Data = serializer.Deserialize<Data>(bReader);
+        Data = serializer.Deserialize<Data>(bReader);
+        return Data;
     }
 
 }

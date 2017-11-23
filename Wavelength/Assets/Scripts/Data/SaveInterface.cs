@@ -6,15 +6,14 @@ using UnityEngine.SceneManagement;
 public class SaveInterface : MonoBehaviour
 {
     public static SaveInterface SI;
-    SaveSystem accessor;
-
-    void Awake()
+    public SaveSystem accessor;
+    Data d;
+    void Start()
     {
         accessor = SaveSystem.Instance;
-        if (!accessor.Data.UnlockedLevels.Contains("tut1"))
-            accessor.Data.UnlockedLevels.Add("tut1");
         Debug.Log(accessor.Data.UnlockedLevels.Count);
         accessor.Data.LastPlayed = accessor.Data.UnlockedLevels[accessor.Data.UnlockedLevels.Count - 1];
+        d = accessor.Data;
         //make a static singleton
         #region
         if (SI == null)
@@ -62,6 +61,7 @@ public class SaveInterface : MonoBehaviour
 
         string thisLevel = SceneManager.GetActiveScene().name;
         //make this the last level played
+
         accessor.Data.LastPlayed = thisLevel;
         Debug.Log(thisLevel + "is current level");
         if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
@@ -70,6 +70,7 @@ public class SaveInterface : MonoBehaviour
             {
                 Debug.Log(thisLevel + " saved to Bson");
                 accessor.BRead();
+                d.LastPlayed = d.UnlockedLevels[d.UnlockedLevels.Count - 1];
                 //add level to list of unlockled levels
                 if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
                     accessor.Data.UnlockedLevels.Add(thisLevel);
@@ -79,10 +80,31 @@ public class SaveInterface : MonoBehaviour
             {
                 Debug.Log(thisLevel + " saved to Json");
                 accessor.JRead();
+                d.LastPlayed = d.UnlockedLevels[d.UnlockedLevels.Count - 1];
                 //add level to list of unlockled levels
                 if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
                     accessor.Data.UnlockedLevels.Add(thisLevel);
                 accessor.JWrite();
+            }
+        }
+    }
+
+    //save time
+    public void SaveTime()
+    {
+        string thisLevel = SceneManager.GetActiveScene().name;
+
+        if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
+        {
+            if (accessor.Data.Mode)
+            {
+                //bson save
+            }
+            else
+            {
+                //json save
+                //accessor.JRead();
+
             }
         }
     }
