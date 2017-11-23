@@ -71,9 +71,14 @@ public class SaveInterface : MonoBehaviour
                 Debug.Log(thisLevel + " saved to Bson");
                 accessor.BRead();
                 d.LastPlayed = d.UnlockedLevels[d.UnlockedLevels.Count - 1];
+
                 //add level to list of unlockled levels
                 if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
+                {
                     accessor.Data.UnlockedLevels.Add(thisLevel);
+                    d.BestTimes.Add(float.MaxValue);
+                }
+
                 accessor.BWrite();
             }
             else
@@ -81,6 +86,7 @@ public class SaveInterface : MonoBehaviour
                 Debug.Log(thisLevel + " saved to Json");
                 accessor.JRead();
                 d.LastPlayed = d.UnlockedLevels[d.UnlockedLevels.Count - 1];
+                d.BestTimes.Add(float.MaxValue);
                 //add level to list of unlockled levels
                 if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
                     accessor.Data.UnlockedLevels.Add(thisLevel);
@@ -90,7 +96,7 @@ public class SaveInterface : MonoBehaviour
     }
 
     //save time
-    public void SaveTime()
+    public void SaveTime(float time)
     {
         string thisLevel = SceneManager.GetActiveScene().name;
 
@@ -99,12 +105,16 @@ public class SaveInterface : MonoBehaviour
             if (accessor.Data.Mode)
             {
                 //bson save
+                accessor.BRead();
+                d.BestTimes[d.UnlockedLevels.IndexOf(d.LastPlayed)] = time;
+                accessor.BWrite();
             }
             else
             {
                 //json save
-                //accessor.JRead();
-
+                accessor.JRead();
+                d.BestTimes[d.UnlockedLevels.IndexOf(d.LastPlayed)] = time;
+                accessor.JWrite();
             }
         }
     }

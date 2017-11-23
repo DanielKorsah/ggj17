@@ -9,6 +9,8 @@ public class EndPortal : MonoBehaviour
     private bool contact = false;
     bool logged = false;
     float timer = 1f;
+    TimeLimit tLim;
+    Data d;
 
     [SerializeField]
     public string NextScene;
@@ -22,9 +24,10 @@ public class EndPortal : MonoBehaviour
 
     public void Start()
     {
+        d = SaveInterface.SI.accessor.Data;
+        tLim = (TimeLimit) GameObject.Find("Timer").GetComponent("TimeLimit");
         thisScene = SceneManager.GetActiveScene().name;
         Debug.Log("this scene = " + thisScene);
-
         SaveInterface.SI.SaveCurrentLevel();
     }
 
@@ -50,6 +53,8 @@ public class EndPortal : MonoBehaviour
         {
 
             //run the HighScore method on the persistence manager
+            d.BestTimes[d.UnlockedLevels.IndexOf(thisScene)] = tLim.time;
+            SaveInterface.SI.SaveTime(tLim.time);
 
             logged = true;
         }

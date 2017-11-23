@@ -13,9 +13,8 @@ public class Data
     public Data(string firstLevel)
     {
         Debug.Log("Steup Data");
-        Mode = false;
         UnlockedLevels = new List<string> { firstLevel };
-        BestTimes = new List<float> {};
+        BestTimes = new List<float> { float.MaxValue };
     }
 
     public Data()
