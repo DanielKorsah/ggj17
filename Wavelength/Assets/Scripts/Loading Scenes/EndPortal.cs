@@ -10,12 +10,9 @@ public class EndPortal : MonoBehaviour
     bool logged = false;
     float timer = 1f;
 
-
     [SerializeField]
     public string NextScene;
     string thisScene;
-
-
 
     public bool Contact
     {
@@ -27,6 +24,8 @@ public class EndPortal : MonoBehaviour
     {
         thisScene = SceneManager.GetActiveScene().name;
         Debug.Log("this scene = " + thisScene);
+
+        SaveInterface.SI.SaveCurrentLevel();
     }
 
     private void Update()
@@ -45,10 +44,9 @@ public class EndPortal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-
         //check we're in an actual level
-        if (!logged && thisScene != "Main Menu" && thisScene != "Hub Scene"
-            && thisScene != "Instruct" && thisScene != "theEnd")
+        if (!logged && thisScene != "Main Menu" && thisScene != "Hub Scene" &&
+            thisScene != "Instruct" && thisScene != "theEnd")
         {
 
             //run the HighScore method on the persistence manager

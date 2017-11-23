@@ -11,7 +11,10 @@ public class SaveInterface : MonoBehaviour
     void Awake()
     {
         accessor = SaveSystem.Instance;
-
+        if (!accessor.Data.UnlockedLevels.Contains("tut1"))
+            accessor.Data.UnlockedLevels.Add("tut1");
+        Debug.Log(accessor.Data.UnlockedLevels.Count);
+        accessor.Data.LastPlayed = accessor.Data.UnlockedLevels[accessor.Data.UnlockedLevels.Count - 1];
         //make a static singleton
         #region
         if (SI == null)
@@ -35,7 +38,14 @@ public class SaveInterface : MonoBehaviour
     {
         if (accessor.Data.Mode)
         {
+
             accessor.BRead();
+            Data d = accessor.Data;
+            SceneManager.LoadScene(d.LastPlayed);
+        }
+        else
+        {
+            accessor.JRead();
             Data d = accessor.Data;
             SceneManager.LoadScene(d.LastPlayed);
         }
@@ -49,25 +59,31 @@ public class SaveInterface : MonoBehaviour
     //save current level - Just testing file writes for now
     public void SaveCurrentLevel()
     {
-        //make this the last level played
-        string thisLevel = SceneManager.GetActiveScene().name;
-        accessor.Data.LastPlayed = thisLevel;
 
-        if (accessor.Data.Mode)
+        string thisLevel = SceneManager.GetActiveScene().name;
+        //make this the last level played
+        accessor.Data.LastPlayed = thisLevel;
+        Debug.Log(thisLevel + "is current level");
+        if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
         {
-            accessor.BRead();
-            //add level to list of unlockled levels
-            if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
-                accessor.Data.UnlockedLevels.Add(thisLevel);
-            accessor.BWrite();
-        }
-        else
-        {
-            accessor.JRead();
-            //add level to list of unlockled levels
-            if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
-                accessor.Data.UnlockedLevels.Add(thisLevel);
-            accessor.JWrite();
+            if (accessor.Data.Mode)
+            {
+                Debug.Log(thisLevel + " saved to Bson");
+                accessor.BRead();
+                //add level to list of unlockled levels
+                if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
+                    accessor.Data.UnlockedLevels.Add(thisLevel);
+                accessor.BWrite();
+            }
+            else
+            {
+                Debug.Log(thisLevel + " saved to Json");
+                accessor.JRead();
+                //add level to list of unlockled levels
+                if (!accessor.Data.UnlockedLevels.Contains(thisLevel))
+                    accessor.Data.UnlockedLevels.Add(thisLevel);
+                accessor.JWrite();
+            }
         }
     }
 

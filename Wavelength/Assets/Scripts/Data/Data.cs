@@ -12,9 +12,9 @@ public class Data
     //default data constructor
     public Data()
     {
-        Mode = true;
-        UnlockedLevels = new List<string> { "tut1" };
-        BestTimes = new List<float> { };
-        LastPlayed = UnlockedLevels[UnlockedLevels.Count - 1];
+        Debug.Log("Constructor");
+        Mode = false;
+        UnlockedLevels = new List<string> {};
+        BestTimes = new List<float> {};
     }
 }

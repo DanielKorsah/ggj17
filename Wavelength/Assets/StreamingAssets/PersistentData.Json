@@ -1,8 +1,10 @@
 {
   "UnlockedLevels": [
-    "tut1"
+    "tut1",
+    "tut1.2",
+    "tut2"
   ],
   "BestTimes": [],
   "LastPlayed": "tut1",
-  "Mode": true
+  "Mode": false
 }
