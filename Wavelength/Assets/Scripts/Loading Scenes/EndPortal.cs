@@ -22,16 +22,16 @@ public class EndPortal : MonoBehaviour
         set { contact = value; }
     }
 
-    public void Start()
+    public void Start ()
     {
         d = SaveInterface.SI.accessor.Data;
-        tLim = (TimeLimit) GameObject.Find("Timer").GetComponent("TimeLimit");
-        thisScene = SceneManager.GetActiveScene().name;
-        Debug.Log("this scene = " + thisScene);
-        SaveInterface.SI.SaveCurrentLevel();
+        tLim = (TimeLimit) GameObject.Find ("Timer").GetComponent ("TimeLimit");
+        thisScene = SceneManager.GetActiveScene ().name;
+        Debug.Log ("this scene = " + thisScene);
+        SaveInterface.SI.SaveCurrentLevel ();
     }
 
-    private void Update()
+    private void Update ()
     {
         if (contact == true)
         {
@@ -39,22 +39,26 @@ public class EndPortal : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                SceneManager.LoadScene(NextScene, LoadSceneMode.Single);
+                SceneManager.LoadScene (NextScene, LoadSceneMode.Single);
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D (Collider2D collision)
     {
 
         //check we're in an actual level
         if (!logged && thisScene != "Main Menu" && thisScene != "Hub Scene" &&
             thisScene != "Instruct" && thisScene != "theEnd")
         {
-
+            for (int i = 0; i < 10; i++)
+            {
+                Debug.Log ("Save, nigga!");
+            }
+            d = SaveInterface.SI.accessor.JRead ();
             //run the HighScore method on the persistence manager
-            d.BestTimes[d.UnlockedLevels.IndexOf(thisScene)] = tLim.time;
-            SaveInterface.SI.SaveTime(tLim.time);
+            d.BestTimes[d.UnlockedLevels.IndexOf (thisScene)] = tLim.time;
+            SaveInterface.SI.SaveTime (tLim.time);
 
             logged = true;
         }

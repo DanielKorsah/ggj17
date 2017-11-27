@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class Data
 {
-    public List<string> UnlockedLevels { get; set; } = new List<string>();
-    public List<float> BestTimes { get; set; } = new List<float>();
+    public List<string> UnlockedLevels { get; set; } = new List<string> ();
+    public List<float> BestTimes { get; set; } = new List<float> ();
     public string LastPlayed { get; set; }
     public bool Mode { get; set; }
 
-    //start constructor
-    public Data(string firstLevel)
-    {
-        Debug.Log("Steup Data");
-        UnlockedLevels = new List<string> { firstLevel };
-        BestTimes = new List<float> { float.MaxValue };
-    }
+    private static Data instance;
 
-    public Data()
+    public static Data Instance
     {
-        Debug.Log("Regular Data");
-        Mode = false;
-        UnlockedLevels = new List<string> {};
-        BestTimes = new List<float> {};
+        get
+        {
+            if (instance == null)
+            {
+                instance = new Data ();
+                Debug.Log ("Steup Data");
+                instance.UnlockedLevels = new List<string> { "tut1" };
+                instance.BestTimes = new List<float> { float.MaxValue };
+            }
+            else
+            {
+                Debug.Log ("Regular Data");
+            }
+
+            return instance;
+        }
     }
 }

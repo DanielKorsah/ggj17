@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Not Levels/Main Menu.unity
     guid: acc2198e505969d4284fd8b58213a7db
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Not Levels/Hub Scene.unity
     guid: 7b683d22ceb429d4a90cb68f3879129b
   - enabled: 1
@@ -53,6 +53,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Not Levels/theEnd.unity
     guid: 261ec0f2ac1e60341b4521187d84ced0
-  - enabled: 1
-    path: Assets/Scenes/Testing/Dan.unity
+  - enabled: 0
+    path: 
     guid: b4eb8ce00d4f1a94c8eb5525e08a4edd
