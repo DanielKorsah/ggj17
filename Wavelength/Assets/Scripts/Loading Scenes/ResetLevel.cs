@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ResetLevel : MonoBehaviour {
+public class ResetLevel : MonoBehaviour
+{
 
     float downTime;
     private SpriteRenderer statik;
@@ -11,11 +12,12 @@ public class ResetLevel : MonoBehaviour {
     private void Start()
     {
         statik = GameObject.FindGameObjectWithTag("Static").GetComponent<SpriteRenderer>();
-        Cursor.visible = false;
+
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -24,11 +26,11 @@ public class ResetLevel : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.R))
         {
-            if ((Time.time - downTime) >=1)
+            if ((Time.time - downTime) >= 1)
             {
                 string levelName = SceneManager.GetActiveScene().name;
                 SceneManager.LoadScene(levelName, LoadSceneMode.Single);
-                Debug.Log(levelName + " : " );
+                Debug.Log(levelName + " : ");
             }
         }
 
@@ -44,9 +46,6 @@ public class ResetLevel : MonoBehaviour {
             {
                 statik.enabled = true;
                 Application.Quit();
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#endif
             }
         }
 

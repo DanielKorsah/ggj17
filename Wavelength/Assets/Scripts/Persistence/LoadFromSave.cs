@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.IO;
 
-public class LoadFromSave : MonoBehaviour
+public class LoadFromSave
 {
 
     private bool contact = false;
@@ -13,8 +13,6 @@ public class LoadFromSave : MonoBehaviour
     float timer = 1f;
     string save_path;
 
-    
-    public string nextScene;
 
     public bool Contact
     {
@@ -22,50 +20,47 @@ public class LoadFromSave : MonoBehaviour
         set { contact = value; }
     }
 
+    //make dis bitch a singleton
+    private static LoadFromSave instance;
+    public static LoadFromSave Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new LoadFromSave();
+            }
+            return instance;
+        }
+    }
 
-    void Start()
+
+    LoadFromSave()
     {
         save_path = Application.streamingAssetsPath + "/SaveFile.Json";
     }
-    private void Update()
-    {
-        if (contact == true)
-        {
 
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
-            }
-        }
+    public void LoadLastSave()
+    {
+        SceneManager.LoadScene(ReadSave());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
 
-        if(File.Exists(save_path))
+    public string ReadSave()
+    {
+        string nextScene;
+        if (File.Exists(save_path))
         {
-            ReadSave();
+            Level level = new Level();
+            string lvl_as_text = File.ReadAllText(save_path);
+            level = JsonUtility.FromJson<Level>(lvl_as_text);
+
+            nextScene = level.name;
         }
         else
         {
-            nextScene = "tut2";
-            Debug.Log(save_path);
+            nextScene = "tut1";
         }
-
-
-        contact = true;
-    }
-
-
-    string ReadSave()
-    {
-        Level level = new Level();
-        string lvl_as_text = File.ReadAllText(save_path);
-        level = JsonUtility.FromJson<Level>(lvl_as_text);
-
-        nextScene = level.name;
         return nextScene;
     }
 

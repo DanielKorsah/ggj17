@@ -53,3 +53,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Not Levels/theEnd.unity
     guid: 261ec0f2ac1e60341b4521187d84ced0
+  - enabled: 1
+    path: Assets/Scenes/Testing/Dan.unity
+    guid: b4eb8ce00d4f1a94c8eb5525e08a4edd
