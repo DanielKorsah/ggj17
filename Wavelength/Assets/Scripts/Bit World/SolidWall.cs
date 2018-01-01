@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SolidWall : Bit
 {
-
+    
 
     private void Awake()
     {
@@ -14,8 +14,9 @@ public class SolidWall : Bit
         showColour = false;
     }
     // Use this for initialization
-    new void Start()
+    protected override void Start()
     {
+        base.Start();
         world = FindObjectOfType<World>();
         spriteSheet = BitWorldSprites.Instantiate;
         GetNeighbours();

@@ -23,7 +23,7 @@ public class Bit : MonoBehaviour
 
     protected Time lastUpdate = null;
 
-    protected void Start()
+    virtual protected void Start()
     {
         world = FindObjectOfType<World>();
         spriteSheet = BitWorldSprites.Instantiate;
@@ -250,6 +250,7 @@ public class Bit : MonoBehaviour
                     Debug.Log("false");
                 }
             }
+
 
             wallShape = (BitShape)System.Enum.Parse(typeof(BitShape), code);
         }
