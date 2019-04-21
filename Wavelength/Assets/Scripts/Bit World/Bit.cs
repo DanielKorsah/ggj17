@@ -22,12 +22,15 @@ public class Bit : MonoBehaviour
     public bool[] neighboursSimilar = new bool[] { false, false, false, false };
     public BitShape wallShape;
 
+    protected SpriteRenderer sprite;
+
     protected Time lastUpdate = null;
 
     virtual protected void Start()
     {
         world = FindObjectOfType<World>();
         spriteSheet = BitWorldSprites.Instantiate;
+        sprite = GetComponent<SpriteRenderer>();
         GetNeighbours();
         GetBitShapeString();
         UpdateSprite();
@@ -295,7 +298,7 @@ public class Bit : MonoBehaviour
     protected virtual void UpdateSprite()
     {
         //gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetAirColourSprites(shortListEnum);
-        GetComponent<SpriteRenderer>().sortingOrder = (int)displayType;
+        sprite.sortingOrder = (int)displayType;
     }
     // Get information about bit location
     public void SetLocationData(int worldX, int worldY, int gridX, int gridY)

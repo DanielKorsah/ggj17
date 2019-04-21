@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ColouredWall : Bit
 {
-
+    // True if colour at that index is required to hide wall
     private bool[] wallColours = new bool[] { false, false, false };
+    // Collision box
+    private BoxCollider2D collider;
 
     void Awake()
     {
@@ -13,6 +15,7 @@ public class ColouredWall : Bit
         displayType = BitType.Void;
         neighbourDependant = true;
         showColour = false;
+        collider = GetComponent<BoxCollider2D>();
     }
 
     // Use this for initialization
@@ -57,7 +60,7 @@ public class ColouredWall : Bit
         //string wavel = displayType.ToString();
         //wavel = wavel.Substring(0, wavel.Length - 4);
         //WaveColour wavec = (WaveColour)System.Enum.Parse(typeof(WaveColour), wavel);
-        GetComponent<SpriteRenderer>().color = BitWorldKnowledge.Instance.BitTypeByColour[displayType];
+        sprite.color = BitWorldKnowledge.Instance.BitTypeByColour[displayType];
         base.UpdateSprite();
     }
     // Work out display type from wall type and shortlist (make tiles calculate in future)
@@ -72,11 +75,13 @@ public class ColouredWall : Bit
         {
             dispType += "Wall";
             displayType = (BitType)System.Enum.Parse(typeof(BitType), dispType);
+            collider.enabled = true;
         }
         // If the wall is hidden
         else
         {
             displayType = BitType.Void;
+            collider.enabled = false;
         }
     }
 
