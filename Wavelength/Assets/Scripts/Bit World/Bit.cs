@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bit : MonoBehaviour
 {
-    protected World world;
-    protected BitWorldSprites spriteSheet;
+    protected World world;  // Maybe make static
+    protected BitWorldSprites spriteSheet;  // Maybe make static
 
     protected BitType bitType = BitType.Air;
     protected BitType displayType = BitType.Air;
@@ -19,6 +19,7 @@ public class Bit : MonoBehaviour
     public Vector2 worldPos = new Vector2();
 
     public Bit[] neighbours = new Bit[4];
+    public bool[] neighboursSimilar = new bool[] { false, false, false, false };
     public BitShape wallShape;
 
     protected Time lastUpdate = null;
@@ -29,6 +30,7 @@ public class Bit : MonoBehaviour
         spriteSheet = BitWorldSprites.Instantiate;
         GetNeighbours();
         GetBitShapeString();
+        UpdateSprite();
     }
     // Finds the four orthoganal neighbours to this bit
     protected void GetNeighbours()
@@ -243,15 +245,15 @@ public class Bit : MonoBehaviour
                 if (neighbours[i].displayType == displayType)
                 {
                     Debug.Log("true");
+                    neighboursSimilar[i] = true;
                     code += (i + 1).ToString();
                 }
                 else
                 {
                     Debug.Log("false");
+                    neighboursSimilar[i] = false;
                 }
             }
-
-
             wallShape = (BitShape)System.Enum.Parse(typeof(BitShape), code);
         }
     }
@@ -283,12 +285,17 @@ public class Bit : MonoBehaviour
     // Updates the shape of the bit based on surrounding bits
     protected void UpdateBitShape()
     {
-        GetBitShapeString();
+        if (neighbourDependant)
+        {
+            GetBitShapeString();
+            UpdateSprite();
+        }
     }
     // Update the sprite colour to match the wavelengths affecting the tile
-    protected void UpdateSprite()
+    protected virtual void UpdateSprite()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetAirColourSprites(shortListEnum);
+        //gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetAirColourSprites(shortListEnum);
+        GetComponent<SpriteRenderer>().sortingOrder = (int)displayType;
     }
     // Get information about bit location
     public void SetLocationData(int worldX, int worldY, int gridX, int gridY)
@@ -299,22 +306,14 @@ public class Bit : MonoBehaviour
         gridPos.y = gridY;
     }
 
-    public BitType BitTypeSet
-    {
-        set
-        {
-            if (displayType == BitType.Void && bitType == BitType.Wall)
-            {
-                bitType = value;
-            }
-        }
-    }
+    // BitTypeSet only implemented in coloured walls
+    public virtual BitType BitTypeSet { set { } }
     public BitType DisplayTypeGet
     {
         get { return displayType; }
     }
 
-    // Methods for use by beacon bits
+    // Methods for use by beacon bits (incomplete)
     public Wavelength BeaconGetWaveLength()
     {
         return Wavelength.V;

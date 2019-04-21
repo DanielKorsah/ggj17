@@ -2,26 +2,89 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColouredWall : Bit {
+public class ColouredWall : Bit
+{
 
+    private bool[] wallColours = new bool[] { false, false, false };
 
-	void Awake () {
+    void Awake()
+    {
         bitType = BitType.Wall;
+        displayType = BitType.Void;
         neighbourDependant = true;
         showColour = false;
     }
 
     // Use this for initialization
-    new void Start()
+    override protected void Start()
     {
-        world = FindObjectOfType<World>();
-        spriteSheet = BitWorldSprites.Instantiate;
-        GetNeighbours();
-        GetBitShapeString();
+        base.Start();
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    // Set Wall BitType
+    public override BitType BitTypeSet
+    {
+        set
+        {
+            if (displayType == BitType.Void && bitType == BitType.Wall)
+            {
+                // Set bit and display type
+                bitType = value;
+                displayType = value;
+
+                // Save all colours present in this wall type as true
+                string wallCol = value.ToString();
+                if (wallCol.Contains("I"))
+                {
+                    wallColours[(int)Wavelength.I] = true;
+                }
+                if (wallCol.Contains("V"))
+                {
+                    wallColours[(int)Wavelength.V] = true;
+                }
+                if (wallCol.Contains("U"))
+                {
+                    wallColours[(int)Wavelength.U] = true;
+                }
+            }
+        }
+    }
+
+    // Get appropriate shading for wall shape and change colour
+    protected override void UpdateSprite()
+    {
+        CalculateDisplayColour();
+        //string wavel = displayType.ToString();
+        //wavel = wavel.Substring(0, wavel.Length - 4);
+        //WaveColour wavec = (WaveColour)System.Enum.Parse(typeof(WaveColour), wavel);
+        GetComponent<SpriteRenderer>().color = BitWorldKnowledge.Instance.BitTypeByColour[displayType];
+        base.UpdateSprite();
+    }
+    // Work out display type from wall type and shortlist (make tiles calculate in future)
+    private void CalculateDisplayColour()
+    {
+        string dispType = "";
+        CheckIfDisplaying(Wavelength.I, ref dispType);
+        CheckIfDisplaying(Wavelength.V, ref dispType);
+        CheckIfDisplaying(Wavelength.U, ref dispType);
+        // If the wall still exists for any colour
+        if (dispType != "")
+        {
+            dispType += "Wall";
+            displayType = (BitType)System.Enum.Parse(typeof(BitType), dispType);
+        }
+        // If the wall is hidden
+        else
+        {
+            displayType = BitType.Void;
+        }
+    }
+
+    private void CheckIfDisplaying(Wavelength colour, ref string dispType)
+    {
+        if (wallColours[(int)colour] && !shortList[(int)colour])
+        {
+            dispType += colour.ToString();
+        }
+    }
 }

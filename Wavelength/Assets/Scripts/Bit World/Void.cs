@@ -14,11 +14,8 @@ public class Void : Bit
         showColour = false;
     }
 
-    private void Start()
+    protected override void Start()
     {
-        world = FindObjectOfType<World>();
-        spriteSheet = BitWorldSprites.Instantiate;
-        GetNeighbours();
-        GetBitShapeString();
+        base.Start();
     }
 }

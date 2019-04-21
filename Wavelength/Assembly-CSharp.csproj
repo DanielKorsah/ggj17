@@ -63,6 +63,7 @@
     <Compile Include="Assets\RaycastChecker.cs" />
     <Compile Include="Assets\Scripts\Bit World\Bit.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitTypetoBool.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BitTypetoPrefab.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitTypetoSprite.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitWorldEnums.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitWorldKnowledge.cs" />
@@ -70,7 +71,7 @@
     <Compile Include="Assets\Scripts\Bit World\BitWorldMaker.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitWorldSprites.cs" />
     <Compile Include="Assets\Scripts\Bit World\ColouredWall.cs" />
-    <Compile Include="Assets\Scripts\Bit World\ColourtoPrefab.cs" />
+    <Compile Include="Assets\Scripts\Bit World\ColourtoBitType.cs" />
     <Compile Include="Assets\Scripts\Bit World\Grid.cs" />
     <Compile Include="Assets\Scripts\Bit World\SolidWall.cs" />
     <Compile Include="Assets\Scripts\Bit World\Void.cs" />

@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class BitWorldMaker : MonoBehaviour
 {
-    public List<ColourtoPrefab> relations = new List<ColourtoPrefab>();
+    public List<BitTypetoPrefab> relations = new List<BitTypetoPrefab>();
     public Texture2D world;
-    public Transform bit;
     public Transform grid;
     public Transform gridWorld;
     public Transform voidPrefab;
     private Transform instantiatedWorld;
     private World instantiatedWorldScript;
+
+    private BitWorldKnowledge knowledge = BitWorldKnowledge.Instance;
 
     // Upon starting create the world
     void Start()
@@ -60,7 +61,7 @@ public class BitWorldMaker : MonoBehaviour
         }
     }
     // Function for instantiating a bit
-    private void MakeBit(int x, int y, Transform prefab)
+    private void MakeBit(int x, int y, Transform prefab, BitType bitType)
     {
         // Get grid coordinates within the world by dividing pixel x & y by width of grids (10)
         int worldX = x / 10;
@@ -75,16 +76,17 @@ public class BitWorldMaker : MonoBehaviour
         instantiatedWorldScript.GetGrid(worldX, worldY).AddBit(Instantiate(prefab, new Vector3(coordX, coordY, 0), Quaternion.identity, instantiatedWorldScript.gridsObjs[worldX, worldY]).GetComponent<Bit>(), gridX, gridY);
         // Tell the bit where it is in the grid and the world
         instantiatedWorldScript.GetGrid(worldX, worldY).GetBit(gridX, gridY).SetLocationData(worldX, worldY, gridX, gridY);
+        instantiatedWorldScript.GetGrid(worldX, worldY).GetBit(gridX, gridY).BitTypeSet = bitType;
     }
     // Function to choose the prefab type to make
     private void FindColour(int x, int y, Color32 pixel)
     {
         bool found = false;
-        foreach (ColourtoPrefab pair in relations)
+        foreach (BitTypetoPrefab pair in relations)
         {
-            if (pixel == pair.colour)
+            if (pixel.Equals(knowledge.BitTypeByColour[pair.bitType]))
             {
-                MakeBit(x, y, pair.prefab);
+                MakeBit(x, y, pair.prefab, pair.bitType);
                 found = true;
             }
             if (found)
@@ -92,9 +94,15 @@ public class BitWorldMaker : MonoBehaviour
                 break;
             }
         }
+        /*BitType bitType = BitType.Void;
+        if (knowledge.BitTypeByColour.TryGetValue(pixel, out bitType))
+        {
+            MakeBit(x, y, relations[bitType]);
+            found = true;
+        }*/
         if (!found)
         {
-            MakeBit(x, y, voidPrefab);
+            MakeBit(x, y, voidPrefab, BitType.Void);
         }
     }
 }

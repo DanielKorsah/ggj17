@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class ColourtoPrefab
+public class BitTypetoPrefab
 {
-    public Color colour;
+    public BitType bitType;
     public Transform prefab;
 }
