@@ -6,8 +6,13 @@ public class ColouredWall : Bit
 {
     // True if colour at that index is required to hide wall
     private bool[] wallColours = new bool[] { false, false, false };
+    // The display wavelength of this wall
+    private Wavelength displayWavelength = Wavelength.I;
     // Collision box
     private BoxCollider2D collider;
+
+    // ~~~ All the different coloured wall sprites (bad solution, shouldn't be on every bit) 
+    public List<Sprite> sprites = new List<Sprite>();
 
     void Awake()
     {
@@ -60,7 +65,8 @@ public class ColouredWall : Bit
         //string wavel = displayType.ToString();
         //wavel = wavel.Substring(0, wavel.Length - 4);
         //WaveColour wavec = (WaveColour)System.Enum.Parse(typeof(WaveColour), wavel);
-        sprite.color = BitWorldKnowledge.Instance.BitTypeByColour[displayType];
+        //sprite.color = BitWorldKnowledge.Instance.BitTypeByColour[displayType];
+        sprite.sprite = sprites[(int)displayWavelength];
         base.UpdateSprite();
     }
     // Work out display type from wall type and shortlist (make tiles calculate in future)
@@ -73,6 +79,7 @@ public class ColouredWall : Bit
         // If the wall still exists for any colour
         if (dispType != "")
         {
+            displayWavelength = (Wavelength)System.Enum.Parse(typeof(Wavelength), dispType);
             dispType += "Wall";
             displayType = (BitType)System.Enum.Parse(typeof(BitType), dispType);
             collider.enabled = true;
