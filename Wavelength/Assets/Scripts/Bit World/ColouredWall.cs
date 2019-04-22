@@ -9,7 +9,7 @@ public class ColouredWall : Bit
     // The display wavelength of this wall
     private Wavelength displayWavelength = Wavelength.I;
     // Collision box
-    private BoxCollider2D collider;
+    private BoxCollider2D wallCollider;
 
     // ~~~ All the different coloured wall sprites (bad solution, shouldn't be on every bit) 
     public List<Sprite> sprites = new List<Sprite>();
@@ -20,7 +20,7 @@ public class ColouredWall : Bit
         displayType = BitType.Void;
         neighbourDependant = true;
         showColour = false;
-        collider = GetComponent<BoxCollider2D>();
+        wallCollider = GetComponent<BoxCollider2D>();
     }
 
     // Use this for initialization
@@ -82,13 +82,13 @@ public class ColouredWall : Bit
             displayWavelength = (Wavelength)System.Enum.Parse(typeof(Wavelength), dispType);
             dispType += "Wall";
             displayType = (BitType)System.Enum.Parse(typeof(BitType), dispType);
-            collider.enabled = true;
+            wallCollider.enabled = true;
         }
         // If the wall is hidden
         else
         {
             displayType = BitType.Void;
-            collider.enabled = false;
+            wallCollider.enabled = false;
         }
     }
 

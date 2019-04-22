@@ -94,12 +94,6 @@ public class BitWorldMaker : MonoBehaviour
                 break;
             }
         }
-        /*BitType bitType = BitType.Void;
-        if (knowledge.BitTypeByColour.TryGetValue(pixel, out bitType))
-        {
-            MakeBit(x, y, relations[bitType]);
-            found = true;
-        }*/
         if (!found)
         {
             MakeBit(x, y, voidPrefab, BitType.Void);

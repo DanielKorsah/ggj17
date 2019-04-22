@@ -26,7 +26,7 @@ public class Bit : MonoBehaviour
 
     protected Time lastUpdate = null;
 
-    virtual protected void Start()
+    protected virtual void Start()
     {
         world = FindObjectOfType<World>();
         spriteSheet = BitWorldSprites.Instantiate;
@@ -257,7 +257,14 @@ public class Bit : MonoBehaviour
                     neighboursSimilar[i] = false;
                 }
             }
-            wallShape = (BitShape)System.Enum.Parse(typeof(BitShape), code);
+            if (code != "x")
+            {
+                wallShape = (BitShape)System.Enum.Parse(typeof(BitShape), code);
+            }
+            else
+            {
+                wallShape = BitShape.x0;
+            }
         }
     }
     // For recieving an update from the grid this bit is in
