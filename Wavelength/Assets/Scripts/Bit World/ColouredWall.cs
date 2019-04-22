@@ -11,6 +11,9 @@ public class ColouredWall : Bit
     // Collision box
     private BoxCollider2D wallCollider;
 
+    // ~~~ Reference to a piece of shading for this wall
+    public SpriteRenderer shadow;
+
     // ~~~ All the different coloured wall sprites (bad solution, shouldn't be on every bit) 
     public List<Sprite> sprites = new List<Sprite>();
 
@@ -68,6 +71,15 @@ public class ColouredWall : Bit
         //sprite.color = BitWorldKnowledge.Instance.BitTypeByColour[displayType];
         sprite.sprite = sprites[(int)displayWavelength];
         base.UpdateSprite();
+        // ~~~ Way to show or hide shadow on the bottom
+        if(!wallShape.ToString().Contains("3"))
+        {
+            shadow.enabled = true;
+        }
+        else
+        {
+            shadow.enabled = false;
+        }
     }
     // Work out display type from wall type and shortlist (make tiles calculate in future)
     private void CalculateDisplayColour()

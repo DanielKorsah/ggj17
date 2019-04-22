@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BitWorldSpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 2
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+    totalSpriteSurfaceArea: 4096
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 7569947442349908250, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 4136085937040927598, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -7144361818159440153, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -5797255377225969842, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -3227146524326884900, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 2627424728020844236, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -4815278296922523294, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 3650217183844364095, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -6082199483906729437, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 633929371529208415, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 7801289967492584057, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -6387799515953694283, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 8723048633812491958, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 8143209969658005933, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -1008290340827391958, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -1607260585503996326, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - 04Wall
+  - 05Wall
+  - BitWorldSpritesheet_10
+  - BitWorldSpritesheet_11
+  - 07Wall
+  - 06Wall
+  - 02Shade
+  - 03Shade
+  - 01Shade
+  - 01Wall
+  - BitWorldSpritesheet_9
+  - BitWorldSpritesheet_8
+  - 03Wall
+  - 00Wall
+  - 02Wall
+  - 00Shade
+  m_Tag: BitWorldSpriteAtlas
+  m_IsVariant: 0
