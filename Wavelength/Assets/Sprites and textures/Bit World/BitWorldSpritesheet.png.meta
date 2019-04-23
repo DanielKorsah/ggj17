@@ -64,52 +64,52 @@ TextureImporter:
     second: BitWorldSpritesheet_19
   - first:
       213: 6842304383029617082
-    second: BitWorldSpritesheet_20
+    second: Beacon00Regular
   - first:
       213: -3179826163469088465
     second: BitWorldSpritesheet_21
   - first:
       213: 5781897419534040201
-    second: BitWorldSpritesheet_22
+    second: Beacon01Line
   - first:
       213: 6385938078688224984
     second: BitWorldSpritesheet_23
   - first:
       213: -1981318667679087748
-    second: BitWorldSpritesheet_24
+    second: Beacon02Area
   - first:
       213: 209022422582900292
     second: BitWorldSpritesheet_25
   - first:
       213: -2394932879359950438
-    second: BitWorldSpritesheet_26
+    second: Beacon03Move
   - first:
       213: -5378933371740980022
     second: BitWorldSpritesheet_27
   - first:
       213: -7942398537837406446
-    second: BitWorldSpritesheet_28
+    second: Pickup01Line
   - first:
       213: 1768077835812154941
-    second: BitWorldSpritesheet_29
+    second: Pickup02Area
   - first:
       213: -648681207064155876
-    second: BitWorldSpritesheet_30
+    second: Pickup03Move
   - first:
       213: -507032938866066655
-    second: BitWorldSpritesheet_31
+    second: Pickup03MoveAlt
   - first:
       213: 6320922204824831033
-    second: BitWorldSpritesheet_32
+    second: Shade00Up
   - first:
       213: 4807902885817674912
-    second: BitWorldSpritesheet_33
+    second: Shade01Right
   - first:
       213: 2637055712126407332
-    second: BitWorldSpritesheet_34
+    second: Shade02Down
   - first:
       213: -1337613971950652399
-    second: BitWorldSpritesheet_35
+    second: Shade03Left
   - first:
       213: 8898781551659967447
     second: BitWorldSpritesheet_36
@@ -118,7 +118,7 @@ TextureImporter:
     second: BitWorldSpritesheet_37
   - first:
       213: -4407033718230172442
-    second: BitWorldSpritesheet_38
+    second: Portal
   - first:
       213: -5555809603882930045
     second: BitWorldSpritesheet_39
@@ -170,6 +170,30 @@ TextureImporter:
   - first:
       213: -3227146524326884900
     second: 07Wall
+  - first:
+      213: 1376921008223612809
+    second: Wall00
+  - first:
+      213: -932336209472844762
+    second: Wall01I
+  - first:
+      213: 8686961372712706223
+    second: Wall02V
+  - first:
+      213: -2527863563304737881
+    second: Wall03U
+  - first:
+      213: -6300293524884127880
+    second: Wall04IV
+  - first:
+      213: -7212140265090906205
+    second: Wall05IU
+  - first:
+      213: -7186941139861808062
+    second: Wall06VU
+  - first:
+      213: 7554678975801982122
+    second: Wall07IVU
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -252,7 +276,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 00Wall
+      name: Wall00
       rect:
         serializedVersion: 2
         x: 16
@@ -266,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbaeec0c7a3d2c646887208d6b03e085
-      internalID: 8143209969658005933
+      spriteID: b3acb579f90a7cf4a9e8ce83d1ee892d
+      internalID: 1376921008223612809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 01Wall
+      name: Wall01I
       rect:
         serializedVersion: 2
         x: 32
@@ -287,14 +311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a01b416026d8c0748a746e7a91e9e032
-      internalID: 633929371529208415
+      spriteID: 33883d9d9f8c78f4f912cb2fdd014b5f
+      internalID: -932336209472844762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 02Wall
+      name: Wall02V
       rect:
         serializedVersion: 2
         x: 48
@@ -308,14 +332,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eda45d4e98306c44c9980c49dbce2bee
-      internalID: -1008290340827391958
+      spriteID: 0807f382e1839644f8e75b29124c09f0
+      internalID: 8686961372712706223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03Wall
+      name: Wall03U
       rect:
         serializedVersion: 2
         x: 64
@@ -329,14 +353,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6acdff8f6561eca4f99a9fd0cfe865d5
-      internalID: 8723048633812491958
+      spriteID: f0b0abfababdf8f4cbd936d7a0b5fb05
+      internalID: -2527863563304737881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 04Wall
+      name: Wall04IV
       rect:
         serializedVersion: 2
         x: 80
@@ -350,14 +374,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95dce43d3b5d68247bd49dad3be93790
-      internalID: 7569947442349908250
+      spriteID: 48567d3fe751deb4dbeffd1ee46cc6b5
+      internalID: -6300293524884127880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 05Wall
+      name: Wall05IU
       rect:
         serializedVersion: 2
         x: 96
@@ -371,14 +395,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 896cc2556be471541bf2950749c961be
-      internalID: 4136085937040927598
+      spriteID: c7a65990474c48e478352a3d9aef1ae2
+      internalID: -7212140265090906205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 06Wall
+      name: Wall06VU
       rect:
         serializedVersion: 2
         x: 112
@@ -392,14 +416,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af1fa76d5dab1584aa4cbc00a71a633a
-      internalID: 2627424728020844236
+      spriteID: 5797dec5dc89f4c4b9fb2bb6b6aa8951
+      internalID: -7186941139861808062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 07Wall
+      name: Wall07IVU
       rect:
         serializedVersion: 2
         x: 128
@@ -413,8 +437,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2be0b5f5f68ed543bb117b755ff87af
-      internalID: -3227146524326884900
+      spriteID: c21d9ac84c6abe84db3186f425ce2b38
+      internalID: 7554678975801982122
       vertices: []
       indices: 
       edges: []
@@ -434,7 +458,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71d8e36ba90c38641a3075a1818f5c0e
+      spriteID: 34eff186feb29214cb3f89db858b1de3
       internalID: -6387799515953694283
       vertices: []
       indices: 
@@ -455,7 +479,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21e471e97ce6b4a40a69d43014dc75e4
+      spriteID: 054c0580c3825f547b67e80338f1ac19
       internalID: 7801289967492584057
       vertices: []
       indices: 
@@ -476,7 +500,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 441d9c4cf97de5144b5d9136bb0ba101
+      spriteID: edf49107e71db654fbefffd3577a61fe
       internalID: -7144361818159440153
       vertices: []
       indices: 
@@ -497,14 +521,182 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa753841c620d7b46b54dfb47e41dfd9
+      spriteID: 8e1e1b542c065404096a53b2c4930ee0
       internalID: -5797255377225969842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 00Shade
+      name: Beacon00Regular
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 176
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d693bac73a463b8488c5ca6fb804bd89
+      internalID: 6842304383029617082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beacon01Line
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 176
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc096849504c3d488f3b3051a367184
+      internalID: 5781897419534040201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beacon02Area
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 176
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281c5296555579d469b0f5ac3b391cfd
+      internalID: -1981318667679087748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beacon03Move
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 176
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2398b42df1c7e4191296c33e47f8d3
+      internalID: -2394932879359950438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pickup01Line
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f78b67ce0afebbd4b8c4dff3287289ea
+      internalID: -7942398537837406446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pickup02Area
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db2610c744d15d44af017f7bc48730d
+      internalID: 1768077835812154941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pickup03Move
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d1aca4f3e02a14dbaaf0c3a0390c54
+      internalID: -648681207064155876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pickup03MoveAlt
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ae448271990e6469f3ffbf903050dd
+      internalID: -507032938866066655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shade00Up
       rect:
         serializedVersion: 2
         x: 16
@@ -518,14 +710,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37869c300133e5949a64700c8f781f97
-      internalID: -1607260585503996326
+      spriteID: 2b4c3b248dc83a84fa8467ab3ef97b1c
+      internalID: 6320922204824831033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 01Shade
+      name: Shade01Right
       rect:
         serializedVersion: 2
         x: 32
@@ -539,14 +731,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14c77dcfad4b87f4cb60681dc489cd43
-      internalID: -6082199483906729437
+      spriteID: ef535cf89ea249049ba0a7d7f04fdcea
+      internalID: 4807902885817674912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 02Shade
+      name: Shade02Down
       rect:
         serializedVersion: 2
         x: 48
@@ -560,14 +752,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c962c9ea72b9b9640b962eeb3dba9e2c
-      internalID: -4815278296922523294
+      spriteID: 9bc941f9f56baba4c9de9ff27c8277ad
+      internalID: 2637055712126407332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03Shade
+      name: Shade03Left
       rect:
         serializedVersion: 2
         x: 64
@@ -581,8 +773,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d303831523e6874593ddf3fba59734e
-      internalID: 3650217183844364095
+      spriteID: ad8b58f919c6d7e43a693c6bc18e8e90
+      internalID: -1337613971950652399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portal
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bfac2a5f30fb6e4abb26bcc49329579
+      internalID: -4407033718230172442
       vertices: []
       indices: 
       edges: []
