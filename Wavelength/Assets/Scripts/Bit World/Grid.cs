@@ -43,18 +43,31 @@ public class Grid : MonoBehaviour
         return null;
     }
 
+    // When only adding an affector to the list
     public void AddAffector(Wavelength newAffector)
     {
         affectors.Add(newAffector);
-        MakeShortList();
-        UpdateBits();
+        FinishAffectorUpdate();
     }
-
+    // When only removing an affector from the list
     public void RemoveAffector(Wavelength oldAffector)
     {
         affectors.Remove(oldAffector);
+        FinishAffectorUpdate();
+    }
+    // When rotating a beacons colours, and don't want to waste a call to the finish function
+    public void AddRemoveAffector(Wavelength newAffector, Wavelength oldAffector)
+    {
+        affectors.Remove(oldAffector);
+        affectors.Add(newAffector);
+        FinishAffectorUpdate();
+    }
+    // Common processes to end all changes to affector list
+    private void FinishAffectorUpdate()
+    {
         MakeShortList();
         UpdateBits();
+        UpdateBitsShape();
     }
 
     private void MakeShortList()
@@ -89,18 +102,27 @@ public class Grid : MonoBehaviour
         {
             shortList[(int)Wavelength.U] = false;
         }
-        if(sLE == "")
+        if (sLE == "")
         {
             sLE = "None";
         }
         shortListEnum = (Wavelength)System.Enum.Parse(typeof(Wavelength), sLE);
     }
 
+    // Update constituent bits on the colour of the grid
     private void UpdateBits()
     {
         foreach (Bit bit in contents)
         {
             bit.UpdatedByGrid(shortList, shortListEnum);
+        }
+    }
+    // Update constituent bits' shapes after they've all adapted to new colour
+    private void UpdateBitsShape()
+    {
+        foreach (Bit bit in contents)
+        {
+            bit.UpdatedByNeighbour();
         }
     }
 }

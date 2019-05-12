@@ -14,8 +14,6 @@ public class ColouredWall : Bit
     // ~~~ Reference to a piece of shading for this wall
     public SpriteRenderer shadow;
 
-    // ~~~ All the different coloured wall sprites (bad solution, shouldn't be on every bit) 
-    public List<Sprite> sprites = new List<Sprite>();
     private static BitWorldLibrarian librarian;
 
     void Awake()

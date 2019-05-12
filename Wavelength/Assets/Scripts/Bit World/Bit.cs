@@ -271,8 +271,9 @@ public class Bit : MonoBehaviour
         this.shortList = shortList;
         this.shortListEnum = shortListEnum;
         UpdateSprite();
-        UpdateNeighbours();
-        UpdateBitShape();
+        //UpdateNeighbours();
+        //UpdateBitShape();
+        world.UpdateAdjacentBits(this);
     }
     // Prompt for updating neighbours that may need to change their sprite
     protected void UpdateNeighbours()
