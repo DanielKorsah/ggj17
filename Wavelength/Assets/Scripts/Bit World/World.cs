@@ -92,6 +92,11 @@ public class World : MonoBehaviour
         }
     }
 
+    public Grid GetGrid(Vector2Int pos)
+    {
+        return GetGrid(pos.x, pos.y);
+    }
+
     public Grid GetGrid(int x, int y)
     {
         if (x >= 0 && x < 10 && y >= 0 && y < 10)

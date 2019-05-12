@@ -16,6 +16,7 @@ public class ColouredWall : Bit
 
     // ~~~ All the different coloured wall sprites (bad solution, shouldn't be on every bit) 
     public List<Sprite> sprites = new List<Sprite>();
+    private static BitWorldLibrarian librarian;
 
     void Awake()
     {
@@ -29,6 +30,10 @@ public class ColouredWall : Bit
     // Use this for initialization
     override protected void Start()
     {
+        if(librarian == null)
+        {
+            librarian = FindObjectOfType<BitWorldLibrarian>();
+        }
         base.Start();
     }
 
@@ -69,7 +74,7 @@ public class ColouredWall : Bit
         //wavel = wavel.Substring(0, wavel.Length - 4);
         //WaveColour wavec = (WaveColour)System.Enum.Parse(typeof(WaveColour), wavel);
         //sprite.color = BitWorldKnowledge.Instance.BitTypeByColour[displayType];
-        sprite.sprite = sprites[(int)displayWavelength];
+        sprite.sprite = librarian.WallSpitesByDispWavelength[(int)displayWavelength];
         base.UpdateSprite();
         // ~~~ Way to show or hide shadow on the bottom
         if(!wallShape.ToString().Contains("3"))
@@ -91,6 +96,10 @@ public class ColouredWall : Bit
         // If the wall still exists for any colour
         if (dispType != "")
         {
+            if(displayWavelength == Wavelength.None)
+            {
+                sprite.color = Color.white;
+            }
             displayWavelength = (Wavelength)System.Enum.Parse(typeof(Wavelength), dispType);
             dispType += "Wall";
             displayType = (BitType)System.Enum.Parse(typeof(BitType), dispType);
@@ -99,7 +108,8 @@ public class ColouredWall : Bit
         // If the wall is hidden
         else
         {
-            displayType = BitType.Void;
+            displayWavelength = Wavelength.None;
+            displayType = BitType.Air;
             wallCollider.enabled = false;
         }
     }

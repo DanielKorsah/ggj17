@@ -13,10 +13,10 @@ public class Bit : MonoBehaviour
     protected bool showColour = true;
 
     protected bool[] shortList = new bool[3];
-    protected Wavelength shortListEnum;
+    protected Wavelength shortListEnum = Wavelength.None;
 
-    public Vector2 gridPos = new Vector2();
-    public Vector2 worldPos = new Vector2();
+    public Vector2Int gridPos = new Vector2Int();
+    public Vector2Int worldPos = new Vector2Int();
 
     public Bit[] neighbours = new Bit[4];
     public bool[] neighboursSimilar = new bool[] { false, false, false, false };
@@ -247,13 +247,11 @@ public class Bit : MonoBehaviour
             {
                 if (neighbours[i].displayType == displayType)
                 {
-                    Debug.Log("true");
                     neighboursSimilar[i] = true;
                     code += (i + 1).ToString();
                 }
                 else
                 {
-                    Debug.Log("false");
                     neighboursSimilar[i] = false;
                 }
             }
@@ -306,6 +304,10 @@ public class Bit : MonoBehaviour
     {
         //gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetAirColourSprites(shortListEnum);
         sprite.sortingOrder = (int)displayType;
+        if (displayType == BitType.Air)
+        {
+            sprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[shortListEnum];
+        }
     }
     // Get information about bit location
     public void SetLocationData(int worldX, int worldY, int gridX, int gridY)

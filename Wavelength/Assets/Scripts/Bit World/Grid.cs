@@ -89,6 +89,10 @@ public class Grid : MonoBehaviour
         {
             shortList[(int)Wavelength.U] = false;
         }
+        if(sLE == "")
+        {
+            sLE = "None";
+        }
         shortListEnum = (Wavelength)System.Enum.Parse(typeof(Wavelength), sLE);
     }
 
