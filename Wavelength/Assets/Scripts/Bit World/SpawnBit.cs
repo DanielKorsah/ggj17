@@ -5,6 +5,15 @@ using UnityEngine;
 public class SpawnBit : Bit
 {
     Transform player;
+
+    void Awake()
+    {
+        bitType = BitType.Spawn;
+        displayType = BitType.Air;
+        neighbourDependant = false;
+        showColour = true;
+    }
+
     // Start is called before the first frame update
     override protected void Start()
     {
