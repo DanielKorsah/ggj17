@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Bit World\BitWorldLibrarian.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitWorldMaker.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitWorldSprites.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BWBeacon.cs" />
     <Compile Include="Assets\Scripts\Bit World\ColouredWall.cs" />
     <Compile Include="Assets\Scripts\Bit World\ColourtoBitType.cs" />
     <Compile Include="Assets\Scripts\Bit World\Grid.cs" />
