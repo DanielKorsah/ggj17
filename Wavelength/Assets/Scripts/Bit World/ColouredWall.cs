@@ -28,6 +28,7 @@ public class ColouredWall : Bit
     // Use this for initialization
     override protected void Start()
     {
+        // If nothing else has found the librarian find it
         if(librarian == null)
         {
             librarian = FindObjectOfType<BitWorldLibrarian>();
@@ -40,6 +41,7 @@ public class ColouredWall : Bit
     {
         set
         {
+            // If these values are matched the coloured wall is freshly made and available for manipulation
             if (displayType == BitType.Void && bitType == BitType.Wall)
             {
                 // Set bit and display type
@@ -91,10 +93,11 @@ public class ColouredWall : Bit
         CheckIfDisplaying(Wavelength.I, ref dispType);
         CheckIfDisplaying(Wavelength.V, ref dispType);
         CheckIfDisplaying(Wavelength.U, ref dispType);
-        // If the wall still exists for any colour
+        // If the wall exists for any colour
         if (dispType != "")
         {
-            if(displayWavelength == Wavelength.None)
+            // If the wall used to be air, and had changable sprite colour, reset the colour to white
+            if(displayType == BitType.Air)
             {
                 sprite.color = Color.white;
             }
@@ -111,7 +114,7 @@ public class ColouredWall : Bit
             wallCollider.enabled = false;
         }
     }
-
+    // Checks if a colour required to hide the wall is absent, and appends the representative letter
     private void CheckIfDisplaying(Wavelength colour, ref string dispType)
     {
         if (wallColours[(int)colour] && !shortList[(int)colour])
