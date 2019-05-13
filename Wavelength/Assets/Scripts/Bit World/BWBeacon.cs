@@ -23,6 +23,7 @@ public class BWBeacon : Bit
     // Start is called before the first frame update
     override protected void Start()
     {
+        // Find the sprite with the beacon on
         SpriteRenderer[] srs = GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer sr in srs)
         {
@@ -32,8 +33,10 @@ public class BWBeacon : Bit
                 break;
             }
         }
+        // Set beacon sprite colour
         beaconSprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[beaconOutput];
         base.Start();
+        StartBeaconInfo();
         StartCoroutine(LateStart());
     }
 
@@ -52,6 +55,13 @@ public class BWBeacon : Bit
         {
             RotateOutput();
         }
+    }
+
+    private void StartBeaconInfo()
+    {
+        beaconOutput = neighbours[(int)Direction.up].BeaconGetWaveLength();
+        pickup = neighbours[(int)Direction.right].BeaconGetPickup();
+        direction = world.GetGrid(worldPos).GetBit(gridPos.x + 1, gridPos.y + 1).BeaconGetFacing();
     }
 
     // Update grids affected by this beacon and calculate which it should effect

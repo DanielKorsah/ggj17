@@ -321,23 +321,25 @@ public class Bit : MonoBehaviour
 
     // BitTypeSet only implemented in coloured walls
     public virtual BitType BitTypeSet { set { } }
+    // To give bits spawned from a range of colours the ability to determine their information
+    public virtual void GiveMulticolourInfo(Color32 pixel) { }
     public BitType DisplayTypeGet
     {
         get { return displayType; }
     }
 
     // Methods for use by beacon bits (incomplete)
-    public Wavelength BeaconGetWaveLength()
+    public virtual Wavelength BeaconGetWaveLength()
     {
         return Wavelength.V;
     }
 
-    public Direction BeaconGetFacing()
+    public virtual Direction BeaconGetFacing()
     {
         return Direction.up;
     }
 
-    public Pickup BeaconGetPickup()
+    public virtual Pickup BeaconGetPickup()
     {
         return Pickup.none;
     }

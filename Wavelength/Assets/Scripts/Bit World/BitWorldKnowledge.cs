@@ -51,10 +51,10 @@ public class BitWorldKnowledge
         { BitType.VUWall, new Color32(000, 255, 255, 255) },
         { BitType.IVUWall, new Color32(255, 255, 255, 255) },
         { BitType.BeaconBL, new Color32(000, 000, 255, 255) },
-        { BitType.BeaconBR, new Color32(000, 150, 255, 255) },
-        { BitType.BeaconTL, new Color32(153, 000, 000, 255) },
-        { BitType.BeaconTR, new Color32(000, 135, 204, 255) },
-        { BitType.Upgrade, new Color32(000, 000, 153, 255) },
+        //{ BitType.BeaconBR, new Color32(000, 150, 255, 255) },
+        //{ BitType.BeaconTL, new Color32(153, 000, 000, 255) },
+        //{ BitType.BeaconTR, new Color32(000, 135, 204, 255) },
+        //{ BitType.Upgrade, new Color32(000, 000, 153, 255) },
         { BitType.Spawn, new Color32(000, 255, 000, 255) },
         { BitType.Portal, new Color32(000, 102, 000, 255) }
     };

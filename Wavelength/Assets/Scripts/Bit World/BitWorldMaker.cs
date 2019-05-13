@@ -11,6 +11,16 @@ public class BitWorldMaker : MonoBehaviour
     public Transform voidPrefab;
     private Transform instantiatedWorld;
     private World instantiatedWorldScript;
+    private Bit mostRecentBit;
+
+    private List<Color32> beaconUpgradeColours = new List<Color32>
+            { new Color32( 0, 200, 255, 255 ), new Color32(0, 150, 255, 255), new Color32(0, 100, 255, 255), new Color32(0, 50, 255, 255) };
+    private List<Color32> beaconFacingColours = new List<Color32>
+            { new Color32( 0, 135, 204, 255 ), new Color32(0, 101, 153, 255), new Color32(0, 67, 102, 255), new Color32(0, 33, 51, 255) };
+    private List<Color32> beaconStartingColours = new List<Color32>
+            { new Color32( 153, 0, 0, 255 ), new Color32(153, 153, 0, 255), new Color32(153, 0, 153, 255)  };
+    private List<Color32> pickupUpgradeColours = new List<Color32>
+            { new Color32( 0, 0, 153, 255 ), new Color32(0, 0, 102, 255), new Color32(0, 0, 51, 255)};
 
     private BitWorldKnowledge knowledge = BitWorldKnowledge.Instance;
 
@@ -36,11 +46,6 @@ public class BitWorldMaker : MonoBehaviour
             {
                 // Get a pixel from the world map to be tested
                 mapPixel = world.GetPixel(x, y);
-                // If the pixel is black: instantiate a bit
-                //if (mapPixel == new Color(0, 0, 0))
-                //{
-                //    MakeBit(x, y);
-                //}
                 FindColour(x, y, mapPixel);
             }
         }
@@ -73,30 +78,95 @@ public class BitWorldMaker : MonoBehaviour
         float coordX = x * 0.2f;
         float coordY = y * 0.2f;
         // Instantiate the bit in the appropriate grid, with that grid as its parent
-        instantiatedWorldScript.GetGrid(worldX, worldY).AddBit(Instantiate(prefab, new Vector3(coordX, coordY, 0), Quaternion.identity, instantiatedWorldScript.gridsObjs[worldX, worldY]).GetComponent<Bit>(), gridX, gridY);
+        mostRecentBit = instantiatedWorldScript.GetGrid(worldX, worldY).AddBit(Instantiate(prefab, new Vector3(coordX, coordY, 0), Quaternion.identity, instantiatedWorldScript.gridsObjs[worldX, worldY]).GetComponent<Bit>(), gridX, gridY);
         // Tell the bit where it is in the grid and the world
-        instantiatedWorldScript.GetGrid(worldX, worldY).GetBit(gridX, gridY).SetLocationData(worldX, worldY, gridX, gridY);
-        instantiatedWorldScript.GetGrid(worldX, worldY).GetBit(gridX, gridY).BitTypeSet = bitType;
+        mostRecentBit.SetLocationData(worldX, worldY, gridX, gridY);
+        mostRecentBit.BitTypeSet = bitType;
     }
     // Function to choose the prefab type to make
     private void FindColour(int x, int y, Color32 pixel)
     {
         bool found = false;
+        if (pixel.Equals(new Color32(0, 150, 255, 255)))
+        {
+            int fleep = 9;
+        }
         foreach (BitTypetoPrefab pair in relations)
         {
-            if (pixel.Equals(knowledge.BitTypeByColour[pair.bitType]))
+            if (knowledge.BitTypeByColour.ContainsKey(pair.bitType) && pixel.Equals(knowledge.BitTypeByColour[pair.bitType]))
             {
                 MakeBit(x, y, pair.prefab, pair.bitType);
                 found = true;
-            }
-            if (found)
-            {
                 break;
             }
         }
         if (!found)
         {
-            MakeBit(x, y, voidPrefab, BitType.Void);
+            BitType bitType = BitType.Void;
+            if (pixel.a != 0)
+            {
+                if (FindColourInList(beaconFacingColours, pixel))
+                {
+                    bitType = BitType.BeaconTR;
+                }
+                else if (FindColourInList(beaconStartingColours, pixel))
+                {
+                    bitType = BitType.BeaconTL;
+                }
+                else if (FindColourInList(beaconUpgradeColours, pixel))
+                {
+                    bitType = BitType.BeaconBR;
+                }
+                else if (FindColourInList(pickupUpgradeColours, pixel))
+                {
+                    bitType = BitType.Upgrade;
+                }
+                if (bitType != BitType.Void)
+                {
+                    MakeBit(x, y, FindPrefabFromBitType(bitType), bitType);
+                    mostRecentBit.GiveMulticolourInfo(pixel);
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                MakeBit(x, y, voidPrefab, BitType.Void);
+            }
         }
+    }
+
+    private bool FindColourInList(List<Color32> list, Color32 pixel)
+    {
+        foreach (Color32 c in list)
+        {
+            if (pixel.Equals(c))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private Transform FindPrefabFromBitType(BitType bitType)
+    {
+        foreach(BitTypetoPrefab pair in relations)
+        {
+            if(pair.bitType == bitType)
+            {
+                return pair.prefab;
+            }
+        }
+        return null;
+    }
+
+    private void MulticolourFollowUp(int x, int y, Color32 pixel)
+    {
+        // Get grid coordinates within the world by dividing pixel x & y by width of grids (10)
+        int worldX = x / 10;
+        int worldY = y / 10;
+        // Get bit position within grid by finding the remainder after dividing by grid width (10)
+        int gridX = x % 10;
+        int gridY = y % 10;
+
     }
 }

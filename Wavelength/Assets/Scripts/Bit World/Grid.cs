@@ -15,13 +15,14 @@ public class Grid : MonoBehaviour
     Vector2 worldPos = new Vector2();
 
     // Adds a bit to contents
-    public void AddBit(Bit bit, int x, int y)
+    public Bit AddBit(Bit bit, int x, int y)
     {
         if (x >= 0 && x < 10 && y >= 0 && y < 10)
         {
-            if (true/*contents[x, y] == null*/)
+            if (contents[x, y] == null)
             {
                 contents[x, y] = bit;
+                return bit;
             }
             else
             {
