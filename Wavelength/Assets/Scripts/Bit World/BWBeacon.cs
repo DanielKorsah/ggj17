@@ -7,7 +7,7 @@ public class BWBeacon : Bit
     bool playerContact = false;
 
     List<Grid> gridsAffecting = new List<Grid>();
-    Wavelength beaconOutput = Wavelength.I;
+    Wavelength beaconOutput = Wavelength.None;
     Pickup pickup = Pickup.none;
     Direction direction = Direction.up;
     SpriteRenderer beaconSprite;
@@ -33,10 +33,12 @@ public class BWBeacon : Bit
                 break;
             }
         }
+
+        base.Start();
+
+        StartBeaconInfo();
         // Set beacon sprite colour
         beaconSprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[beaconOutput];
-        base.Start();
-        StartBeaconInfo();
         StartCoroutine(LateStart());
     }
 
@@ -154,10 +156,9 @@ public class BWBeacon : Bit
     {
         set
         {
-            RemoveAffector();
+            SwapAffector(value, beaconOutput);
             beaconOutput = value;
             beaconSprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[beaconOutput];
-            AddAffector();
         }
     }
 
@@ -198,6 +199,16 @@ public class BWBeacon : Bit
             g.AddAffector(beaconOutput);
         }
     }
+
+    // Swap the wavelength affecting the list of grids
+    private void SwapAffector(Wavelength newAffector, Wavelength oldAffector)
+    {
+        foreach (Grid g in gridsAffecting)
+        {
+            g.SwapAffector(newAffector, oldAffector);
+        }
+    }
+
     // Check if player enters hitbox
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -57,7 +57,7 @@ public class Grid : MonoBehaviour
         FinishAffectorUpdate();
     }
     // When rotating a beacons colours, and don't want to waste a call to the finish function
-    public void AddRemoveAffector(Wavelength newAffector, Wavelength oldAffector)
+    public void SwapAffector(Wavelength newAffector, Wavelength oldAffector)
     {
         affectors.Remove(oldAffector);
         affectors.Add(newAffector);
