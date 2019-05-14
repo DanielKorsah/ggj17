@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnBit : Bit
 {
+    public Transform playerPrefab;
     Transform player;
 
     void Awake()
@@ -17,19 +18,14 @@ public class SpawnBit : Bit
     // Start is called before the first frame update
     override protected void Start()
     {
-        GameObject p = GameObject.FindGameObjectWithTag("Player");
-        if (p)
-        {
-            player = p.transform;
-            player.position = transform.position;
-        }
+        player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
         base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // If level is restarted

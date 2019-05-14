@@ -101,3 +101,5 @@ MonoBehaviour:
   - {fileID: 0}
   neighboursSimilar: 00000000
   wallShape: 0
+  playerPrefab: {fileID: 3996869358079342106, guid: fbbd26934f2196547b1430650a21df1e,
+    type: 3}

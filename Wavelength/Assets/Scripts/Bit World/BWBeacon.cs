@@ -5,7 +5,7 @@ using UnityEngine;
 public class BWBeacon : Bit
 {
     bool playerContact = false;
-
+    
     List<Grid> gridsAffecting = new List<Grid>();
     Wavelength beaconOutput = Wavelength.None;
     Pickup pickup = Pickup.none;
@@ -57,44 +57,48 @@ public class BWBeacon : Bit
     // Update is called once per frame
     void Update()
     {
-        // If the player is on and pushes activate ~~~ temporarily not on for testing
-        if (!playerContact && Input.GetKeyDown(KeyCode.E))
+        // If the player is on the beacon, take input
+        if (playerContact)
         {
-            RotateOutput();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Pickup = Pickup.line;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Pickup = Pickup.area;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Pickup = Pickup.displace;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            Pickup = Pickup.none;
-        }
+            // If the player pushes activate
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                RotateOutput();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Pickup = Pickup.line;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Pickup = Pickup.area;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                Pickup = Pickup.displace;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                Pickup = Pickup.none;
+            }
 
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Direction = Direction.up;
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Direction = Direction.right;
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Direction = Direction.down;
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Direction = Direction.left;
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                Direction = Direction.up;
+            }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                Direction = Direction.right;
+            }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                Direction = Direction.down;
+            }
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                Direction = Direction.left;
+            }
         }
     }
 
