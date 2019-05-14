@@ -6,7 +6,7 @@ public class UpgradeBit : Bit
 {
     Pickup pickup = Pickup.none;
 
-    public List<Transform> pickups = new List<Transform>();
+    public Transform pickupPrefab;
 
     void Awake()
     {
@@ -38,5 +38,6 @@ public class UpgradeBit : Bit
         }
 
         // Spawn pickup: pickups[pickup - 1] over this tile
+        Instantiate(pickupPrefab, transform.position, Quaternion.identity).GetComponent<PickupItem>().SetType(pickup);
     }
 }

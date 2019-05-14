@@ -23,4 +23,10 @@ public class BWPlayerController : MonoBehaviour
     {
         body.MovePosition((Vector2)transform.position + moveDirection * speed * Time.fixedDeltaTime);
     }
+
+    public void GivePickup(Pickup pickup)
+    {
+        BWInventory.AddPickup(pickup);
+        // ~~~ UI work
+    }
 }

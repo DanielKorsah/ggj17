@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Bit World\ColouredWall.cs" />
     <Compile Include="Assets\Scripts\Bit World\ColourtoBitType.cs" />
     <Compile Include="Assets\Scripts\Bit World\Grid.cs" />
+    <Compile Include="Assets\Scripts\Bit World\PickupItem.cs" />
     <Compile Include="Assets\Scripts\Bit World\Portal.cs" />
     <Compile Include="Assets\Scripts\Bit World\SolidWall.cs" />
     <Compile Include="Assets\Scripts\Bit World\SpawnBit.cs" />
