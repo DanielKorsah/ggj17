@@ -57,6 +57,40 @@ public class BWBeacon : Bit
         {
             RotateOutput();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Pickup = Pickup.line;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Pickup = Pickup.area;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Pickup = Pickup.displace;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            Pickup = Pickup.none;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Direction = Direction.up;
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Direction = Direction.right;
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Direction = Direction.down;
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Direction = Direction.left;
+        }
     }
 
     private void StartBeaconInfo()
@@ -159,6 +193,24 @@ public class BWBeacon : Bit
             SwapAffector(value, beaconOutput);
             beaconOutput = value;
             beaconSprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[beaconOutput];
+        }
+    }
+
+    private Pickup Pickup
+    {
+        set
+        {
+            pickup = value;
+            CalculateGrids();
+        }
+    }
+
+    private Direction Direction
+    {
+        set
+        {
+            direction = value;
+            CalculateGrids();
         }
     }
 
