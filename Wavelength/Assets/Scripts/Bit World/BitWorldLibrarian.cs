@@ -7,6 +7,7 @@ public class BitWorldLibrarian : MonoBehaviour {
     public BitWorldKnowledge knowledge = BitWorldKnowledge.Instance;
     public BitTypetoBool[] neighbourDependant;
     public Sprite[] WallSpitesByDispWavelength = new Sprite[(int)Wavelength.None + 1];
+    public Sprite[] BeaconSprites = new Sprite[(int)Pickup.displace + 1];
 
     // Use this for initialization
     void Start () {

@@ -598,6 +598,11 @@ MonoBehaviour:
   - {fileID: -7186941139861808062, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: 7554678975801982122, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  BeaconSprites:
+  - {fileID: 6842304383029617082, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 5781897419534040201, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -1981318667679087748, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -2394932879359950438, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
 --- !u!4 &1201792908
 Transform:
   m_ObjectHideFlags: 0

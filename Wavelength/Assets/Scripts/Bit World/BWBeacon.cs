@@ -12,6 +12,8 @@ public class BWBeacon : Bit
     Direction direction = Direction.up;
     SpriteRenderer beaconSprite;
 
+    BitWorldLibrarian librarian;
+
     private void Awake()
     {
         bitType = BitType.BeaconBL;
@@ -34,11 +36,14 @@ public class BWBeacon : Bit
             }
         }
 
+        librarian = FindObjectOfType<BitWorldLibrarian>();
         base.Start();
 
         StartBeaconInfo();
-        // Set beacon sprite colour
+        // Set beacon sprite info
         beaconSprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[beaconOutput];
+        beaconSprite.sprite = librarian.BeaconSprites[(int)pickup];
+        beaconSprite.transform.eulerAngles = new Vector3(0, 0, 360 - (int)direction * 90);
         StartCoroutine(LateStart());
     }
 
@@ -201,6 +206,7 @@ public class BWBeacon : Bit
         set
         {
             pickup = value;
+            beaconSprite.sprite = librarian.BeaconSprites[(int)pickup];
             CalculateGrids();
         }
     }
@@ -210,6 +216,7 @@ public class BWBeacon : Bit
         set
         {
             direction = value;
+            beaconSprite.transform.eulerAngles = new Vector3(0, 0, 360 - (int)direction * 90);
             CalculateGrids();
         }
     }
