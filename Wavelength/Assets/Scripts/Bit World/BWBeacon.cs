@@ -209,9 +209,21 @@ public class BWBeacon : Bit
     {
         set
         {
-            pickup = value;
-            beaconSprite.sprite = librarian.BeaconSprites[(int)pickup];
-            CalculateGrids();
+            // If the player is removing the pickup, or has that pickup use it
+            if (value == Pickup.none || BWInventory.UsePickup(value))
+            {
+                // If the beacon held a pickup, return it
+                if(pickup != Pickup.none)
+                {
+                    BWInventory.AddPickup(pickup);
+                }
+                // Set new pickup
+                pickup = value;
+                // Set new sprite
+                beaconSprite.sprite = librarian.BeaconSprites[(int)pickup];
+                // Change grids beacon affects
+                CalculateGrids();
+            }
         }
     }
 
