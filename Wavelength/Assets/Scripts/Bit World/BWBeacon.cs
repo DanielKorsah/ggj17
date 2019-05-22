@@ -210,12 +210,12 @@ public class BWBeacon : Bit
         set
         {
             // If the player is removing the pickup, or has that pickup use it
-            if (value == Pickup.none || BWInventory.UsePickup(value))
+            if (value == Pickup.none || BWInventory.Instance.UsePickup(value))
             {
                 // If the beacon held a pickup, return it
                 if(pickup != Pickup.none)
                 {
-                    BWInventory.AddPickup(pickup);
+                    BWInventory.Instance.AddPickup(pickup);
                 }
                 // Set new pickup
                 pickup = value;

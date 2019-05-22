@@ -26,7 +26,7 @@ public class BWPlayerController : MonoBehaviour
 
     public void GivePickup(Pickup pickup)
     {
-        BWInventory.AddPickup(pickup);
+        BWInventory.Instance.AddPickup(pickup);
         // ~~~ UI work
     }
 }
