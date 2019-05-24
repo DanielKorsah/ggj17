@@ -318,6 +318,11 @@ public class Bit : MonoBehaviour
         gridPos.x = gridX;
         gridPos.y = gridY;
     }
+    // Reset the bit to default
+    public virtual void ResetBit()
+    {
+
+    }
 
     // BitTypeSet only implemented in coloured walls
     public virtual BitType BitTypeSet { set { } }

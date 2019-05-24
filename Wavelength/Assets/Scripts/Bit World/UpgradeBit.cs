@@ -8,6 +8,8 @@ public class UpgradeBit : Bit
 
     public Transform pickupPrefab;
 
+    private Transform pickupObject;
+
     void Awake()
     {
         bitType = BitType.Upgrade;
@@ -20,6 +22,12 @@ public class UpgradeBit : Bit
     override protected void Start()
     {
         base.Start();
+    }
+
+    public override void ResetBit()
+    {
+        // Spawn pickup
+        SpawnPickup();
     }
 
     public override void GiveMulticolourInfo(Color32 pixel)
@@ -37,7 +45,16 @@ public class UpgradeBit : Bit
             pickup = Pickup.displace;
         }
 
-        // Spawn pickup: pickups[pickup - 1] over this tile
-        Instantiate(pickupPrefab, transform.position, Quaternion.identity).GetComponent<PickupItem>().SetType(pickup);
+        // Spawn pickup
+        SpawnPickup();
+    }
+
+    private void SpawnPickup()
+    {
+        if (pickupObject == null)
+        {
+            pickupObject = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+            pickupObject.GetComponent<PickupItem>().SetType(pickup);
+        }
     }
 }

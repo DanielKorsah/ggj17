@@ -126,4 +126,19 @@ public class Grid : MonoBehaviour
             bit.UpdatedByNeighbour();
         }
     }
+
+    // Affectors are reset first when resetting level
+    public void ResetGridAffectors()
+    {
+        affectors.Clear();
+        FinishAffectorUpdate();
+    }
+    // Bits are reset second so that beacons don't have some of their effect cancelled
+    public void ResetGridBits()
+    {
+        foreach (Bit b in contents)
+        {
+            b.ResetBit();
+        }
+    }
 }

@@ -47,6 +47,16 @@ public class BWBeacon : Bit
         StartCoroutine(LateStart());
     }
 
+    public override void ResetBit()
+    {
+        StartBeaconInfo();
+        // Set beacon sprite info
+        beaconSprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[beaconOutput];
+        beaconSprite.sprite = librarian.BeaconSprites[(int)pickup];
+        beaconSprite.transform.eulerAngles = new Vector3(0, 0, 360 - (int)direction * 90);
+        CalculateGrids();
+    }
+
     // Avoids null reference of walls calculting shape before having all neighbours ~~~ will need loading screen to hide first frame change
     IEnumerator LateStart()
     {

@@ -22,14 +22,8 @@ public class SpawnBit : Bit
         base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // If level is restarted
-    public void Reset()
+    // Put the player back at the start
+    public override void ResetBit()
     {
         if (player)
         {

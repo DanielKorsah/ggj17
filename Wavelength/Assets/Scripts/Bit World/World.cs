@@ -8,6 +8,15 @@ public class World : MonoBehaviour
     public Grid[,] grids = new Grid[10, 10];
     public Transform[,] gridsObjs = new Transform[10, 10];
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            ResetWorld();
+            BWInventory.Instance.ResetInventory();
+        }
+    }
+
     // Get grids adjacent to a given grid
     public Grid[] GetAdjacent(int x, int y)
     {
@@ -146,5 +155,20 @@ public class World : MonoBehaviour
             return grids[x, y];
         }
         return null;
+    }
+
+    public void ResetWorld()
+    {
+        // ~~~ start load screen
+        // Reset grid affectors
+        foreach (Grid g in grids)
+        {
+            g?.ResetGridAffectors();
+        }
+        // Reset bit information
+        foreach (Grid g in grids)
+        {
+            g?.ResetGridBits();
+        }
     }
 }
