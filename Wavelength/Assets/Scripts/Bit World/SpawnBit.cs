@@ -18,7 +18,15 @@ public class SpawnBit : Bit
     // Start is called before the first frame update
     override protected void Start()
     {
-        player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        player = FindObjectOfType<BWPlayerController>()?.transform;
+        if (player == null)
+        {
+            player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            player.position = transform.position;
+        }
         base.Start();
     }
 

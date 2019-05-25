@@ -37,15 +37,18 @@ public class Portal : Bit
                     break;
                 }
             }
+            // Disable collider
+            GetComponent<CircleCollider2D>().enabled = false;
 
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             // ~~~ Level end stuff
+            FindObjectOfType<BitWorldMaker>().NextLevel();
         }
     }
 }

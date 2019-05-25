@@ -24,11 +24,42 @@ public class BitWorldMaker : MonoBehaviour
 
     private BitWorldKnowledge knowledge = BitWorldKnowledge.Instance;
 
+    public List<Texture2D> levels = new List<Texture2D>();
+    public int currentLevel = 0;
+
     // Upon starting create the world
     void Start()
     {
+        // ~~~ Loading screen
+        world = levels[currentLevel];
         MakeWorld();
     }
+
+    // Call when level completed
+    public void NextLevel()
+    {
+        // ~~~ Loading screen
+        // clear world
+        Destroy(instantiatedWorld.gameObject);
+        PickupItem[] pickups = FindObjectsOfType<PickupItem>();
+        if (pickups.Length > 0)
+        {
+            for (int i = 0; i < pickups.Length; ++i)
+            {
+                Destroy(pickups[i].gameObject);
+            }
+        }
+        // change world
+        ++currentLevel;
+        if (currentLevel == levels.Count)
+        {
+            // ~~~ ending level
+        }
+        world = levels[currentLevel];
+        // load new world
+        MakeWorld();
+    }
+
     // Function for making the world
     private void MakeWorld()
     {
@@ -87,10 +118,6 @@ public class BitWorldMaker : MonoBehaviour
     private void FindColour(int x, int y, Color32 pixel)
     {
         bool found = false;
-        if (pixel.Equals(new Color32(0, 150, 255, 255)))
-        {
-            int fleep = 9;
-        }
         foreach (BitTypetoPrefab pair in relations)
         {
             if (knowledge.BitTypeByColour.ContainsKey(pair.bitType) && pixel.Equals(knowledge.BitTypeByColour[pair.bitType]))
