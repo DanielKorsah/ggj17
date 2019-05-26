@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BWPlayerController.cs" />
+    <Compile Include="Assets\DisplayInventory.cs" />
     <Compile Include="Assets\RaycastChecker.cs" />
     <Compile Include="Assets\Scripts\Bit World\Bit.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitTypetoBool.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Bit World\BWBeaconTL.cs" />
     <Compile Include="Assets\Scripts\Bit World\BWBeaconTR.cs" />
     <Compile Include="Assets\Scripts\Bit World\BWInventory.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BWPlayerController.cs" />
     <Compile Include="Assets\Scripts\Bit World\ColouredWall.cs" />
     <Compile Include="Assets\Scripts\Bit World\ColourtoBitType.cs" />
     <Compile Include="Assets\Scripts\Bit World\Grid.cs" />
