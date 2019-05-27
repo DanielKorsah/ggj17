@@ -211,7 +211,7 @@ public class BWBeacon : Bit
         {
             SwapAffector(value, beaconOutput);
             beaconOutput = value;
-            beaconSprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[beaconOutput];
+            beaconSprite.color = BitWorldKnowledge.Instance.BeaconColourByWavelength[beaconOutput];
         }
     }
 
@@ -253,13 +253,13 @@ public class BWBeacon : Bit
         switch (beaconOutput)
         {
             case Wavelength.U:
-                BeaconOutput = Wavelength.V;
-                break;
-            case Wavelength.V:
                 BeaconOutput = Wavelength.I;
                 break;
-            case Wavelength.I:
+            case Wavelength.V:
                 BeaconOutput = Wavelength.U;
+                break;
+            case Wavelength.I:
+                BeaconOutput = Wavelength.V;
                 break;
             default:
                 BeaconOutput = Wavelength.I;

@@ -28,15 +28,30 @@ public class BitWorldKnowledge
 
     private Dictionary<BitType, bool> neighbourDependant = new Dictionary<BitType, bool>();
     private Dictionary<Wavelength, BitType> wallColour = new Dictionary<Wavelength, BitType>();
-    private Dictionary<Wavelength, Color32> airColourByWavelength = new Dictionary<Wavelength, Color32>() {
-        { Wavelength.I, new Color32(255, 000, 000, 255) },
-        { Wavelength.V, new Color32(255, 255, 000, 255) },
-        { Wavelength.U, new Color32(255, 000, 255, 255) },
-        { Wavelength.IV, new Color32(255, 128, 000, 255) },
-        { Wavelength.IU, new Color32(191, 000, 098, 255) },
-        { Wavelength.VU, new Color32(000, 255, 255, 255) },
+    //private Dictionary<Wavelength, Color32> airColourByWavelength = new Dictionary<Wavelength, Color32>() {
+    //    { Wavelength.I, new Color32(255, 000, 000, 255) },
+    //    { Wavelength.V, new Color32(255, 255, 000, 255) },
+    //    { Wavelength.U, new Color32(255, 000, 255, 255) },
+    //    { Wavelength.IV, new Color32(255, 128, 000, 255) },
+    //    { Wavelength.IU, new Color32(191, 000, 098, 255) },
+    //    { Wavelength.VU, new Color32(000, 255, 255, 255) },
+    //    { Wavelength.IVU, new Color32(255, 255, 255, 255) },
+    //    { Wavelength.None, new Color32(0, 0, 0, 255) },
+    //};
+    Dictionary<Wavelength, Color32> airColourByWavelength = new Dictionary<Wavelength, Color32>() {
+        { Wavelength.I, new Color32(232, 81, 76, 255) },
+        { Wavelength.V, new Color32(120, 232, 120, 255) },
+        { Wavelength.U, new Color32(81, 122, 255, 255) },
+        { Wavelength.IV, new Color32(255, 245, 109, 255) },
+        { Wavelength.IU, new Color32(249, 150, 255, 255) },
+        { Wavelength.VU, new Color32(117, 255, 255, 255) },
         { Wavelength.IVU, new Color32(255, 255, 255, 255) },
-        { Wavelength.None, new Color32(0, 0, 0, 255) },
+        { Wavelength.None, new Color32(30, 30, 30, 255) },
+    };
+    Dictionary<Wavelength, Color32> beaconColourByWavelength = new Dictionary<Wavelength, Color32>() {
+        { Wavelength.I, new Color32(243, 31, 31, 255) },
+        { Wavelength.V, new Color32(31, 243, 31, 255) },
+        { Wavelength.U, new Color32(31, 128, 243, 255) }
     };
     private Dictionary<BitType, Color32> bitTypeByColour = new Dictionary<BitType, Color32>
     {
@@ -64,6 +79,13 @@ public class BitWorldKnowledge
         get
         {
             return airColourByWavelength;
+        }
+    }
+    public Dictionary<Wavelength, Color32> BeaconColourByWavelength
+    {
+        get
+        {
+            return beaconColourByWavelength;
         }
     }
     public Dictionary<BitType, Color32> BitTypeByColour

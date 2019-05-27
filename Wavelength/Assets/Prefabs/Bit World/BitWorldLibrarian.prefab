@@ -68,7 +68,7 @@ MonoBehaviour:
   - {fileID: -7212140265090906205, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: -7186941139861808062, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: 7554678975801982122, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
-  - {fileID: 21300000, guid: 77e0e11b273474c41921bf840a3eb1a7, type: 3}
+  - {fileID: -4682101599085146007, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   BeaconSprites:
   - {fileID: 6842304383029617082, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: 5781897419534040201, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}

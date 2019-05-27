@@ -42,14 +42,16 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
-    totalSpriteSurfaceArea: 10240
+    totalSpriteSurfaceArea: 10752
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: -7186941139861808062, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -5238978151915574039, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: 5781897419534040201, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: -1337613971950652399, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: -7144361818159440153, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -4682101599085146007, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: -5797255377225969842, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: 2637055712126407332, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   - {fileID: -4407033718230172442, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
@@ -73,9 +75,11 @@ SpriteAtlas:
   - {fileID: 6842304383029617082, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
   m_PackedSpriteNamesToIndex:
   - Wall06VU
+  - Air
   - Beacon01Line
   - Shade03Left
   - BitWorldSpritesheet_10
+  - HiddenWall
   - BitWorldSpritesheet_11
   - Shade02Down
   - Portal
