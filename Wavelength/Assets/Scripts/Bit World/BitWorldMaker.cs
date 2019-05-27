@@ -40,15 +40,7 @@ public class BitWorldMaker : MonoBehaviour
     {
         // ~~~ Loading screen
         // clear world
-        Destroy(instantiatedWorld.gameObject);
-        PickupItem[] pickups = FindObjectsOfType<PickupItem>();
-        if (pickups.Length > 0)
-        {
-            for (int i = 0; i < pickups.Length; ++i)
-            {
-                Destroy(pickups[i].gameObject);
-            }
-        }
+        ClearWorld();
         // change world
         ++currentLevel;
         if (currentLevel == levels.Count)
@@ -58,6 +50,21 @@ public class BitWorldMaker : MonoBehaviour
         world = levels[currentLevel];
         // load new world
         MakeWorld();
+    }
+
+    // Destroy the current version of the world
+    private void ClearWorld()
+    {
+        Destroy(instantiatedWorld.gameObject);
+        // Destroy any left-over pickups
+        PickupItem[] pickups = FindObjectsOfType<PickupItem>();
+        if (pickups.Length > 0)
+        {
+            for (int i = 0; i < pickups.Length; ++i)
+            {
+                Destroy(pickups[i].gameObject);
+            }
+        }
     }
 
     // Function for making the world
@@ -176,9 +183,9 @@ public class BitWorldMaker : MonoBehaviour
 
     private Transform FindPrefabFromBitType(BitType bitType)
     {
-        foreach(BitTypetoPrefab pair in relations)
+        foreach (BitTypetoPrefab pair in relations)
         {
-            if(pair.bitType == bitType)
+            if (pair.bitType == bitType)
             {
                 return pair.prefab;
             }
