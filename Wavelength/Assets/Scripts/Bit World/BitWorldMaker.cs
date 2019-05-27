@@ -64,7 +64,7 @@ public class BitWorldMaker : MonoBehaviour
         // Reset loading stages
         creationProgress = new float[] { 0.0f, 0.0f, 0.0f };
         // If a world exists destroy it and advance level iterator
-        if (world != null)
+        if (instantiatedWorld != null)
         {
             // Clear world
             yield return StartCoroutine(ClearWorld());
@@ -84,6 +84,7 @@ public class BitWorldMaker : MonoBehaviour
         yield return StartCoroutine(InitialiseWorld());
         // Hide loading screen
         LoadingBar.Instance?.HideLoadingScreen();
+        stage = CreationStage.finished;
         yield return null;
     }
 
@@ -91,18 +92,35 @@ public class BitWorldMaker : MonoBehaviour
     private IEnumerator ClearWorld()
     {
         stage = CreationStage.destruction;
+        SetProgress(0.0f);
+        yield return null; // ~~~ end frame
 
         // Clear beacons from late start
         LateStartCall = null;
         // Get list of pickups remaining
         PickupItem[] pickups = FindObjectsOfType<PickupItem>();
-        // Set remaining operations to pickups + world destruction
-        int operations = pickups.Length + 1;
-        SetProgress(0.0f);
-        yield return null; // ~~~ end frame
-        //UpdateLoadUI(CreationStage.destruction);
+        // Calculate total grids in world
+        int gridCount = world.width / 10 * world.height / 10;
+        // Set remaining operations to pickups + grid destruction
+        int operations = pickups.Length + gridCount + 1;
+
+        // Get grids from world
+        Grid[,] grids = instantiatedWorldScript.grids;
+        int cleared = 0;
+        // Destroy grids
+        foreach (Grid g in grids)
+        {
+            if (g != null)
+            {
+                Destroy(g.gameObject);
+                cleared++;
+                SetProgress((float)cleared / operations);
+                yield return null;
+            }
+        }
+        // Destroy world
         Destroy(instantiatedWorld.gameObject);
-        SetProgress(1.0f / operations);
+        SetProgress((float)(cleared + 1) / operations);
         yield return null; // ~~~ end frame
         // Destroy any left-over pickups
         if (pickups.Length > 0)
@@ -110,7 +128,7 @@ public class BitWorldMaker : MonoBehaviour
             for (int i = 0; i < pickups.Length; ++i)
             {
                 Destroy(pickups[i].gameObject);
-                SetProgress((2.0f + i) / operations);
+                SetProgress((operations - pickups.Length + i + 1) / operations);
                 yield return null; // ~~~ end frame
             }
         }
@@ -157,12 +175,12 @@ public class BitWorldMaker : MonoBehaviour
         stage = CreationStage.initialisation;
         SetProgress(0.0f);
         yield return null;
-        
+
         Grid[,] grids = instantiatedWorldScript.grids;
         int gridCount = world.width / 10 * world.height / 10;
         int initialised = 0;
 
-        foreach(Grid g in grids)
+        foreach (Grid g in grids)
         {
             if (g != null)
             {

@@ -53,7 +53,7 @@ public class Bit : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Grid " + (int)worldPos.x + ", " + ((int)worldPos.y + 1) + "does not exist.");
+                //Debug.Log("Grid " + (int)worldPos.x + ", " + ((int)worldPos.y + 1) + "does not exist.");
             }
         }
         // Find adjacent up in same grid
@@ -71,7 +71,7 @@ public class Bit : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Grid " + ((int)worldPos.x + 1) + ", " + (int)worldPos.y + "does not exist.");
+               // Debug.Log("Grid " + ((int)worldPos.x + 1) + ", " + (int)worldPos.y + "does not exist.");
             }
         }
         // Find adjacent right in same grid
@@ -89,7 +89,7 @@ public class Bit : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Grid " + (int)worldPos.x + ", " + ((int)worldPos.y - 1) + "does not exist.");
+                //Debug.Log("Grid " + (int)worldPos.x + ", " + ((int)worldPos.y - 1) + "does not exist.");
             }
         }
         // Find adjacent down in same grid
@@ -107,7 +107,7 @@ public class Bit : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Grid " + ((int)worldPos.x - 1) + ", " + (int)worldPos.y + "does not exist.");
+                //Debug.Log("Grid " + ((int)worldPos.x - 1) + ", " + (int)worldPos.y + "does not exist.");
             }
         }
         // Find adjacent left in same grid
