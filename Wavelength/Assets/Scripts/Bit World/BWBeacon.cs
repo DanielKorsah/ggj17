@@ -49,6 +49,7 @@ public class BWBeacon : Bit
 
     public override void ResetBit()
     {
+        gridsAffecting.Clear();
         StartBeaconInfo();
         // Set beacon sprite info
         beaconSprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[beaconOutput];
