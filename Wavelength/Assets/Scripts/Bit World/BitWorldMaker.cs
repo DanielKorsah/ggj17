@@ -27,55 +27,115 @@ public class BitWorldMaker : MonoBehaviour
     public List<Texture2D> levels = new List<Texture2D>();
     public int currentLevel = 0;
 
+    private CreationStage stage = CreationStage.none;
+    private float[] creationProgress = new float[] { 1.0f, 0.0f, 0.0f };
+    public delegate void UpdateLoadingScreen(CreationStage stage, float progress);
+    public UpdateLoadingScreen UpdateLoadScreenCall;
+    public delegate void LateStart();
+    public LateStart LateStartCall;
+
     // Upon starting create the world
     void Start()
     {
         // ~~~ Loading screen
-        world = levels[currentLevel];
-        MakeWorld();
+        NextLevel();
     }
 
-    // Call when level completed
     public void NextLevel()
     {
-        // ~~~ Loading screen
-        // clear world
-        ClearWorld();
-        // change world
-        ++currentLevel;
+        StartCoroutine(NextLevelCoroutine());
+    }
+
+    private void UpdateLoadUI()
+    {
+        UpdateLoadScreenCall(stage, creationProgress[(int)stage]);
+    }
+    // For setting current creation progress easily
+    private void SetProgress(float progress)
+    {
+        creationProgress[(int)stage] = progress;
+        UpdateLoadUI();
+    }
+    // Call when level completed
+    private IEnumerator NextLevelCoroutine()
+    {
+        // Show loading screen
+        LoadingBar.Instance?.ShowLoadingScreen();
+        // Reset loading stages
+        creationProgress = new float[] { 0.0f, 0.0f, 0.0f };
+        // If a world exists destroy it and advance level iterator
+        if (world != null)
+        {
+            // Clear world
+            yield return StartCoroutine(ClearWorld());
+            // Advance level 
+            ++currentLevel;
+        }
+        // If the final level has been completed
         if (currentLevel == levels.Count)
         {
             // ~~~ ending level
         }
+        // Select world png
         world = levels[currentLevel];
-        // load new world
-        MakeWorld();
+        // Load new world
+        yield return StartCoroutine(MakeWorld());
+        // Initialise new world
+        yield return StartCoroutine(InitialiseWorld());
+        // Hide loading screen
+        LoadingBar.Instance?.HideLoadingScreen();
+        yield return null;
     }
 
     // Destroy the current version of the world
-    private void ClearWorld()
+    private IEnumerator ClearWorld()
     {
-        Destroy(instantiatedWorld.gameObject);
-        // Destroy any left-over pickups
+        stage = CreationStage.destruction;
+
+        // Clear beacons from late start
+        LateStartCall = null;
+        // Get list of pickups remaining
         PickupItem[] pickups = FindObjectsOfType<PickupItem>();
+        // Set remaining operations to pickups + world destruction
+        int operations = pickups.Length + 1;
+        SetProgress(0.0f);
+        yield return null; // ~~~ end frame
+        //UpdateLoadUI(CreationStage.destruction);
+        Destroy(instantiatedWorld.gameObject);
+        SetProgress(1.0f / operations);
+        yield return null; // ~~~ end frame
+        // Destroy any left-over pickups
         if (pickups.Length > 0)
         {
             for (int i = 0; i < pickups.Length; ++i)
             {
                 Destroy(pickups[i].gameObject);
+                SetProgress((2.0f + i) / operations);
+                yield return null; // ~~~ end frame
             }
         }
+        yield return new WaitForSeconds(0.5f);
     }
 
     // Function for making the world
-    private void MakeWorld()
+    private IEnumerator MakeWorld()
     {
+        stage = CreationStage.creation;
+        SetProgress(0.0f);
+        yield return null;
+
+        int gridCount = world.width / 10 * world.height / 10;
+        int totalWork = world.width * world.height + gridCount;
         // The instantiated world prefab. Saving this allows easy parenting.
         instantiatedWorld = Instantiate(gridWorld, new Vector3(0, 0, 0), Quaternion.identity);
         // The world script attached to the prefab.  Saving this prevents "GetComponent<>"
         instantiatedWorldScript = instantiatedWorld.GetComponent<World>();
         // Spawn in the neccessary grids before moving on to bits
         MakeGrids();
+        // Update ui with 1/11th progress
+        SetProgress((float)gridCount / totalWork);
+        yield return null;
+
         Color32 mapPixel;
         // Go through pixel by pixel and use their colours to populate the world
         for (int x = 0; x < world.width; ++x)
@@ -86,7 +146,35 @@ public class BitWorldMaker : MonoBehaviour
                 mapPixel = world.GetPixel(x, y);
                 FindColour(x, y, mapPixel);
             }
+            SetProgress((float)(gridCount + (x + 1) * world.height) / totalWork);
+            yield return null;
         }
+        yield return new WaitForSeconds(0.5f);
+    }
+    // Initialise all the bits (replaced Start()) 
+    private IEnumerator InitialiseWorld()
+    {
+        stage = CreationStage.initialisation;
+        SetProgress(0.0f);
+        yield return null;
+        
+        Grid[,] grids = instantiatedWorldScript.grids;
+        int gridCount = world.width / 10 * world.height / 10;
+        int initialised = 0;
+
+        foreach(Grid g in grids)
+        {
+            if (g != null)
+            {
+                g.InitialiseBits();
+                initialised++;
+                SetProgress((float)initialised / gridCount);
+                yield return null;
+            }
+        }
+
+        LateStartCall();
+        yield return null;
     }
     // Function for instantiating all grids
     private void MakeGrids()

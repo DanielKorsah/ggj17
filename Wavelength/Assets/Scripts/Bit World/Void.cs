@@ -14,8 +14,8 @@ public class Void : Bit
         showColour = false;
     }
 
-    protected override void Start()
+    override public void Initialise()
     {
-        base.Start();
+        base.Initialise();
     }
 }

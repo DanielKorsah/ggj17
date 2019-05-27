@@ -16,7 +16,7 @@ public class SpawnBit : Bit
     }
 
     // Start is called before the first frame update
-    override protected void Start()
+    override public void Initialise()
     {
         player = FindObjectOfType<BWPlayerController>()?.transform;
         if (player == null)
@@ -27,7 +27,7 @@ public class SpawnBit : Bit
         {
             player.position = transform.position;
         }
-        base.Start();
+        base.Initialise();
     }
 
     // Put the player back at the start

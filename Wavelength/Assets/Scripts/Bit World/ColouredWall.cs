@@ -26,14 +26,14 @@ public class ColouredWall : Bit
     }
 
     // Use this for initialization
-    override protected void Start()
+    override public void Initialise()
     {
         // If nothing else has found the librarian find it
         if(librarian == null)
         {
             librarian = FindObjectOfType<BitWorldLibrarian>();
         }
-        base.Start();
+        base.Initialise();
     }
 
     // Set Wall BitType

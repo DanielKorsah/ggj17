@@ -12,9 +12,9 @@ public class SolidWall : Bit
         showColour = false;
     }
     // Use this for initialization
-    protected override void Start()
+    override public void Initialise()
     {
-        base.Start();
+        base.Initialise();
     }
 
     

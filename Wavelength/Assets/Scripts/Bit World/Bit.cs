@@ -26,7 +26,7 @@ public class Bit : MonoBehaviour
 
     protected Time lastUpdate = null;
 
-    protected virtual void Start()
+    public virtual void Initialise()
     {
         world = FindObjectOfType<World>();
         spriteSheet = BitWorldSprites.Instantiate;

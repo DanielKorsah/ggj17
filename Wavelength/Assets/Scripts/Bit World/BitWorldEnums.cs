@@ -77,3 +77,12 @@ public enum Pickup
     area,
     displace
 };
+
+public enum CreationStage
+{
+    none = -1,
+    destruction,
+    creation,
+    initialisation,
+    finished
+};

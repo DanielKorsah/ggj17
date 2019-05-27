@@ -23,7 +23,7 @@ public class BWBeacon : Bit
     }
 
     // Start is called before the first frame update
-    override protected void Start()
+    override public void Initialise()
     {
         // Find the sprite with the beacon on
         SpriteRenderer[] srs = GetComponentsInChildren<SpriteRenderer>();
@@ -37,14 +37,14 @@ public class BWBeacon : Bit
         }
 
         librarian = FindObjectOfType<BitWorldLibrarian>();
-        base.Start();
+        base.Initialise();
 
         StartBeaconInfo();
         // Set beacon sprite info
         beaconSprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[beaconOutput];
         beaconSprite.sprite = librarian.BeaconSprites[(int)pickup];
         beaconSprite.transform.eulerAngles = new Vector3(0, 0, 360 - (int)direction * 90);
-        StartCoroutine(LateStart());
+        FindObjectOfType<BitWorldMaker>().LateStartCall += LateStart;
     }
 
     public override void ResetBit()
@@ -59,9 +59,8 @@ public class BWBeacon : Bit
     }
 
     // Avoids null reference of walls calculting shape before having all neighbours ~~~ will need loading screen to hide first frame change
-    IEnumerator LateStart()
+    void LateStart()
     {
-        yield return new WaitForEndOfFrame();
         CalculateGrids();
     }
 

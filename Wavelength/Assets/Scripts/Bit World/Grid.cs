@@ -44,6 +44,15 @@ public class Grid : MonoBehaviour
         return null;
     }
 
+    // Initialise all bits
+    public void InitialiseBits()
+    {
+        foreach(Bit b in contents)
+        {
+            b.Initialise();
+        }
+    }
+
     // When only adding an affector to the list
     public void AddAffector(Wavelength newAffector)
     {

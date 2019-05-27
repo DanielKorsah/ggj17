@@ -19,9 +19,9 @@ public class UpgradeBit : Bit
     }
 
     // Start is called before the first frame update
-    override protected void Start()
+    override public void Initialise()
     {
-        base.Start();
+        base.Initialise();
     }
 
     public override void ResetBit()
