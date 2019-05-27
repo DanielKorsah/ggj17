@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bit : MonoBehaviour
 {
-    protected World world;  // Maybe make static
-    protected BitWorldSprites spriteSheet;  // Maybe make static
+    protected static World world;  // Maybe make static
+    protected static BitWorldSprites spriteSheet;  // Maybe make static
 
     protected BitType bitType = BitType.Air;
     protected BitType displayType = BitType.Air;
@@ -28,8 +28,14 @@ public class Bit : MonoBehaviour
 
     public virtual void Initialise()
     {
-        world = FindObjectOfType<World>();
-        spriteSheet = BitWorldSprites.Instantiate;
+        if (world == null)
+        {
+            world = FindObjectOfType<World>();
+        }
+        if (spriteSheet == null)
+        {
+            spriteSheet = BitWorldSprites.Instantiate;
+        }
         sprite = GetComponent<SpriteRenderer>();
         GetNeighbours();
         GetBitShapeString();
@@ -273,7 +279,10 @@ public class Bit : MonoBehaviour
         UpdateSprite();
         //UpdateNeighbours();
         //UpdateBitShape();
-        world.UpdateAdjacentBits(this);
+        if (neighbourDependant)
+        {
+            world.UpdateAdjacentBits(this);
+        }
     }
     // Prompt for updating neighbours that may need to change their sprite
     protected void UpdateNeighbours()

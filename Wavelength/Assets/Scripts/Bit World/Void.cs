@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Void : Bit
 {
-
-
     void Awake()
     {
         bitType = BitType.Void;

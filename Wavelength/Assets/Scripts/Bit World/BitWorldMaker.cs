@@ -174,7 +174,7 @@ public class BitWorldMaker : MonoBehaviour
         }
 
         LateStartCall();
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
     }
     // Function for instantiating all grids
     private void MakeGrids()
