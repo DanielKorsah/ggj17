@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\DisplayInventory.cs" />
+    <Compile Include="Assets\InputManager.cs" />
     <Compile Include="Assets\LoadingBar.cs" />
     <Compile Include="Assets\RaycastChecker.cs" />
     <Compile Include="Assets\Scripts\Bit World\Bit.cs" />
