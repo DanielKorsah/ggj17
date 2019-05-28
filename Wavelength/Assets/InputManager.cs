@@ -49,7 +49,7 @@ public class InputManager : MonoBehaviour
             duration = 0.0f;
         }
     };
-    List<AxisToStatus> inputStatuses = new List<AxisToStatus>()
+    AxisToStatus[]inputStatuses = new AxisToStatus[]
     {
         new AxisToStatus("Output"), new AxisToStatus("Pickup"), new AxisToStatus("Rotate"), new AxisToStatus("Reset")
     };
@@ -65,14 +65,15 @@ public class InputManager : MonoBehaviour
         ChangeBeaconCall = null;
         PickupCall = null;
         SelectionCall = null;
+        ResetCall = null;
     }
 
     private void Update()
     {
         // Axis list processing
-        for (int i = 0; i < inputStatuses.Count; ++i)
+        for (int i = 0; i < inputStatuses.Length; ++i)
         {
-            AxisToStatus inStat = inputStatuses[i];
+            ref AxisToStatus inStat = ref inputStatuses[i];
             // If released last frame, now: none
             if (inStat.status == KeyStatus.released)
             {

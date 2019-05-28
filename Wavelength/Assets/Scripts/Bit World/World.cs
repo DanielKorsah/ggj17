@@ -8,13 +8,9 @@ public class World : MonoBehaviour
     public Grid[,] grids = new Grid[10, 10];
     public Transform[,] gridsObjs = new Transform[10, 10];
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            ResetWorld();
-            BWInventory.Instance.ResetInventory();
-        }
+        InputManager.Instance.ResetCall += ResetWorld;
     }
 
     // Get grids adjacent to a given grid
@@ -159,6 +155,7 @@ public class World : MonoBehaviour
 
     public void ResetWorld()
     {
+        BWInventory.Instance.ResetInventory();
         // ~~~ start load screen
         // Reset grid affectors
         foreach (Grid g in grids)

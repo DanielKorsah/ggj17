@@ -68,6 +68,8 @@ public class BitWorldMaker : MonoBehaviour
         {
             // Clear world
             yield return StartCoroutine(ClearWorld());
+            // Clear input delegates
+            InputManager.Instance.ResetManager();
             // Advance level 
             ++currentLevel;
         }
