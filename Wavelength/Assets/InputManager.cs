@@ -49,12 +49,22 @@ public class InputManager : MonoBehaviour
             duration = 0.0f;
         }
     };
-    AxisToStatus[]inputStatuses = new AxisToStatus[]
+    AxisToStatus[] inputStatuses = new AxisToStatus[]
     {
         new AxisToStatus("Output"), new AxisToStatus("Pickup"), new AxisToStatus("Rotate"), new AxisToStatus("Reset")
     };
 
     bool choosingDirection = false;
+    bool ChoosingDirection
+    {
+        set
+        {
+            choosingDirection = value;
+            inDirSterile = false;
+        }
+    }
+
+    bool inDirSterile = true;
     bool disabledInput = false;
 
     // Reset the delegates related to non-permanent entities
@@ -112,8 +122,13 @@ public class InputManager : MonoBehaviour
 
         // Horizontal/vertical processing/response
         Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        // If input direction is un-sterile and the input is a zero vector, set sterile
+        if(!inDirSterile && inputDir == Vector2.zero)
+        {
+            inDirSterile = true;
+        }
         // If choosing a direction, and input vector is non-zero
-        if (choosingDirection && inputDir != Vector2.zero && SelectionCall != null)
+        if (choosingDirection && inputDir != Vector2.zero && inDirSterile && SelectionCall != null)
         {
             Direction dir = Direction.up;
             // If horizontal input is stronger than vertical
@@ -147,10 +162,11 @@ public class InputManager : MonoBehaviour
             // Inform about direction choices
             SelectionCall(dir);
             // Set back to moving
-            choosingDirection = false;
+            ChoosingDirection = false;
+            inDirSterile = false;
         }
         // If currently taking movement input
-        else if (!choosingDirection && MoveCall != null)
+        else if (!choosingDirection && inDirSterile && MoveCall != null)
         {
             // Inform of movement
             MoveCall(inputDir);
@@ -207,7 +223,7 @@ public class InputManager : MonoBehaviour
             {
                 if (func())
                 {
-                    choosingDirection = true;
+                    ChoosingDirection = true;
                 }
             }
         }
@@ -233,7 +249,7 @@ public class InputManager : MonoBehaviour
                 {
                     if (func())
                     {
-                        choosingDirection = true;
+                        ChoosingDirection = true;
                     }
                 }
             }
