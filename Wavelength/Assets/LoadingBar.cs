@@ -123,13 +123,4 @@ public class LoadingBar : MonoBehaviour
         percentage.enabled = state;
         dialogue.enabled = state;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            UpdateLoadScreen(CreationStage.initialisation, currentProgress + 0.08f);
-        }
-    }
 }

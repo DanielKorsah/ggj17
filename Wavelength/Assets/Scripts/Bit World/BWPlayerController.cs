@@ -11,12 +11,12 @@ public class BWPlayerController : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        InputManager.Instance.MoveCall += SetMoveDirection;
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void SetMoveDirection(Vector2 dir)
     {
-        moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        moveDirection = dir;
     }
 
     void FixedUpdate()

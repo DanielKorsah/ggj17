@@ -8,17 +8,20 @@ public class PickupItem : MonoBehaviour
     bool playerContact = false;
     BWPlayerController player;
 
-    private void Update()
+    private void Start()
+    {
+        InputManager.Instance.PickupCall += TryPickup;
+    }
+
+    private bool TryPickup()
     {
         if (playerContact)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                // Add pickup to inventory
-                player.GivePickup(type);
-                Destroy(gameObject);
-            }
+            // Add pickup to inventory
+            player.GivePickup(type);
+            Destroy(gameObject);
         }
+        return false;
     }
 
     public void SetType(Pickup value)
