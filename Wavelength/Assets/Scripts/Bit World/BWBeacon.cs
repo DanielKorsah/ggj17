@@ -12,8 +12,9 @@ public class BWBeacon : Bit
     Direction direction = Direction.up;
     SpriteRenderer beaconSprite;
 
-    enum ChoosingInfo { none = -1, pickup, direction };
+    static DirectionChoice wheel;
     ChoosingInfo choosing = ChoosingInfo.none;
+    bool pickupSetSuccessful = true;
 
     BitWorldLibrarian librarian;
 
@@ -28,6 +29,10 @@ public class BWBeacon : Bit
     // Start is called before the first frame update
     override public void Initialise()
     {
+        if (wheel == null)
+        {
+            wheel = DirectionChoice.Instance;
+        }
         // Find the sprite with the beacon on
         SpriteRenderer[] srs = GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer sr in srs)
@@ -73,54 +78,6 @@ public class BWBeacon : Bit
     void LateStart()
     {
         CalculateGrids();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // If the player is on the beacon, take input
-        if (playerContact)
-        {
-            // If the player pushes activate
-            //if (Input.GetKeyDown(KeyCode.E))
-            //{
-            //    RotateOutput();
-            //}
-            //if (Input.GetKeyDown(KeyCode.Alpha1))
-            //{
-            //    Pickup = Pickup.line;
-            //}
-            //if (Input.GetKeyDown(KeyCode.Alpha2))
-            //{
-            //    Pickup = Pickup.area;
-            //}
-            //if (Input.GetKeyDown(KeyCode.Alpha3))
-            //{
-            //    Pickup = Pickup.displace;
-            //}
-            //if (Input.GetKeyDown(KeyCode.Alpha0))
-            //{
-            //    Pickup = Pickup.none;
-            //}
-
-
-            //if (Input.GetKeyDown(KeyCode.I))
-            //{
-            //    Direction = Direction.up;
-            //}
-            //if (Input.GetKeyDown(KeyCode.L))
-            //{
-            //    Direction = Direction.right;
-            //}
-            //if (Input.GetKeyDown(KeyCode.K))
-            //{
-            //    Direction = Direction.down;
-            //}
-            //if (Input.GetKeyDown(KeyCode.J))
-            //{
-            //    Direction = Direction.left;
-            //}
-        }
     }
 
     private void StartBeaconInfo()
@@ -230,8 +187,12 @@ public class BWBeacon : Bit
     {
         set
         {
+            if (value == pickup)
+            {
+                pickupSetSuccessful = true;
+            }
             // If the player is removing the pickup, or has that pickup use it
-            if (value == Pickup.none || BWInventory.Instance.UsePickup(value))
+            else if (value == Pickup.none || BWInventory.Instance.UsePickup(value))
             {
                 // If the beacon held a pickup, return it
                 if (pickup != Pickup.none)
@@ -244,6 +205,11 @@ public class BWBeacon : Bit
                 beaconSprite.sprite = librarian.BeaconSprites[(int)pickup];
                 // Change grids beacon affects
                 CalculateGrids();
+                pickupSetSuccessful = true;
+            }
+            else
+            {
+                pickupSetSuccessful = false;
             }
         }
     }
@@ -262,8 +228,22 @@ public class BWBeacon : Bit
     {
         set
         {
-            // ~~~ Flower wheel
-            choosing = value;
+            // Flower wheel
+            if (choosing == ChoosingInfo.none)
+            {
+                wheel.BeginChoice(value, transform.position + new Vector3(beaconSprite.size.x/4, beaconSprite.size.y/4, 0.0f));
+                choosing = value;
+            }
+            else if (choosing == value)
+            {
+                wheel.HideChoice();
+                choosing = ChoosingInfo.none;
+            }
+            else if(value == ChoosingInfo.none)
+            {
+                choosing = value;
+                wheel.HideChoice();
+            }
         }
     }
 
@@ -275,23 +255,32 @@ public class BWBeacon : Bit
         {
             return;
         }
-        switch (direction)
+        // If no choice being made, rotate
+        if (choosing == ChoosingInfo.none)
         {
-            case Direction.up:
-                Direction = Direction.right;
-                break;
-            case Direction.right:
-                Direction = Direction.down;
-                break;
-            case Direction.down:
-                Direction = Direction.left;
-                break;
-            case Direction.left:
-                Direction = Direction.up;
-                break;
-            default:
-                Direction = Direction.up;
-                break;
+            switch (direction)
+            {
+                case Direction.up:
+                    Direction = Direction.right;
+                    break;
+                case Direction.right:
+                    Direction = Direction.down;
+                    break;
+                case Direction.down:
+                    Direction = Direction.left;
+                    break;
+                case Direction.left:
+                    Direction = Direction.up;
+                    break;
+                default:
+                    Direction = Direction.up;
+                    break;
+            }
+        }
+        // If currently choosing direction, cancel
+        else if(choosing == ChoosingInfo.direction)
+        {
+            Choosing = ChoosingInfo.none;
         }
     }
 
@@ -328,7 +317,7 @@ public class BWBeacon : Bit
         {
             return false;
         }
-        
+
         Choosing = ChoosingInfo.pickup;
         return true;
     }
@@ -346,16 +335,16 @@ public class BWBeacon : Bit
         return true;
     }
 
-    private void ResolveChoice(Direction dir)
+    private bool ResolveChoice(Direction dir)
     {
         // If not choosing anything, return
-        if(choosing == ChoosingInfo.none)
+        if (choosing == ChoosingInfo.none)
         {
-            return;
+            return false;
         }
 
         // If choosing pickup to use
-        if(choosing == ChoosingInfo.pickup)
+        if (choosing == ChoosingInfo.pickup)
         {
             switch (dir)
             {
@@ -375,14 +364,24 @@ public class BWBeacon : Bit
                     Pickup = Pickup.none;
                     break;
             }
+            wheel.MakeChoice(dir, pickupSetSuccessful);
+            if (pickupSetSuccessful)
+            {
+                // End choosing mode
+                Choosing = ChoosingInfo.none;
+                return true;
+            }
         }
         // If choosing direction to point
         else
         {
             Direction = dir;
+            wheel.MakeChoice(dir, true);
+            // End choosing mode
+            Choosing = ChoosingInfo.none;
+            return true;
         }
-
-        Choosing = ChoosingInfo.none;
+        return false;
     }
 
     // Remove affector from list of grids

@@ -25,8 +25,8 @@ public class InputManager : MonoBehaviour
     // Pickup interaction, returns true if choosing pickup for a beacon
     public delegate bool PickupInput();
     public PickupInput PickupCall;
-    // The choice from up, down, left, and right
-    public delegate void SelectionDirection(Direction choice);
+    // The choice from up, down, left, and right... returns true if successful
+    public delegate bool SelectionDirection(Direction choice);
     public SelectionDirection SelectionCall;
     // Move the player
     public delegate void MoveDirection(Vector2 direction);
@@ -159,11 +159,22 @@ public class InputManager : MonoBehaviour
                     dir = Direction.down;
                 }
             }
-            // Inform about direction choices
-            SelectionCall(dir);
-            // Set back to moving
-            ChoosingDirection = false;
-            inDirSterile = false;
+
+            bool successfulChoice = false;
+            // Individually call delegate functions to see if one returns true
+            foreach (SelectionDirection func in SelectionCall.GetInvocationList())
+            {
+                if (func(dir))
+                {
+                    successfulChoice = true;
+                }
+            }
+            // If any selections were successful, set back to moving
+            if (successfulChoice)
+            {
+                // Set back to moving
+                ChoosingDirection = false;
+            }
         }
         // If currently taking movement input
         else if (!choosingDirection && inDirSterile && MoveCall != null)
@@ -173,21 +184,21 @@ public class InputManager : MonoBehaviour
         }
 
         // Axis response
-        foreach (AxisToStatus inStat in inputStatuses)
+        for (int i = 0; i < inputStatuses.Length; ++i) 
         {
-            switch (inStat.axis)
+            switch (inputStatuses[i].axis)
             {
                 case "Output":
-                    HandleOutput(inStat);
+                    HandleOutput(inputStatuses[i]);
                     break;
                 case "Pickup":
-                    HandlePickup(inStat);
+                    HandlePickup(inputStatuses[i]);
                     break;
                 case "Rotate":
-                    HandleRotate(inStat);
+                    HandleRotate(ref inputStatuses[i]);
                     break;
                 case "Reset":
-                    HandleReset(inStat);
+                    HandleReset(ref inputStatuses[i]);
                     break;
                 default:
                     break;
@@ -223,13 +234,13 @@ public class InputManager : MonoBehaviour
             {
                 if (func())
                 {
-                    ChoosingDirection = true;
+                    ChoosingDirection = !choosingDirection;
                 }
             }
         }
     }
     // Response to rotate axis
-    private void HandleRotate(AxisToStatus inStat)
+    private void HandleRotate(ref AxisToStatus inStat)
     {
         if (inStat.status == KeyStatus.released)
         {
@@ -241,22 +252,28 @@ public class InputManager : MonoBehaviour
                     return;
                 }
                 RotateBeaconCall();
+                ChoosingDirection = false;
             }
-            else
+        }
+        else if(inStat.status == KeyStatus.held)
+        {
+            if (inStat.duration >= 0.4f && inStat.duration < 2.0f)
             {
                 // Individually call delegate functions to see if one returns true
                 foreach (ChooseDirectionBeacon func in ChooseDirectionCall.GetInvocationList())
                 {
                     if (func())
                     {
-                        ChoosingDirection = true;
+                        ChoosingDirection = !choosingDirection;
                     }
                 }
+                inStat.duration += 100.0f;
             }
         }
+        
     }
     // Response to reset axis
-    private void HandleReset(AxisToStatus inStat)
+    private void HandleReset(ref AxisToStatus inStat)
     {
         // If no functions to call, return
         if (ResetCall == null)

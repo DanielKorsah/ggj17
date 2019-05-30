@@ -86,3 +86,10 @@ public enum CreationStage
     initialisation,
     finished
 };
+
+public enum ChoosingInfo
+{
+    none = -1,
+    pickup,
+    direction
+};
