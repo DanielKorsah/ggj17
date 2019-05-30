@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BWPlayerController : MonoBehaviour
 {
-    float speed = 1.7f;
+    float speed = 3.0f;
     Rigidbody2D body;
     Vector2 moveDirection;
     // Start is called before the first frame update

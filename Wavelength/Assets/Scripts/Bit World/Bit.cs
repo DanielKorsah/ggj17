@@ -342,7 +342,7 @@ public class Bit : MonoBehaviour
         get { return displayType; }
     }
 
-    // Methods for use by beacon bits (incomplete)
+    // Methods for use by beacon bits
     public virtual Wavelength BeaconGetWaveLength()
     {
         return Wavelength.V;
@@ -357,4 +357,7 @@ public class Bit : MonoBehaviour
     {
         return Pickup.none;
     }
+
+    // Method for void bits
+    public virtual void SetLightLevel(int ll) { }
 }

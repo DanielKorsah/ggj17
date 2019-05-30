@@ -134,7 +134,7 @@ public class BitWorldMaker : MonoBehaviour
                 yield return null; // ~~~ end frame
             }
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
     }
 
     // Function for making the world
@@ -169,7 +169,7 @@ public class BitWorldMaker : MonoBehaviour
             SetProgress((float)(gridCount + (x + 1) * world.height) / totalWork);
             yield return null;
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
     }
     // Initialise all the bits (replaced Start()) 
     private IEnumerator InitialiseWorld()
@@ -194,7 +194,7 @@ public class BitWorldMaker : MonoBehaviour
         }
 
         LateStartCall();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
     }
     // Function for instantiating all grids
     private void MakeGrids()
