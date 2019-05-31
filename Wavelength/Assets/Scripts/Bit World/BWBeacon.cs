@@ -72,6 +72,7 @@ public class BWBeacon : Bit
         beaconSprite.sprite = librarian.BeaconSprites[(int)pickup];
         beaconSprite.transform.eulerAngles = new Vector3(0, 0, 360 - (int)direction * 90);
         CalculateGrids();
+        Choosing = ChoosingInfo.none;
     }
 
     // Avoids null reference of walls calculting shape before having all neighbours ~~~ will need loading screen to hide first frame change
@@ -228,32 +229,34 @@ public class BWBeacon : Bit
     {
         set
         {
-            // Flower wheel
-            if (choosing == ChoosingInfo.none)
+            // If setting to none, hide wheel
+            if (value == ChoosingInfo.none)
             {
-                wheel.BeginChoice(value, transform.position + new Vector3(beaconSprite.size.x/4, beaconSprite.size.y/4, 0.0f));
                 choosing = value;
+                wheel.HideChoice();
             }
+            // If setting to current value, hide wheel
             else if (choosing == value)
             {
                 wheel.HideChoice();
                 choosing = ChoosingInfo.none;
             }
-            else if(value == ChoosingInfo.none)
+            // If setting to new value from none, show wheel
+            else if (choosing == ChoosingInfo.none)
             {
+                wheel.BeginChoice(value, transform.position + new Vector3(beaconSprite.size.x / 4, beaconSprite.size.y / 4, 0.0f));
                 choosing = value;
-                wheel.HideChoice();
             }
         }
     }
 
     // Change beacon direction 90 clockwise (via setter)
-    private void RotateDirection()
+    private bool RotateDirection()
     {
         // If player isn't on this beacon, return
         if (!playerContact)
         {
-            return;
+            return false;
         }
         // If no choice being made, rotate
         if (choosing == ChoosingInfo.none)
@@ -278,10 +281,11 @@ public class BWBeacon : Bit
             }
         }
         // If currently choosing direction, cancel
-        else if(choosing == ChoosingInfo.direction)
+        else if (choosing == ChoosingInfo.direction)
         {
             Choosing = ChoosingInfo.none;
         }
+        return choosing != ChoosingInfo.none;
     }
 
     // Change beacon output (via variable setter)
@@ -319,7 +323,7 @@ public class BWBeacon : Bit
         }
 
         Choosing = ChoosingInfo.pickup;
-        return true;
+        return choosing != ChoosingInfo.none;
     }
 
     // Start direction choosing process
@@ -332,17 +336,12 @@ public class BWBeacon : Bit
         }
 
         Choosing = ChoosingInfo.direction;
-        return true;
+        return choosing != ChoosingInfo.none;
     }
 
+    // Return true if wheel still open
     private bool ResolveChoice(Direction dir)
     {
-        // If not choosing anything, return
-        if (choosing == ChoosingInfo.none)
-        {
-            return false;
-        }
-
         // If choosing pickup to use
         if (choosing == ChoosingInfo.pickup)
         {
@@ -369,19 +368,17 @@ public class BWBeacon : Bit
             {
                 // End choosing mode
                 Choosing = ChoosingInfo.none;
-                return true;
             }
         }
         // If choosing direction to point
-        else
+        else if (choosing == ChoosingInfo.direction)
         {
             Direction = dir;
             wheel.MakeChoice(dir, true);
             // End choosing mode
             Choosing = ChoosingInfo.none;
-            return true;
         }
-        return false;
+        return choosing != ChoosingInfo.none;
     }
 
     // Remove affector from list of grids

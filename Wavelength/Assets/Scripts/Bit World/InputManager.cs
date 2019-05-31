@@ -14,7 +14,7 @@ public class InputManager : MonoBehaviour
     #endregion
 
     // Spin beacon clockwise
-    public delegate void RotateBeacon();
+    public delegate bool RotateBeacon();
     public RotateBeacon RotateBeaconCall;
     // Choose beacon direction, returns true if choosing direction for a beacon
     public delegate bool ChooseDirectionBeacon();
@@ -53,6 +53,8 @@ public class InputManager : MonoBehaviour
     {
         new AxisToStatus("Output"), new AxisToStatus("Pickup"), new AxisToStatus("Rotate"), new AxisToStatus("Reset")
     };
+
+    float rotateHoldDuration = 0.2f;
 
     bool choosingDirection = false;
     bool ChoosingDirection
@@ -123,7 +125,7 @@ public class InputManager : MonoBehaviour
         // Horizontal/vertical processing/response
         Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         // If input direction is un-sterile and the input is a zero vector, set sterile
-        if(!inDirSterile && inputDir == Vector2.zero)
+        if (!inDirSterile && inputDir == Vector2.zero)
         {
             inDirSterile = true;
         }
@@ -160,17 +162,17 @@ public class InputManager : MonoBehaviour
                 }
             }
 
-            bool successfulChoice = false;
+            bool choiceOngoing = false;
             // Individually call delegate functions to see if one returns true
             foreach (SelectionDirection func in SelectionCall.GetInvocationList())
             {
                 if (func(dir))
                 {
-                    successfulChoice = true;
+                    choiceOngoing = true;
                 }
             }
             // If any selections were successful, set back to moving
-            if (successfulChoice)
+            if (!choiceOngoing)
             {
                 // Set back to moving
                 ChoosingDirection = false;
@@ -184,7 +186,7 @@ public class InputManager : MonoBehaviour
         }
 
         // Axis response
-        for (int i = 0; i < inputStatuses.Length; ++i) 
+        for (int i = 0; i < inputStatuses.Length; ++i)
         {
             switch (inputStatuses[i].axis)
             {
@@ -229,14 +231,13 @@ public class InputManager : MonoBehaviour
         }
         if (inStat.status == KeyStatus.released)
         {
+            bool isChoosing = false;
             // Individually call delegate functions to see if one returns true
             foreach (PickupInput func in PickupCall.GetInvocationList())
             {
-                if (func())
-                {
-                    ChoosingDirection = !choosingDirection;
-                }
+                isChoosing |= func();
             }
+            ChoosingDirection = isChoosing;
         }
     }
     // Response to rotate axis
@@ -244,33 +245,32 @@ public class InputManager : MonoBehaviour
     {
         if (inStat.status == KeyStatus.released)
         {
-            if (inStat.duration < 0.4f)
+            if (inStat.duration < rotateHoldDuration)
             {
-                // If no functions to call, return
-                if (RotateBeaconCall == null)
+                bool isChoosing = false;
+                // Individually call delegate functions to see if one returns true
+                foreach (RotateBeacon func in RotateBeaconCall.GetInvocationList())
                 {
-                    return;
+                    isChoosing |= func();
                 }
-                RotateBeaconCall();
-                ChoosingDirection = false;
+                ChoosingDirection = isChoosing;
             }
         }
-        else if(inStat.status == KeyStatus.held)
+        else if (inStat.status == KeyStatus.held)
         {
-            if (inStat.duration >= 0.4f && inStat.duration < 2.0f)
+            if (inStat.duration >= rotateHoldDuration && inStat.duration < 2.0f)
             {
+                bool isChoosing = false;
                 // Individually call delegate functions to see if one returns true
                 foreach (ChooseDirectionBeacon func in ChooseDirectionCall.GetInvocationList())
                 {
-                    if (func())
-                    {
-                        ChoosingDirection = !choosingDirection;
-                    }
+                    isChoosing |= func();
                 }
+                ChoosingDirection = isChoosing;
                 inStat.duration += 100.0f;
             }
         }
-        
+
     }
     // Response to reset axis
     private void HandleReset(ref AxisToStatus inStat)
@@ -289,6 +289,7 @@ public class InputManager : MonoBehaviour
                 ResetCall();
                 // Set duration above threshold to avoid repeated use
                 inStat.duration = 100.0f;
+                ChoosingDirection = false;
             }
         }
     }
