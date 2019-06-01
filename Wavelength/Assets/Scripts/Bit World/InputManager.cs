@@ -67,7 +67,7 @@ public class InputManager : MonoBehaviour
     }
 
     bool inDirSterile = true;
-    bool disabledInput = false;
+    bool activeControls = false;
 
     // Reset the delegates related to non-permanent entities
     public void ResetManager()
@@ -79,9 +79,19 @@ public class InputManager : MonoBehaviour
         SelectionCall = null;
         ResetCall = null;
     }
+    // Sets the players controls active/inactive as appropriate
+    public void PlayerControlsActive(bool state)
+    {
+        activeControls = state;
+        MoveCall(new Vector2());
+    }
 
     private void Update()
     {
+        if (!activeControls)
+        {
+            return;
+        }
         // Axis list processing
         for (int i = 0; i < inputStatuses.Length; ++i)
         {

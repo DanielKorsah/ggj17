@@ -48,6 +48,8 @@ public class Portal : Bit
         if (collision.tag == "Player")
         {
             // ~~~ Level end stuff
+            // ~~~ Animation
+            InputManager.Instance.PlayerControlsActive(false);
             FindObjectOfType<BitWorldMaker>().NextLevel();
         }
     }

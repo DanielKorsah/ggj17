@@ -13,13 +13,14 @@ public class LoadingBar : MonoBehaviour
     }
     private void Awake()
     {
-        instance = this;        
+        instance = this;
     }
     #endregion
 
     Text dialogue;
     Text percentage;
     RectTransform progressBar;
+    Image progressBarImage;
     float progressBarGoal = 520.0f;
 
     Image[] images;
@@ -54,6 +55,7 @@ public class LoadingBar : MonoBehaviour
             if (r.name == "LoadingBar")
             {
                 progressBar = r;
+                progressBarImage = progressBar.GetComponent<Image>();
                 break;
             }
         }
@@ -73,15 +75,22 @@ public class LoadingBar : MonoBehaviour
         // If onto a new stage change text
         if (stage != currentStage)
         {
+            BitWorldKnowledge knowledge = BitWorldKnowledge.Instance;
             switch (stage)
             {
                 case CreationStage.destruction:
+                    dialogue.color = knowledge.AirColourByWavelength[Wavelength.I];
+                    progressBarImage.color = knowledge.AirColourByWavelength[Wavelength.VU];
                     dialogue.text = "Leaving previous area";
                     break;
                 case CreationStage.creation:
+                    dialogue.color = knowledge.AirColourByWavelength[Wavelength.V];
+                    progressBarImage.color = knowledge.AirColourByWavelength[Wavelength.IU];
                     dialogue.text = "Finding new test";
                     break;
                 case CreationStage.initialisation:
+                    dialogue.color = knowledge.AirColourByWavelength[Wavelength.U];
+                    progressBarImage.color = knowledge.AirColourByWavelength[Wavelength.IV];
                     dialogue.text = "Finalising details";
                     break;
                 default:

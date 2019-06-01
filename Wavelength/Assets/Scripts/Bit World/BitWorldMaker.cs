@@ -43,7 +43,11 @@ public class BitWorldMaker : MonoBehaviour
 
     public void NextLevel()
     {
-        StartCoroutine(NextLevelCoroutine());
+        // Only go to level if not loading currently
+        if (stage == CreationStage.finished || stage == CreationStage.none)
+        {
+            StartCoroutine(NextLevelCoroutine());
+        }
     }
 
     private void UpdateLoadUI()
@@ -88,6 +92,8 @@ public class BitWorldMaker : MonoBehaviour
         LoadingBar.Instance?.HideLoadingScreen();
         stage = CreationStage.finished;
         yield return null;
+        BWCamera.Instance.GoToPlayer();
+        InputManager.Instance.PlayerControlsActive(true);
     }
 
     // Destroy the current version of the world
@@ -143,6 +149,8 @@ public class BitWorldMaker : MonoBehaviour
         stage = CreationStage.creation;
         SetProgress(0.0f);
         yield return null;
+
+        BWCamera.Instance.ViewLoad(world.width / 10, world.height / 10);
 
         int gridCount = world.width / 10 * world.height / 10;
         int totalWork = world.width * world.height + gridCount;
