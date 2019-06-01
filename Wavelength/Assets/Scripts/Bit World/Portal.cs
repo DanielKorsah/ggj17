@@ -49,8 +49,7 @@ public class Portal : Bit
         {
             // ~~~ Level end stuff
             // ~~~ Animation
-            InputManager.Instance.PlayerControlsActive(false);
-            FindObjectOfType<BitWorldMaker>().NextLevel();
+            collision.GetComponent<BWPlayerController>().PlayerExitLevel(transform.position + new Vector3(0.1f, 0.1f, 0.0f));
         }
     }
 }

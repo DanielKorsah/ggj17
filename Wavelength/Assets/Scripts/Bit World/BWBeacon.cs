@@ -317,7 +317,7 @@ public class BWBeacon : Bit
     private bool ChoosingPickup()
     {
         // If player isn't on this beacon, return
-        if (!playerContact || choosing == ChoosingInfo.direction)
+        if (!playerContact)
         {
             return false;
         }
@@ -330,7 +330,7 @@ public class BWBeacon : Bit
     private bool ChoosingDirection()
     {
         // If player isn't on this beacon, return
-        if (!playerContact || choosing == ChoosingInfo.pickup)
+        if (!playerContact)
         {
             return false;
         }

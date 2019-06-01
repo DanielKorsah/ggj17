@@ -93,7 +93,6 @@ public class BitWorldMaker : MonoBehaviour
         stage = CreationStage.finished;
         yield return null;
         BWCamera.Instance.GoToPlayer();
-        InputManager.Instance.PlayerControlsActive(true);
     }
 
     // Destroy the current version of the world

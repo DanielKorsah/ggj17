@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Bit World\BWBeaconBR.cs" />
     <Compile Include="Assets\Scripts\Bit World\BWBeaconTL.cs" />
     <Compile Include="Assets\Scripts\Bit World\BWBeaconTR.cs" />
+    <Compile Include="Assets\Scripts\Bit World\BWCamera.cs" />
     <Compile Include="Assets\Scripts\Bit World\BWInventory.cs" />
     <Compile Include="Assets\Scripts\Bit World\BWPlayerController.cs" />
     <Compile Include="Assets\Scripts\Bit World\ColouredWall.cs" />

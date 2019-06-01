@@ -28,6 +28,12 @@ public class SpawnBit : Bit
             player.position = transform.position;
         }
         base.Initialise();
+        FindObjectOfType<BitWorldMaker>().LateStartCall += LateStart;
+    }
+
+    private void LateStart()
+    {
+        player.GetComponent<BWPlayerController>().PlayerEnterLevel();
     }
 
     // Put the player back at the start
