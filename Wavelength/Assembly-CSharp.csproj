@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\Bit World\Void.cs" />
     <Compile Include="Assets\Scripts\Bit World\WavelengthtoBitType.cs" />
     <Compile Include="Assets\Scripts\Bit World\WavelengthtoSprite.cs" />
+    <Compile Include="Assets\Scripts\Bit World\WelcomeController.cs" />
     <Compile Include="Assets\Scripts\Bit World\World.cs" />
     <Compile Include="Assets\Scripts\Grid Segments\FloorColour.cs" />
     <Compile Include="Assets\Scripts\Grid Segments\grid.cs" />
