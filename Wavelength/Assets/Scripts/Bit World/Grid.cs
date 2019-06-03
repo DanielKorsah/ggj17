@@ -15,13 +15,14 @@ public class Grid : MonoBehaviour
     Vector2 worldPos = new Vector2();
 
     // Adds a bit to contents
-    public void AddBit(Bit bit, int x, int y)
+    public Bit AddBit(Bit bit, int x, int y)
     {
         if (x >= 0 && x < 10 && y >= 0 && y < 10)
         {
-            if (true/*contents[x, y] == null*/)
+            if (contents[x, y] == null)
             {
                 contents[x, y] = bit;
+                return bit;
             }
             else
             {
@@ -43,18 +44,40 @@ public class Grid : MonoBehaviour
         return null;
     }
 
+    // Initialise all bits
+    public void InitialiseBits()
+    {
+        foreach(Bit b in contents)
+        {
+            b.Initialise();
+        }
+    }
+
+    // When only adding an affector to the list
     public void AddAffector(Wavelength newAffector)
     {
         affectors.Add(newAffector);
-        MakeShortList();
-        UpdateBits();
+        FinishAffectorUpdate();
     }
-
+    // When only removing an affector from the list
     public void RemoveAffector(Wavelength oldAffector)
     {
         affectors.Remove(oldAffector);
+        FinishAffectorUpdate();
+    }
+    // When rotating a beacons colours, and don't want to waste a call to the finish function
+    public void SwapAffector(Wavelength newAffector, Wavelength oldAffector)
+    {
+        affectors.Remove(oldAffector);
+        affectors.Add(newAffector);
+        FinishAffectorUpdate();
+    }
+    // Common processes to end all changes to affector list
+    private void FinishAffectorUpdate()
+    {
         MakeShortList();
         UpdateBits();
+        UpdateBitsShape();
     }
 
     private void MakeShortList()
@@ -89,14 +112,42 @@ public class Grid : MonoBehaviour
         {
             shortList[(int)Wavelength.U] = false;
         }
+        if (sLE == "")
+        {
+            sLE = "None";
+        }
         shortListEnum = (Wavelength)System.Enum.Parse(typeof(Wavelength), sLE);
     }
 
+    // Update constituent bits on the colour of the grid
     private void UpdateBits()
     {
         foreach (Bit bit in contents)
         {
             bit.UpdatedByGrid(shortList, shortListEnum);
+        }
+    }
+    // Update constituent bits' shapes after they've all adapted to new colour
+    private void UpdateBitsShape()
+    {
+        foreach (Bit bit in contents)
+        {
+            bit.UpdatedByNeighbour();
+        }
+    }
+
+    // Affectors are reset first when resetting level
+    public void ResetGridAffectors()
+    {
+        affectors.Clear();
+        FinishAffectorUpdate();
+    }
+    // Bits are reset second so that beacons don't have some of their effect cancelled
+    public void ResetGridBits()
+    {
+        foreach (Bit b in contents)
+        {
+            b.ResetBit();
         }
     }
 }

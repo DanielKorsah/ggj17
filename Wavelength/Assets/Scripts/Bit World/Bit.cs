@@ -4,31 +4,42 @@ using UnityEngine;
 
 public class Bit : MonoBehaviour
 {
-    protected World world;
-    protected BitWorldSprites spriteSheet;
+    protected static World world;  // Maybe make static
+    protected static BitWorldSprites spriteSheet;  // Maybe make static
 
     protected BitType bitType = BitType.Air;
-    public BitType displayType = BitType.Air;
+    protected BitType displayType = BitType.Air;
     protected bool neighbourDependant = false;
     protected bool showColour = true;
 
     protected bool[] shortList = new bool[3];
-    protected Wavelength shortListEnum;
+    protected Wavelength shortListEnum = Wavelength.None;
 
-    public Vector2 gridPos = new Vector2();
-    public Vector2 worldPos = new Vector2();
+    public Vector2Int gridPos = new Vector2Int();
+    public Vector2Int worldPos = new Vector2Int();
 
     public Bit[] neighbours = new Bit[4];
+    public bool[] neighboursSimilar = new bool[] { false, false, false, false };
     public BitShape wallShape;
+
+    protected SpriteRenderer sprite;
 
     protected Time lastUpdate = null;
 
-    private void Start()
+    public virtual void Initialise()
     {
-        world = FindObjectOfType<World>();
-        spriteSheet = BitWorldSprites.Instantiate;
+        if (world == null)
+        {
+            world = FindObjectOfType<World>();
+        }
+        if (spriteSheet == null)
+        {
+            spriteSheet = BitWorldSprites.Instantiate;
+        }
+        sprite = GetComponent<SpriteRenderer>();
         GetNeighbours();
         GetBitShapeString();
+        UpdateSprite();
     }
     // Finds the four orthoganal neighbours to this bit
     protected void GetNeighbours()
@@ -42,7 +53,7 @@ public class Bit : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Grid " + (int)worldPos.x + ", " + ((int)worldPos.y + 1) + "does not exist.");
+                //Debug.Log("Grid " + (int)worldPos.x + ", " + ((int)worldPos.y + 1) + "does not exist.");
             }
         }
         // Find adjacent up in same grid
@@ -60,7 +71,7 @@ public class Bit : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Grid " + ((int)worldPos.x + 1) + ", " + (int)worldPos.y + "does not exist.");
+               // Debug.Log("Grid " + ((int)worldPos.x + 1) + ", " + (int)worldPos.y + "does not exist.");
             }
         }
         // Find adjacent right in same grid
@@ -78,7 +89,7 @@ public class Bit : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Grid " + (int)worldPos.x + ", " + ((int)worldPos.y - 1) + "does not exist.");
+                //Debug.Log("Grid " + (int)worldPos.x + ", " + ((int)worldPos.y - 1) + "does not exist.");
             }
         }
         // Find adjacent down in same grid
@@ -96,7 +107,7 @@ public class Bit : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Grid " + ((int)worldPos.x - 1) + ", " + (int)worldPos.y + "does not exist.");
+                //Debug.Log("Grid " + ((int)worldPos.x - 1) + ", " + (int)worldPos.y + "does not exist.");
             }
         }
         // Find adjacent left in same grid
@@ -242,16 +253,22 @@ public class Bit : MonoBehaviour
             {
                 if (neighbours[i].displayType == displayType)
                 {
-                    Debug.Log("true");
+                    neighboursSimilar[i] = true;
                     code += (i + 1).ToString();
                 }
                 else
                 {
-                    Debug.Log("false");
+                    neighboursSimilar[i] = false;
                 }
             }
-
-            wallShape = (BitShape)System.Enum.Parse(typeof(BitShape), code);
+            if (code != "x")
+            {
+                wallShape = (BitShape)System.Enum.Parse(typeof(BitShape), code);
+            }
+            else
+            {
+                wallShape = BitShape.x0;
+            }
         }
     }
     // For recieving an update from the grid this bit is in
@@ -260,8 +277,12 @@ public class Bit : MonoBehaviour
         this.shortList = shortList;
         this.shortListEnum = shortListEnum;
         UpdateSprite();
-        UpdateNeighbours();
-        UpdateBitShape();
+        //UpdateNeighbours();
+        //UpdateBitShape();
+        if (neighbourDependant)
+        {
+            world.UpdateAdjacentBits(this);
+        }
     }
     // Prompt for updating neighbours that may need to change their sprite
     protected void UpdateNeighbours()
@@ -282,12 +303,21 @@ public class Bit : MonoBehaviour
     // Updates the shape of the bit based on surrounding bits
     protected void UpdateBitShape()
     {
-        GetBitShapeString();
+        if (neighbourDependant)
+        {
+            GetBitShapeString();
+            UpdateSprite();
+        }
     }
     // Update the sprite colour to match the wavelengths affecting the tile
-    protected void UpdateSprite()
+    protected virtual void UpdateSprite()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetAirColourSprites(shortListEnum);
+        //gameObject.GetComponent<SpriteRenderer>().sprite = spriteSheet.GetAirColourSprites(shortListEnum);
+        sprite.sortingOrder = (int)displayType;
+        if (displayType == BitType.Air)
+        {
+            sprite.color = BitWorldKnowledge.Instance.AirColourByWavelength[shortListEnum];
+        }
     }
     // Get information about bit location
     public void SetLocationData(int worldX, int worldY, int gridX, int gridY)
@@ -297,20 +327,37 @@ public class Bit : MonoBehaviour
         gridPos.x = gridX;
         gridPos.y = gridY;
     }
+    // Reset the bit to default
+    public virtual void ResetBit()
+    {
+
+    }
+
+    // BitTypeSet only implemented in coloured walls
+    public virtual BitType BitTypeSet { set { } }
+    // To give bits spawned from a range of colours the ability to determine their information
+    public virtual void GiveMulticolourInfo(Color32 pixel) { }
+    public BitType DisplayTypeGet
+    {
+        get { return displayType; }
+    }
 
     // Methods for use by beacon bits
-    public Wavelength BeaconGetWaveLength()
+    public virtual Wavelength BeaconGetWaveLength()
     {
         return Wavelength.V;
     }
 
-    public Direction BeaconGetFacing()
+    public virtual Direction BeaconGetFacing()
     {
         return Direction.up;
     }
 
-    public Pickup BeaconGetPickup()
+    public virtual Pickup BeaconGetPickup()
     {
         return Pickup.none;
     }
+
+    // Method for void bits
+    public virtual void SetLightLevel(int ll) { }
 }

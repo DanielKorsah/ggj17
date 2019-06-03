@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2821782885411655266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2821782885411655268}
+  - component: {fileID: 2821782885411655269}
+  m_Layer: 0
+  m_Name: BitWorldMaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2821782885411655268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821782885411655266}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7922242, y: 0.56078106, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2821782885411655269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821782885411655266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9df5376efdaa8c46a1e6d791fa19594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relations:
+  - bitType: 0
+    prefab: {fileID: 4212303606218206, guid: f34dadfd133adb14188510de799ce65d, type: 3}
+  - bitType: 1
+    prefab: {fileID: 4640819832561258, guid: d20dd91129b31544da980fcc01769d9b, type: 3}
+  - bitType: 2
+    prefab: {fileID: 4036695020791640, guid: 788fd99378c66e442820dfa7612cdc05, type: 3}
+  - bitType: 3
+    prefab: {fileID: 4766388553972748, guid: 77a57da719d35be4eb706b44cbdf40ce, type: 3}
+  - bitType: 4
+    prefab: {fileID: 4766388553972748, guid: 77a57da719d35be4eb706b44cbdf40ce, type: 3}
+  - bitType: 5
+    prefab: {fileID: 4766388553972748, guid: 77a57da719d35be4eb706b44cbdf40ce, type: 3}
+  - bitType: 6
+    prefab: {fileID: 4766388553972748, guid: 77a57da719d35be4eb706b44cbdf40ce, type: 3}
+  - bitType: 7
+    prefab: {fileID: 4766388553972748, guid: 77a57da719d35be4eb706b44cbdf40ce, type: 3}
+  - bitType: 8
+    prefab: {fileID: 4766388553972748, guid: 77a57da719d35be4eb706b44cbdf40ce, type: 3}
+  - bitType: 9
+    prefab: {fileID: 4766388553972748, guid: 77a57da719d35be4eb706b44cbdf40ce, type: 3}
+  - bitType: 10
+    prefab: {fileID: 2236865728770312153, guid: 6aef3018eb00a0243bc440d9d98809d9,
+      type: 3}
+  - bitType: 11
+    prefab: {fileID: 1720507218312513234, guid: 667a2dd9a0e932d4fb2d30eedef870a7,
+      type: 3}
+  - bitType: 12
+    prefab: {fileID: 4298783358814526945, guid: e1f5006b18ac6b549a062ddb6f23420e,
+      type: 3}
+  - bitType: 13
+    prefab: {fileID: 7664328665168758850, guid: 0bed4adf4f7eb2747a1875fcefd5c558,
+      type: 3}
+  - bitType: 14
+    prefab: {fileID: 756341384942108745, guid: 652c25f96c31f754991a1dc992800a5c, type: 3}
+  - bitType: 15
+    prefab: {fileID: 8904603111616324725, guid: 0d7eb254a93903a4aa39a483b9a050d0,
+      type: 3}
+  - bitType: 16
+    prefab: {fileID: 2494358358239050964, guid: 3102386c68ddcec49b19b91dbf91e568,
+      type: 3}
+  world: {fileID: 2800000, guid: 81c886dd773b2e14d9cb7cbd89a036f2, type: 3}
+  grid: {fileID: 4073659767533634, guid: 10e32f43358b187478138cb6a1df0ec9, type: 3}
+  gridWorld: {fileID: 4743579933673626, guid: c04f1333e1b614540bb2acd5bd0c48b8, type: 3}
+  voidPrefab: {fileID: 4212303606218206, guid: f34dadfd133adb14188510de799ce65d, type: 3}

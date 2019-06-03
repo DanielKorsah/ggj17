@@ -1,0 +1,866 @@
+fileFormatVersion: 2
+guid: bbc4c02ec3acd884981c0d54f46130aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7973861647424831005
+    second: Wall
+  - first:
+      213: 7665782052551790166
+    second: IWall
+  - first:
+      213: 1543109606589993048
+    second: VWall
+  - first:
+      213: -7423105300809200790
+    second: UWall
+  - first:
+      213: 9148480761446916347
+    second: IVWall
+  - first:
+      213: 884410119474989977
+    second: IUWall
+  - first:
+      213: -9104578894225892974
+    second: VUWall
+  - first:
+      213: 4092099386355507538
+    second: IVUWall
+  - first:
+      213: -6387799515953694283
+    second: BitWorldSpritesheet_8
+  - first:
+      213: 7801289967492584057
+    second: BitWorldSpritesheet_9
+  - first:
+      213: -7144361818159440153
+    second: BitWorldSpritesheet_10
+  - first:
+      213: -5797255377225969842
+    second: BitWorldSpritesheet_11
+  - first:
+      213: -1607260585503996326
+    second: 00Shade
+  - first:
+      213: -6082199483906729437
+    second: 01Shade
+  - first:
+      213: -4815278296922523294
+    second: 02Shade
+  - first:
+      213: 3650217183844364095
+    second: 03Shade
+  - first:
+      213: -7868433112944620895
+    second: BitWorldSpritesheet_16
+  - first:
+      213: -2978342207523432133
+    second: BitWorldSpritesheet_17
+  - first:
+      213: -3218785988843114382
+    second: BitWorldSpritesheet_18
+  - first:
+      213: -8365635975311155011
+    second: BitWorldSpritesheet_19
+  - first:
+      213: 6842304383029617082
+    second: Beacon00Regular
+  - first:
+      213: -3179826163469088465
+    second: BitWorldSpritesheet_21
+  - first:
+      213: 5781897419534040201
+    second: Beacon01Line
+  - first:
+      213: 6385938078688224984
+    second: BitWorldSpritesheet_23
+  - first:
+      213: -1981318667679087748
+    second: Beacon02Area
+  - first:
+      213: 209022422582900292
+    second: BitWorldSpritesheet_25
+  - first:
+      213: -2394932879359950438
+    second: Beacon03Move
+  - first:
+      213: -5378933371740980022
+    second: BitWorldSpritesheet_27
+  - first:
+      213: -7942398537837406446
+    second: Pickup01Line
+  - first:
+      213: 1768077835812154941
+    second: Pickup02Area
+  - first:
+      213: -648681207064155876
+    second: Pickup03Move
+  - first:
+      213: -507032938866066655
+    second: Pickup03MoveAlt
+  - first:
+      213: 6320922204824831033
+    second: Shade00Up
+  - first:
+      213: 4807902885817674912
+    second: Shade01Right
+  - first:
+      213: 2637055712126407332
+    second: Shade02Down
+  - first:
+      213: -1337613971950652399
+    second: Shade03Left
+  - first:
+      213: 8898781551659967447
+    second: BitWorldSpritesheet_36
+  - first:
+      213: -8267422095660236796
+    second: BitWorldSpritesheet_37
+  - first:
+      213: -4407033718230172442
+    second: Portal
+  - first:
+      213: -5555809603882930045
+    second: BitWorldSpritesheet_39
+  - first:
+      213: 2902550811937621752
+    second: BitWorldSpritesheet_40
+  - first:
+      213: 2265867528675118457
+    second: BitWorldSpritesheet_41
+  - first:
+      213: -2995933537619087075
+    second: BitWorldSpritesheet_42
+  - first:
+      213: -8445804961089395132
+    second: BitWorldSpritesheet_43
+  - first:
+      213: 1785707067239482092
+    second: BitWorldSpritesheet_44
+  - first:
+      213: 4514943700169911396
+    second: BitWorldSpritesheet_45
+  - first:
+      213: 8428430738549711268
+    second: BitWorldSpritesheet_46
+  - first:
+      213: -8135793527636207790
+    second: BitWorldSpritesheet_47
+  - first:
+      213: 8143209969658005933
+    second: 00Wall
+  - first:
+      213: 633929371529208415
+    second: 01Wall
+  - first:
+      213: -1008290340827391958
+    second: 02Wall
+  - first:
+      213: 8723048633812491958
+    second: 03Wall
+  - first:
+      213: 7569947442349908250
+    second: 04Wall
+  - first:
+      213: 4136085937040927598
+    second: 05Wall
+  - first:
+      213: 2627424728020844236
+    second: 06Wall
+  - first:
+      213: -3227146524326884900
+    second: 07Wall
+  - first:
+      213: 1376921008223612809
+    second: Wall00
+  - first:
+      213: -932336209472844762
+    second: Wall01I
+  - first:
+      213: 8686961372712706223
+    second: Wall02V
+  - first:
+      213: -2527863563304737881
+    second: Wall03U
+  - first:
+      213: -6300293524884127880
+    second: Wall04IV
+  - first:
+      213: -7212140265090906205
+    second: Wall05IU
+  - first:
+      213: -7186941139861808062
+    second: Wall06VU
+  - first:
+      213: 7554678975801982122
+    second: Wall07IVU
+  - first:
+      213: -5238978151915574039
+    second: Air
+  - first:
+      213: -4682101599085146007
+    second: HiddenWall
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wall00
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3acb579f90a7cf4a9e8ce83d1ee892d
+      internalID: 1376921008223612809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall01I
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33883d9d9f8c78f4f912cb2fdd014b5f
+      internalID: -932336209472844762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall02V
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0807f382e1839644f8e75b29124c09f0
+      internalID: 8686961372712706223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall03U
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b0abfababdf8f4cbd936d7a0b5fb05
+      internalID: -2527863563304737881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall04IV
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48567d3fe751deb4dbeffd1ee46cc6b5
+      internalID: -6300293524884127880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall05IU
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a65990474c48e478352a3d9aef1ae2
+      internalID: -7212140265090906205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall06VU
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5797dec5dc89f4c4b9fb2bb6b6aa8951
+      internalID: -7186941139861808062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall07IVU
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21d9ac84c6abe84db3186f425ce2b38
+      internalID: 7554678975801982122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitWorldSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34eff186feb29214cb3f89db858b1de3
+      internalID: -6387799515953694283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitWorldSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054c0580c3825f547b67e80338f1ac19
+      internalID: 7801289967492584057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitWorldSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf49107e71db654fbefffd3577a61fe
+      internalID: -7144361818159440153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitWorldSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e1e1b542c065404096a53b2c4930ee0
+      internalID: -5797255377225969842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beacon00Regular
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 176
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d693bac73a463b8488c5ca6fb804bd89
+      internalID: 6842304383029617082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beacon01Line
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 176
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc096849504c3d488f3b3051a367184
+      internalID: 5781897419534040201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beacon02Area
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 176
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281c5296555579d469b0f5ac3b391cfd
+      internalID: -1981318667679087748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Beacon03Move
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 176
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2398b42df1c7e4191296c33e47f8d3
+      internalID: -2394932879359950438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pickup01Line
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f78b67ce0afebbd4b8c4dff3287289ea
+      internalID: -7942398537837406446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pickup02Area
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db2610c744d15d44af017f7bc48730d
+      internalID: 1768077835812154941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pickup03Move
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d1aca4f3e02a14dbaaf0c3a0390c54
+      internalID: -648681207064155876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pickup03MoveAlt
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ae448271990e6469f3ffbf903050dd
+      internalID: -507032938866066655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shade00Up
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4c3b248dc83a84fa8467ab3ef97b1c
+      internalID: 6320922204824831033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shade01Right
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef535cf89ea249049ba0a7d7f04fdcea
+      internalID: 4807902885817674912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shade02Down
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bc941f9f56baba4c9de9ff27c8277ad
+      internalID: 2637055712126407332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shade03Left
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8b58f919c6d7e43a693c6bc18e8e90
+      internalID: -1337613971950652399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portal
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bfac2a5f30fb6e4abb26bcc49329579
+      internalID: -4407033718230172442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Air
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38af5fd179ecdc4b8898309006053dd
+      internalID: -5238978151915574039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HiddenWall
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529b05df7d47173438339e57a97b7e88
+      internalID: -4682101599085146007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b407041268a012147811e24bd1614ff9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

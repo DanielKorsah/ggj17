@@ -6,7 +6,8 @@
     IV = 3,
     IU = 4,
     VU = 5,
-    IVU = 6
+    IVU = 6,
+    None = 7
 };
 
 public enum BitType
@@ -75,4 +76,20 @@ public enum Pickup
     line,
     area,
     displace
+};
+
+public enum CreationStage
+{
+    none = -1,
+    destruction,
+    creation,
+    initialisation,
+    finished
+};
+
+public enum ChoosingInfo
+{
+    none = -1,
+    pickup,
+    direction
 };

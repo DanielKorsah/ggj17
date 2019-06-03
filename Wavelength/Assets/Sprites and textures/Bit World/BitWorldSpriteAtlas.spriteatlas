@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BitWorldSpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 2
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+    totalSpriteSurfaceArea: 10752
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -7186941139861808062, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -5238978151915574039, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 5781897419534040201, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -1337613971950652399, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -7144361818159440153, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -4682101599085146007, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -5797255377225969842, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 2637055712126407332, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -4407033718230172442, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -7212140265090906205, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -1981318667679087748, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -648681207064155876, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -2527863563304737881, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 8686961372712706223, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -7942398537837406446, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -507032938866066655, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 7801289967492584057, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -6387799515953694283, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 6320922204824831033, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 4807902885817674912, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 1768077835812154941, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -932336209472844762, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 7554678975801982122, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 1376921008223612809, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -2394932879359950438, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: -6300293524884127880, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  - {fileID: 6842304383029617082, guid: bbc4c02ec3acd884981c0d54f46130aa, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Wall06VU
+  - Air
+  - Beacon01Line
+  - Shade03Left
+  - BitWorldSpritesheet_10
+  - HiddenWall
+  - BitWorldSpritesheet_11
+  - Shade02Down
+  - Portal
+  - Wall05IU
+  - Beacon02Area
+  - Pickup03Move
+  - Wall03U
+  - Wall02V
+  - Pickup01Line
+  - Pickup03MoveAlt
+  - BitWorldSpritesheet_9
+  - BitWorldSpritesheet_8
+  - Shade00Up
+  - Shade01Right
+  - Pickup02Area
+  - Wall01I
+  - Wall07IVU
+  - Wall00
+  - Beacon03Move
+  - Wall04IV
+  - Beacon00Regular
+  m_Tag: BitWorldSpriteAtlas
+  m_IsVariant: 0

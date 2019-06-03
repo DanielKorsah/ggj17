@@ -6,10 +6,12 @@ public class BitWorldLibrarian : MonoBehaviour {
 
     public BitWorldKnowledge knowledge = BitWorldKnowledge.Instance;
     public BitTypetoBool[] neighbourDependant;
+    public Sprite[] WallSpitesByDispWavelength = new Sprite[(int)Wavelength.None + 1];
+    public Sprite[] BeaconSprites = new Sprite[(int)Pickup.displace + 1];
+    public Sprite[] PickupSprites = new Sprite[(int)Pickup.displace];
 
     // Use this for initialization
     void Start () {
-        knowledge = BitWorldKnowledge.Instance;
 	}
 	
 	// Update is called once per frame

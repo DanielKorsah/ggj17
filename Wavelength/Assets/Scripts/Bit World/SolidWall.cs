@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SolidWall : Bit
 {
-
-
     private void Awake()
     {
         bitType = BitType.Wall;
@@ -14,17 +12,10 @@ public class SolidWall : Bit
         showColour = false;
     }
     // Use this for initialization
-    void Start()
+    override public void Initialise()
     {
-        world = FindObjectOfType<World>();
-        spriteSheet = BitWorldSprites.Instantiate;
-        GetNeighbours();
-        GetBitShapeString();
+        base.Initialise();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 }

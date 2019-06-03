@@ -8,6 +8,11 @@ public class World : MonoBehaviour
     public Grid[,] grids = new Grid[10, 10];
     public Transform[,] gridsObjs = new Transform[10, 10];
 
+    private void Start()
+    {
+        InputManager.Instance.ResetCall += ResetWorld;
+    }
+
     // Get grids adjacent to a given grid
     public Grid[] GetAdjacent(int x, int y)
     {
@@ -52,6 +57,47 @@ public class World : MonoBehaviour
         return adjacents;
     }
 
+    // Neighbour-Update bits adjacent to a given bit if they are in a different grid
+    public void UpdateAdjacentBits(Bit bit)
+    {
+        // If bit is on left of its grid
+        if (bit.gridPos.x == 0)
+        {
+            Grid adjGrid = GetGrid(bit.worldPos + new Vector2Int(-1, 0));
+            if (adjGrid != null)
+            {
+                adjGrid.GetBit(9, bit.gridPos.y).UpdatedByNeighbour();
+            }
+        }
+        // If bit is on right of its grid
+        else if (bit.gridPos.x == 9)
+        {
+            Grid adjGrid = GetGrid(bit.worldPos + new Vector2Int(1, 0));
+            if (adjGrid != null)
+            {
+                adjGrid.GetBit(0, bit.gridPos.y).UpdatedByNeighbour();
+            }
+        }
+        // If bit is on bottom of its grid
+        if (bit.gridPos.y == 0)
+        {
+            Grid adjGrid = GetGrid(bit.worldPos + new Vector2Int(0, -1));
+            if (adjGrid != null)
+            {
+                adjGrid.GetBit(bit.gridPos.x, 9).UpdatedByNeighbour();
+            }
+        }
+        // If bit is on top of its grid
+        else if (bit.gridPos.y == 9)
+        {
+            Grid adjGrid = GetGrid(bit.worldPos + new Vector2Int(0, 1));
+            if (adjGrid != null)
+            {
+                adjGrid.GetBit(bit.gridPos.x, 0).UpdatedByNeighbour();
+            }
+        }
+    }
+
     // Adds a grid to grids
     public void AddGrid(Grid grid, int x, int y)
     {
@@ -92,6 +138,12 @@ public class World : MonoBehaviour
         }
     }
 
+    // Finds a grid at the specified coordinates. If grid doesn't exist or is out of bounds, returns null.
+    public Grid GetGrid(Vector2Int pos)
+    {
+        return GetGrid(pos.x, pos.y);
+    }
+    // Finds a grid at the specified coordinates. If grid doesn't exist or is out of bounds, returns null.
     public Grid GetGrid(int x, int y)
     {
         if (x >= 0 && x < 10 && y >= 0 && y < 10)
@@ -99,5 +151,21 @@ public class World : MonoBehaviour
             return grids[x, y];
         }
         return null;
+    }
+
+    public void ResetWorld()
+    {
+        BWInventory.Instance.ResetInventory();
+        // ~~~ start load screen
+        // Reset grid affectors
+        foreach (Grid g in grids)
+        {
+            g?.ResetGridAffectors();
+        }
+        // Reset bit information
+        foreach (Grid g in grids)
+        {
+            g?.ResetGridBits();
+        }
     }
 }
