@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BitWorldMaker : MonoBehaviour
 {
@@ -37,7 +38,6 @@ public class BitWorldMaker : MonoBehaviour
     // Upon starting create the world
     void Start()
     {
-        // ~~~ Loading screen
         NextLevel();
     }
 
@@ -80,7 +80,8 @@ public class BitWorldMaker : MonoBehaviour
         // If the final level has been completed
         if (currentLevel == levels.Count)
         {
-            // ~~~ ending level
+            SceneManager.LoadScene("Completed");
+            yield break;
         }
         // Select world png
         world = levels[currentLevel];
