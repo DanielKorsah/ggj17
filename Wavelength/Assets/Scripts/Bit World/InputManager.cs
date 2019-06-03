@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -51,7 +52,8 @@ public class InputManager : MonoBehaviour
     };
     AxisToStatus[] inputStatuses = new AxisToStatus[]
     {
-        new AxisToStatus("Output"), new AxisToStatus("Pickup"), new AxisToStatus("Rotate"), new AxisToStatus("Reset")
+        new AxisToStatus("Output"), new AxisToStatus("Pickup"), new AxisToStatus("Rotate"),
+        new AxisToStatus("Reset"), new AxisToStatus("Cancel")
     };
 
     float rotateHoldDuration = 0.2f;
@@ -212,6 +214,9 @@ public class InputManager : MonoBehaviour
                 case "Reset":
                     HandleReset(ref inputStatuses[i]);
                     break;
+                case "Cancel":
+                    HandleCancel(inputStatuses[i]);
+                    break;
                 default:
                     break;
             }
@@ -301,6 +306,14 @@ public class InputManager : MonoBehaviour
                 inStat.duration = 100.0f;
                 ChoosingDirection = false;
             }
+        }
+    }
+    // Response to cancel axis
+    private void HandleCancel(AxisToStatus inStat)
+    {
+        if (inStat.status == KeyStatus.held && inStat.duration > 1.5f)
+        {
+            SceneManager.LoadScene("Welcome");
         }
     }
 }
