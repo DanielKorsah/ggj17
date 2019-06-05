@@ -12,7 +12,7 @@ public class ColouredWall : Bit
     private BoxCollider2D wallCollider;
 
     // ~~~ Reference to a piece of shading for this wall
-    public SpriteRenderer shadow;
+    public SpriteRenderer[] shadows;
 
     private static BitWorldLibrarian librarian;
 
@@ -77,13 +77,11 @@ public class ColouredWall : Bit
         sprite.sprite = librarian.WallSpitesByDispWavelength[(int)displayWavelength];
         base.UpdateSprite();
         // ~~~ Way to show or hide shadow on the bottom
-        if(!wallShape.ToString().Contains("3"))
+        string ws = wallShape.ToString();
+        for(int i = 0; i < shadows.Length; ++i)
         {
-            shadow.enabled = true;
-        }
-        else
-        {
-            shadow.enabled = false;
+
+            shadows[i].enabled = !(displayWavelength == Wavelength.None || ws.Contains((i + 1).ToString()));
         }
     }
     // Work out display type from wall type and shortlist (make tiles calculate in future)
