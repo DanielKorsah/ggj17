@@ -14,7 +14,6 @@ public class DirectionChoice : MonoBehaviour
     #endregion
 
     Transform pickupObj;
-    Transform directionObj;
 
     Animator anim;
     private string[] animatorParameter = new string[] { "UpState", "RightState", "DownState", "LeftState" };
@@ -26,32 +25,16 @@ public class DirectionChoice : MonoBehaviour
         // Find direction and pickup
         foreach (Transform t in transforms)
         {
-            if (t.name == "Direction")
-            {
-                // Set direction
-                directionObj = t;
-                // If pickup is already set, break
-                if (pickupObj != null)
-                {
-                    break;
-                }
-            }
-            else if (t.name == "Pickup")
+            if (t.name == "Pickup")
             {
                 // Set pickup
                 pickupObj = t;
-                // If direction is already set, break
-                if (directionObj != null)
-                {
-                    break;
-                }
+                break;
             }
         }
         // Get animator
         anim = GetComponentInChildren<Animator>();
         // Disable direction and pickup
-        //pickupObj.gameObject.SetActive(false);
-        directionObj.gameObject.SetActive(false);
     }
 
     public void BeginChoice(ChoosingInfo choice, Vector3 pos)
@@ -64,22 +47,15 @@ public class DirectionChoice : MonoBehaviour
     // Set the right sprites to display
     private void SetActive(ChoosingInfo choice)
     {
-        if (choice != ChoosingInfo.none) {
+        if (choice != ChoosingInfo.none)
+        {
             anim.SetBool("ShowWheel", true);
             anim.SetBool("PickupSprites", choice == ChoosingInfo.pickup);
-            for(int i = 0; i < animatorParameter.Length; ++i)
+            for (int i = 0; i < animatorParameter.Length; ++i)
             {
                 anim.SetInteger(animatorParameter[i], 0);
             }
         }
-        /*if (choice == ChoosingInfo.direction)
-        {
-            directionObj.gameObject.SetActive(true);
-        }
-        else if (choice == ChoosingInfo.pickup)
-        {
-            pickupObj.gameObject.SetActive(true);
-        }*/
         else
         {
             HideChoice();
@@ -88,8 +64,7 @@ public class DirectionChoice : MonoBehaviour
 
     public void MakeChoice(Direction dir, bool successful)
     {
-        // ~~~ Animate direction
-
+        //Animate direction
         int val = 0;
         switch (successful)
         {
@@ -103,7 +78,6 @@ public class DirectionChoice : MonoBehaviour
                 val = 0;
                 break;
         }
-
         anim.SetInteger(animatorParameter[(int)dir], val);
 
         // Hide sprites if successful choice
@@ -122,10 +96,5 @@ public class DirectionChoice : MonoBehaviour
     {
         anim.SetBool("ShowWheel", false);
         anim.SetTrigger("HideWheel");
-
-        // ~~~
-        //// Disable direction and pickup
-        //pickupObj.gameObject.SetActive(false);
-        //directionObj.gameObject.SetActive(false);
     }
 }
