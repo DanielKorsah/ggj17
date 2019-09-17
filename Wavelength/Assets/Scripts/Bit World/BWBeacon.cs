@@ -316,26 +316,24 @@ public class BWBeacon : Bit
     // Start pickup choosing process
     private bool ChoosingPickup()
     {
-        // If player isn't on this beacon, return
-        if (!playerContact)
+        // If player is on this beacon, set choosing
+        if (playerContact)
         {
-            return false;
+            Choosing = ChoosingInfo.pickup;
         }
 
-        Choosing = ChoosingInfo.pickup;
         return choosing != ChoosingInfo.none;
     }
 
     // Start direction choosing process
     private bool ChoosingDirection()
     {
-        // If player isn't on this beacon, return
-        if (!playerContact)
+        // If player is on this beacon, set choosing
+        if (playerContact)
         {
-            return false;
+            Choosing = ChoosingInfo.direction;
         }
 
-        Choosing = ChoosingInfo.direction;
         return choosing != ChoosingInfo.none;
     }
 

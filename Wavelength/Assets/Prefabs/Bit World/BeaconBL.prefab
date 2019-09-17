@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2236865728770312153}
   - component: {fileID: 2155509974556105779}
   - component: {fileID: -7351055504528535469}
-  - component: {fileID: 7296747217151186972}
+  - component: {fileID: 7328993821163928004}
   m_Layer: 0
   m_Name: BeaconBL
   m_TagString: Bit
@@ -104,8 +104,8 @@ MonoBehaviour:
   - {fileID: 0}
   neighboursSimilar: 00000000
   wallShape: 0
---- !u!61 &7296747217151186972
-BoxCollider2D:
+--- !u!58 &7328993821163928004
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,18 +118,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.1, y: 0.1}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.494
-    drawMode: 1
-    adaptiveTiling: 1
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
-  m_EdgeRadius: 0
+  m_Radius: 0.175
 --- !u!1 &3307906597124215587
 GameObject:
   m_ObjectHideFlags: 0

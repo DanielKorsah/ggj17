@@ -178,10 +178,7 @@ public class InputManager : MonoBehaviour
             // Individually call delegate functions to see if one returns true
             foreach (SelectionDirection func in SelectionCall.GetInvocationList())
             {
-                if (func(dir))
-                {
-                    choiceOngoing = true;
-                }
+                choiceOngoing |= func(dir);
             }
             // If any selections were successful, set back to moving
             if (!choiceOngoing)
@@ -195,6 +192,10 @@ public class InputManager : MonoBehaviour
         {
             // Inform of movement
             MoveCall(inputDir);
+        }
+        else if(choosingDirection && !inDirSterile)
+        {
+            MoveCall(Vector2.zero);
         }
 
         // Axis response
