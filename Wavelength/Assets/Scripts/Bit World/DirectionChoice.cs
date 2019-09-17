@@ -51,7 +51,7 @@ public class DirectionChoice : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         // Disable direction and pickup
         //pickupObj.gameObject.SetActive(false);
-        //directionObj.gameObject.SetActive(false);
+        directionObj.gameObject.SetActive(false);
     }
 
     public void BeginChoice(ChoosingInfo choice, Vector3 pos)
@@ -66,6 +66,11 @@ public class DirectionChoice : MonoBehaviour
     {
         if (choice != ChoosingInfo.none) {
             anim.SetBool("ShowWheel", true);
+            anim.SetBool("PickupSprites", choice == ChoosingInfo.pickup);
+            for(int i = 0; i < animatorParameter.Length; ++i)
+            {
+                anim.SetInteger(animatorParameter[i], 0);
+            }
         }
         /*if (choice == ChoosingInfo.direction)
         {

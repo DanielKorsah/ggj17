@@ -245,7 +245,7 @@ public class InputManager : MonoBehaviour
         {
             return;
         }
-        if (inStat.status == KeyStatus.released)
+        if (inStat.status == KeyStatus.pressed)
         {
             bool isChoosing = false;
             // Individually call delegate functions to see if one returns true

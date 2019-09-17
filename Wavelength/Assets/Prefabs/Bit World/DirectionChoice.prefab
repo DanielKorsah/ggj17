@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8246898252127240497}
   - component: {fileID: 425149594264846143}
   m_Layer: 0
-  m_Name: 03Displace
+  m_Name: 03Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 6741257616381393140}
   - component: {fileID: 1337362806180968772}
   m_Layer: 0
-  m_Name: 01Line
+  m_Name: 01Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 1152056133559468561}
   - component: {fileID: 5430115053083155487}
   m_Layer: 0
-  m_Name: 02Area
+  m_Name: 02Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,6 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2573667157979529969}
   - component: {fileID: 2999458049006455424}
+  - component: {fileID: 3751555561143563125}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Untagged
@@ -488,6 +489,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3751555561143563125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6097873835542836420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2fdda8dbfa77b4d81b57777945ea21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6127257290505962057
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +592,7 @@ GameObject:
   - component: {fileID: 2772900411001290255}
   - component: {fileID: 6182904242226531829}
   m_Layer: 0
-  m_Name: 00None
+  m_Name: 00Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

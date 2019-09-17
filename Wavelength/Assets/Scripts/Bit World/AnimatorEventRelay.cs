@@ -15,4 +15,19 @@ public class AnimatorEventRelay : MonoBehaviour
     {
         dc.ResetParameter(Direction.up);
     }
+
+    public void ResetRightValue()
+    {
+        dc.ResetParameter(Direction.right);
+    }
+
+    public void ResetDownValue()
+    {
+        dc.ResetParameter(Direction.down);
+    }
+
+    public void ResetLeftValue()
+    {
+        dc.ResetParameter(Direction.left);
+    }
 }
