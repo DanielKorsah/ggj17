@@ -16,7 +16,8 @@ public class DirectionChoice : MonoBehaviour
     Transform pickupObj;
 
     Animator anim;
-    private string[] animatorParameter = new string[] { "UpState", "RightState", "DownState", "LeftState" };
+    private string[] animatorAcceptanceParameter = new string[] { "UpState", "RightState", "DownState", "LeftState" };
+    private string[] animatorInvalidParameter = new string[] { "RightInvalid", "DownInvalid", "LeftInvalid" };
 
     private void Start()
     {
@@ -37,11 +38,13 @@ public class DirectionChoice : MonoBehaviour
         // Disable direction and pickup
     }
 
-    public void BeginChoice(ChoosingInfo choice, Vector3 pos)
+    public void BeginChoice(ChoosingInfo choice, Vector3 pos, List<bool> validDirections, Pickup current)
     {
         transform.position = pos;
         // Display correct sprite
         SetActive(choice);
+        ShowValid(validDirections);
+        anim.SetInteger("CurrentPickup", choice == ChoosingInfo.pickup ? (int)current : -1);
     }
 
     // Set the right sprites to display
@@ -51,14 +54,22 @@ public class DirectionChoice : MonoBehaviour
         {
             anim.SetBool("ShowWheel", true);
             anim.SetBool("PickupSprites", choice == ChoosingInfo.pickup);
-            for (int i = 0; i < animatorParameter.Length; ++i)
+            for (int i = 0; i < animatorAcceptanceParameter.Length; ++i)
             {
-                anim.SetInteger(animatorParameter[i], 0);
+                anim.SetInteger(animatorAcceptanceParameter[i], 0);
             }
         }
         else
         {
             HideChoice();
+        }
+    }
+
+    private void ShowValid(List<bool> validDirections)
+    {
+        for(int i = 1; i < validDirections.Count; ++i)
+        {
+            anim.SetBool(animatorInvalidParameter[i - 1], !validDirections[i]);
         }
     }
 
@@ -78,7 +89,7 @@ public class DirectionChoice : MonoBehaviour
                 val = 0;
                 break;
         }
-        anim.SetInteger(animatorParameter[(int)dir], val);
+        anim.SetInteger(animatorAcceptanceParameter[(int)dir], val);
 
         // Hide sprites if successful choice
         if (successful)
@@ -89,7 +100,7 @@ public class DirectionChoice : MonoBehaviour
 
     public void ResetParameter(Direction dir)
     {
-        anim.SetInteger(animatorParameter[(int)dir], 0);
+        anim.SetInteger(animatorAcceptanceParameter[(int)dir], 0);
     }
 
     public void HideChoice()

@@ -2079,6 +2079,12 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 425149594264846143, guid: f7dea47586775324580168603508eb0c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8356904402078093518, guid: d190c15c78a03f642895f741b7cccb85,
+        type: 3}
     - target: {fileID: 1337362806180968772, guid: f7dea47586775324580168603508eb0c,
         type: 3}
       propertyPath: m_Color.r
@@ -2099,6 +2105,12 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1337362806180968772, guid: f7dea47586775324580168603508eb0c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8208194068740314520, guid: d190c15c78a03f642895f741b7cccb85,
+        type: 3}
     - target: {fileID: 5430115053083155487, guid: f7dea47586775324580168603508eb0c,
         type: 3}
       propertyPath: m_Color.r
@@ -2119,6 +2131,12 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5430115053083155487, guid: f7dea47586775324580168603508eb0c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4342652167423238891, guid: 2792eab299370a748aaf53735db81c63,
+        type: 3}
     - target: {fileID: 6182904242226531829, guid: f7dea47586775324580168603508eb0c,
         type: 3}
       propertyPath: m_Color.r
@@ -2139,6 +2157,12 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6182904242226531829, guid: f7dea47586775324580168603508eb0c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7457821927037591747, guid: 2792eab299370a748aaf53735db81c63,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7dea47586775324580168603508eb0c, type: 3}
 --- !u!1001 &6017158566772748557

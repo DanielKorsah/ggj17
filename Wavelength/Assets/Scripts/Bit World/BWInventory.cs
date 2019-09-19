@@ -53,10 +53,7 @@ public class BWInventory : MonoBehaviour
             return false;
         }
         pickups[(int)pickup - 1]--;
-        if (InventoryUpdateCall != null)
-        {
-            InventoryUpdateCall(pickup);
-        }
+        InventoryUpdateCall?.Invoke(pickup);
         return true;
     }
 
