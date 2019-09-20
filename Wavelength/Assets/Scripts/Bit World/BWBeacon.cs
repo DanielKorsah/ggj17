@@ -244,10 +244,23 @@ public class BWBeacon : Bit
             // If setting to new value from none, show wheel
             else if (choosing == ChoosingInfo.none)
             {
-                wheel.BeginChoice(value, transform.position + new Vector3(beaconSprite.size.x / 4, beaconSprite.size.y / 4, 0.0f));
+                wheel.BeginChoice(value, transform.position + new Vector3(beaconSprite.size.x / 4, beaconSprite.size.y / 4, 0.0f), ValidDirections(value), pickup);
                 choosing = value;
             }
         }
+    }
+
+    private List<bool> ValidDirections(ChoosingInfo value)
+    {
+        if(value == ChoosingInfo.direction)
+        {
+            return new List<bool> { true, true, true, true };
+        }
+        List<bool> output = new List<bool> { true, false, false, false };
+        output[1] = BWInventory.Instance.GetPickupCount(Pickup.line) > 0 || pickup == Pickup.line;
+        output[2] = BWInventory.Instance.GetPickupCount(Pickup.area) > 0 || pickup == Pickup.area;
+        output[3] = BWInventory.Instance.GetPickupCount(Pickup.displace) > 0 || pickup == Pickup.displace;
+        return output;
     }
 
     // Change beacon direction 90 clockwise (via setter)
@@ -316,26 +329,24 @@ public class BWBeacon : Bit
     // Start pickup choosing process
     private bool ChoosingPickup()
     {
-        // If player isn't on this beacon, return
-        if (!playerContact)
+        // If player is on this beacon, set choosing
+        if (playerContact)
         {
-            return false;
+            Choosing = ChoosingInfo.pickup;
         }
 
-        Choosing = ChoosingInfo.pickup;
         return choosing != ChoosingInfo.none;
     }
 
     // Start direction choosing process
     private bool ChoosingDirection()
     {
-        // If player isn't on this beacon, return
-        if (!playerContact)
+        // If player is on this beacon, set choosing
+        if (playerContact)
         {
-            return false;
+            Choosing = ChoosingInfo.direction;
         }
 
-        Choosing = ChoosingInfo.direction;
         return choosing != ChoosingInfo.none;
     }
 

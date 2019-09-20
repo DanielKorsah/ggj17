@@ -14,58 +14,50 @@ public class DirectionChoice : MonoBehaviour
     #endregion
 
     Transform pickupObj;
-    Transform directionObj;
+
+    Animator anim;
+    private string[] animatorAcceptanceParameter = new string[] { "UpState", "RightState", "DownState", "LeftState" };
+    private string[] animatorInvalidParameter = new string[] { "RightInvalid", "DownInvalid", "LeftInvalid" };
 
     private void Start()
     {
         // Get game objects in children
-        Transform[] transforms =  GetComponentsInChildren<Transform>();
+        Transform[] transforms = GetComponentsInChildren<Transform>();
         // Find direction and pickup
-        foreach(Transform t in transforms)
+        foreach (Transform t in transforms)
         {
-            if (t.name == "Direction")
-            {
-                // Set direction
-                directionObj = t;
-                // If pickup is already set, break
-                if(pickupObj != null)
-                {
-                    break;
-                }
-            }
-            else if(t.name == "Pickup")
+            if (t.name == "Pickup")
             {
                 // Set pickup
                 pickupObj = t;
-                // If direction is already set, break
-                if (directionObj != null)
-                {
-                    break;
-                }
+                break;
             }
         }
+        // Get animator
+        anim = GetComponentInChildren<Animator>();
         // Disable direction and pickup
-        pickupObj.gameObject.SetActive(false);
-        directionObj.gameObject.SetActive(false);
     }
 
-    public void BeginChoice(ChoosingInfo choice, Vector3 pos)
+    public void BeginChoice(ChoosingInfo choice, Vector3 pos, List<bool> validDirections, Pickup current)
     {
         transform.position = pos;
         // Display correct sprite
         SetActive(choice);
+        ShowValid(validDirections);
+        anim.SetInteger("CurrentPickup", choice == ChoosingInfo.pickup ? (int)current : -1);
     }
 
     // Set the right sprites to display
     private void SetActive(ChoosingInfo choice)
     {
-        if(choice == ChoosingInfo.direction)
+        if (choice != ChoosingInfo.none)
         {
-            directionObj.gameObject.SetActive(true);
-        }
-        else if(choice == ChoosingInfo.pickup)
-        {
-            pickupObj.gameObject.SetActive(true);
+            anim.SetBool("ShowWheel", true);
+            anim.SetBool("PickupSprites", choice == ChoosingInfo.pickup);
+            for (int i = 0; i < animatorAcceptanceParameter.Length; ++i)
+            {
+                anim.SetInteger(animatorAcceptanceParameter[i], 0);
+            }
         }
         else
         {
@@ -73,9 +65,31 @@ public class DirectionChoice : MonoBehaviour
         }
     }
 
+    private void ShowValid(List<bool> validDirections)
+    {
+        for(int i = 1; i < validDirections.Count; ++i)
+        {
+            anim.SetBool(animatorInvalidParameter[i - 1], !validDirections[i]);
+        }
+    }
+
     public void MakeChoice(Direction dir, bool successful)
     {
-        // ~~~ Animate direction
+        //Animate direction
+        int val = 0;
+        switch (successful)
+        {
+            case true:
+                val = 1;
+                break;
+            case false:
+                val = -1;
+                break;
+            default:
+                val = 0;
+                break;
+        }
+        anim.SetInteger(animatorAcceptanceParameter[(int)dir], val);
 
         // Hide sprites if successful choice
         if (successful)
@@ -84,10 +98,14 @@ public class DirectionChoice : MonoBehaviour
         }
     }
 
+    public void ResetParameter(Direction dir)
+    {
+        anim.SetInteger(animatorAcceptanceParameter[(int)dir], 0);
+    }
+
     public void HideChoice()
     {
-        // Disable direction and pickup
-        pickupObj.gameObject.SetActive(false);
-        directionObj.gameObject.SetActive(false);
+        anim.SetBool("ShowWheel", false);
+        anim.SetTrigger("HideWheel");
     }
 }
