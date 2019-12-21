@@ -63,6 +63,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BitWorld/BitWorldLevels.unity
     guid: 70f2c8748dacd3942b9384b8c50eb384
   - enabled: 1
+    path: Assets/Scenes/BitWorld/PauseMenu.unity
+    guid: bfbdba0642ee66e4ea26a98789f07905
+  - enabled: 1
     path: Assets/Scenes/BitWorld/Completed.unity
     guid: 5dd9aa9e0a74db54d9e81869d167912a
   m_configObjects: {}

@@ -85,7 +85,7 @@ public class InputManager : MonoBehaviour
     public void PlayerControlsActive(bool state)
     {
         activeControls = state;
-        MoveCall(new Vector2());
+        MoveCall(Vector2.zero);
     }
 
     private void Update()
@@ -193,7 +193,7 @@ public class InputManager : MonoBehaviour
             // Inform of movement
             MoveCall(inputDir);
         }
-        else if(choosingDirection && !inDirSterile)
+        else if (choosingDirection && !inDirSterile)
         {
             MoveCall(Vector2.zero);
         }
@@ -312,9 +312,9 @@ public class InputManager : MonoBehaviour
     // Response to cancel axis
     private void HandleCancel(AxisToStatus inStat)
     {
-        if (inStat.status == KeyStatus.held && inStat.duration > 1.5f)
+        if (inStat.status == KeyStatus.released)
         {
-            SceneManager.LoadScene("Welcome");
+            SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
         }
     }
 }

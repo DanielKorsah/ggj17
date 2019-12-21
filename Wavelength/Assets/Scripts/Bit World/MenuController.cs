@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class WelcomeController : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
     [SerializeField]
     Text[] options;
+    [SerializeField]
+    int escOption = 0;
     int selIdx = 0;
+    MenuAction[] menuActions;
 
     Color32 unselected = new Color32(212, 212, 212, 255);
     Color32 selected = new Color32(120, 232, 120, 255);
@@ -18,7 +21,13 @@ public class WelcomeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        menuActions = new MenuAction[options.Length];
+        for (int i = 0; i < options.Length; ++i)
+        {
+            menuActions[i] = options[i].GetComponent<MenuAction>();
+        }
         HoverText();
+        InputManager.Instance?.PlayerControlsActive(false);
     }
     // Highlight currently selected index
     private void HoverText()
@@ -85,22 +94,27 @@ public class WelcomeController : MonoBehaviour
 
         if(Input.GetAxisRaw("Output") > 0)
         {
-            switch (selIdx)
-            {
-                case 0:
-                    SceneManager.LoadScene("BitWorldLevels");
-                    break;
-                case 1:
-                    Application.Quit();
-                    break;
-                default:
-                    break;
-            }
+            menuActions[selIdx].Action();
+            //switch (selIdx)
+            //{
+            //    case 0:
+            //        SceneManager.LoadScene("BitWorldLevels");
+            //        break;
+            //    case 1:
+            //        // ~~~ LevelSelect
+            //        break;
+            //    case 2:
+            //        Application.Quit();
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         if (Input.GetAxisRaw("Cancel") > 0)
         {
-            Application.Quit();
+            menuActions[escOption].Action();
+            // Application.Quit();
         }
     }
 }

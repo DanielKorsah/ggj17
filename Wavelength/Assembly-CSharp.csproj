@@ -87,6 +87,14 @@
     <Compile Include="Assets\Scripts\Bit World\Grid.cs" />
     <Compile Include="Assets\Scripts\Bit World\InputManager.cs" />
     <Compile Include="Assets\Scripts\Bit World\LoadingBar.cs" />
+    <Compile Include="Assets\Scripts\Bit World\MAExitGame.cs" />
+    <Compile Include="Assets\Scripts\Bit World\MALevelSelect.cs" />
+    <Compile Include="Assets\Scripts\Bit World\MARestartLevel.cs" />
+    <Compile Include="Assets\Scripts\Bit World\MAReturnToGame.cs" />
+    <Compile Include="Assets\Scripts\Bit World\MAStartGame.cs" />
+    <Compile Include="Assets\Scripts\Bit World\MAToTitle.cs" />
+    <Compile Include="Assets\Scripts\Bit World\MenuAction.cs" />
+    <Compile Include="Assets\Scripts\Bit World\MenuController.cs" />
     <Compile Include="Assets\Scripts\Bit World\PickupItem.cs" />
     <Compile Include="Assets\Scripts\Bit World\Portal.cs" />
     <Compile Include="Assets\Scripts\Bit World\PressAnyKey.cs" />
@@ -96,7 +104,6 @@
     <Compile Include="Assets\Scripts\Bit World\Void.cs" />
     <Compile Include="Assets\Scripts\Bit World\WavelengthtoBitType.cs" />
     <Compile Include="Assets\Scripts\Bit World\WavelengthtoSprite.cs" />
-    <Compile Include="Assets\Scripts\Bit World\WelcomeController.cs" />
     <Compile Include="Assets\Scripts\Bit World\World.cs" />
     <Compile Include="Assets\Scripts\Grid Segments\FloorColour.cs" />
     <Compile Include="Assets\Scripts\Grid Segments\grid.cs" />
