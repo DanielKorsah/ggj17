@@ -36,25 +36,7 @@ public class InputManager : MonoBehaviour
     public delegate void ResetLevel();
     public ResetLevel ResetCall;
 
-    enum KeyStatus { none, pressed, held, released };
-    struct AxisToStatus
-    {
-        public string axis;
-        public KeyStatus status;
-        public float duration;
-
-        public AxisToStatus(string a)
-        {
-            axis = a;
-            status = KeyStatus.none;
-            duration = 0.0f;
-        }
-    };
-    AxisToStatus[] inputStatuses = new AxisToStatus[]
-    {
-        new AxisToStatus("Output"), new AxisToStatus("Pickup"), new AxisToStatus("Rotate"),
-        new AxisToStatus("Reset"), new AxisToStatus("Cancel")
-    };
+    private InputManagerSuper inSuper;
 
     float rotateHoldDuration = 0.2f;
 
@@ -88,54 +70,20 @@ public class InputManager : MonoBehaviour
         MoveCall(Vector2.zero);
     }
 
+    private void Start()
+    {
+        inSuper = InputManagerSuper.Instance;
+    }
+
     private void Update()
     {
         if (!activeControls)
         {
             return;
         }
-        // Axis list processing
-        for (int i = 0; i < inputStatuses.Length; ++i)
-        {
-            ref AxisToStatus inStat = ref inputStatuses[i];
-            // If released last frame, now: none
-            if (inStat.status == KeyStatus.released)
-            {
-                inStat.status = KeyStatus.none;
-            }
-            // If the axis is registering
-            if (Input.GetAxisRaw(inStat.axis) > 0)
-            {
-                // If status none, now: pressed  (reset hold duration)
-                if (inStat.status == KeyStatus.none)
-                {
-                    inStat.status = KeyStatus.pressed;
-                    inStat.duration = 0;
-                }
-                // Else if pushed last frame, now: held
-                else if (inStat.status == KeyStatus.pressed)
-                {
-                    inStat.status = KeyStatus.held;
-                }
-                // If held, increment duration for
-                if (inStat.status == KeyStatus.held)
-                {
-                    inStat.duration += Time.deltaTime;
-                }
-            }
-            // If the axis isn't registering
-            else
-            {
-                // If previously pushed, now: released
-                if (inStat.status == KeyStatus.pressed || inStat.status == KeyStatus.held)
-                {
-                    inStat.status = KeyStatus.released;
-                }
-            }
-        }
 
         // Horizontal/vertical processing/response
-        Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        Vector2 inputDir = inSuper.inputDir.normalized;
         // If input direction is un-sterile and the input is a zero vector, set sterile
         if (!inDirSterile && inputDir == Vector2.zero)
         {
@@ -144,35 +92,7 @@ public class InputManager : MonoBehaviour
         // If choosing a direction, and input vector is non-zero
         if (choosingDirection && inputDir != Vector2.zero && inDirSterile && SelectionCall != null)
         {
-            Direction dir = Direction.up;
-            // If horizontal input is stronger than vertical
-            if (Mathf.Abs(inputDir.x) > Mathf.Abs(inputDir.y))
-            {
-                // If input is to right
-                if (inputDir.x > 0)
-                {
-                    dir = Direction.right;
-                }
-                // If input is to left
-                else
-                {
-                    dir = Direction.left;
-                }
-            }
-            // If vertical input is stronger than horizontal
-            else
-            {
-                // If input direction is up
-                if (inputDir.y > 0)
-                {
-                    dir = Direction.up;
-                }
-                // If input direction is down
-                else
-                {
-                    dir = Direction.down;
-                }
-            }
+            Direction dir = inSuper.dir;
 
             bool choiceOngoing = false;
             // Individually call delegate functions to see if one returns true
@@ -199,24 +119,25 @@ public class InputManager : MonoBehaviour
         }
 
         // Axis response
-        for (int i = 0; i < inputStatuses.Length; ++i)
+        for (int i = 0; i < inSuper.inputAxes.Length; ++i)
         {
-            switch (inputStatuses[i].axis)
+            string a = inSuper.inputAxes[i];
+            switch (a)
             {
                 case "Output":
-                    HandleOutput(inputStatuses[i]);
+                    HandleOutput(a);
                     break;
                 case "Pickup":
-                    HandlePickup(inputStatuses[i]);
+                    HandlePickup(a);
                     break;
                 case "Rotate":
-                    HandleRotate(ref inputStatuses[i]);
+                    HandleRotate(a);
                     break;
                 case "Reset":
-                    HandleReset(ref inputStatuses[i]);
+                    HandleReset(a);
                     break;
                 case "Cancel":
-                    HandleCancel(inputStatuses[i]);
+                    HandleCancel(a);
                     break;
                 default:
                     break;
@@ -225,27 +146,27 @@ public class InputManager : MonoBehaviour
     }
 
     // Response to output axis
-    private void HandleOutput(AxisToStatus inStat)
+    private void HandleOutput(string axis)
     {
         // If no functions to call, return
         if (ChangeBeaconCall == null)
         {
             return;
         }
-        if (inStat.status == KeyStatus.released)
+        if (inSuper.AxisReleased(axis))
         {
             ChangeBeaconCall();
         }
     }
     // Response to pickup axis
-    private void HandlePickup(AxisToStatus inStat)
+    private void HandlePickup(string axis)
     {
         // If no functions to call, return
         if (PickupCall == null)
         {
             return;
         }
-        if (inStat.status == KeyStatus.pressed)
+        if (inSuper.AxisDown(axis))
         {
             bool isChoosing = false;
             // Individually call delegate functions to see if one returns true
@@ -257,11 +178,12 @@ public class InputManager : MonoBehaviour
         }
     }
     // Response to rotate axis
-    private void HandleRotate(ref AxisToStatus inStat)
+    bool rotationHoldResponse = false;
+    private void HandleRotate(string axis)
     {
-        if (inStat.status == KeyStatus.released)
+        if (inSuper.AxisReleased(axis))
         {
-            if (inStat.duration < rotateHoldDuration)
+            if (inSuper.AxisDuration(axis) < rotateHoldDuration)
             {
                 bool isChoosing = false;
                 // Individually call delegate functions to see if one returns true
@@ -272,24 +194,32 @@ public class InputManager : MonoBehaviour
                 ChoosingDirection = isChoosing;
             }
         }
-        else if (inStat.status == KeyStatus.held)
+        else if (inSuper.AxisHeld(axis))
         {
-            if (inStat.duration >= rotateHoldDuration && inStat.duration < 2.0f)
+            if (inSuper.AxisDuration(axis) >= rotateHoldDuration)
             {
-                bool isChoosing = false;
-                // Individually call delegate functions to see if one returns true
-                foreach (ChooseDirectionBeacon func in ChooseDirectionCall.GetInvocationList())
+                if (!rotationHoldResponse)
                 {
-                    isChoosing |= func();
+                    bool isChoosing = false;
+                    // Individually call delegate functions to see if one returns true
+                    foreach (ChooseDirectionBeacon func in ChooseDirectionCall.GetInvocationList())
+                    {
+                        isChoosing |= func();
+                    }
+                    ChoosingDirection = isChoosing;
+                    rotationHoldResponse = true;
                 }
-                ChoosingDirection = isChoosing;
-                inStat.duration += 100.0f;
+            }
+            else if (rotationHoldResponse)
+            {
+                rotationHoldResponse = false;
             }
         }
 
     }
     // Response to reset axis
-    private void HandleReset(ref AxisToStatus inStat)
+    bool resetHoldResponse = false;
+    private void HandleReset(string axis)
     {
         // If no functions to call, return
         if (ResetCall == null)
@@ -297,22 +227,29 @@ public class InputManager : MonoBehaviour
             return;
         }
         // If key is being held down
-        if (inStat.status == KeyStatus.held)
+        if (inSuper.AxisHeld(axis))
         {
-            // Reset if held between 1 and 2 seconds
-            if (inStat.duration > 1.0f && inStat.duration < 2.0f)
+            // Reset if held for longer than a second
+            if (inSuper.AxisDuration(axis) >= 1.0f)
             {
-                ResetCall();
-                // Set duration above threshold to avoid repeated use
-                inStat.duration = 100.0f;
-                ChoosingDirection = false;
+                if (!resetHoldResponse)
+                {
+                    ResetCall();
+                    inSuper.FreezeInputs();
+                    ChoosingDirection = false;
+                    resetHoldResponse = true;
+                }
+            }
+            else if (resetHoldResponse)
+            {
+                resetHoldResponse = false;
             }
         }
     }
     // Response to cancel axis
-    private void HandleCancel(AxisToStatus inStat)
+    private void HandleCancel(string axis)
     {
-        if (inStat.status == KeyStatus.released)
+        if (inSuper.AxisReleased(axis))
         {
             SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
         }

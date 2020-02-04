@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Bit World\DisplayInventory.cs" />
     <Compile Include="Assets\Scripts\Bit World\Grid.cs" />
     <Compile Include="Assets\Scripts\Bit World\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Bit World\InputManagerSuper.cs" />
     <Compile Include="Assets\Scripts\Bit World\LoadingBar.cs" />
     <Compile Include="Assets\Scripts\Bit World\MAExitGame.cs" />
     <Compile Include="Assets\Scripts\Bit World\MALevelSelect.cs" />
