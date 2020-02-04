@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\RaycastChecker.cs" />
     <Compile Include="Assets\Scripts\Bit World\AnimatorEventRelay.cs" />
     <Compile Include="Assets\Scripts\Bit World\Bit.cs" />
     <Compile Include="Assets\Scripts\Bit World\BitTypetoBool.cs" />
@@ -106,36 +105,6 @@
     <Compile Include="Assets\Scripts\Bit World\WavelengthtoBitType.cs" />
     <Compile Include="Assets\Scripts\Bit World\WavelengthtoSprite.cs" />
     <Compile Include="Assets\Scripts\Bit World\World.cs" />
-    <Compile Include="Assets\Scripts\Grid Segments\FloorColour.cs" />
-    <Compile Include="Assets\Scripts\Grid Segments\grid.cs" />
-    <Compile Include="Assets\Scripts\Grid Segments\Sectors.cs" />
-    <Compile Include="Assets\Scripts\Loading Scenes\EndPortal.cs" />
-    <Compile Include="Assets\Scripts\Loading Scenes\PlayScript.cs" />
-    <Compile Include="Assets\Scripts\Loading Scenes\ResetLevel.cs" />
-    <Compile Include="Assets\Scripts\Loading Scenes\SceneTransition.cs" />
-    <Compile Include="Assets\Scripts\Loading Scenes\ToMenu.cs" />
-    <Compile Include="Assets\Scripts\Misc\DontDestroy.cs" />
-    <Compile Include="Assets\Scripts\Persistence\LoadFromSave.cs" />
-    <Compile Include="Assets\Scripts\Persistence\PersistenceLogger.cs" />
-    <Compile Include="Assets\Scripts\Player\CameraZoom.cs" />
-    <Compile Include="Assets\Scripts\Player\Inventory.cs" />
-    <Compile Include="Assets\Scripts\Player\Movement.cs" />
-    <Compile Include="Assets\Scripts\Player\PickUpBoost.cs" />
-    <Compile Include="Assets\Scripts\Player\PickUpFocus.cs" />
-    <Compile Include="Assets\Scripts\Player\PickUpProject.cs" />
-    <Compile Include="Assets\Scripts\UI\AudioControls.cs" />
-    <Compile Include="Assets\Scripts\UI\Audiopassthrough.cs" />
-    <Compile Include="Assets\Scripts\UI\DialTurn.cs" />
-    <Compile Include="Assets\Scripts\UI\PauseMenuController.cs" />
-    <Compile Include="Assets\Scripts\UI\PopDown.cs" />
-    <Compile Include="Assets\Scripts\UI\TimeLimit.cs" />
-    <Compile Include="Assets\Scripts\UI\UI_Controls.cs" />
-    <Compile Include="Assets\Scripts\UI\Wave.cs" />
-    <Compile Include="Assets\Scripts\Walls&amp;Transmitters\Beacon.cs" />
-    <Compile Include="Assets\Scripts\Walls&amp;Transmitters\DisappearingWalls.cs" />
-    <Compile Include="Assets\Scripts\Walls&amp;Transmitters\Transmitter.cs" />
-    <Compile Include="Assets\Scripts\Walls&amp;Transmitters\TransmitterAudio.cs" />
-    <Compile Include="Assets\Scripts\Walls&amp;Transmitters\WallState.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Tim/Documents/ggj17/Wavelength/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

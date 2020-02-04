@@ -45,3 +45,5 @@ ehthumbs.db
 .Json
 Wavelength/Assets/@Themes/
 Wavelength/Assets/@Themes.meta
+*.csproj
+*.sln
