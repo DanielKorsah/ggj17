@@ -92,7 +92,7 @@ public class MenuController : MonoBehaviour
             vertIn = false;
         }
 
-        if(Input.GetAxisRaw("Output") > 0)
+        if(Input.GetButtonDown("Output"))
         {
             menuActions[selIdx].Action();
             //switch (selIdx)
@@ -111,7 +111,7 @@ public class MenuController : MonoBehaviour
             //}
         }
 
-        if (Input.GetAxisRaw("Cancel") > 0)
+        if (Input.GetButtonUp("Cancel"))
         {
             menuActions[escOption].Action();
             // Application.Quit();

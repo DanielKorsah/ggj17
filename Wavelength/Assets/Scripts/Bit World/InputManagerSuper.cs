@@ -40,7 +40,7 @@ public class InputManagerSuper : MonoBehaviour
             {
                 if (inputAxesFrozen[a])
                 {
-                    if (!Input.GetButton(a))
+                    if (!(Input.GetButton(a) || Input.GetButtonUp(a)))
                     {
                         inputAxesFrozen[a] = false;
                     }
@@ -130,6 +130,8 @@ public class InputManagerSuper : MonoBehaviour
             inputAxesFrozen[a] = true;
             inputAxesDurations[a] = 0.0f;
         }
+        inputDir = Vector2.zero;
+        dir = Direction.up;
         allFree = false;
     }
 }

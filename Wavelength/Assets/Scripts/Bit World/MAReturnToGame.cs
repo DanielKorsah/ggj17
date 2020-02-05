@@ -8,7 +8,8 @@ public class MAReturnToGame : MenuAction
     public override void Action()
     {
         SceneManager.UnloadSceneAsync(levels[(int)BWLevels.Pause]);
-        InputManager.Instance.PlayerControlsActive(true);
+        InputManagerSuper.Instance?.FreezeInputs();
+        InputManager.Instance?.PlayerControlsActive(true);
     }
 }
 
