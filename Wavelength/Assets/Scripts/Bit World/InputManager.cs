@@ -45,8 +45,11 @@ public class InputManager : MonoBehaviour
     {
         set
         {
-            choosingDirection = value;
-            inDirSterile = false;
+            if (value != choosingDirection)
+            {
+                choosingDirection = value;
+                inDirSterile = false;
+            }
         }
     }
 

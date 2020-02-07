@@ -106,6 +106,5 @@ public class DirectionChoice : MonoBehaviour
     public void HideChoice()
     {
         anim.SetBool("ShowWheel", false);
-        anim.SetTrigger("HideWheel");
     }
 }
