@@ -8,7 +8,7 @@ public class AnimatorEventRelay : MonoBehaviour
 
     private void Start()
     {
-        dc = FindObjectOfType<DirectionChoice>();
+        dc = GetComponentInParent<DirectionChoice>();
     }
 
     public void ResetUpValue()
