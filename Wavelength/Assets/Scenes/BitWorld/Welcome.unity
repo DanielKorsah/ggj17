@@ -456,6 +456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc6cb97d4491634fa92738b2260c8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionFreezesInput: 0
+  loadLevel: 1
+  unloadLevel: -1
 --- !u!1 &1233838233
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +551,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0faa74b7c1a93f540ac3c0dd4249cd0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionFreezesInput: 0
+  loadLevel: 2
+  unloadLevel: -1
 --- !u!1 &1414308436
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,3 +826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d06641e5c60b34f99ca94b527d4901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionFreezesInput: 0
+  loadLevel: -1
+  unloadLevel: -1

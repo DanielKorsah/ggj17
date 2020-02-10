@@ -364,6 +364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d06641e5c60b34f99ca94b527d4901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionFreezesInput: 0
+  loadLevel: -1
+  unloadLevel: -1
 --- !u!114 &1075933830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,6 +573,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49582834414824a4298bb188488d7d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionFreezesInput: 0
+  loadLevel: 0
+  unloadLevel: -1
 --- !u!114 &1675082508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,6 +668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573c3f7327d54144e8a765a4c75586df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionFreezesInput: 0
+  loadLevel: -1
+  unloadLevel: -1
 --- !u!114 &1955252549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd6d8de18c97184d8315b9b9c65da55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionFreezesInput: 1
+  loadLevel: -1
+  unloadLevel: 3
 --- !u!114 &2126465616
 MonoBehaviour:
   m_ObjectHideFlags: 0

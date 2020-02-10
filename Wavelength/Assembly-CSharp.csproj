@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Bit World\PickupItem.cs" />
     <Compile Include="Assets\Scripts\Bit World\Portal.cs" />
     <Compile Include="Assets\Scripts\Bit World\PressAnyKey.cs" />
+    <Compile Include="Assets\Scripts\Bit World\SceneController.cs" />
     <Compile Include="Assets\Scripts\Bit World\SolidWall.cs" />
     <Compile Include="Assets\Scripts\Bit World\SpawnBit.cs" />
     <Compile Include="Assets\Scripts\Bit World\UpgradeBit.cs" />

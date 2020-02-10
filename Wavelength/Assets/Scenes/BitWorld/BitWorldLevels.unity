@@ -188,10 +188,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cdf1370e74b0c84da7b9ab5cc7aa26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputAxes:
+  - Horizontal
+  - Vertical
+  - Output
+  - Pickup
+  - Rotate
+  - Reset
+  - Cancel
   inputDir: {x: 0, y: 0}
   dir: 0
-  dirStatus: 0
-  dirDuration: 0
 --- !u!1001 &201135190
 PrefabInstance:
   m_ObjectHideFlags: 0

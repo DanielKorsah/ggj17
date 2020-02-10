@@ -7,6 +7,6 @@ public class MAStartGame : MenuAction
 {
     public override void Action()
     {
-        SceneManager.LoadScene(levels[(int)BWLevels.Game]);
+        base.Action();
     }
 }

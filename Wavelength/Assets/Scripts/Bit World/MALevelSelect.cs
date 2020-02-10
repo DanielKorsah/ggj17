@@ -7,6 +7,6 @@ public class MALevelSelect : MenuAction
 {
     public override void Action()
     {
-        SceneManager.LoadScene(levels[(int)BWLevels.LevelSelect]);
+        base.Action();
     }
 }

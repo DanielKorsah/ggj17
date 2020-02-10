@@ -8,6 +8,7 @@ public class MARestartLevel : MenuAction
     public override void Action()
     {
         FindObjectOfType<World>().ResetWorld();
+        base.Action();
     }
 }
 

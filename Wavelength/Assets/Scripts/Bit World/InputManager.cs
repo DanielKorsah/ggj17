@@ -254,7 +254,7 @@ public class InputManager : MonoBehaviour
     {
         if (inSuper.AxisReleased(axis))
         {
-            SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
+            SceneController.Instance.AddLevel(BWLevels.Pause);
         }
     }
 }

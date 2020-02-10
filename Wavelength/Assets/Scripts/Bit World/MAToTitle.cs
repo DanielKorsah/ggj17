@@ -7,6 +7,6 @@ public class MAToTitle : MenuAction
 {
     public override void Action()
     {
-        SceneManager.LoadScene(levels[(int)BWLevels.Welcome]);
+        base.Action();
     }
 }
