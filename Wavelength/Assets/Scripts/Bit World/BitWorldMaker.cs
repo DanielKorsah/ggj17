@@ -26,6 +26,7 @@ public class BitWorldMaker : MonoBehaviour
     private BitWorldKnowledge knowledge = BitWorldKnowledge.Instance;
 
     public List<Texture2D> levels = new List<Texture2D>();
+    public LevelListSO levelsSO;
     public int currentLevel = 0;
 
     private CreationStage stage = CreationStage.none;
