@@ -94,7 +94,10 @@ public class MenuController : MonoBehaviour
 
         if(Input.GetButtonDown("Output"))
         {
-            menuActions[selIdx].Action();
+            if (menuActions[selIdx].isActiveAndEnabled)
+            {
+                menuActions[selIdx].Action();
+            }
             //switch (selIdx)
             //{
             //    case 0:

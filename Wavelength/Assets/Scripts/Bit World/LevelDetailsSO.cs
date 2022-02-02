@@ -12,6 +12,7 @@ public class LevelDetailsSO : ScriptableObject
     public Texture2D LevelLayout;
     public string AdditionalDialogue = "";
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
         if (!LevelLayout.name.Equals(pngName))
@@ -33,4 +34,5 @@ public class LevelDetailsSO : ScriptableObject
             AssetDatabase.SaveAssets();
         }
     }
+#endif
 }
