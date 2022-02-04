@@ -88,7 +88,9 @@ public class BitWorldMaker : MonoBehaviour
         // If the final level has been completed
         if (currentLevel == levels.Count)
         {
-            SceneManager.LoadScene("Completed");
+            SceneController.Instance.QueueLoad(BWLevels.Victory);
+            SceneController.Instance.QueueUnload(BWLevels.Game);
+            SceneController.Instance.ExecuteQueues();
             yield break;
         }
         // Select world png
