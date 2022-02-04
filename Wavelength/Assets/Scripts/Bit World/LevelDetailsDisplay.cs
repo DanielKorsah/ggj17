@@ -39,4 +39,12 @@ public class LevelDetailsDisplay : MonoBehaviour
         Name.text = Details.LevelName;
         Number.text = Details.LevelNumber;
     }
+
+    public void SetSelected(bool state)
+    {
+        Color32 colour = state ? MenuController.selected : MenuController.unselected;
+
+        Name.color = colour;
+        Number.color = colour;
+    }
 }

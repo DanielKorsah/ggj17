@@ -13,10 +13,8 @@ public class MenuController : MonoBehaviour
     int selIdx = 0;
     MenuAction[] menuActions;
 
-    Color32 unselected = new Color32(212, 212, 212, 255);
-    Color32 selected = new Color32(120, 232, 120, 255);
-
-    bool vertIn = false;
+    public static Color32 unselected = new Color32(212, 212, 212, 255);
+    public static Color32 selected = new Color32(120, 232, 120, 255);
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +46,7 @@ public class MenuController : MonoBehaviour
         }
         set
         {
-            if(value == selIdx)
+            if (value == selIdx)
             {
                 return;
             }
@@ -72,52 +70,29 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Vertical") != 0.0f)
+        if (Input.GetButtonDown("Vertical"))
         {
-            if (!vertIn)
+            if (Input.GetAxisRaw("Vertical") > 0.0f)
             {
-                vertIn = true;
-                if (Input.GetAxisRaw("Vertical") > 0.0f)
-                {
-                    SelectedIndex--;
-                }
-                else if (Input.GetAxisRaw("Vertical") < 0.0f)
-                {
-                    SelectedIndex++;
-                }
+                SelectedIndex--;
+            }
+            else if (Input.GetAxisRaw("Vertical") < 0.0f)
+            {
+                SelectedIndex++;
             }
         }
-        else
-        {
-            vertIn = false;
-        }
 
-        if(Input.GetButtonDown("Output"))
+        if (Input.GetButtonDown("Output"))
         {
             if (menuActions[selIdx].isActiveAndEnabled)
             {
                 menuActions[selIdx].Action();
             }
-            //switch (selIdx)
-            //{
-            //    case 0:
-            //        SceneManager.LoadScene("BitWorldLevels");
-            //        break;
-            //    case 1:
-            //        // ~~~ LevelSelect
-            //        break;
-            //    case 2:
-            //        Application.Quit();
-            //        break;
-            //    default:
-            //        break;
-            //}
         }
 
         if (Input.GetButtonUp("Cancel"))
         {
             menuActions[escOption].Action();
-            // Application.Quit();
         }
     }
 }

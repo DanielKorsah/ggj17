@@ -35,7 +35,7 @@ public class LevelSelectController : MonoBehaviour
         for (int i = 0; i < Levels.Levels.Count; ++i)
         {
             LevelDetailsDisplay ldd = Instantiate(LevelDetailsPrefab, ContentParent).GetComponent<LevelDetailsDisplay>();
-            ldd.transform.localPosition = new Vector3(SidePadding + i * MidPadding, 0, 0);
+            ldd.GetComponent<RectTransform>().anchoredPosition = new Vector3(SidePadding + i * MidPadding, 0, 0);
             ldd.SetDetails(Levels.Levels[i]);
             LevelDetailsObjs.Add(ldd);
         }
@@ -48,6 +48,8 @@ public class LevelSelectController : MonoBehaviour
         ScrollSizePadding = 1.0f / (ObjCount - 1);
         MinSpeed = ScrollSizePadding * 2.0f;
         MinSpeedDist = ScrollSizePadding * 0.5f;
+
+        ChangeHighlight(CurrentScrollIndex, CurrentScrollIndex);
     }
 
     // Update is called once per frame
@@ -65,6 +67,19 @@ public class LevelSelectController : MonoBehaviour
             {
                 MoveScrollIndex(-1);
             }
+        }
+
+        if (Input.GetButtonDown("Output"))
+        {
+            // Go to current level index
+            BitWorldMaker.currentLevel = CurrentScrollIndex;
+            GetComponent<MALevelSelectToGame>().Action();
+        }
+
+        if (Input.GetButtonUp("Cancel"))
+        {
+            // return to main menu
+            MAToLevelSelect.Instance.LevelSelectOpen(false);
         }
 
         if (ScrollTarget != Scroller.value)
@@ -99,7 +114,14 @@ public class LevelSelectController : MonoBehaviour
             return;
         }
 
+        ChangeHighlight(before, CurrentScrollIndex);
         ScrollTarget = (LevelDetailsObjs[CurrentScrollIndex].transform.localPosition.x - SidePadding) / (MidPadding * (ObjCount - 1));
         //Scroller.value = (LevelDetailsObjs[CurrentScrollIndex].transform.localPosition.x - SidePadding) / (MidPadding * (ObjCount - 1));
+    }
+
+    private void ChangeHighlight(int old, int current)
+    {
+        LevelDetailsObjs[old].SetSelected(false);
+        LevelDetailsObjs[current].SetSelected(true);
     }
 }

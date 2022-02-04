@@ -28,7 +28,7 @@ public class BitWorldMaker : MonoBehaviour
     public List<Texture2D> levels = new List<Texture2D>();
     public LevelListSO levelsSO;
     public static int MaxLevel = 0;
-    public static int currentLevel = 0;
+    public static int currentLevel = -1;
 
     private CreationStage stage = CreationStage.none;
     private float[] creationProgress = new float[] { 1.0f, 0.0f, 0.0f };
@@ -40,7 +40,10 @@ public class BitWorldMaker : MonoBehaviour
     // Upon starting create the world
     void Start()
     {
-        currentLevel = MaxLevel;
+        if (currentLevel == -1)
+        {
+            currentLevel = MaxLevel;
+        }
         NextLevel();
     }
 
