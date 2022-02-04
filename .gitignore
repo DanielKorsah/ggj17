@@ -49,3 +49,4 @@ Wavelength/Assets/@Themes.meta
 *.sln
 Wavelength/UserSettings/EditorUserSettings.asset
 Wavelength/Logs
+*.csproj
