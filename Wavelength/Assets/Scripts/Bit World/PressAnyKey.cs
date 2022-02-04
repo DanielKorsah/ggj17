@@ -29,7 +29,9 @@ public class PressAnyKey : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
-                SceneManager.LoadScene("Welcome");
+                SceneController.Instance.QueueLoad(BWLevels.Welcome);
+                SceneController.Instance.QueueUnload(BWLevels.Victory);
+                SceneController.Instance.ExecuteQueues();
             }
             yield return null;
         }

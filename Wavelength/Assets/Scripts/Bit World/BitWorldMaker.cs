@@ -26,7 +26,9 @@ public class BitWorldMaker : MonoBehaviour
     private BitWorldKnowledge knowledge = BitWorldKnowledge.Instance;
 
     public List<Texture2D> levels = new List<Texture2D>();
-    public int currentLevel = 0;
+    public LevelListSO levelsSO;
+    public static int MaxLevel = 0;
+    public static int currentLevel = -1;
 
     private CreationStage stage = CreationStage.none;
     private float[] creationProgress = new float[] { 1.0f, 0.0f, 0.0f };
@@ -38,6 +40,10 @@ public class BitWorldMaker : MonoBehaviour
     // Upon starting create the world
     void Start()
     {
+        if (currentLevel == -1)
+        {
+            currentLevel = MaxLevel;
+        }
         NextLevel();
     }
 
@@ -76,11 +82,15 @@ public class BitWorldMaker : MonoBehaviour
             InputManager.Instance.ResetManager();
             // Advance level 
             ++currentLevel;
+            // Save New Max Level
+            SaveData.WriteMaxLevelData(currentLevel);
         }
         // If the final level has been completed
         if (currentLevel == levels.Count)
         {
-            SceneManager.LoadScene("Completed");
+            SceneController.Instance.QueueLoad(BWLevels.Victory);
+            SceneController.Instance.QueueUnload(BWLevels.Game);
+            SceneController.Instance.ExecuteQueues();
             yield break;
         }
         // Select world png

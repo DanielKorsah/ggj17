@@ -4,21 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class WelcomeController : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
     [SerializeField]
     Text[] options;
+    [SerializeField]
+    int escOption = 0;
     int selIdx = 0;
+    MenuAction[] menuActions;
 
-    Color32 unselected = new Color32(212, 212, 212, 255);
-    Color32 selected = new Color32(120, 232, 120, 255);
-
-    bool vertIn = false;
+    public static Color32 unselected = new Color32(212, 212, 212, 255);
+    public static Color32 selected = new Color32(120, 232, 120, 255);
 
     // Start is called before the first frame update
     void Start()
     {
+        menuActions = new MenuAction[options.Length];
+        for (int i = 0; i < options.Length; ++i)
+        {
+            menuActions[i] = options[i].GetComponent<MenuAction>();
+        }
         HoverText();
+        InputManager.Instance?.PlayerControlsActive(false);
     }
     // Highlight currently selected index
     private void HoverText()
@@ -39,7 +46,7 @@ public class WelcomeController : MonoBehaviour
         }
         set
         {
-            if(value == selIdx)
+            if (value == selIdx)
             {
                 return;
             }
@@ -63,44 +70,29 @@ public class WelcomeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Vertical") != 0.0f)
+        if (Input.GetButtonDown("Vertical"))
         {
-            if (!vertIn)
+            if (Input.GetAxisRaw("Vertical") > 0.0f)
             {
-                vertIn = true;
-                if (Input.GetAxisRaw("Vertical") > 0.0f)
-                {
-                    SelectedIndex--;
-                }
-                else if (Input.GetAxisRaw("Vertical") < 0.0f)
-                {
-                    SelectedIndex++;
-                }
+                SelectedIndex--;
             }
-        }
-        else
-        {
-            vertIn = false;
-        }
-
-        if(Input.GetAxisRaw("Output") > 0)
-        {
-            switch (selIdx)
+            else if (Input.GetAxisRaw("Vertical") < 0.0f)
             {
-                case 0:
-                    SceneManager.LoadScene("BitWorldLevels");
-                    break;
-                case 1:
-                    Application.Quit();
-                    break;
-                default:
-                    break;
+                SelectedIndex++;
             }
         }
 
-        if (Input.GetAxisRaw("Cancel") > 0)
+        if (Input.GetButtonDown("Output"))
         {
-            Application.Quit();
+            if (menuActions[selIdx].isActiveAndEnabled)
+            {
+                menuActions[selIdx].Action();
+            }
+        }
+
+        if (Input.GetButtonUp("Cancel"))
+        {
+            menuActions[escOption].Action();
         }
     }
 }

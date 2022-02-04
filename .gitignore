@@ -47,3 +47,6 @@ Wavelength/Assets/@Themes/
 Wavelength/Assets/@Themes.meta
 *.csproj
 *.sln
+Wavelength/UserSettings/EditorUserSettings.asset
+Wavelength/Logs
+*.csproj
