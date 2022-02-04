@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 2.01
   m_EditorClassIdentifier: 
   LevelName: The Straight And Narrow
-  LevelNumber: 1.02
-  LevelLayout: {fileID: 2800000, guid: fc162da71d04cc445b41bbf7943f83c9, type: 3}
+  LevelNumber: 2.01
+  LevelLayout: {fileID: 2800000, guid: ebfb420132a8b464ba93b4f32343ac44, type: 3}
   AdditionalDialogue: 
